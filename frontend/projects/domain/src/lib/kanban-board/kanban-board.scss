@@ -64,6 +64,10 @@
   gap: var(--beacon-space-3);
 }
 
+.kanban-board__card-list {
+  min-height: 3rem;
+}
+
 .kanban-board__card {
   cursor: grab;
   border-radius: var(--beacon-radius-lg);

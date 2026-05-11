@@ -35,7 +35,7 @@
     <mat-card appearance="outlined" class="card-page__panel">
       <h2>Checklist</h2>
       <ul class="card-page__checklist">
-        @for (item of activeCard.checklist; track item.checklistItemId) {
+        @for (item of activeCard.checklistItems; track item.checklistItemId) {
           <li>
             <mat-checkbox [checked]="item.isCompleted" (change)="toggleChecklistItem(item.checklistItemId, $event.checked)">
               {{ item.text }}

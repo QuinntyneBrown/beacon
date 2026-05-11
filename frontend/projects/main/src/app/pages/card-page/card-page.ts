@@ -81,8 +81,8 @@ export class CardPageComponent implements OnInit {
     }
 
     this.cardsService.addComment(card.cardId, this.commentForm.getRawValue().body).subscribe({
-      next: (comment) => {
-        this.card.update((current) => (current ? { ...current, comments: [...current.comments, comment] } : current));
+      next: (updated) => {
+        this.applyCard(updated);
         this.commentForm.reset({ body: '' });
       },
       error: (error) => this.errorMessage.set(error.error?.detail ?? 'Unable to add the comment.')
@@ -97,8 +97,8 @@ export class CardPageComponent implements OnInit {
     }
 
     this.cardsService.addChecklistItem(card.cardId, this.checklistForm.getRawValue().text).subscribe({
-      next: (item) => {
-        this.card.update((current) => (current ? { ...current, checklist: [...current.checklist, item] } : current));
+      next: (updated) => {
+        this.applyCard(updated);
         this.checklistForm.reset({ text: '' });
       },
       error: (error) => this.errorMessage.set(error.error?.detail ?? 'Unable to add the checklist item.')
@@ -112,11 +112,7 @@ export class CardPageComponent implements OnInit {
     }
 
     this.cardsService.toggleChecklistItem(card.cardId, itemId, isCompleted).subscribe({
-      next: (updated) => this.card.update((current) =>
-        current
-          ? { ...current, checklist: current.checklist.map((item) => (item.checklistItemId === itemId ? updated : item)) }
-          : current
-      ),
+      next: (updated) => this.applyCard(updated),
       error: (error) => this.errorMessage.set(error.error?.detail ?? 'Unable to update the checklist item.')
     });
   }

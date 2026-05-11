@@ -9,7 +9,7 @@ A radically simple Material 3 kanban board for small project teams.
 
 - .NET SDK 10
 - Node.js 20+ and npm
-- (Optional) SQL Server for production; the API uses EF Core's in-memory creation in development.
+- SQL Server Express available as `.\SQLEXPRESS`; the API creates the `Beacon` database schema on first run through EF Core.
 
 ## Quick start
 

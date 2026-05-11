@@ -54,7 +54,7 @@ public class MoveCardCommandHandler(IBeaconDbContext dbContext, ICurrentUserServ
         var board = await dbContext.Boards
             .Include(candidate => candidate.Columns)
             .ThenInclude(column => column.Cards)
-            .SingleAsync(candidate => candidate.OwnerId == userId, cancellationToken);
+            .SingleAsync(candidate => candidate.Id == destinationColumn.BoardId && candidate.OwnerId == userId, cancellationToken);
 
         return board.ToDto();
     }

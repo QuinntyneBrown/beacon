@@ -6,6 +6,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { Router } from '@angular/router';
 import { PROFILE_SERVICE } from 'api';
 import { SESSION_SERVICE } from '../services/session.service.contract';
 
@@ -27,6 +28,7 @@ export class ProfilePanelComponent {
 
   private readonly sessionService = inject(SESSION_SERVICE);
   private readonly profileService = inject(PROFILE_SERVICE);
+  private readonly router = inject(Router);
 
   constructor() {
     effect(() => {
@@ -67,6 +69,6 @@ export class ProfilePanelComponent {
       return;
     }
 
-    this.sessionService.deleteAccount().subscribe();
+    this.sessionService.deleteAccount().subscribe(() => this.router.navigateByUrl('/sign-in'));
   }
 }

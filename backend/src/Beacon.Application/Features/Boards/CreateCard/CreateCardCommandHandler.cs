@@ -33,7 +33,7 @@ public class CreateCardCommandHandler(IBeaconDbContext dbContext, ICurrentUserSe
         var board = await dbContext.Boards
             .Include(candidate => candidate.Columns)
             .ThenInclude(boardColumn => boardColumn.Cards)
-            .SingleAsync(candidate => candidate.OwnerId == userId, cancellationToken);
+            .SingleAsync(candidate => candidate.Id == column.BoardId && candidate.OwnerId == userId, cancellationToken);
 
         return board.ToDto();
     }

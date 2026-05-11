@@ -2,9 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { API_CONFIGURATION } from '../configuration/api-configuration';
-import { CardComment } from '../models/card-comment';
 import { CardDetail } from '../models/card-detail';
-import { ChecklistItem } from '../models/checklist-item';
 import { UpdateCardRequest } from '../models/update-card-request';
 import { ICardsService } from './cards.service.contract';
 
@@ -25,15 +23,15 @@ export class CardsService implements ICardsService {
     return this.httpClient.delete<void>(`${this.configuration.baseUrl}/api/cards/${cardId}`);
   }
 
-  addComment(cardId: string, body: string): Observable<CardComment> {
-    return this.httpClient.post<CardComment>(`${this.configuration.baseUrl}/api/cards/${cardId}/comments`, { body });
+  addComment(cardId: string, body: string): Observable<CardDetail> {
+    return this.httpClient.post<CardDetail>(`${this.configuration.baseUrl}/api/cards/${cardId}/comments`, { body });
   }
 
-  addChecklistItem(cardId: string, text: string): Observable<ChecklistItem> {
-    return this.httpClient.post<ChecklistItem>(`${this.configuration.baseUrl}/api/cards/${cardId}/checklist`, { text });
+  addChecklistItem(cardId: string, text: string): Observable<CardDetail> {
+    return this.httpClient.post<CardDetail>(`${this.configuration.baseUrl}/api/cards/${cardId}/checklist`, { text });
   }
 
-  toggleChecklistItem(cardId: string, itemId: string, isCompleted: boolean): Observable<ChecklistItem> {
-    return this.httpClient.put<ChecklistItem>(`${this.configuration.baseUrl}/api/cards/${cardId}/checklist/${itemId}`, { isCompleted });
+  toggleChecklistItem(cardId: string, itemId: string, isCompleted: boolean): Observable<CardDetail> {
+    return this.httpClient.put<CardDetail>(`${this.configuration.baseUrl}/api/cards/${cardId}/checklist/${itemId}`, { isCompleted });
   }
 }
