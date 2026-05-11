@@ -1,18 +1,33 @@
 @use '@angular/material' as mat;
 
-:root {
-  --beacon-color-background: #f5f7fb;
+html {
+  @include mat.theme((
+    color: (
+      primary: mat.$cyan-palette,
+      tertiary: mat.$blue-palette,
+    ),
+    typography: Roboto,
+    density: 0,
+  ));
+
+  --beacon-color-primary: #006782;
+  --beacon-color-primary-container: #b5f1f5;
+  --beacon-color-secondary: #4eb2ef;
+  --beacon-color-tertiary: #3acff5;
   --beacon-color-surface: #ffffff;
-  --beacon-color-primary: #4f46e5;
-  --beacon-color-outline: #c7d2fe;
-  --beacon-color-text: #111827;
-  --beacon-color-muted: #4b5563;
-  --beacon-color-danger: #b42318;
+  --beacon-color-surface-container: #f3f3f3;
+  --beacon-color-outline: #c7d8e0;
+  --beacon-color-on-surface: #111c20;
+  --beacon-color-on-surface-variant: #41484c;
+  --beacon-color-danger: #b3261e;
+  --beacon-space-1: 0.25rem;
   --beacon-space-2: 0.5rem;
   --beacon-space-3: 0.75rem;
   --beacon-space-4: 1rem;
   --beacon-space-5: 1.5rem;
   --beacon-space-6: 2rem;
+  --beacon-radius-sm: 0.5rem;
+  --beacon-radius-md: 0.75rem;
   --beacon-radius-lg: 1rem;
   --beacon-radius-xl: 1.5rem;
 }
@@ -20,13 +35,16 @@
 html,
 body {
   min-height: 100%;
+  height: 100%;
 }
 
 body {
   margin: 0;
-  background: linear-gradient(180deg, #eef2ff 0%, var(--beacon-color-background) 100%);
-  color: var(--beacon-color-text);
-  font-family: Inter, 'Helvetica Neue', sans-serif;
+  color-scheme: light;
+  background-color: var(--beacon-color-surface-container);
+  color: var(--beacon-color-on-surface);
+  font: var(--mat-sys-body-medium);
+  font-family: Roboto, 'Helvetica Neue', sans-serif;
 }
 
 * {
@@ -39,10 +57,3 @@ textarea {
   font: inherit;
 }
 
-@include mat.theme(
-  (
-    color: mat.$azure-palette,
-    typography: Roboto,
-    density: 0
-  )
-);

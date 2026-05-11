@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Card · Fix drag-and-drop scroll · Beacon Kanban</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Roboto+Flex:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Symbols+Rounded" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="kanban.css" />
+</head>
+<body>
+  <div class="app">
+    <header class="top-app-bar scrolled">
+      <div class="leading">
+        <button class="icon-btn" aria-label="Back"><span class="material-symbols-rounded">arrow_back</span></button>
+        <span class="brand">
+          <span class="logo"><span class="material-symbols-rounded" style="font-size:18px">dashboard</span></span>
+          Beacon
+        </span>
+      </div>
+      <div class="title">Card · BWA-142</div>
+      <div class="trailing">
+        <button class="icon-btn" aria-label="Share"><span class="material-symbols-rounded">share</span></button>
+        <button class="icon-btn" aria-label="Watch"><span class="material-symbols-rounded">visibility</span></button>
+        <button class="icon-btn" aria-label="More"><span class="material-symbols-rounded">more_vert</span></button>
+        <span class="avatar" style="margin: 0 8px;">AK</span>
+      </div>
+    </header>
+
+    <div class="app-body">
+      <aside class="nav-rail">
+        <button class="fab small surface rail-fab" aria-label="Create"><span class="material-symbols-rounded">add</span></button>
+        <div class="rail-item active"><span class="icon-wrap"><span class="material-symbols-rounded">view_kanban</span></span><span class="label">Boards</span></div>
+        <div class="rail-item"><span class="icon-wrap"><span class="material-symbols-rounded">inbox</span></span><span class="label">Inbox</span></div>
+        <div class="rail-item"><span class="icon-wrap"><span class="material-symbols-rounded">today</span></span><span class="label">Today</span></div>
+        <div class="rail-item"><span class="icon-wrap"><span class="material-symbols-rounded">group</span></span><span class="label">Team</span></div>
+        <div class="rail-item"><span class="icon-wrap"><span class="material-symbols-rounded">settings</span></span><span class="label">Settings</span></div>
+      </aside>
+
+      <aside class="nav-drawer">
+        <button class="fab extended" style="margin: 8px 16px 16px;"><span class="material-symbols-rounded">add</span>New card</button>
+        <div class="section-title">Workspace</div>
+        <div class="drawer-item active"><span class="material-symbols-rounded">view_kanban</span><span class="label">Boards</span><span class="badge">5</span></div>
+        <div class="drawer-item"><span class="material-symbols-rounded">inbox</span><span class="label">Inbox</span><span class="badge">3</span></div>
+        <div class="drawer-item"><span class="material-symbols-rounded">today</span><span class="label">Today</span></div>
+        <div class="section-title">This board</div>
+        <div class="drawer-item"><span class="material-symbols-rounded">view_column</span><span class="label">Board view</span></div>
+        <div class="drawer-item"><span class="material-symbols-rounded">view_list</span><span class="label">List view</span></div>
+        <div class="drawer-item"><span class="material-symbols-rounded">analytics</span><span class="label">Reports</span></div>
+      </aside>
+
+      <main class="app-main">
+        <!-- Breadcrumb / context -->
+        <div style="display:flex; gap:8px; align-items:center; color:var(--md-sys-color-on-surface-variant); margin-bottom:8px;" class="body-medium">
+          <a href="boards.html">Boards</a>
+          <span class="material-symbols-rounded" style="font-size:16px;">chevron_right</span>
+          <a href="board.html">Beacon Web App</a>
+          <span class="material-symbols-rounded" style="font-size:16px;">chevron_right</span>
+          <span>In progress</span>
+        </div>
+
+        <header class="page-header">
+          <div class="titles" style="flex:1;">
+            <h1>Fix drag-and-drop scroll on long boards</h1>
+            <p>BWA-142 · created by <strong>Alex K.</strong> · 2 days ago</p>
+          </div>
+          <div style="display:flex; gap:8px;">
+            <button class="btn btn-outlined with-icon"><span class="material-symbols-rounded">visibility</span>Watch</button>
+            <button class="btn btn-tonal with-icon"><span class="material-symbols-rounded">arrow_forward</span>Move</button>
+            <button class="btn btn-filled with-icon"><span class="material-symbols-rounded">check</span>Mark done</button>
+          </div>
+        </header>
+
+        <div style="display:flex; gap:8px; flex-wrap:wrap; margin-bottom:16px;">
+          <span class="label-tag" style="background:#FFE2E0;color:#7E0510">Bug</span>
+          <span class="label-tag">Feature</span>
+          <span class="label-tag" style="background:#E8DEF8;color:#3E2873">Sprint 14</span>
+          <span class="label-tag" style="background:#D5F5E3;color:#0F5132">High priority</span>
+        </div>
+
+        <div class="card-detail-grid">
+
+          <!-- Main column -->
+          <div>
+            <section class="section-block">
+              <h3><span class="material-symbols-rounded">notes</span>Description</h3>
+              <p class="body-large" style="margin: 0 0 12px;">
+                On boards with more than three columns, dragging a card near the screen edges does not auto-scroll the column container.
+                Reproducible in Chrome 124 and Safari 17. Affects mouse and touch input.
+              </p>
+              <p class="body-large" style="margin: 0;">
+                <strong>Acceptance criteria:</strong> Drag from rightmost column to first column without manual scrolling. Snapshot test added.
+              </p>
+            </section>
+
+            <section class="section-block">
+              <h3><span class="material-symbols-rounded">checklist</span>Checklist <span class="body-medium" style="color:var(--md-sys-color-on-surface-variant); font-weight:400;">3 of 5</span></h3>
+              <div class="progress" style="margin-bottom:12px;"><span style="width:60%"></span></div>
+              <div class="checklist-item done"><span class="checkbox checked"></span><span class="body-large">Reproduce in staging</span></div>
+              <div class="checklist-item done"><span class="checkbox checked"></span><span class="body-large">Identify event handler regression</span></div>
+              <div class="checklist-item done"><span class="checkbox checked"></span><span class="body-large">Add failing playwright test</span></div>
+              <div class="checklist-item"><span class="checkbox"></span><span class="body-large">Implement fix using IntersectionObserver</span></div>
+              <div class="checklist-item"><span class="checkbox"></span><span class="body-large">Code review + ship behind flag</span></div>
+            </section>
+
+            <section class="section-block">
+              <h3><span class="material-symbols-rounded">attach_file</span>Attachments</h3>
+              <div class="list">
+                <div class="list-item">
+                  <span class="leading"><span class="material-symbols-rounded">image</span></span>
+                  <div class="meta">
+                    <div class="headline">drag-bug-recording.mp4</div>
+                    <div class="supporting">2.4 MB · added by Jamie M.</div>
+                  </div>
+                  <button class="icon-btn" aria-label="Download"><span class="material-symbols-rounded">download</span></button>
+                </div>
+                <div class="list-item">
+                  <span class="leading"><span class="material-symbols-rounded">description</span></span>
+                  <div class="meta">
+                    <div class="headline">repro-steps.md</div>
+                    <div class="supporting">12 KB · added by Alex K.</div>
+                  </div>
+                  <button class="icon-btn" aria-label="Download"><span class="material-symbols-rounded">download</span></button>
+                </div>
+              </div>
+            </section>
+
+            <section class="section-block">
+              <h3><span class="material-symbols-rounded">forum</span>Activity</h3>
+
+              <div style="display:flex; gap:12px; align-items:flex-start; margin-bottom:16px;">
+                <span class="avatar">AK</span>
+                <label class="text-field outlined" style="flex:1;">
+                  <div class="field" style="padding-bottom:8px;">
+                    <textarea placeholder="Write a comment, @mention to notify"></textarea>
+                  </div>
+                </label>
+              </div>
+              <div style="display:flex; justify-content:flex-end; gap:8px; margin-bottom:8px;">
+                <button class="btn btn-text">Cancel</button>
+                <button class="btn btn-filled">Comment</button>
+              </div>
+
+              <div class="comment">
+                <span class="avatar">JM</span>
+                <div class="body">
+                  <div><span class="name">Jamie M.</span><span class="time">2h ago</span></div>
+                  <div class="text">Reproduced. The handler attaches before columns mount. Likely a regression from the virtualization PR.</div>
+                </div>
+              </div>
+              <div class="comment">
+                <span class="avatar">SR</span>
+                <div class="body">
+                  <div><span class="name">Sam R.</span><span class="time">1h ago</span></div>
+                  <div class="text">Nice find. Want me to pair on the fix this afternoon?</div>
+                </div>
+              </div>
+              <div class="comment">
+                <span class="avatar">AK</span>
+                <div class="body">
+                  <div><span class="name">Alex K.</span><span class="time">12m ago</span></div>
+                  <div class="text">Yes please — 3 PM works. I'll prep a branch.</div>
+                </div>
+              </div>
+            </section>
+          </div>
+
+          <!-- Side meta column -->
+          <aside class="side-meta">
+            <section class="section-block">
+              <dl>
+                <div>
+                  <dt>Status</dt>
+                  <dd><span class="chip selected"><span class="col-dot" style="background:var(--pal-1)"></span>In progress</span></dd>
+                </div>
+                <div>
+                  <dt>Assignees</dt>
+                  <dd>
+                    <span class="avatar-stack">
+                      <span class="avatar">AK</span>
+                      <span class="avatar">JM</span>
+                    </span>
+                    <button class="icon-btn" aria-label="Add assignee" style="vertical-align:middle"><span class="material-symbols-rounded">add</span></button>
+                  </dd>
+                </div>
+                <div>
+                  <dt>Due date</dt>
+                  <dd><span class="chip assist"><span class="material-symbols-rounded">event</span>Today, 5:00 PM</span></dd>
+                </div>
+                <div>
+                  <dt>Estimate</dt>
+                  <dd><span class="chip assist"><span class="material-symbols-rounded">timer</span>4h</span></dd>
+                </div>
+                <div>
+                  <dt>Reporter</dt>
+                  <dd style="display:flex; align-items:center; gap:8px;"><span class="avatar sm">AK</span> Alex K.</dd>
+                </div>
+                <div>
+                  <dt>Linked</dt>
+                  <dd>
+                    <a href="#" class="label-large">PR #842</a><br/>
+                    <a href="#" class="label-large">Issue #117</a>
+                  </dd>
+                </div>
+              </dl>
+            </section>
+
+            <section class="section-block">
+              <h3><span class="material-symbols-rounded">history</span>History</h3>
+              <div class="body-medium" style="color:var(--md-sys-color-on-surface-variant);">
+                <p style="margin:0 0 8px;">Sam R. added a checklist item · 30m</p>
+                <p style="margin:0 0 8px;">Jamie M. moved card to In progress · 1h</p>
+                <p style="margin:0 0 8px;">Alex K. attached repro-steps.md · 2h</p>
+                <p style="margin:0;">Alex K. created the card · 2d</p>
+              </div>
+            </section>
+          </aside>
+
+        </div>
+      </main>
+    </div>
+
+    <nav class="bottom-nav">
+      <div class="nav-btn active"><span class="icon-wrap"><span class="material-symbols-rounded">view_kanban</span></span><span class="label">Boards</span></div>
+      <div class="nav-btn"><span class="icon-wrap"><span class="icon-with-badge"><span class="material-symbols-rounded">inbox</span><span class="badge">3</span></span></span><span class="label">Inbox</span></div>
+      <div class="nav-btn"><span class="icon-wrap"><span class="material-symbols-rounded">today</span></span><span class="label">Today</span></div>
+      <div class="nav-btn"><span class="icon-wrap"><span class="material-symbols-rounded">person</span></span><span class="label">Profile</span></div>
+    </nav>
+  </div>
+</body>
+</html>

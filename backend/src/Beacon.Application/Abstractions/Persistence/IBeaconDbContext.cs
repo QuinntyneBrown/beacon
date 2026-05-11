@@ -11,6 +11,8 @@ public interface IBeaconDbContext
     DbSet<Board> Boards { get; }
     DbSet<BoardColumn> BoardColumns { get; }
     DbSet<WorkItemCard> WorkItemCards { get; }
+    DbSet<Comment> Comments { get; }
+    DbSet<ChecklistItem> ChecklistItems { get; }
     DbSet<RefreshToken> RefreshTokens { get; }
     DbSet<PasswordResetToken> PasswordResetTokens { get; }
     DbSet<SecurityAuditLog> SecurityAuditLogs { get; }

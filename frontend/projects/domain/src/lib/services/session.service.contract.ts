@@ -13,6 +13,7 @@ export interface ISessionService {
   signOut(): Observable<void>;
   updateProfile(request: UpdateProfileRequest): Observable<Profile>;
   deleteAccount(): Observable<void>;
+  adoptSession(session: AuthenticatedSession): void;
   beginOidcSignIn(): Promise<void>;
   completeOidcSignIn(search: string): Promise<void>;
 }

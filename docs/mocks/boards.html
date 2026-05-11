@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Boards · Beacon Kanban</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Roboto+Flex:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Symbols+Rounded" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="kanban.css" />
+</head>
+<body>
+  <div class="app">
+
+    <!-- Top App Bar -->
+    <header class="top-app-bar scrolled" role="banner">
+      <div class="leading">
+        <button class="icon-btn" aria-label="Menu"><span class="material-symbols-rounded">menu</span></button>
+        <span class="brand">
+          <span class="logo"><span class="material-symbols-rounded" style="font-size:18px">dashboard</span></span>
+          Beacon
+        </span>
+      </div>
+      <div class="title">Boards</div>
+      <div class="trailing">
+        <button class="icon-btn" aria-label="Search"><span class="material-symbols-rounded">search</span></button>
+        <button class="icon-btn" aria-label="Notifications">
+          <span class="icon-with-badge">
+            <span class="material-symbols-rounded">notifications</span>
+            <span class="badge">3</span>
+          </span>
+        </button>
+        <span class="avatar" style="margin: 0 8px;">AK</span>
+      </div>
+    </header>
+
+    <div class="app-body">
+
+      <!-- Navigation Rail (tablet) -->
+      <aside class="nav-rail" aria-label="Primary navigation">
+        <button class="fab small surface rail-fab" aria-label="Create"><span class="material-symbols-rounded">add</span></button>
+        <div class="rail-item active">
+          <span class="icon-wrap"><span class="material-symbols-rounded">view_kanban</span></span>
+          <span class="label">Boards</span>
+        </div>
+        <div class="rail-item">
+          <span class="icon-wrap"><span class="material-symbols-rounded">inbox</span></span>
+          <span class="label">Inbox</span>
+        </div>
+        <div class="rail-item">
+          <span class="icon-wrap"><span class="material-symbols-rounded">today</span></span>
+          <span class="label">Today</span>
+        </div>
+        <div class="rail-item">
+          <span class="icon-wrap"><span class="material-symbols-rounded">group</span></span>
+          <span class="label">Team</span>
+        </div>
+        <div class="rail-item">
+          <span class="icon-wrap"><span class="material-symbols-rounded">settings</span></span>
+          <span class="label">Settings</span>
+        </div>
+      </aside>
+
+      <!-- Navigation Drawer (desktop) -->
+      <aside class="nav-drawer" aria-label="Primary navigation">
+        <button class="fab extended" style="margin: 8px 16px 16px;">
+          <span class="material-symbols-rounded">add</span>
+          New board
+        </button>
+
+        <div class="section-title">Workspace</div>
+        <div class="drawer-item active">
+          <span class="material-symbols-rounded">view_kanban</span>
+          <span class="label">Boards</span>
+          <span class="badge">5</span>
+        </div>
+        <div class="drawer-item">
+          <span class="material-symbols-rounded">inbox</span>
+          <span class="label">Inbox</span>
+          <span class="badge">3</span>
+        </div>
+        <div class="drawer-item">
+          <span class="material-symbols-rounded">today</span>
+          <span class="label">Today</span>
+        </div>
+        <div class="drawer-item">
+          <span class="material-symbols-rounded">calendar_month</span>
+          <span class="label">Calendar</span>
+        </div>
+
+        <div class="section-title">Team</div>
+        <div class="drawer-item">
+          <span class="material-symbols-rounded">group</span>
+          <span class="label">Members</span>
+        </div>
+        <div class="drawer-item">
+          <span class="material-symbols-rounded">label</span>
+          <span class="label">Labels</span>
+        </div>
+
+        <div class="section-title">Account</div>
+        <div class="drawer-item">
+          <span class="material-symbols-rounded">settings</span>
+          <span class="label">Settings</span>
+        </div>
+        <div class="drawer-item">
+          <span class="material-symbols-rounded">help</span>
+          <span class="label">Help & feedback</span>
+        </div>
+      </aside>
+
+      <!-- Main -->
+      <main class="app-main" role="main">
+        <header class="page-header">
+          <div class="titles">
+            <h1>Boards</h1>
+            <p>5 active boards across your team</p>
+          </div>
+          <div style="display:flex; gap:8px;">
+            <button class="btn btn-outlined with-icon"><span class="material-symbols-rounded">filter_list</span>Filter</button>
+            <button class="btn btn-tonal with-icon"><span class="material-symbols-rounded">sort</span>Sort</button>
+            <button class="btn btn-filled with-icon"><span class="material-symbols-rounded">add</span>New board</button>
+          </div>
+        </header>
+
+        <div class="search-bar" style="margin-bottom:24px;">
+          <button class="icon-btn" aria-label="Search"><span class="material-symbols-rounded">search</span></button>
+          <input type="text" placeholder="Search boards, cards, members..." />
+          <button class="icon-btn" aria-label="Voice search"><span class="material-symbols-rounded">mic</span></button>
+          <span class="avatar sm" style="margin-right:4px">AK</span>
+        </div>
+
+        <div style="display:flex; gap:8px; flex-wrap:wrap; margin-bottom:20px;">
+          <button class="chip selected"><span class="material-symbols-rounded">check</span>All</button>
+          <button class="chip">Starred</button>
+          <button class="chip">Recent</button>
+          <button class="chip">Mine</button>
+          <button class="chip">Shared</button>
+          <button class="chip">Archived</button>
+        </div>
+
+        <h2 class="title-large" style="margin: 8px 0 12px;">Starred</h2>
+        <div class="board-grid" style="margin-bottom:32px;">
+          <div class="board-tile bg-1">
+            <div>
+              <div class="tile-title">Beacon Web App</div>
+              <div class="body-medium" style="opacity:.85; margin-top:4px;">Sprint 14 · Q2 release</div>
+            </div>
+            <div class="tile-bottom">
+              <span class="avatar-stack">
+                <span class="avatar sm">AK</span>
+                <span class="avatar sm">JM</span>
+                <span class="avatar sm">+3</span>
+              </span>
+              <span class="tile-meta"><span class="material-symbols-rounded" style="font-size:16px;">view_column</span>4 · <span class="material-symbols-rounded" style="font-size:16px;">task_alt</span>32</span>
+            </div>
+          </div>
+          <div class="board-tile bg-2">
+            <div>
+              <div class="tile-title">Mobile App v2</div>
+              <div class="body-medium" style="opacity:.85; margin-top:4px;">Design sprint</div>
+            </div>
+            <div class="tile-bottom">
+              <span class="avatar-stack">
+                <span class="avatar sm">SR</span>
+                <span class="avatar sm">TL</span>
+              </span>
+              <span class="tile-meta"><span class="material-symbols-rounded" style="font-size:16px;">view_column</span>3 · <span class="material-symbols-rounded" style="font-size:16px;">task_alt</span>18</span>
+            </div>
+          </div>
+        </div>
+
+        <h2 class="title-large" style="margin: 8px 0 12px;">All boards</h2>
+        <div class="board-grid">
+          <div class="board-tile bg-3">
+            <div>
+              <div class="tile-title">Marketing Q3</div>
+              <div class="body-medium" style="opacity:.85; margin-top:4px;">Campaign planning</div>
+            </div>
+            <div class="tile-bottom">
+              <span class="avatar-stack">
+                <span class="avatar sm">MD</span>
+                <span class="avatar sm">PL</span>
+                <span class="avatar sm">+1</span>
+              </span>
+              <span class="tile-meta"><span class="material-symbols-rounded" style="font-size:16px;">task_alt</span>11</span>
+            </div>
+          </div>
+          <div class="board-tile bg-4">
+            <div>
+              <div class="tile-title">Onboarding Revamp</div>
+              <div class="body-medium" style="opacity:.85; margin-top:4px;">Research → handoff</div>
+            </div>
+            <div class="tile-bottom">
+              <span class="avatar-stack">
+                <span class="avatar sm">SR</span>
+                <span class="avatar sm">JM</span>
+              </span>
+              <span class="tile-meta"><span class="material-symbols-rounded" style="font-size:16px;">task_alt</span>7</span>
+            </div>
+          </div>
+          <div class="board-tile bg-5">
+            <div>
+              <div class="tile-title">Internal Tools</div>
+              <div class="body-medium" style="opacity:.85; margin-top:4px;">Tech debt + DX</div>
+            </div>
+            <div class="tile-bottom">
+              <span class="avatar-stack">
+                <span class="avatar sm">AK</span>
+              </span>
+              <span class="tile-meta"><span class="material-symbols-rounded" style="font-size:16px;">task_alt</span>4</span>
+            </div>
+          </div>
+          <button class="create-tile">
+            <span class="material-symbols-rounded" style="font-size:32px;">add</span>
+            <span class="label-large">Create new board</span>
+          </button>
+        </div>
+
+        <!-- Snackbar example sitting at bottom of content -->
+        <div style="display:flex; justify-content:center; margin-top:32px;">
+          <div class="snackbar">
+            <span class="body-medium">Board "Mobile App v2" was duplicated.</span>
+            <button class="action">UNDO</button>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <!-- Bottom navigation (mobile only) -->
+    <nav class="bottom-nav" aria-label="Primary mobile navigation">
+      <div class="nav-btn active">
+        <span class="icon-wrap"><span class="material-symbols-rounded">view_kanban</span></span>
+        <span class="label">Boards</span>
+      </div>
+      <div class="nav-btn">
+        <span class="icon-wrap">
+          <span class="icon-with-badge">
+            <span class="material-symbols-rounded">inbox</span>
+            <span class="badge">3</span>
+          </span>
+        </span>
+        <span class="label">Inbox</span>
+      </div>
+      <div class="nav-btn">
+        <span class="icon-wrap"><span class="material-symbols-rounded">today</span></span>
+        <span class="label">Today</span>
+      </div>
+      <div class="nav-btn">
+        <span class="icon-wrap"><span class="material-symbols-rounded">person</span></span>
+        <span class="label">Profile</span>
+      </div>
+    </nav>
+  </div>
+
+  <!-- FAB for mobile primary action -->
+  <button class="fab extended fixed-br" aria-label="New board">
+    <span class="material-symbols-rounded">add</span>
+    New
+  </button>
+</body>
+</html>

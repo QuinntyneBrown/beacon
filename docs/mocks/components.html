@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Design System · Beacon Kanban</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Roboto+Flex:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Symbols+Rounded" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="kanban.css" />
+</head>
+<body>
+  <div class="app">
+    <header class="top-app-bar scrolled">
+      <div class="leading">
+        <button class="icon-btn" aria-label="Menu"><span class="material-symbols-rounded">menu</span></button>
+        <span class="brand">
+          <span class="logo"><span class="material-symbols-rounded" style="font-size:18px">dashboard</span></span>
+          Beacon
+        </span>
+      </div>
+      <div class="title">Design system</div>
+      <div class="trailing">
+        <button class="icon-btn" aria-label="Code"><span class="material-symbols-rounded">code</span></button>
+        <span class="avatar" style="margin: 0 8px;">AK</span>
+      </div>
+    </header>
+
+    <div class="app-body">
+      <aside class="nav-rail">
+        <button class="fab small surface rail-fab"><span class="material-symbols-rounded">add</span></button>
+        <div class="rail-item"><span class="icon-wrap"><span class="material-symbols-rounded">view_kanban</span></span><span class="label">Boards</span></div>
+        <div class="rail-item"><span class="icon-wrap"><span class="material-symbols-rounded">inbox</span></span><span class="label">Inbox</span></div>
+        <div class="rail-item active"><span class="icon-wrap"><span class="material-symbols-rounded">palette</span></span><span class="label">Design</span></div>
+        <div class="rail-item"><span class="icon-wrap"><span class="material-symbols-rounded">group</span></span><span class="label">Team</span></div>
+        <div class="rail-item"><span class="icon-wrap"><span class="material-symbols-rounded">settings</span></span><span class="label">Settings</span></div>
+      </aside>
+
+      <aside class="nav-drawer">
+        <button class="fab extended" style="margin: 8px 16px 16px;"><span class="material-symbols-rounded">add</span>New board</button>
+        <div class="section-title">Workspace</div>
+        <div class="drawer-item"><span class="material-symbols-rounded">view_kanban</span><span class="label">Boards</span></div>
+        <div class="drawer-item"><span class="material-symbols-rounded">inbox</span><span class="label">Inbox</span></div>
+        <div class="section-title">Reference</div>
+        <div class="drawer-item active"><span class="material-symbols-rounded">palette</span><span class="label">Design system</span></div>
+        <div class="drawer-item"><span class="material-symbols-rounded">code</span><span class="label">Components</span></div>
+        <div class="section-title">Account</div>
+        <div class="drawer-item"><span class="material-symbols-rounded">settings</span><span class="label">Settings</span></div>
+      </aside>
+
+      <main class="app-main">
+        <header class="page-header">
+          <div class="titles">
+            <h1>Design system</h1>
+            <p>Beacon's Material 3 component reference</p>
+          </div>
+          <button class="btn btn-tonal with-icon"><span class="material-symbols-rounded">download</span>Export tokens</button>
+        </header>
+
+        <div class="showcase">
+
+          <!-- Color -->
+          <section class="card">
+            <h2>Color</h2>
+            <p class="lead">Source palette and Material 3 light scheme roles.</p>
+            <h3 class="title-small" style="margin:12px 0 8px;">Source palette</h3>
+            <div class="swatch-grid" style="margin-bottom:24px;">
+              <div class="swatch" style="background:#4EB2EF; color:#001F2A;"><span>#4EB2EF</span><span>pal-1</span></div>
+              <div class="swatch" style="background:#3EC1F4; color:#001F2A;"><span>#3EC1F4</span><span>pal-2</span></div>
+              <div class="swatch" style="background:#3ACFF5; color:#001F2A;"><span>#3ACFF5</span><span>pal-3</span></div>
+              <div class="swatch" style="background:#B5F1F5; color:#001F2A;"><span>#B5F1F5</span><span>pal-4</span></div>
+              <div class="swatch" style="background:#F3F3F3; color:#191C1D; border:1px solid var(--md-sys-color-outline-variant);"><span>#F3F3F3</span><span>pal-5</span></div>
+            </div>
+            <h3 class="title-small" style="margin:12px 0 8px;">M3 roles</h3>
+            <div class="swatch-grid">
+              <div class="swatch" style="background:var(--md-sys-color-primary); color:var(--md-sys-color-on-primary);"><span>Primary</span><span>#006782</span></div>
+              <div class="swatch" style="background:var(--md-sys-color-primary-container); color:var(--md-sys-color-on-primary-container);"><span>Primary container</span><span>#B5F1F5</span></div>
+              <div class="swatch" style="background:var(--md-sys-color-secondary); color:var(--md-sys-color-on-secondary);"><span>Secondary</span><span>#4EB2EF</span></div>
+              <div class="swatch" style="background:var(--md-sys-color-tertiary); color:var(--md-sys-color-on-tertiary);"><span>Tertiary</span><span>#3ACFF5</span></div>
+              <div class="swatch" style="background:var(--md-sys-color-surface); color:var(--md-sys-color-on-surface); border:1px solid var(--md-sys-color-outline-variant);"><span>Surface</span><span></span></div>
+              <div class="swatch" style="background:var(--md-sys-color-surface-container-high); color:var(--md-sys-color-on-surface);"><span>Surface container</span><span></span></div>
+              <div class="swatch" style="background:var(--md-sys-color-error); color:var(--md-sys-color-on-error);"><span>Error</span><span>#BA1A1A</span></div>
+            </div>
+          </section>
+
+          <!-- Typography -->
+          <section class="card">
+            <h2>Typography</h2>
+            <p class="lead">M3 typescale, Roboto Flex for display/headline, Roboto for body/label.</p>
+            <p class="display-small" style="margin:0 0 8px;">Display small</p>
+            <p class="headline-medium" style="margin:0 0 8px;">Headline medium</p>
+            <p class="headline-small" style="margin:0 0 8px;">Headline small</p>
+            <p class="title-large" style="margin:0 0 8px;">Title large</p>
+            <p class="title-medium" style="margin:0 0 8px;">Title medium</p>
+            <p class="body-large" style="margin:0 0 4px;">Body large — the quick brown fox jumps over the lazy dog.</p>
+            <p class="body-medium" style="margin:0 0 4px; color:var(--md-sys-color-on-surface-variant)">Body medium — supporting text and metadata.</p>
+            <p class="label-large" style="margin:0;">LABEL LARGE</p>
+          </section>
+
+          <!-- Buttons -->
+          <section class="card">
+            <h2>Buttons</h2>
+            <p class="lead">Five variants with icon + disabled states.</p>
+            <div class="row">
+              <button class="btn btn-filled">Filled</button>
+              <button class="btn btn-tonal">Tonal</button>
+              <button class="btn btn-elevated">Elevated</button>
+              <button class="btn btn-outlined">Outlined</button>
+              <button class="btn btn-text">Text</button>
+            </div>
+            <div class="row">
+              <button class="btn btn-filled with-icon"><span class="material-symbols-rounded">add</span>New</button>
+              <button class="btn btn-tonal with-icon"><span class="material-symbols-rounded">download</span>Export</button>
+              <button class="btn btn-outlined with-icon"><span class="material-symbols-rounded">filter_list</span>Filter</button>
+              <button class="btn btn-text with-icon"><span class="material-symbols-rounded">cancel</span>Cancel</button>
+            </div>
+            <div class="row">
+              <button class="btn btn-filled" disabled>Disabled</button>
+              <button class="btn btn-outlined" disabled>Disabled</button>
+            </div>
+            <h3 class="title-small" style="margin-top:16px;">Icon buttons</h3>
+            <div class="row">
+              <button class="icon-btn" aria-label="Search"><span class="material-symbols-rounded">search</span></button>
+              <button class="icon-btn tonal" aria-label="Star"><span class="material-symbols-rounded">star</span></button>
+              <button class="icon-btn filled" aria-label="Add"><span class="material-symbols-rounded">add</span></button>
+              <button class="icon-btn" aria-label="Notifications">
+                <span class="icon-with-badge">
+                  <span class="material-symbols-rounded">notifications</span>
+                  <span class="badge">5</span>
+                </span>
+              </button>
+            </div>
+            <h3 class="title-small" style="margin-top:16px;">FABs</h3>
+            <div class="row">
+              <button class="fab small"><span class="material-symbols-rounded">add</span></button>
+              <button class="fab"><span class="material-symbols-rounded">add</span></button>
+              <button class="fab extended"><span class="material-symbols-rounded">add</span>New card</button>
+              <button class="fab surface"><span class="material-symbols-rounded">edit</span></button>
+            </div>
+          </section>
+
+          <!-- Chips -->
+          <section class="card">
+            <h2>Chips</h2>
+            <p class="lead">Filter, assist, input and suggestion chips.</p>
+            <div class="row">
+              <button class="chip">Default</button>
+              <button class="chip selected"><span class="material-symbols-rounded">check</span>Selected</button>
+              <button class="chip assist"><span class="material-symbols-rounded">filter_list</span>Filter</button>
+              <button class="chip input">Sam R. <span class="material-symbols-rounded">close</span></button>
+              <button class="chip"><span class="material-symbols-rounded">label</span>Bug</button>
+            </div>
+          </section>
+
+          <!-- Text fields -->
+          <section class="card">
+            <h2>Text fields</h2>
+            <p class="lead">Filled and outlined variants with supporting text and error state.</p>
+            <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(220px, 1fr)); gap:16px;">
+              <label class="text-field outlined">
+                <div class="field"><input type="text" value="Hello world" /><span class="floating-label">Outlined</span></div>
+                <div class="supporting">Supporting text</div>
+              </label>
+              <label class="text-field filled">
+                <div class="field"><input type="text" value="Hello world" /><span class="floating-label">Filled</span></div>
+                <div class="supporting">Supporting text</div>
+              </label>
+              <label class="text-field outlined focused">
+                <div class="field"><input type="text" value="Focused" /><span class="floating-label">Focused state</span></div>
+              </label>
+              <label class="text-field outlined error">
+                <div class="field"><input type="email" value="invalid@" /><span class="floating-label">Email</span></div>
+                <div class="supporting">Enter a valid email address.</div>
+              </label>
+            </div>
+          </section>
+
+          <!-- Switches & checkboxes -->
+          <section class="card">
+            <h2>Selection controls</h2>
+            <p class="lead">Switches and checkboxes.</p>
+            <div class="row">
+              <label class="switch"><input type="checkbox" /><span class="track"></span><span class="thumb"></span></label>
+              <label class="switch"><input type="checkbox" checked /><span class="track"></span><span class="thumb"></span></label>
+              <span class="checkbox"></span>
+              <span class="checkbox checked"></span>
+            </div>
+          </section>
+
+          <!-- Cards -->
+          <section class="card">
+            <h2>Cards</h2>
+            <p class="lead">Elevated, filled and outlined containers.</p>
+            <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:16px;">
+              <div class="card elevated"><div class="title-medium">Elevated</div><p class="body-medium" style="margin:4px 0 0; color:var(--md-sys-color-on-surface-variant)">For raising attention.</p></div>
+              <div class="card filled"><div class="title-medium">Filled</div><p class="body-medium" style="margin:4px 0 0; color:var(--md-sys-color-on-surface-variant)">For grouping content.</p></div>
+              <div class="card outlined"><div class="title-medium">Outlined</div><p class="body-medium" style="margin:4px 0 0; color:var(--md-sys-color-on-surface-variant)">For low-emphasis structure.</p></div>
+            </div>
+          </section>
+
+          <!-- Snackbar / notifications -->
+          <section class="card">
+            <h2>Notifications</h2>
+            <p class="lead">Snackbar, badge, and dialog patterns.</p>
+            <div class="row">
+              <div class="snackbar">
+                <span class="body-medium">Card moved to Done.</span>
+                <button class="action">UNDO</button>
+              </div>
+            </div>
+            <div class="row">
+              <div class="snackbar" style="background:var(--md-sys-color-error); color:var(--md-sys-color-on-error);">
+                <span class="body-medium">Failed to sync. Retrying…</span>
+                <button class="action" style="color:white">RETRY</button>
+              </div>
+            </div>
+
+            <h3 class="title-small" style="margin-top:16px;">Dialog</h3>
+            <div style="position:relative; height:280px; background:color-mix(in srgb, var(--md-sys-color-scrim) 12%, transparent); border-radius:var(--md-sys-shape-corner-md); display:flex; align-items:center; justify-content:center;">
+              <div class="dialog">
+                <div class="dialog-icon"><span class="material-symbols-rounded" style="font-size:32px;">delete</span></div>
+                <h2 style="text-align:center; margin-top:0;">Delete this board?</h2>
+                <p class="body-medium" style="text-align:center; color:var(--md-sys-color-on-surface-variant); margin:0;">All cards and history will be permanently removed. This action cannot be undone.</p>
+                <div class="dialog-actions">
+                  <button class="btn btn-text">Cancel</button>
+                  <button class="btn btn-filled" style="background:var(--md-sys-color-error);">Delete</button>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Navigation -->
+          <section class="card">
+            <h2>Navigation</h2>
+            <p class="lead">Top app bar, navigation rail, drawer, and bottom navigation are demonstrated across pages.</p>
+            <div class="row">
+              <span class="chip assist"><span class="material-symbols-rounded">view_module</span>Top app bar</span>
+              <span class="chip assist"><span class="material-symbols-rounded">view_sidebar</span>Navigation rail</span>
+              <span class="chip assist"><span class="material-symbols-rounded">menu_open</span>Navigation drawer</span>
+              <span class="chip assist"><span class="material-symbols-rounded">bottom_panel_open</span>Bottom navigation</span>
+            </div>
+          </section>
+
+          <!-- List items -->
+          <section class="card">
+            <h2>Lists</h2>
+            <p class="lead">Two-line list items with leading avatar and trailing icon.</p>
+            <div class="list">
+              <div class="list-item">
+                <span class="avatar">JM</span>
+                <div class="meta">
+                  <div class="headline">Jamie Morgan</div>
+                  <div class="supporting">Reviewing PR #842 · just now</div>
+                </div>
+                <button class="icon-btn"><span class="material-symbols-rounded">chevron_right</span></button>
+              </div>
+              <div class="list-item">
+                <span class="avatar">SR</span>
+                <div class="meta">
+                  <div class="headline">Sam Rivera</div>
+                  <div class="supporting">Mentioned you on "Realtime presence"</div>
+                </div>
+                <button class="icon-btn"><span class="material-symbols-rounded">chevron_right</span></button>
+              </div>
+              <div class="divider"></div>
+              <div class="list-item">
+                <span class="avatar">TL</span>
+                <div class="meta">
+                  <div class="headline">Taylor Lee</div>
+                  <div class="supporting">Added "Email digest" to In progress</div>
+                </div>
+                <button class="icon-btn"><span class="material-symbols-rounded">chevron_right</span></button>
+              </div>
+            </div>
+          </section>
+
+        </div>
+      </main>
+    </div>
+
+    <nav class="bottom-nav">
+      <div class="nav-btn"><span class="icon-wrap"><span class="material-symbols-rounded">view_kanban</span></span><span class="label">Boards</span></div>
+      <div class="nav-btn"><span class="icon-wrap"><span class="material-symbols-rounded">inbox</span></span><span class="label">Inbox</span></div>
+      <div class="nav-btn active"><span class="icon-wrap"><span class="material-symbols-rounded">palette</span></span><span class="label">Design</span></div>
+      <div class="nav-btn"><span class="icon-wrap"><span class="material-symbols-rounded">person</span></span><span class="label">Profile</span></div>
+    </nav>
+  </div>
+</body>
+</html>

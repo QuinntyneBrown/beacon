@@ -4,6 +4,7 @@ using Beacon.Application.Models;
 using Beacon.Domain;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
+using TokenEntity = Beacon.Domain.RefreshToken;
 
 namespace Beacon.Application.Features.Auth.Register;
 
@@ -45,7 +46,7 @@ public class RegisterCommandHandler(
 
         var accessToken = tokenFactory.CreateAccessToken(user, ["Member"]);
         var refreshToken = tokenFactory.CreateOpaqueToken();
-        user.RefreshTokens.Add(new RefreshToken
+        user.RefreshTokens.Add(new TokenEntity
         {
             User = user,
             TokenHash = tokenHashingService.Hash(refreshToken),

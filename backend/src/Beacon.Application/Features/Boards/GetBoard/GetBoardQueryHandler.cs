@@ -12,11 +12,20 @@ public class GetBoardQueryHandler(IBeaconDbContext dbContext, ICurrentUserServic
     public async Task<KanbanBoardDto> Handle(GetBoardQuery request, CancellationToken cancellationToken)
     {
         var userId = currentUserService.GetRequiredUserId();
-        var board = await dbContext.Boards
+        var query = dbContext.Boards
             .Include(candidate => candidate.Columns)
             .ThenInclude(column => column.Cards)
-            .SingleAsync(candidate => candidate.OwnerId == userId, cancellationToken);
+            .ThenInclude(card => card.Comments)
+            .Include(candidate => candidate.Columns)
+            .ThenInclude(column => column.Cards)
+            .ThenInclude(card => card.ChecklistItems)
+            .Where(candidate => candidate.OwnerId == userId);
+
+        var board = request.BoardId is { } boardId
+            ? await query.SingleAsync(candidate => candidate.Id == boardId, cancellationToken)
+            : await query.OrderBy(candidate => candidate.Name).FirstAsync(cancellationToken);
 
         return board.ToDto();
     }
 }
+

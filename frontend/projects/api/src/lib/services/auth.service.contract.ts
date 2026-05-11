@@ -8,6 +8,7 @@ import { SignInRequest } from '../models/sign-in-request';
 export interface IAuthService {
   signIn(request: SignInRequest): Observable<AuthenticatedSession>;
   register(request: RegisterRequest): Observable<AuthenticatedSession>;
+  refresh(refreshToken: string): Observable<AuthenticatedSession>;
   signOut(refreshToken: string): Observable<void>;
   requestPasswordReset(email: string): Observable<PasswordResetTicket>;
   resetPassword(resetToken: string, password: string): Observable<void>;

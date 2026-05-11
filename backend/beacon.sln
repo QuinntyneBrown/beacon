@@ -1,4 +1,4 @@
-﻿
+
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31903.59
@@ -7,17 +7,17 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "backend", "backend", "{1AE8
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{0F9113EE-888A-26D2-68B0-4A7D0A2A8745}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Beacon.Api", "backend\src\Beacon.Api\Beacon.Api.csproj", "{144FD404-A24F-41F8-8B87-83DE605D6599}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Beacon.Api", "src\Beacon.Api\Beacon.Api.csproj", "{144FD404-A24F-41F8-8B87-83DE605D6599}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Beacon.Application", "backend\src\Beacon.Application\Beacon.Application.csproj", "{FBA583B9-98D6-4502-99EF-32FA7CA3004D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Beacon.Application", "src\Beacon.Application\Beacon.Application.csproj", "{FBA583B9-98D6-4502-99EF-32FA7CA3004D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Beacon.Domain", "backend\src\Beacon.Domain\Beacon.Domain.csproj", "{DAE4696C-9175-48B7-84C7-3DD6BDF07065}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Beacon.Domain", "src\Beacon.Domain\Beacon.Domain.csproj", "{DAE4696C-9175-48B7-84C7-3DD6BDF07065}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Beacon.Infrastructure", "backend\src\Beacon.Infrastructure\Beacon.Infrastructure.csproj", "{F198C19E-6991-48B3-8F83-8B051515C02C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Beacon.Infrastructure", "src\Beacon.Infrastructure\Beacon.Infrastructure.csproj", "{F198C19E-6991-48B3-8F83-8B051515C02C}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{F57642F3-C37C-D174-720E-6A6AAD5BEE22}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Beacon.Application.Tests", "backend\tests\Beacon.Application.Tests\Beacon.Application.Tests.csproj", "{8B037588-17AF-4FD3-B91E-EC1F4F74B2A9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Beacon.Application.Tests", "tests\Beacon.Application.Tests\Beacon.Application.Tests.csproj", "{8B037588-17AF-4FD3-B91E-EC1F4F74B2A9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

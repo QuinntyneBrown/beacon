@@ -1,4 +1,5 @@
 using Beacon.Api.Requests.Auth;
+using Beacon.Application.Features.Auth.RefreshToken;
 using Beacon.Application.Features.Auth.Register;
 using Beacon.Application.Features.Auth.RequestPasswordReset;
 using Beacon.Application.Features.Auth.ResetPassword;
@@ -24,6 +25,12 @@ public class AuthController(IMediator mediator) : ControllerBase
     public Task<IResult> SignIn([FromBody] SignInRequest request, CancellationToken cancellationToken)
     {
         return ExecuteAsync(() => mediator.Send(new SignInCommand(request.Email, request.Password), cancellationToken));
+    }
+
+    [HttpPost("refresh")]
+    public Task<IResult> Refresh([FromBody] RefreshTokenRequest request, CancellationToken cancellationToken)
+    {
+        return ExecuteAsync(() => mediator.Send(new RefreshTokenCommand(request.RefreshToken), cancellationToken));
     }
 
     [Authorize]
@@ -52,3 +59,4 @@ public class AuthController(IMediator mediator) : ControllerBase
         return Results.Ok(await action());
     }
 }
+

@@ -82,6 +82,10 @@ export class SessionService implements ISessionService {
     );
   }
 
+  adoptSession(session: AuthenticatedSession): void {
+    this.storeSession(session);
+  }
+
   async beginOidcSignIn(): Promise<void> {
     const verifier = this.createVerifier();
     const challenge = await this.createCodeChallenge(verifier);

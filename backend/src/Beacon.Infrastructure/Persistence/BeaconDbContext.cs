@@ -12,6 +12,8 @@ public class BeaconDbContext(DbContextOptions<BeaconDbContext> options) : DbCont
     public DbSet<Board> Boards => Set<Board>();
     public DbSet<BoardColumn> BoardColumns => Set<BoardColumn>();
     public DbSet<WorkItemCard> WorkItemCards => Set<WorkItemCard>();
+    public DbSet<Comment> Comments => Set<Comment>();
+    public DbSet<ChecklistItem> ChecklistItems => Set<ChecklistItem>();
     public DbSet<RefreshToken> RefreshTokens => Set<RefreshToken>();
     public DbSet<PasswordResetToken> PasswordResetTokens => Set<PasswordResetToken>();
     public DbSet<SecurityAuditLog> SecurityAuditLogs => Set<SecurityAuditLog>();
@@ -47,6 +49,24 @@ public class BeaconDbContext(DbContextOptions<BeaconDbContext> options) : DbCont
             .HasOne(card => card.BoardColumn)
             .WithMany(column => column.Cards)
             .HasForeignKey(card => card.BoardColumnId)
+            .OnDelete(DeleteBehavior.Cascade);
+
+        modelBuilder.Entity<Comment>()
+            .HasOne(comment => comment.Card)
+            .WithMany(card => card.Comments)
+            .HasForeignKey(comment => comment.CardId)
+            .OnDelete(DeleteBehavior.Cascade);
+
+        modelBuilder.Entity<Comment>()
+            .HasOne(comment => comment.Author)
+            .WithMany()
+            .HasForeignKey(comment => comment.AuthorId)
+            .OnDelete(DeleteBehavior.Restrict);
+
+        modelBuilder.Entity<ChecklistItem>()
+            .HasOne(item => item.Card)
+            .WithMany(card => card.ChecklistItems)
+            .HasForeignKey(item => item.CardId)
             .OnDelete(DeleteBehavior.Cascade);
 
         modelBuilder.Entity<RefreshToken>()

@@ -3,4 +3,5 @@ using MediatR;
 
 namespace Beacon.Application.Features.Boards.GetBoard;
 
-public record GetBoardQuery : IRequest<KanbanBoardDto>;
+public record GetBoardQuery(Guid? BoardId = null) : IRequest<KanbanBoardDto>;
+
