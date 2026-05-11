@@ -4,11 +4,13 @@ export class HomePage {
   readonly emailInput: Locator;
   readonly passwordInput: Locator;
   readonly signInButton: Locator;
+  readonly signInForm: Locator;
 
   constructor(private readonly page: Page) {
-    this.emailInput = page.getByLabel('Email').first();
-    this.passwordInput = page.getByLabel('Password').first();
-    this.signInButton = page.getByRole('button', { name: 'Sign in' });
+    this.signInForm = page.locator('form').first();
+    this.emailInput = this.signInForm.getByLabel('Email');
+    this.passwordInput = this.signInForm.getByLabel('Password');
+    this.signInButton = this.signInForm.getByRole('button', { name: 'Sign in' });
   }
 
   async goto(): Promise<void> {

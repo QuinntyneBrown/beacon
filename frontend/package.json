@@ -6,7 +6,7 @@
     "start": "ng serve main",
     "build": "ng build main",
     "watch": "ng build main --watch --configuration development",
-    "test": "ng test main --watch=false --browsers=ChromeHeadless",
+    "test": "ng test main --watch=false --browsers=ChromeHeadlessNoSandbox",
     "e2e": "playwright test"
   },
   "prettier": {

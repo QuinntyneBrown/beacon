@@ -60,9 +60,10 @@ public class SignInCommandHandler(
         var accessToken = tokenFactory.CreateAccessToken(user, roles);
         var refreshToken = tokenFactory.CreateOpaqueToken();
 
-        user.RefreshTokens.Add(new RefreshToken
+        dbContext.RefreshTokens.Add(new RefreshToken
         {
             UserId = user.Id,
+            User = user,
             TokenHash = tokenHashingService.Hash(refreshToken),
             ExpiresAtUtc = DateTimeOffset.UtcNow.AddDays(30)
         });
