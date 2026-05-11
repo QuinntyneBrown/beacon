@@ -1,0 +1,46 @@
+@if (board(); as activeBoard) {
+  <section class="kanban-board">
+    <div class="kanban-board__header">
+      <div>
+        <h2 class="kanban-board__title">{{ activeBoard.name }}</h2>
+        <p class="kanban-board__subtitle">Drag cards between lanes or add new work in place.</p>
+      </div>
+    </div>
+
+    <div class="kanban-board__grid" cdkDropListGroup>
+      @for (column of activeBoard.columns; track column.columnId) {
+        <mat-card class="kanban-board__column">
+          <div class="kanban-board__column-header">
+            <h3 class="kanban-board__column-title">{{ column.name }}</h3>
+            <span class="kanban-board__column-count">{{ column.cards.length }}</span>
+          </div>
+
+          <div
+            class="kanban-board__card-list"
+            cdkDropList
+            [cdkDropListData]="column.cards"
+            (cdkDropListDropped)="dropCard(column.columnId, $event)">
+            @for (card of column.cards; track card.cardId) {
+              <mat-card class="kanban-board__card" cdkDrag [cdkDragData]="card">
+                <h4 class="kanban-board__card-title">{{ card.title }}</h4>
+                <p class="kanban-board__card-description">{{ card.description }}</p>
+              </mat-card>
+            }
+          </div>
+
+          <div class="kanban-board__composer">
+            <mat-form-field appearance="outline">
+              <mat-label>New card title</mat-label>
+              <input matInput [ngModel]="draftTitle(column.columnId)" (ngModelChange)="updateDraftTitle(column.columnId, $event)" />
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+              <mat-label>Description</mat-label>
+              <textarea matInput rows="2" [ngModel]="draftDescription(column.columnId)" (ngModelChange)="updateDraftDescription(column.columnId, $event)"></textarea>
+            </mat-form-field>
+            <button mat-flat-button color="primary" type="button" [disabled]="isBusy()" (click)="createCard(column.columnId)">Add card</button>
+          </div>
+        </mat-card>
+      }
+    </div>
+  </section>
+}

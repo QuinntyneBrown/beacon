@@ -1,0 +1,52 @@
+:host {
+  display: block;
+}
+
+.shell-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--beacon-space-4);
+  min-height: 4.5rem;
+  padding-inline: var(--beacon-space-4);
+  background: var(--beacon-color-surface);
+  border-bottom: 1px solid color-mix(in srgb, var(--beacon-color-outline) 30%, transparent);
+}
+
+.shell-header__brand {
+  display: flex;
+  flex-direction: column;
+  gap: 0.125rem;
+}
+
+.shell-header__title {
+  font-size: 1.125rem;
+  font-weight: 700;
+}
+
+.shell-header__subtitle {
+  color: var(--beacon-color-muted);
+  font-size: 0.8125rem;
+}
+
+.shell-header__session {
+  display: flex;
+  align-items: center;
+  gap: var(--beacon-space-3);
+}
+
+.shell-header__identity {
+  display: none;
+}
+
+.shell-header__name {
+  font-weight: 600;
+}
+
+@media (min-width: 48rem) {
+  .shell-header__identity {
+    display: grid;
+    gap: 0.25rem;
+    justify-items: end;
+  }
+}

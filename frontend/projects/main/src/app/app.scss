@@ -1,0 +1,14 @@
+:host {
+  display: block;
+  min-height: 100vh;
+}
+
+.app-shell {
+  padding: var(--beacon-space-4);
+}
+
+@media (min-width: 64rem) {
+  .app-shell {
+    padding: var(--beacon-space-6);
+  }
+}

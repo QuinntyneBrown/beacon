@@ -1,0 +1,10 @@
+<section class="home-page">
+  @if (!isAuthenticated()) {
+    <lib-sign-in-form (authenticated)="onAuthenticated()" />
+  } @else {
+    <div class="home-page__content">
+      <lib-kanban-board />
+      <lib-profile-panel />
+    </div>
+  }
+</section>

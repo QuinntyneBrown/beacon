@@ -1,0 +1,8 @@
+<mat-card class="auth-callback">
+  @if (errorMessage()) {
+    <p class="auth-callback__error">{{ errorMessage() }}</p>
+  } @else {
+    <mat-progress-spinner mode="indeterminate" diameter="48" />
+    <p class="auth-callback__message">Completing sign-in…</p>
+  }
+</mat-card>

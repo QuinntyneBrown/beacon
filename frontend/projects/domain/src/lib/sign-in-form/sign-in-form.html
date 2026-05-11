@@ -1,0 +1,85 @@
+<mat-card class="sign-in-form">
+  <div class="sign-in-form__header">
+    <h1 class="sign-in-form__title">Welcome to Beacon</h1>
+    <p class="sign-in-form__subtitle">A clean, mobile-first Kanban board for small software teams.</p>
+  </div>
+
+  @if (authMode === 'local') {
+    <div class="sign-in-form__mode-switcher">
+      <button mat-button type="button" (click)="mode.set('sign-in')">Sign in</button>
+      <button mat-button type="button" (click)="mode.set('register')">Register</button>
+      <button mat-button type="button" (click)="mode.set('reset')">Reset password</button>
+    </div>
+
+    @if (mode() === 'sign-in') {
+      <form class="sign-in-form__panel" [formGroup]="signInForm" (ngSubmit)="signIn()">
+        <mat-form-field appearance="outline">
+          <mat-label>Email</mat-label>
+          <input matInput formControlName="email" autocomplete="email" />
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Password</mat-label>
+          <input matInput type="password" formControlName="password" autocomplete="current-password" />
+        </mat-form-field>
+        <button mat-flat-button color="primary" type="submit">Sign in</button>
+      </form>
+    }
+
+    @if (mode() === 'register') {
+      <form class="sign-in-form__panel" [formGroup]="registerForm" (ngSubmit)="register()">
+        <mat-form-field appearance="outline">
+          <mat-label>Email</mat-label>
+          <input matInput formControlName="email" autocomplete="email" />
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>User name</mat-label>
+          <input matInput formControlName="userName" autocomplete="username" />
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Display name</mat-label>
+          <input matInput formControlName="displayName" autocomplete="name" />
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Password</mat-label>
+          <input matInput type="password" formControlName="password" autocomplete="new-password" />
+        </mat-form-field>
+        <button mat-flat-button color="primary" type="submit">Create account</button>
+      </form>
+    }
+
+    @if (mode() === 'reset') {
+      <form class="sign-in-form__panel" [formGroup]="resetForm" (ngSubmit)="resetPassword()">
+        <mat-form-field appearance="outline">
+          <mat-label>Email</mat-label>
+          <input matInput formControlName="email" autocomplete="email" />
+        </mat-form-field>
+        <div class="sign-in-form__action-row">
+          <button mat-stroked-button type="button" (click)="requestReset()">Request reset token</button>
+        </div>
+        <mat-form-field appearance="outline">
+          <mat-label>Reset token</mat-label>
+          <input matInput formControlName="resetToken" />
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>New password</mat-label>
+          <input matInput type="password" formControlName="password" autocomplete="new-password" />
+        </mat-form-field>
+        <button mat-flat-button color="primary" type="submit">Reset password</button>
+      </form>
+    }
+  } @else {
+    <div class="sign-in-form__panel">
+      <p class="sign-in-form__body-copy">This environment is configured for external OIDC sign-in.</p>
+      <button mat-flat-button color="primary" type="button" (click)="signInWithOidc()">Continue with OIDC</button>
+    </div>
+  }
+
+  @if (helperMessage()) {
+    <mat-divider></mat-divider>
+    <p class="sign-in-form__helper">{{ helperMessage() }}</p>
+  }
+
+  @if (errorMessage()) {
+    <p class="sign-in-form__error">{{ errorMessage() }}</p>
+  }
+</mat-card>
