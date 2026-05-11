@@ -1,14 +1,23 @@
-<mat-card class="sign-in-form">
+<mat-card class="sign-in-form auth-card">
   <div class="sign-in-form__header">
-    <h1 class="sign-in-form__title">Welcome to Beacon</h1>
-    <p class="sign-in-form__subtitle">A clean, mobile-first Kanban board for small software teams.</p>
+    <span class="sign-in-form__logo" aria-hidden="true">B</span>
+    @if (mode() === 'sign-in') {
+      <h2 class="sign-in-form__title">Welcome back</h2>
+      <p class="sign-in-form__subtitle">Sign in to keep your boards, cards, and checklist progress in sync.</p>
+    } @else if (mode() === 'register') {
+      <h2 class="sign-in-form__title">Create your workspace</h2>
+      <p class="sign-in-form__subtitle">Start with one account and invite the team when the board is ready.</p>
+    } @else {
+      <h2 class="sign-in-form__title">Reset password</h2>
+      <p class="sign-in-form__subtitle">Request a reset token, then choose a new password.</p>
+    }
   </div>
 
   @if (authMode === 'local') {
-    <div class="sign-in-form__mode-switcher">
-      <button mat-button type="button" (click)="mode.set('sign-in')">Sign in</button>
-      <button mat-button type="button" (click)="mode.set('register')">Register</button>
-      <button mat-button type="button" (click)="mode.set('reset')">Reset password</button>
+    <div class="sign-in-form__mode-switcher" aria-label="Authentication mode">
+      <button mat-button type="button" [class.is-active]="mode() === 'sign-in'" (click)="mode.set('sign-in')">Sign in</button>
+      <button mat-button type="button" [class.is-active]="mode() === 'register'" (click)="mode.set('register')">Register</button>
+      <button mat-button type="button" [class.is-active]="mode() === 'reset'" (click)="mode.set('reset')">Reset password</button>
     </div>
 
     @if (mode() === 'sign-in') {
@@ -21,7 +30,25 @@
           <mat-label>Password</mat-label>
           <input matInput type="password" formControlName="password" autocomplete="current-password" />
         </mat-form-field>
-        <button mat-flat-button color="primary" type="submit">Sign in</button>
+        <div class="sign-in-form__assist-row">
+          <label class="sign-in-form__remember">
+            <input type="checkbox" />
+            <span>Remember me</span>
+          </label>
+          <a href="" (click)="$event.preventDefault(); mode.set('reset')">Forgot password?</a>
+        </div>
+        <button mat-flat-button color="primary" type="submit" [disabled]="isBusy()">Sign in</button>
+        <div class="sign-in-form__divider"><span>or</span></div>
+        <div class="sign-in-form__external">
+          <button mat-stroked-button type="button">
+            <span aria-hidden="true">G</span>
+            Continue with Google
+          </button>
+          <button mat-stroked-button type="button">
+            <span aria-hidden="true">GH</span>
+            Continue with GitHub
+          </button>
+        </div>
       </form>
     }
 
@@ -43,7 +70,7 @@
           <mat-label>Password</mat-label>
           <input matInput type="password" formControlName="password" autocomplete="new-password" />
         </mat-form-field>
-        <button mat-flat-button color="primary" type="submit">Create account</button>
+        <button mat-flat-button color="primary" type="submit" [disabled]="isBusy()">Create account</button>
       </form>
     }
 
@@ -54,7 +81,7 @@
           <input matInput formControlName="email" autocomplete="email" />
         </mat-form-field>
         <div class="sign-in-form__action-row">
-          <button mat-stroked-button type="button" (click)="requestReset()">Request reset token</button>
+          <button mat-stroked-button type="button" (click)="requestReset()" [disabled]="isBusy()">Request reset token</button>
         </div>
         <mat-form-field appearance="outline">
           <mat-label>Reset token</mat-label>
@@ -64,7 +91,7 @@
           <mat-label>New password</mat-label>
           <input matInput type="password" formControlName="password" autocomplete="new-password" />
         </mat-form-field>
-        <button mat-flat-button color="primary" type="submit">Reset password</button>
+        <button mat-flat-button color="primary" type="submit" [disabled]="isBusy()">Reset password</button>
       </form>
     }
   } @else {

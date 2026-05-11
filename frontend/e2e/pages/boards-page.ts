@@ -11,7 +11,7 @@ export class BoardsPage {
   }
 
   async expectVisible(): Promise<void> {
-    await expect(this.page.getByRole('heading', { name: 'Your boards' })).toBeVisible();
+    await expect(this.page.getByRole('heading', { name: 'Boards', exact: true })).toBeVisible();
     await expect(this.page.getByRole('button', { name: /Create board/ })).toBeVisible();
   }
 

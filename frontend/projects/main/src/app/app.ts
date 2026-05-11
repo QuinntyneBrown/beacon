@@ -1,11 +1,13 @@
 import { Component, inject } from '@angular/core';
+import { MatIconModule } from '@angular/material/icon';
 import { Router, RouterOutlet } from '@angular/router';
+import { RouterLink, RouterLinkActive } from '@angular/router';
 import { ShellHeaderComponent } from 'components';
 import { SESSION_SERVICE } from 'domain';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, ShellHeaderComponent],
+  imports: [RouterOutlet, RouterLink, RouterLinkActive, MatIconModule, ShellHeaderComponent],
   templateUrl: './app.html',
   styleUrl: './app.scss'
 })

@@ -14,12 +14,17 @@ html {
   --beacon-color-primary-container: #b5f1f5;
   --beacon-color-secondary: #4eb2ef;
   --beacon-color-tertiary: #3acff5;
-  --beacon-color-surface: #ffffff;
+  --beacon-color-background: #f3f3f3;
+  --beacon-color-surface: #f8fafb;
   --beacon-color-surface-container: #f3f3f3;
+  --beacon-color-surface-container-high: #e8eff2;
+  --beacon-color-surface-container-highest: #dbe8ec;
   --beacon-color-outline: #c7d8e0;
   --beacon-color-on-surface: #111c20;
   --beacon-color-on-surface-variant: #41484c;
+  --beacon-color-muted: #687579;
   --beacon-color-danger: #b3261e;
+  --beacon-color-danger-container: #ffdad6;
   --beacon-space-1: 0.25rem;
   --beacon-space-2: 0.5rem;
   --beacon-space-3: 0.75rem;
@@ -30,6 +35,8 @@ html {
   --beacon-radius-md: 0.75rem;
   --beacon-radius-lg: 1rem;
   --beacon-radius-xl: 1.5rem;
+  --beacon-shadow-1: 0 1px 2px rgba(17, 28, 32, 0.08), 0 1px 3px rgba(17, 28, 32, 0.12);
+  --beacon-shadow-2: 0 8px 22px rgba(17, 28, 32, 0.11);
 }
 
 html,
@@ -41,10 +48,11 @@ body {
 body {
   margin: 0;
   color-scheme: light;
-  background-color: var(--beacon-color-surface-container);
+  background-color: var(--beacon-color-background);
   color: var(--beacon-color-on-surface);
   font: var(--mat-sys-body-medium);
-  font-family: Roboto, 'Helvetica Neue', sans-serif;
+  font-family: 'Roboto Flex', Roboto, 'Helvetica Neue', sans-serif;
+  letter-spacing: 0;
 }
 
 * {
@@ -57,3 +65,138 @@ textarea {
   font: inherit;
 }
 
+a {
+  color: inherit;
+}
+
+.material-icons {
+  font-size: 1.25rem;
+  line-height: 1;
+}
+
+.icon-btn {
+  display: inline-grid;
+  place-items: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border: 0;
+  border-radius: 999px;
+  color: var(--beacon-color-on-surface-variant);
+  background: transparent;
+  cursor: pointer;
+}
+
+.icon-btn:hover {
+  background: color-mix(in srgb, var(--beacon-color-primary) 10%, transparent);
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  min-height: 2rem;
+  padding: 0 0.75rem;
+  border: 1px solid var(--beacon-color-outline);
+  border-radius: 999px;
+  color: var(--beacon-color-on-surface-variant);
+  background: var(--beacon-color-surface);
+  font-size: 0.875rem;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.chip--active {
+  border-color: transparent;
+  color: var(--beacon-color-on-surface);
+  background: var(--beacon-color-primary-container);
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  gap: var(--beacon-space-2);
+  min-height: 3rem;
+  padding: 0 var(--beacon-space-3);
+  border: 1px solid color-mix(in srgb, var(--beacon-color-outline) 70%, transparent);
+  border-radius: 999px;
+  background: var(--beacon-color-surface);
+  color: var(--beacon-color-on-surface-variant);
+}
+
+.search-bar input {
+  min-width: 0;
+  flex: 1;
+  border: 0;
+  outline: 0;
+  color: var(--beacon-color-on-surface);
+  background: transparent;
+}
+
+.page-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--beacon-space-4);
+  flex-wrap: wrap;
+}
+
+.page-kicker {
+  margin: 0 0 var(--beacon-space-1);
+  color: var(--beacon-color-primary);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.page-title {
+  margin: 0;
+  font-size: clamp(1.75rem, 2.5vw, 2.5rem);
+  line-height: 1.12;
+  font-weight: 650;
+}
+
+.page-subtitle {
+  margin: var(--beacon-space-1) 0 0;
+  color: var(--beacon-color-on-surface-variant);
+}
+
+.section-title {
+  margin: 0;
+  font-size: 1.125rem;
+  line-height: 1.3;
+  font-weight: 650;
+}
+
+.section-block {
+  display: grid;
+  gap: var(--beacon-space-3);
+  padding: var(--beacon-space-4);
+  border: 1px solid color-mix(in srgb, var(--beacon-color-outline) 72%, transparent);
+  border-radius: var(--beacon-radius-lg);
+  background: var(--beacon-color-surface);
+  box-shadow: var(--beacon-shadow-1);
+}
+
+.avatar-stack {
+  display: flex;
+  align-items: center;
+}
+
+.avatar-stack span,
+.avatar {
+  display: inline-grid;
+  place-items: center;
+  width: 2rem;
+  height: 2rem;
+  border: 2px solid var(--beacon-color-surface);
+  border-radius: 50%;
+  color: #ffffff;
+  background: var(--beacon-color-primary);
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.avatar-stack span + span {
+  margin-left: -0.5rem;
+}

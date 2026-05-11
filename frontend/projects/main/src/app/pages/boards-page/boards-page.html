@@ -1,51 +1,141 @@
 <section class="boards-page">
-  <header class="boards-page__header">
-    <h1 class="boards-page__title">Your boards</h1>
-    <p class="boards-page__subtitle">Pick a board or start a new one.</p>
+  <header class="boards-page__header page-header">
+    <div>
+      <p class="page-kicker">Workspace</p>
+      <h1 class="boards-page__title page-title">Boards</h1>
+      <p class="page-subtitle">Track active work, archived ideas, and team ownership from one place.</p>
+    </div>
+    <button mat-flat-button color="primary" type="button" class="boards-page__new-action">
+      <mat-icon>add</mat-icon>
+      New
+    </button>
   </header>
 
-  <mat-card class="boards-page__create" appearance="outlined">
-    <form [formGroup]="createForm" (ngSubmit)="create()" class="boards-page__create-form">
-      <mat-form-field appearance="outline" class="boards-page__create-field">
-        <mat-label>New board name</mat-label>
-        <input matInput formControlName="name" placeholder="e.g. Q3 Roadmap" />
-      </mat-form-field>
-      <button mat-flat-button color="primary" type="submit" [disabled]="creating()">
-        <mat-icon>add</mat-icon>
-        Create board
-      </button>
-    </form>
-  </mat-card>
+  <div class="boards-page__controls">
+    <label class="search-bar boards-page__search">
+      <mat-icon>search</mat-icon>
+      <input type="search" placeholder="Search boards, cards, members..." aria-label="Search boards, cards, members" />
+    </label>
+    <button mat-stroked-button type="button">
+      <mat-icon>filter_list</mat-icon>
+      Filter
+    </button>
+    <button mat-stroked-button type="button">
+      <mat-icon>sort</mat-icon>
+      Sort
+    </button>
+  </div>
+
+  <div class="boards-page__chips" aria-label="Board filters">
+    <button type="button" class="chip chip--active">All</button>
+    <button type="button" class="chip">Starred</button>
+    <button type="button" class="chip">Private</button>
+    <button type="button" class="chip">Shared</button>
+  </div>
 
   @if (errorMessage()) {
     <div class="boards-page__error" role="alert">{{ errorMessage() }}</div>
   }
 
   @if (isLoading() && boards().length === 0) {
-    <p class="boards-page__loading">Loading boards…</p>
+    <p class="boards-page__loading">Loading boards...</p>
   } @else if (boards().length === 0) {
-    <div class="boards-page__empty">
-      <p>No boards yet. Create your first board above to get started.</p>
-    </div>
+    <section class="section-block boards-page__empty">
+      <h2 class="section-title">No boards yet</h2>
+      <p>Create your first board below to get started.</p>
+    </section>
   } @else {
+    <section class="boards-page__section">
+      <div class="boards-page__section-header">
+        <h2 class="section-title">Starred</h2>
+        <button type="button" class="icon-btn" aria-label="Manage starred boards">
+          <mat-icon>more_horiz</mat-icon>
+        </button>
+      </div>
+
+      <ul class="boards-page__list boards-page__list--featured">
+        @for (board of boards().slice(0, 2); track board.boardId) {
+          <li class="boards-page__item">
+            <mat-card appearance="outlined" class="board-tile boards-page__featured-card">
+              <a [routerLink]="['/boards', board.boardId]" class="boards-page__card-link">
+                <span class="board-tile__eyebrow">Active board</span>
+                <h3 class="boards-page__card-title">{{ board.name }}</h3>
+                <p class="boards-page__card-meta">
+                  <mat-icon>view_column</mat-icon>
+                  {{ board.columnCount }} columns
+                  <mat-icon>sticky_note_2</mat-icon>
+                  {{ board.cardCount }} cards
+                </p>
+                <div class="avatar-stack" aria-label="Board members">
+                  <span>AK</span>
+                  <span>MJ</span>
+                  <span>QS</span>
+                </div>
+              </a>
+            </mat-card>
+          </li>
+        }
+      </ul>
+    </section>
+  }
+
+  <section class="boards-page__section">
+    <div class="boards-page__section-header">
+      <h2 class="section-title">All boards</h2>
+      <span class="boards-page__count">{{ boards().length }} total</span>
+    </div>
+
     <ul class="boards-page__list">
+      <li class="boards-page__item">
+        <mat-card class="board-tile create-tile" appearance="outlined">
+          <form [formGroup]="createForm" (ngSubmit)="create()" class="boards-page__create-form">
+            <div>
+              <span class="create-tile__icon" aria-hidden="true">
+                <mat-icon>add</mat-icon>
+              </span>
+              <h3 class="boards-page__card-title">Create board</h3>
+              <p class="boards-page__card-meta">Start a clean workflow with To do, Doing, and Done.</p>
+            </div>
+            <mat-form-field appearance="outline" class="boards-page__create-field">
+              <mat-label>New board name</mat-label>
+              <input matInput formControlName="name" placeholder="e.g. Q3 Roadmap" />
+            </mat-form-field>
+            <button mat-flat-button color="primary" type="submit" [disabled]="creating()">
+              <mat-icon>add</mat-icon>
+              Create board
+            </button>
+          </form>
+        </mat-card>
+      </li>
+
       @for (board of boards(); track board.boardId) {
         <li class="boards-page__item">
-          <mat-card appearance="outlined" class="boards-page__card">
+          <mat-card appearance="outlined" class="boards-page__card board-tile">
             <a [routerLink]="['/boards', board.boardId]" class="boards-page__card-link">
-              <h2 class="boards-page__card-title">{{ board.name }}</h2>
+              <span class="board-tile__eyebrow">Team board</span>
+              <h3 class="boards-page__card-title">{{ board.name }}</h3>
               <p class="boards-page__card-meta">
-                {{ board.columnCount }} columns · {{ board.cardCount }} cards
+                <mat-icon>view_column</mat-icon>
+                {{ board.columnCount }} columns
+                <mat-icon>sticky_note_2</mat-icon>
+                {{ board.cardCount }} cards
               </p>
+              <div class="avatar-stack" aria-label="Board members">
+                <span>AK</span>
+                <span>MJ</span>
+                <span>QS</span>
+              </div>
             </a>
-            <div class="boards-page__card-actions">
-              <button mat-icon-button (click)="remove(board.boardId, board.name)" aria-label="Delete board">
-                <mat-icon>delete_outline</mat-icon>
-              </button>
-            </div>
+            <button mat-icon-button (click)="remove(board.boardId, board.name)" aria-label="Delete board">
+              <mat-icon>delete_outline</mat-icon>
+            </button>
           </mat-card>
         </li>
       }
     </ul>
-  }
+  </section>
+
+  <button mat-fab color="primary" type="button" class="boards-page__fab" aria-label="New board">
+    <mat-icon>add</mat-icon>
+  </button>
 </section>

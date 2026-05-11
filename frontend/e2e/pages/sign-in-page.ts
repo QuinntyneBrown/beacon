@@ -11,7 +11,7 @@ export class SignInPage {
   }
 
   async expectVisible(): Promise<void> {
-    await expect(this.page.getByRole('heading', { name: 'Welcome to Beacon' })).toBeVisible();
+    await expect(this.page.getByRole('heading', { name: 'Welcome back' })).toBeVisible();
     await expect(this.page.getByRole('button', { name: 'Sign in' }).first()).toBeVisible();
   }
 

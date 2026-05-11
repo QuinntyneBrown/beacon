@@ -27,7 +27,7 @@ export class SettingsPage {
     await this.page.getByRole('button', { name: 'Save profile' }).click();
     await expectSuccessfulResponse(response);
     await expect(this.page.getByText('Profile updated.')).toBeVisible();
-    await expect(this.page.getByText(displayName)).toBeVisible();
+    await expect(this.page.locator('.shell-header__name')).toHaveText(displayName);
   }
 
   async deleteAccount(): Promise<void> {
@@ -42,5 +42,24 @@ export class SettingsPage {
     await this.page.getByRole('button', { name: 'Delete account' }).click();
     await expectSuccessfulResponse(response);
     await expect(this.page).toHaveURL(/\/sign-in$/);
+  }
+
+  async setPreferenceAndExpectPersistence(name: string, checked: boolean): Promise<void> {
+    const checkbox = this.page.getByRole('checkbox', { name });
+    await checkbox.setChecked(checked, { force: true });
+    if (checked) {
+      await expect(checkbox).toBeChecked();
+    } else {
+      await expect(checkbox).not.toBeChecked();
+    }
+
+    await this.page.reload();
+    await this.expectVisible();
+    const reloadedCheckbox = this.page.getByRole('checkbox', { name });
+    if (checked) {
+      await expect(reloadedCheckbox).toBeChecked();
+    } else {
+      await expect(reloadedCheckbox).not.toBeChecked();
+    }
   }
 }

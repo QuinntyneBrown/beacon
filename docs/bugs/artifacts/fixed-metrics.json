@@ -1,0 +1,278 @@
+{
+  "desktop": {
+    "login": {
+      "bodyFont": "\"Roboto Flex\", Roboto, \"Helvetica Neue\", sans-serif",
+      "authShellDisplay": "grid",
+      "topBarHeight": null,
+      "navDrawerDisplay": null,
+      "navDrawerRect": null,
+      "navRailDisplay": null,
+      "bottomNavDisplay": null,
+      "appMainPaddingTop": null,
+      "boardToolbarHeight": null,
+      "boardTileBackground": null,
+      "cardGridColumns": null,
+      "settingsGridColumns": null
+    },
+    "boards": {
+      "bodyFont": "\"Roboto Flex\", Roboto, \"Helvetica Neue\", sans-serif",
+      "authShellDisplay": null,
+      "topBarHeight": "64px",
+      "navDrawerDisplay": "block",
+      "navDrawerRect": {
+        "width": 280,
+        "height": 1036,
+        "x": 0,
+        "y": 64
+      },
+      "navRailDisplay": "none",
+      "bottomNavDisplay": "none",
+      "appMainPaddingTop": "32px",
+      "boardToolbarHeight": null,
+      "boardTileBackground": "rgb(0, 103, 130)",
+      "cardGridColumns": null,
+      "settingsGridColumns": null
+    },
+    "board": {
+      "bodyFont": "\"Roboto Flex\", Roboto, \"Helvetica Neue\", sans-serif",
+      "authShellDisplay": null,
+      "topBarHeight": "64px",
+      "navDrawerDisplay": "block",
+      "navDrawerRect": {
+        "width": 280,
+        "height": 1036,
+        "x": 0,
+        "y": 64
+      },
+      "navRailDisplay": "none",
+      "bottomNavDisplay": "none",
+      "appMainPaddingTop": "32px",
+      "boardToolbarHeight": "56px",
+      "boardTileBackground": null,
+      "cardGridColumns": null,
+      "settingsGridColumns": null
+    },
+    "card": {
+      "bodyFont": "\"Roboto Flex\", Roboto, \"Helvetica Neue\", sans-serif",
+      "authShellDisplay": null,
+      "topBarHeight": "64px",
+      "navDrawerDisplay": "block",
+      "navDrawerRect": {
+        "width": 280,
+        "height": 1036,
+        "x": 0,
+        "y": 64
+      },
+      "navRailDisplay": "none",
+      "bottomNavDisplay": "none",
+      "appMainPaddingTop": "32px",
+      "boardToolbarHeight": null,
+      "boardTileBackground": null,
+      "cardGridColumns": "728px 352px",
+      "settingsGridColumns": null
+    },
+    "settings": {
+      "bodyFont": "\"Roboto Flex\", Roboto, \"Helvetica Neue\", sans-serif",
+      "authShellDisplay": null,
+      "topBarHeight": "64px",
+      "navDrawerDisplay": "block",
+      "navDrawerRect": {
+        "width": 280,
+        "height": 1036,
+        "x": 0,
+        "y": 64
+      },
+      "navRailDisplay": "none",
+      "bottomNavDisplay": "none",
+      "appMainPaddingTop": "32px",
+      "boardToolbarHeight": null,
+      "boardTileBackground": null,
+      "cardGridColumns": null,
+      "settingsGridColumns": "224px 856px"
+    }
+  },
+  "tablet": {
+    "login": {
+      "bodyFont": "\"Roboto Flex\", Roboto, \"Helvetica Neue\", sans-serif",
+      "authShellDisplay": "grid",
+      "topBarHeight": null,
+      "navDrawerDisplay": null,
+      "navDrawerRect": null,
+      "navRailDisplay": null,
+      "bottomNavDisplay": null,
+      "appMainPaddingTop": null,
+      "boardToolbarHeight": null,
+      "boardTileBackground": null,
+      "cardGridColumns": null,
+      "settingsGridColumns": null
+    },
+    "boards": {
+      "bodyFont": "\"Roboto Flex\", Roboto, \"Helvetica Neue\", sans-serif",
+      "authShellDisplay": null,
+      "topBarHeight": "64px",
+      "navDrawerDisplay": "none",
+      "navDrawerRect": {
+        "width": 0,
+        "height": 0,
+        "x": 0,
+        "y": 0
+      },
+      "navRailDisplay": "grid",
+      "bottomNavDisplay": "none",
+      "appMainPaddingTop": "24px",
+      "boardToolbarHeight": null,
+      "boardTileBackground": "rgb(0, 103, 130)",
+      "cardGridColumns": null,
+      "settingsGridColumns": null
+    },
+    "board": {
+      "bodyFont": "\"Roboto Flex\", Roboto, \"Helvetica Neue\", sans-serif",
+      "authShellDisplay": null,
+      "topBarHeight": "64px",
+      "navDrawerDisplay": "none",
+      "navDrawerRect": {
+        "width": 0,
+        "height": 0,
+        "x": 0,
+        "y": 0
+      },
+      "navRailDisplay": "grid",
+      "bottomNavDisplay": "none",
+      "appMainPaddingTop": "24px",
+      "boardToolbarHeight": "56px",
+      "boardTileBackground": null,
+      "cardGridColumns": null,
+      "settingsGridColumns": null
+    },
+    "card": {
+      "bodyFont": "\"Roboto Flex\", Roboto, \"Helvetica Neue\", sans-serif",
+      "authShellDisplay": null,
+      "topBarHeight": "64px",
+      "navDrawerDisplay": "none",
+      "navDrawerRect": {
+        "width": 0,
+        "height": 0,
+        "x": 0,
+        "y": 0
+      },
+      "navRailDisplay": "grid",
+      "bottomNavDisplay": "none",
+      "appMainPaddingTop": "24px",
+      "boardToolbarHeight": null,
+      "boardTileBackground": null,
+      "cardGridColumns": "692px",
+      "settingsGridColumns": null
+    },
+    "settings": {
+      "bodyFont": "\"Roboto Flex\", Roboto, \"Helvetica Neue\", sans-serif",
+      "authShellDisplay": null,
+      "topBarHeight": "64px",
+      "navDrawerDisplay": "none",
+      "navDrawerRect": {
+        "width": 0,
+        "height": 0,
+        "x": 0,
+        "y": 0
+      },
+      "navRailDisplay": "grid",
+      "bottomNavDisplay": "none",
+      "appMainPaddingTop": "24px",
+      "boardToolbarHeight": null,
+      "boardTileBackground": null,
+      "cardGridColumns": null,
+      "settingsGridColumns": "692px"
+    }
+  },
+  "mobile": {
+    "login": {
+      "bodyFont": "\"Roboto Flex\", Roboto, \"Helvetica Neue\", sans-serif",
+      "authShellDisplay": "grid",
+      "topBarHeight": null,
+      "navDrawerDisplay": null,
+      "navDrawerRect": null,
+      "navRailDisplay": null,
+      "bottomNavDisplay": null,
+      "appMainPaddingTop": null,
+      "boardToolbarHeight": null,
+      "boardTileBackground": null,
+      "cardGridColumns": null,
+      "settingsGridColumns": null
+    },
+    "boards": {
+      "bodyFont": "\"Roboto Flex\", Roboto, \"Helvetica Neue\", sans-serif",
+      "authShellDisplay": null,
+      "topBarHeight": "64px",
+      "navDrawerDisplay": "none",
+      "navDrawerRect": {
+        "width": 0,
+        "height": 0,
+        "x": 0,
+        "y": 0
+      },
+      "navRailDisplay": "none",
+      "bottomNavDisplay": "grid",
+      "appMainPaddingTop": "16px",
+      "boardToolbarHeight": null,
+      "boardTileBackground": "rgb(0, 103, 130)",
+      "cardGridColumns": null,
+      "settingsGridColumns": null
+    },
+    "board": {
+      "bodyFont": "\"Roboto Flex\", Roboto, \"Helvetica Neue\", sans-serif",
+      "authShellDisplay": null,
+      "topBarHeight": "64px",
+      "navDrawerDisplay": "none",
+      "navDrawerRect": {
+        "width": 0,
+        "height": 0,
+        "x": 0,
+        "y": 0
+      },
+      "navRailDisplay": "none",
+      "bottomNavDisplay": "grid",
+      "appMainPaddingTop": "16px",
+      "boardToolbarHeight": "56px",
+      "boardTileBackground": null,
+      "cardGridColumns": null,
+      "settingsGridColumns": null
+    },
+    "card": {
+      "bodyFont": "\"Roboto Flex\", Roboto, \"Helvetica Neue\", sans-serif",
+      "authShellDisplay": null,
+      "topBarHeight": "64px",
+      "navDrawerDisplay": "none",
+      "navDrawerRect": {
+        "width": 0,
+        "height": 0,
+        "x": 0,
+        "y": 0
+      },
+      "navRailDisplay": "none",
+      "bottomNavDisplay": "grid",
+      "appMainPaddingTop": "16px",
+      "boardToolbarHeight": null,
+      "boardTileBackground": null,
+      "cardGridColumns": "358px",
+      "settingsGridColumns": null
+    },
+    "settings": {
+      "bodyFont": "\"Roboto Flex\", Roboto, \"Helvetica Neue\", sans-serif",
+      "authShellDisplay": null,
+      "topBarHeight": "64px",
+      "navDrawerDisplay": "none",
+      "navDrawerRect": {
+        "width": 0,
+        "height": 0,
+        "x": 0,
+        "y": 0
+      },
+      "navRailDisplay": "none",
+      "bottomNavDisplay": "grid",
+      "appMainPaddingTop": "16px",
+      "boardToolbarHeight": null,
+      "boardTileBackground": null,
+      "cardGridColumns": null,
+      "settingsGridColumns": "358px"
+    }
+  }
+}

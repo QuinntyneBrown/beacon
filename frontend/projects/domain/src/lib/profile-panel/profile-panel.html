@@ -1,12 +1,21 @@
 @if (session(); as activeSession) {
   <mat-card class="profile-panel">
     <div class="profile-panel__header">
-      <h2 class="profile-panel__title">Account</h2>
-      <mat-chip-set aria-label="profile roles">
-        @for (role of activeSession.roles; track role) {
-          <mat-chip>{{ role }}</mat-chip>
-        }
-      </mat-chip-set>
+      <div class="profile-panel__identity">
+        <span class="profile-panel__avatar" aria-hidden="true">{{ activeSession.displayName.slice(0, 1) || 'U' }}</span>
+        <div>
+          <h2 class="profile-panel__title">Account</h2>
+          <p class="profile-panel__email">{{ activeSession.email }}</p>
+        </div>
+      </div>
+      <div class="profile-panel__header-actions">
+        <button mat-stroked-button type="button">Upload avatar</button>
+        <mat-chip-set aria-label="profile roles">
+          @for (role of activeSession.roles; track role) {
+            <mat-chip>{{ role }}</mat-chip>
+          }
+        </mat-chip-set>
+      </div>
     </div>
 
     <form class="profile-panel__form" [formGroup]="profileForm" (ngSubmit)="save()">
@@ -22,7 +31,7 @@
     </form>
 
     <div class="profile-panel__meta">
-      <span class="profile-panel__email">{{ activeSession.email }}</span>
+      <span>Signed in as {{ activeSession.displayName }}</span>
       <button mat-stroked-button color="warn" type="button" (click)="deleteAccount()">Delete account</button>
     </div>
 

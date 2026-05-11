@@ -1,12 +1,17 @@
 :host {
   display: block;
+  width: min(100%, 28rem);
 }
 
 .sign-in-form {
   display: grid;
   gap: var(--beacon-space-4);
-  padding: var(--beacon-space-5);
+  width: 100%;
+  padding: clamp(1.25rem, 4vw, 2rem);
+  border: 1px solid color-mix(in srgb, var(--beacon-color-outline) 65%, transparent);
   border-radius: var(--beacon-radius-xl);
+  background: color-mix(in srgb, var(--beacon-color-surface) 96%, white);
+  box-shadow: var(--beacon-shadow-2);
 }
 
 .sign-in-form__header,
@@ -15,9 +20,22 @@
   gap: var(--beacon-space-3);
 }
 
+.sign-in-form__logo {
+  display: inline-grid;
+  place-items: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: var(--beacon-radius-md);
+  color: #ffffff;
+  background: linear-gradient(135deg, var(--beacon-color-primary), var(--beacon-color-tertiary));
+  font-weight: 800;
+}
+
 .sign-in-form__title {
   margin: 0;
-  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-size: clamp(1.75rem, 5vw, 2.25rem);
+  line-height: 1.1;
+  font-weight: 700;
 }
 
 .sign-in-form__subtitle,
@@ -25,6 +43,7 @@
 .sign-in-form__helper {
   margin: 0;
   color: var(--beacon-color-muted);
+  line-height: 1.5;
 }
 
 .sign-in-form__mode-switcher,
@@ -34,8 +53,97 @@
   gap: var(--beacon-space-2);
 }
 
+.sign-in-form__mode-switcher {
+  padding: 0.25rem;
+  border-radius: 999px;
+  background: var(--beacon-color-surface-container);
+}
+
+.sign-in-form__mode-switcher button {
+  flex: 1 1 auto;
+  border-radius: 999px;
+}
+
+.sign-in-form__mode-switcher .is-active {
+  background: var(--beacon-color-primary-container);
+}
+
+.sign-in-form__assist-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--beacon-space-3);
+  flex-wrap: wrap;
+  margin-top: -0.25rem;
+  color: var(--beacon-color-on-surface-variant);
+  font-size: 0.875rem;
+}
+
+.sign-in-form__assist-row a {
+  color: var(--beacon-color-primary);
+  font-weight: 650;
+  text-decoration: none;
+}
+
+.sign-in-form__remember {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--beacon-space-2);
+}
+
+.sign-in-form__remember input {
+  width: 1rem;
+  height: 1rem;
+  accent-color: var(--beacon-color-primary);
+}
+
+.sign-in-form__divider {
+  display: flex;
+  align-items: center;
+  gap: var(--beacon-space-3);
+  color: var(--beacon-color-muted);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+}
+
+.sign-in-form__divider::before,
+.sign-in-form__divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: color-mix(in srgb, var(--beacon-color-outline) 72%, transparent);
+}
+
+.sign-in-form__external {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--beacon-space-2);
+}
+
+.sign-in-form__external button {
+  min-width: 0;
+}
+
+.sign-in-form__external span {
+  display: inline-grid;
+  place-items: center;
+  width: 1.35rem;
+  height: 1.35rem;
+  margin-right: 0.35rem;
+  border-radius: 50%;
+  background: var(--beacon-color-surface-container-high);
+  font-size: 0.65rem;
+  font-weight: 800;
+}
+
 .sign-in-form__error {
   margin: 0;
   color: var(--beacon-color-danger);
-  font-weight: 600;
+  font-weight: 650;
+}
+
+@media (max-width: 27rem) {
+  .sign-in-form__external {
+    grid-template-columns: 1fr;
+  }
 }

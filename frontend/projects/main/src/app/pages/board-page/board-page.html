@@ -1,13 +1,47 @@
 <section class="board-page">
-  <header class="board-page__header">
-    <a routerLink="/boards" mat-button class="board-page__back">
-      <mat-icon>arrow_back</mat-icon>
-      Boards
-    </a>
-    @if (board(); as activeBoard) {
-      <h1 class="board-page__title">{{ activeBoard.name }}</h1>
-    }
+  <header class="board-page__header page-header">
+    <div>
+      <a routerLink="/boards" mat-button class="board-page__back">
+        <mat-icon>arrow_back</mat-icon>
+        Boards
+      </a>
+      @if (board(); as activeBoard) {
+        <h1 class="board-page__title page-title">{{ activeBoard.name }}</h1>
+        <p class="page-subtitle">{{ activeBoard.columns.length }} columns tuned for focused delivery.</p>
+      }
+    </div>
+
+    <div class="board-page__header-actions">
+      <div class="avatar-stack" aria-label="Board members">
+        <span>AK</span>
+        <span>MJ</span>
+        <span>QS</span>
+      </div>
+      <button mat-stroked-button type="button">
+        <mat-icon>person_add</mat-icon>
+        Share
+      </button>
+    </div>
   </header>
+
+  <nav class="board-toolbar" aria-label="Board views">
+    <button mat-flat-button color="primary" type="button">
+      <mat-icon>view_kanban</mat-icon>
+      Board
+    </button>
+    <button mat-stroked-button type="button">
+      <mat-icon>filter_list</mat-icon>
+      Filter
+    </button>
+    <button mat-stroked-button type="button">
+      <mat-icon>group</mat-icon>
+      Members
+    </button>
+    <button mat-stroked-button type="button">
+      <mat-icon>calendar_month</mat-icon>
+      Timeline
+    </button>
+  </nav>
 
   @if (errorMessage()) {
     <div class="board-page__error" role="alert">{{ errorMessage() }}</div>

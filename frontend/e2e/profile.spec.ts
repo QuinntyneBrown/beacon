@@ -37,3 +37,17 @@ test('a signed-in user can delete their account', async ({ page }, testInfo) => 
   await settingsPage.deleteAccount();
   await signInPage.expectVisible();
 });
+
+test('settings preferences persist after reload', async ({ page }, testInfo) => {
+  const user = createTestUser(testInfo, 'prefs');
+  const signInPage = new SignInPage(page);
+  const boardsPage = new BoardsPage(page);
+  const settingsPage = new SettingsPage(page);
+
+  await signInPage.goto();
+  await signInPage.register(user);
+  await boardsPage.expectVisible();
+
+  await settingsPage.goto();
+  await settingsPage.setPreferenceAndExpectPersistence('High contrast', true);
+});

@@ -1,0 +1,422 @@
+{
+  "login-desktop": {
+    "url": "http://127.0.0.1:4200/sign-in",
+    "bodyFontFamily": "Roboto, \"Helvetica Neue\", sans-serif",
+    "bodyFontSize": "14px",
+    "bodyBackground": "rgb(243, 243, 243)",
+    "bodyColor": "rgb(17, 28, 32)",
+    "header": {
+      "x": 0,
+      "y": 0,
+      "width": 1440,
+      "height": 72
+    },
+    "main": {
+      "x": 0,
+      "y": 72,
+      "width": 1440,
+      "height": 516
+    },
+    "headingText": "Welcome to Beacon",
+    "headingFont": "700 32px / 20px Roboto, \"Helvetica Neue\", sans-serif",
+    "cards": 1,
+    "buttons": 4,
+    "firstCardBackground": "rgb(241, 244, 243)",
+    "firstCardRadius": "24px",
+    "firstCardPadding": "24px",
+    "firstButtonRadius": "9999px",
+    "visibleText": "Beacon\nRadically simple Kanban\nWelcome to Beacon\n\nA clean, mobile-first Kanban board for small software teams.\n\nSign in\nRegister\nReset password\nEmail\nPassword\nSign in"
+  },
+  "boards-desktop": {
+    "url": "http://127.0.0.1:4200/boards",
+    "bodyFontFamily": "Roboto, \"Helvetica Neue\", sans-serif",
+    "bodyFontSize": "14px",
+    "bodyBackground": "rgb(243, 243, 243)",
+    "bodyColor": "rgb(17, 28, 32)",
+    "header": {
+      "x": 0,
+      "y": 0,
+      "width": 1440,
+      "height": 72
+    },
+    "main": {
+      "x": 0,
+      "y": 72,
+      "width": 1440,
+      "height": 460
+    },
+    "headingText": "Your boards",
+    "headingFont": "28px / 36px Roboto",
+    "cards": 2,
+    "buttons": 3,
+    "firstCardBackground": "rgb(247, 250, 249)",
+    "firstCardRadius": "12px",
+    "firstCardPadding": "16px",
+    "firstButtonRadius": "9999px",
+    "visibleText": "Beacon\nRadically simple Kanban\nDemo User\nAdmin\nMember\nSign out\nYour boards\n\nPick a board or start a new one.\n\nNew board name\nadd\nCreate board\nDemo Roadmap\n\n3 columns · 4 cards\n\ndelete_outline"
+  },
+  "board-desktop": {
+    "url": "http://127.0.0.1:4200/boards/c333e16b-87c7-4de6-8a66-24cf07a674f8",
+    "bodyFontFamily": "Roboto, \"Helvetica Neue\", sans-serif",
+    "bodyFontSize": "14px",
+    "bodyBackground": "rgb(243, 243, 243)",
+    "bodyColor": "rgb(17, 28, 32)",
+    "header": {
+      "x": 0,
+      "y": 0,
+      "width": 1440,
+      "height": 72
+    },
+    "main": {
+      "x": 0,
+      "y": 72,
+      "width": 1440,
+      "height": 152
+    },
+    "headingText": null,
+    "headingFont": null,
+    "cards": 0,
+    "buttons": 1,
+    "firstCardBackground": null,
+    "firstCardRadius": null,
+    "firstCardPadding": null,
+    "firstButtonRadius": "9999px",
+    "visibleText": "Beacon\nRadically simple Kanban\nDemo User\nAdmin\nMember\nSign out\narrow_back\nBoards"
+  },
+  "card-desktop": {
+    "url": "http://127.0.0.1:4200/boards/c333e16b-87c7-4de6-8a66-24cf07a674f8/cards/755c5d9d-b335-4188-84e1-89239b765195",
+    "bodyFontFamily": "Roboto, \"Helvetica Neue\", sans-serif",
+    "bodyFontSize": "14px",
+    "bodyBackground": "rgb(243, 243, 243)",
+    "bodyColor": "rgb(17, 28, 32)",
+    "header": {
+      "x": 0,
+      "y": 0,
+      "width": 1440,
+      "height": 72
+    },
+    "main": {
+      "x": 0,
+      "y": 72,
+      "width": 1440,
+      "height": 152
+    },
+    "headingText": "Card detail",
+    "headingFont": "24px / 32px Roboto",
+    "cards": 0,
+    "buttons": 1,
+    "firstCardBackground": null,
+    "firstCardRadius": null,
+    "firstCardPadding": null,
+    "firstButtonRadius": "9999px",
+    "visibleText": "Beacon\nRadically simple Kanban\nDemo User\nAdmin\nMember\nSign out\narrow_back\nBoard\nCard detail"
+  },
+  "settings-desktop": {
+    "url": "http://127.0.0.1:4200/settings",
+    "bodyFontFamily": "Roboto, \"Helvetica Neue\", sans-serif",
+    "bodyFontSize": "14px",
+    "bodyBackground": "rgb(243, 243, 243)",
+    "bodyColor": "rgb(17, 28, 32)",
+    "header": {
+      "x": 0,
+      "y": 0,
+      "width": 1440,
+      "height": 72
+    },
+    "main": {
+      "x": 0,
+      "y": 72,
+      "width": 1440,
+      "height": 556
+    },
+    "headingText": "Settings",
+    "headingFont": "28px / 36px Roboto",
+    "cards": 1,
+    "buttons": 3,
+    "firstCardBackground": "rgb(241, 244, 243)",
+    "firstCardRadius": "24px",
+    "firstCardPadding": "16px",
+    "firstButtonRadius": "9999px",
+    "visibleText": "Beacon\nRadically simple Kanban\nDemo User\nAdmin\nMember\nSign out\nSettings\n\nManage your profile and account preferences.\n\nAccount\nAdmin\nMember\nUser name\nDisplay name\nSave profile\ndemo@beacon.local\nDelete account"
+  },
+  "login-tablet": {
+    "url": "http://127.0.0.1:4200/sign-in",
+    "bodyFontFamily": "Roboto, \"Helvetica Neue\", sans-serif",
+    "bodyFontSize": "14px",
+    "bodyBackground": "rgb(243, 243, 243)",
+    "bodyColor": "rgb(17, 28, 32)",
+    "header": {
+      "x": 0,
+      "y": 0,
+      "width": 834,
+      "height": 72
+    },
+    "main": {
+      "x": 0,
+      "y": 72,
+      "width": 834,
+      "height": 484
+    },
+    "headingText": "Welcome to Beacon",
+    "headingFont": "700 25.02px / 20px Roboto, \"Helvetica Neue\", sans-serif",
+    "cards": 1,
+    "buttons": 4,
+    "firstCardBackground": "rgb(241, 244, 243)",
+    "firstCardRadius": "24px",
+    "firstCardPadding": "24px",
+    "firstButtonRadius": "9999px",
+    "visibleText": "Beacon\nRadically simple Kanban\nWelcome to Beacon\n\nA clean, mobile-first Kanban board for small software teams.\n\nSign in\nRegister\nReset password\nEmail\nPassword\nSign in"
+  },
+  "boards-tablet": {
+    "url": "http://127.0.0.1:4200/boards",
+    "bodyFontFamily": "Roboto, \"Helvetica Neue\", sans-serif",
+    "bodyFontSize": "14px",
+    "bodyBackground": "rgb(243, 243, 243)",
+    "bodyColor": "rgb(17, 28, 32)",
+    "header": {
+      "x": 0,
+      "y": 0,
+      "width": 834,
+      "height": 72
+    },
+    "main": {
+      "x": 0,
+      "y": 72,
+      "width": 834,
+      "height": 428
+    },
+    "headingText": "Your boards",
+    "headingFont": "28px / 36px Roboto",
+    "cards": 2,
+    "buttons": 3,
+    "firstCardBackground": "rgb(247, 250, 249)",
+    "firstCardRadius": "12px",
+    "firstCardPadding": "16px",
+    "firstButtonRadius": "9999px",
+    "visibleText": "Beacon\nRadically simple Kanban\nDemo User\nAdmin\nMember\nSign out\nYour boards\n\nPick a board or start a new one.\n\nNew board name\nadd\nCreate board\nDemo Roadmap\n\n3 columns · 4 cards\n\ndelete_outline"
+  },
+  "board-tablet": {
+    "url": "http://127.0.0.1:4200/boards/c333e16b-87c7-4de6-8a66-24cf07a674f8",
+    "bodyFontFamily": "Roboto, \"Helvetica Neue\", sans-serif",
+    "bodyFontSize": "14px",
+    "bodyBackground": "rgb(243, 243, 243)",
+    "bodyColor": "rgb(17, 28, 32)",
+    "header": {
+      "x": 0,
+      "y": 0,
+      "width": 834,
+      "height": 72
+    },
+    "main": {
+      "x": 0,
+      "y": 72,
+      "width": 834,
+      "height": 1372
+    },
+    "headingText": "Demo Roadmap",
+    "headingFont": "24px / 32px Roboto",
+    "cards": 7,
+    "buttons": 4,
+    "firstCardBackground": "rgb(241, 244, 243)",
+    "firstCardRadius": "24px",
+    "firstCardPadding": "16px",
+    "firstButtonRadius": "9999px",
+    "visibleText": "Beacon\nRadically simple Kanban\nDemo User\nAdmin\nMember\nSign out\narrow_back\nBoards\nDemo Roadmap\nDemo Roadmap\n\nDrag cards between lanes or add new work in place.\n\nBacklog\n2\nAdd dark mode\n\nUse design tokens for theming.\n\nCapture feedback\n\nReview open issues with the team.\n\nNew card title\nDescription\nAdd card\nIn Progress\n1\nBuild auth flow\n\nFinish the local JWT sign-in experience.\n\nNew card title\nDescription\nAdd card\nDone\n1\nSeed starter board\n\nDemo data is ready for local use.\n\nNew card title\nDescription\nAdd card"
+  },
+  "card-tablet": {
+    "url": "http://127.0.0.1:4200/boards/c333e16b-87c7-4de6-8a66-24cf07a674f8/cards/755c5d9d-b335-4188-84e1-89239b765195",
+    "bodyFontFamily": "Roboto, \"Helvetica Neue\", sans-serif",
+    "bodyFontSize": "14px",
+    "bodyBackground": "rgb(243, 243, 243)",
+    "bodyColor": "rgb(17, 28, 32)",
+    "header": {
+      "x": 0,
+      "y": 0,
+      "width": 834,
+      "height": 72
+    },
+    "main": {
+      "x": 0,
+      "y": 72,
+      "width": 834,
+      "height": 982
+    },
+    "headingText": "Card detail",
+    "headingFont": "24px / 32px Roboto",
+    "cards": 3,
+    "buttons": 4,
+    "firstCardBackground": "rgb(247, 250, 249)",
+    "firstCardRadius": "12px",
+    "firstCardPadding": "16px",
+    "firstButtonRadius": "9999px",
+    "visibleText": "Beacon\nRadically simple Kanban\nDemo User\nAdmin\nMember\nSign out\narrow_back\nBoard\nCard detail\nDetails\nTitle\nDescription\nSave changes\nChecklist\nNo checklist items yet.\nAdd item\nadd\nAdd\nComments\nNo comments yet.\nAdd comment\nsend\nPost comment"
+  },
+  "settings-tablet": {
+    "url": "http://127.0.0.1:4200/settings",
+    "bodyFontFamily": "Roboto, \"Helvetica Neue\", sans-serif",
+    "bodyFontSize": "14px",
+    "bodyBackground": "rgb(243, 243, 243)",
+    "bodyColor": "rgb(17, 28, 32)",
+    "header": {
+      "x": 0,
+      "y": 0,
+      "width": 834,
+      "height": 72
+    },
+    "main": {
+      "x": 0,
+      "y": 72,
+      "width": 834,
+      "height": 524
+    },
+    "headingText": "Settings",
+    "headingFont": "28px / 36px Roboto",
+    "cards": 1,
+    "buttons": 3,
+    "firstCardBackground": "rgb(241, 244, 243)",
+    "firstCardRadius": "24px",
+    "firstCardPadding": "16px",
+    "firstButtonRadius": "9999px",
+    "visibleText": "Beacon\nRadically simple Kanban\nDemo User\nAdmin\nMember\nSign out\nSettings\n\nManage your profile and account preferences.\n\nAccount\nAdmin\nMember\nUser name\nDisplay name\nSave profile\ndemo@beacon.local\nDelete account"
+  },
+  "login-mobile": {
+    "url": "http://127.0.0.1:4200/sign-in",
+    "bodyFontFamily": "Roboto, \"Helvetica Neue\", sans-serif",
+    "bodyFontSize": "14px",
+    "bodyBackground": "rgb(243, 243, 243)",
+    "bodyColor": "rgb(17, 28, 32)",
+    "header": {
+      "x": 0,
+      "y": 0,
+      "width": 390,
+      "height": 72
+    },
+    "main": {
+      "x": 0,
+      "y": 72,
+      "width": 390,
+      "height": 552
+    },
+    "headingText": "Welcome to Beacon",
+    "headingFont": "700 24px / 20px Roboto, \"Helvetica Neue\", sans-serif",
+    "cards": 1,
+    "buttons": 4,
+    "firstCardBackground": "rgb(241, 244, 243)",
+    "firstCardRadius": "24px",
+    "firstCardPadding": "24px",
+    "firstButtonRadius": "9999px",
+    "visibleText": "Beacon\nRadically simple Kanban\nWelcome to Beacon\n\nA clean, mobile-first Kanban board for small software teams.\n\nSign in\nRegister\nReset password\nEmail\nPassword\nSign in"
+  },
+  "boards-mobile": {
+    "url": "http://127.0.0.1:4200/boards",
+    "bodyFontFamily": "Roboto, \"Helvetica Neue\", sans-serif",
+    "bodyFontSize": "14px",
+    "bodyBackground": "rgb(243, 243, 243)",
+    "bodyColor": "rgb(17, 28, 32)",
+    "header": {
+      "x": 0,
+      "y": 0,
+      "width": 390,
+      "height": 72
+    },
+    "main": {
+      "x": 0,
+      "y": 72,
+      "width": 390,
+      "height": 480
+    },
+    "headingText": "Your boards",
+    "headingFont": "28px / 36px Roboto",
+    "cards": 2,
+    "buttons": 3,
+    "firstCardBackground": "rgb(247, 250, 249)",
+    "firstCardRadius": "12px",
+    "firstCardPadding": "16px",
+    "firstButtonRadius": "9999px",
+    "visibleText": "Beacon\nRadically simple Kanban\nSign out\nYour boards\n\nPick a board or start a new one.\n\nNew board name\nadd\nCreate board\nDemo Roadmap\n\n3 columns · 4 cards\n\ndelete_outline"
+  },
+  "board-mobile": {
+    "url": "http://127.0.0.1:4200/boards/c333e16b-87c7-4de6-8a66-24cf07a674f8",
+    "bodyFontFamily": "Roboto, \"Helvetica Neue\", sans-serif",
+    "bodyFontSize": "14px",
+    "bodyBackground": "rgb(243, 243, 243)",
+    "bodyColor": "rgb(17, 28, 32)",
+    "header": {
+      "x": 0,
+      "y": 0,
+      "width": 390,
+      "height": 72
+    },
+    "main": {
+      "x": 0,
+      "y": 72,
+      "width": 390,
+      "height": 1372
+    },
+    "headingText": "Demo Roadmap",
+    "headingFont": "24px / 32px Roboto",
+    "cards": 7,
+    "buttons": 4,
+    "firstCardBackground": "rgb(241, 244, 243)",
+    "firstCardRadius": "24px",
+    "firstCardPadding": "16px",
+    "firstButtonRadius": "9999px",
+    "visibleText": "Beacon\nRadically simple Kanban\nSign out\narrow_back\nBoards\nDemo Roadmap\nDemo Roadmap\n\nDrag cards between lanes or add new work in place.\n\nBacklog\n2\nAdd dark mode\n\nUse design tokens for theming.\n\nCapture feedback\n\nReview open issues with the team.\n\nNew card title\nDescription\nAdd card\nIn Progress\n1\nBuild auth flow\n\nFinish the local JWT sign-in experience.\n\nNew card title\nDescription\nAdd card\nDone\n1\nSeed starter board\n\nDemo data is ready for local use.\n\nNew card title\nDescription\nAdd card"
+  },
+  "card-mobile": {
+    "url": "http://127.0.0.1:4200/boards/c333e16b-87c7-4de6-8a66-24cf07a674f8/cards/755c5d9d-b335-4188-84e1-89239b765195",
+    "bodyFontFamily": "Roboto, \"Helvetica Neue\", sans-serif",
+    "bodyFontSize": "14px",
+    "bodyBackground": "rgb(243, 243, 243)",
+    "bodyColor": "rgb(17, 28, 32)",
+    "header": {
+      "x": 0,
+      "y": 0,
+      "width": 390,
+      "height": 72
+    },
+    "main": {
+      "x": 0,
+      "y": 72,
+      "width": 390,
+      "height": 1034
+    },
+    "headingText": "Card detail",
+    "headingFont": "24px / 32px Roboto",
+    "cards": 3,
+    "buttons": 4,
+    "firstCardBackground": "rgb(247, 250, 249)",
+    "firstCardRadius": "12px",
+    "firstCardPadding": "16px",
+    "firstButtonRadius": "9999px",
+    "visibleText": "Beacon\nRadically simple Kanban\nSign out\narrow_back\nBoard\nCard detail\nDetails\nTitle\nDescription\nSave changes\nChecklist\nNo checklist items yet.\nAdd item\nadd\nAdd\nComments\nNo comments yet.\nAdd comment\nsend\nPost comment"
+  },
+  "settings-mobile": {
+    "url": "http://127.0.0.1:4200/settings",
+    "bodyFontFamily": "Roboto, \"Helvetica Neue\", sans-serif",
+    "bodyFontSize": "14px",
+    "bodyBackground": "rgb(243, 243, 243)",
+    "bodyColor": "rgb(17, 28, 32)",
+    "header": {
+      "x": 0,
+      "y": 0,
+      "width": 390,
+      "height": 72
+    },
+    "main": {
+      "x": 0,
+      "y": 72,
+      "width": 390,
+      "height": 524
+    },
+    "headingText": "Settings",
+    "headingFont": "28px / 36px Roboto",
+    "cards": 1,
+    "buttons": 3,
+    "firstCardBackground": "rgb(241, 244, 243)",
+    "firstCardRadius": "24px",
+    "firstCardPadding": "16px",
+    "firstButtonRadius": "9999px",
+    "visibleText": "Beacon\nRadically simple Kanban\nSign out\nSettings\n\nManage your profile and account preferences.\n\nAccount\nAdmin\nMember\nUser name\nDisplay name\nSave profile\ndemo@beacon.local\nDelete account"
+  }
+}

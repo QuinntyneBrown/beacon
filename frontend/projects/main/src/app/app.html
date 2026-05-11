@@ -1,10 +1,64 @@
-<lib-shell-header
-  [title]="'Beacon'"
-  [displayName]="session()?.displayName ?? ''"
-  [roles]="session()?.roles ?? []"
-  [isAuthenticated]="!!session()"
-  (signOutRequested)="signOut()" />
+@if (session(); as activeSession) {
+  <div class="app">
+    <lib-shell-header
+      [title]="'Beacon'"
+      [displayName]="activeSession.displayName"
+      [roles]="activeSession.roles"
+      [isAuthenticated]="true"
+      (signOutRequested)="signOut()" />
 
-<main class="app-shell">
+    <div class="app-body">
+      <aside class="nav-drawer" aria-label="Workspace">
+        <div class="nav-drawer__section">
+          <p class="nav-drawer__label">Workspace</p>
+          <a routerLink="/boards" routerLinkActive="is-active" [routerLinkActiveOptions]="{ exact: true }">
+            <mat-icon>dashboard</mat-icon>
+            <span>Boards</span>
+          </a>
+          <a routerLink="/settings" routerLinkActive="is-active">
+            <mat-icon>tune</mat-icon>
+            <span>Settings</span>
+          </a>
+        </div>
+
+        <div class="nav-drawer__section">
+          <p class="nav-drawer__label">Views</p>
+          <button type="button">
+            <mat-icon>star</mat-icon>
+            <span>Starred</span>
+          </button>
+          <button type="button">
+            <mat-icon>schedule</mat-icon>
+            <span>Recent</span>
+          </button>
+        </div>
+      </aside>
+
+      <nav class="nav-rail" aria-label="Primary">
+        <a routerLink="/boards" routerLinkActive="is-active" [routerLinkActiveOptions]="{ exact: true }" aria-label="Boards">
+          <mat-icon>dashboard</mat-icon>
+        </a>
+        <a routerLink="/settings" routerLinkActive="is-active" aria-label="Settings">
+          <mat-icon>tune</mat-icon>
+        </a>
+      </nav>
+
+      <main class="app-main">
+        <router-outlet />
+      </main>
+    </div>
+
+    <nav class="bottom-nav" aria-label="Primary">
+      <a routerLink="/boards" routerLinkActive="is-active" [routerLinkActiveOptions]="{ exact: true }">
+        <mat-icon>dashboard</mat-icon>
+        <span>Boards</span>
+      </a>
+      <a routerLink="/settings" routerLinkActive="is-active">
+        <mat-icon>tune</mat-icon>
+        <span>Settings</span>
+      </a>
+    </nav>
+  </div>
+} @else {
   <router-outlet />
-</main>
+}
