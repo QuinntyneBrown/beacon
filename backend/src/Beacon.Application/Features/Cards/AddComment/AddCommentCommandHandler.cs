@@ -29,6 +29,7 @@ public class AddCommentCommandHandler(IBeaconDbContext dbContext, ICurrentUserSe
             Body = request.Body.Trim()
         };
         card.Comments.Add(comment);
+        dbContext.Comments.Add(comment);
         await dbContext.SaveChangesAsync(cancellationToken);
 
         return card.ToDetail();

@@ -26,6 +26,7 @@ public class CreateCardCommandHandler(IBeaconDbContext dbContext, ICurrentUserSe
             SortOrder = column.Cards.Count
         };
         column.Cards.Add(card);
+        dbContext.WorkItemCards.Add(card);
         dbContext.SecurityAuditLogs.Add(new SecurityAuditLog { UserId = userId, EventType = "card_created", Details = $"Card '{card.Title}' created." });
         await dbContext.SaveChangesAsync(cancellationToken);
 

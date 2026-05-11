@@ -27,6 +27,7 @@ public class AddChecklistItemCommandHandler(IBeaconDbContext dbContext, ICurrent
             SortOrder = card.ChecklistItems.Count
         };
         card.ChecklistItems.Add(item);
+        dbContext.ChecklistItems.Add(item);
         await dbContext.SaveChangesAsync(cancellationToken);
 
         return card.ToDetail();
