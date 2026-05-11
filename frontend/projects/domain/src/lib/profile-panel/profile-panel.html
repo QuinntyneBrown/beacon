@@ -1,0 +1,37 @@
+@if (session(); as activeSession) {
+  <mat-card class="profile-panel">
+    <div class="profile-panel__header">
+      <h2 class="profile-panel__title">Account</h2>
+      <mat-chip-set aria-label="profile roles">
+        @for (role of activeSession.roles; track role) {
+          <mat-chip>{{ role }}</mat-chip>
+        }
+      </mat-chip-set>
+    </div>
+
+    <form class="profile-panel__form" [formGroup]="profileForm" (ngSubmit)="save()">
+      <mat-form-field appearance="outline">
+        <mat-label>User name</mat-label>
+        <input matInput formControlName="userName" />
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Display name</mat-label>
+        <input matInput formControlName="displayName" />
+      </mat-form-field>
+      <button mat-flat-button color="primary" type="submit">Save profile</button>
+    </form>
+
+    <div class="profile-panel__meta">
+      <span class="profile-panel__email">{{ activeSession.email }}</span>
+      <button mat-stroked-button color="warn" type="button" (click)="deleteAccount()">Delete account</button>
+    </div>
+
+    @if (helperMessage()) {
+      <p class="profile-panel__helper">{{ helperMessage() }}</p>
+    }
+
+    @if (errorMessage()) {
+      <p class="profile-panel__error">{{ errorMessage() }}</p>
+    }
+  </mat-card>
+}

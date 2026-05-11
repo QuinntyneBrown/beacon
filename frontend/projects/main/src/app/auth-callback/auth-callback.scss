@@ -1,0 +1,21 @@
+:host {
+  display: grid;
+  place-items: center;
+  min-height: 60vh;
+}
+
+.auth-callback {
+  display: grid;
+  justify-items: center;
+  gap: var(--beacon-space-3);
+  padding: var(--beacon-space-6);
+}
+
+.auth-callback__message,
+.auth-callback__error {
+  margin: 0;
+}
+
+.auth-callback__error {
+  color: var(--beacon-color-danger);
+}

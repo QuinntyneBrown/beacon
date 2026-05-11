@@ -1,0 +1,20 @@
+<mat-toolbar class="shell-header">
+  <div class="shell-header__brand">
+    <span class="shell-header__title">{{ title() }}</span>
+    <span class="shell-header__subtitle">Radically simple Kanban</span>
+  </div>
+
+  @if (isAuthenticated()) {
+    <div class="shell-header__session">
+      <div class="shell-header__identity">
+        <span class="shell-header__name">{{ displayName() }}</span>
+        <mat-chip-set aria-label="roles">
+          @for (role of roles(); track role) {
+            <mat-chip>{{ role }}</mat-chip>
+          }
+        </mat-chip-set>
+      </div>
+      <button mat-flat-button type="button" color="primary" (click)="signOutRequested.emit()">Sign out</button>
+    </div>
+  }
+</mat-toolbar>

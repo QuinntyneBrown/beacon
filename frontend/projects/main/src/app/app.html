@@ -1,0 +1,10 @@
+<lib-shell-header
+  [title]="'Beacon'"
+  [displayName]="session()?.displayName ?? ''"
+  [roles]="session()?.roles ?? []"
+  [isAuthenticated]="!!session()"
+  (signOutRequested)="signOut()" />
+
+<main class="app-shell">
+  <router-outlet />
+</main>
