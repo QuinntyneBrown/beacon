@@ -22,8 +22,10 @@
             (cdkDropListDropped)="dropCard(column.columnId, $event)">
             @for (card of column.cards; track card.cardId) {
               <mat-card class="kanban-board__card" cdkDrag [cdkDragData]="card">
-                <h4 class="kanban-board__card-title">{{ card.title }}</h4>
-                <p class="kanban-board__card-description">{{ card.description }}</p>
+                <a class="kanban-board__card-link" [routerLink]="['/boards', activeBoard.boardId, 'cards', card.cardId]">
+                  <h4 class="kanban-board__card-title">{{ card.title }}</h4>
+                  <p class="kanban-board__card-description">{{ card.description }}</p>
+                </a>
               </mat-card>
             }
           </div>

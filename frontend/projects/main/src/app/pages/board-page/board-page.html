@@ -1,0 +1,17 @@
+<section class="board-page">
+  <header class="board-page__header">
+    <a routerLink="/boards" mat-button class="board-page__back">
+      <mat-icon>arrow_back</mat-icon>
+      Boards
+    </a>
+    @if (board(); as activeBoard) {
+      <h1 class="board-page__title">{{ activeBoard.name }}</h1>
+    }
+  </header>
+
+  @if (errorMessage()) {
+    <div class="board-page__error" role="alert">{{ errorMessage() }}</div>
+  }
+
+  <lib-kanban-board />
+</section>

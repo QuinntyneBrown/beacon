@@ -1,0 +1,51 @@
+<section class="boards-page">
+  <header class="boards-page__header">
+    <h1 class="boards-page__title">Your boards</h1>
+    <p class="boards-page__subtitle">Pick a board or start a new one.</p>
+  </header>
+
+  <mat-card class="boards-page__create" appearance="outlined">
+    <form [formGroup]="createForm" (ngSubmit)="create()" class="boards-page__create-form">
+      <mat-form-field appearance="outline" class="boards-page__create-field">
+        <mat-label>New board name</mat-label>
+        <input matInput formControlName="name" placeholder="e.g. Q3 Roadmap" />
+      </mat-form-field>
+      <button mat-flat-button color="primary" type="submit" [disabled]="creating()">
+        <mat-icon>add</mat-icon>
+        Create board
+      </button>
+    </form>
+  </mat-card>
+
+  @if (errorMessage()) {
+    <div class="boards-page__error" role="alert">{{ errorMessage() }}</div>
+  }
+
+  @if (isLoading() && boards().length === 0) {
+    <p class="boards-page__loading">Loading boards…</p>
+  } @else if (boards().length === 0) {
+    <div class="boards-page__empty">
+      <p>No boards yet. Create your first board above to get started.</p>
+    </div>
+  } @else {
+    <ul class="boards-page__list">
+      @for (board of boards(); track board.boardId) {
+        <li class="boards-page__item">
+          <mat-card appearance="outlined" class="boards-page__card">
+            <a [routerLink]="['/boards', board.boardId]" class="boards-page__card-link">
+              <h2 class="boards-page__card-title">{{ board.name }}</h2>
+              <p class="boards-page__card-meta">
+                {{ board.columnCount }} columns · {{ board.cardCount }} cards
+              </p>
+            </a>
+            <div class="boards-page__card-actions">
+              <button mat-icon-button (click)="remove(board.boardId, board.name)" aria-label="Delete board">
+                <mat-icon>delete_outline</mat-icon>
+              </button>
+            </div>
+          </mat-card>
+        </li>
+      }
+    </ul>
+  }
+</section>

@@ -1,0 +1,89 @@
+<section class="card-page">
+  <header class="card-page__header">
+    <a [routerLink]="['/boards', boardId]" mat-button class="card-page__back">
+      <mat-icon>arrow_back</mat-icon>
+      Board
+    </a>
+    <h1 class="card-page__title">Card detail</h1>
+  </header>
+
+  @if (errorMessage()) {
+    <div class="card-page__error" role="alert">{{ errorMessage() }}</div>
+  }
+  @if (helperMessage()) {
+    <div class="card-page__helper" role="status">{{ helperMessage() }}</div>
+  }
+
+  @if (card(); as activeCard) {
+    <mat-card appearance="outlined" class="card-page__panel">
+      <h2>Details</h2>
+      <form [formGroup]="editForm" (ngSubmit)="save()" class="card-page__form">
+        <mat-form-field appearance="outline">
+          <mat-label>Title</mat-label>
+          <input matInput formControlName="title" />
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Description</mat-label>
+          <textarea matInput rows="4" formControlName="description"></textarea>
+        </mat-form-field>
+        <div class="card-page__actions">
+          <button mat-flat-button color="primary" type="submit" [disabled]="isSaving()">Save changes</button>
+        </div>
+      </form>
+    </mat-card>
+
+    <mat-card appearance="outlined" class="card-page__panel">
+      <h2>Checklist</h2>
+      <ul class="card-page__checklist">
+        @for (item of activeCard.checklist; track item.checklistItemId) {
+          <li>
+            <mat-checkbox [checked]="item.isCompleted" (change)="toggleChecklistItem(item.checklistItemId, $event.checked)">
+              {{ item.text }}
+            </mat-checkbox>
+          </li>
+        } @empty {
+          <li class="card-page__empty">No checklist items yet.</li>
+        }
+      </ul>
+      <form [formGroup]="checklistForm" (ngSubmit)="addChecklistItem()" class="card-page__inline-form">
+        <mat-form-field appearance="outline" class="card-page__inline-field">
+          <mat-label>Add item</mat-label>
+          <input matInput formControlName="text" />
+        </mat-form-field>
+        <button mat-stroked-button type="submit">
+          <mat-icon>add</mat-icon>
+          Add
+        </button>
+      </form>
+    </mat-card>
+
+    <mat-card appearance="outlined" class="card-page__panel">
+      <h2>Comments</h2>
+      <ul class="card-page__comments">
+        @for (comment of activeCard.comments; track comment.commentId) {
+          <li class="card-page__comment">
+            <header>
+              <strong>{{ comment.authorDisplayName }}</strong>
+              <time>{{ comment.createdAtUtc | date:'medium' }}</time>
+            </header>
+            <p>{{ comment.body }}</p>
+          </li>
+        } @empty {
+          <li class="card-page__empty">No comments yet.</li>
+        }
+      </ul>
+      <form [formGroup]="commentForm" (ngSubmit)="addComment()" class="card-page__form">
+        <mat-form-field appearance="outline">
+          <mat-label>Add comment</mat-label>
+          <textarea matInput rows="3" formControlName="body"></textarea>
+        </mat-form-field>
+        <div class="card-page__actions">
+          <button mat-flat-button color="primary" type="submit">
+            <mat-icon>send</mat-icon>
+            Post comment
+          </button>
+        </div>
+      </form>
+    </mat-card>
+  }
+</section>
