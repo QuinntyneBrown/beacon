@@ -117,6 +117,15 @@ export class CardPageComponent implements OnInit {
     });
   }
 
+  checklistProgress(card: CardDetail): number {
+    if (card.checklistItems.length === 0) {
+      return 0;
+    }
+
+    const completed = card.checklistItems.filter((item) => item.isCompleted).length;
+    return Math.round((completed / card.checklistItems.length) * 100);
+  }
+
   private applyCard(card: CardDetail): void {
     this.card.set(card);
     this.editForm.reset({ title: card.title, description: card.description ?? '' });

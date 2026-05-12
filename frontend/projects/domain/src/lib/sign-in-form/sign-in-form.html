@@ -1,109 +1,110 @@
 <mat-card class="sign-in-form auth-card">
-  <div class="sign-in-form__header">
-    <span class="sign-in-form__logo" aria-hidden="true">B</span>
-    @if (mode() === 'sign-in') {
-      <h2 class="sign-in-form__title">Welcome back</h2>
-      <p class="sign-in-form__subtitle">Sign in to keep your boards, cards, and checklist progress in sync.</p>
-    } @else if (mode() === 'register') {
-      <h2 class="sign-in-form__title">Create your workspace</h2>
-      <p class="sign-in-form__subtitle">Start with one account and invite the team when the board is ready.</p>
-    } @else {
-      <h2 class="sign-in-form__title">Reset password</h2>
-      <p class="sign-in-form__subtitle">Request a reset token, then choose a new password.</p>
-    }
+  <div class="sign-in-form__header auth-brand">
+    <span class="sign-in-form__logo logo" aria-hidden="true">
+      <span class="material-symbols-rounded" aria-hidden="true">dashboard</span>
+    </span>
+    <span class="title-large">Beacon</span>
   </div>
 
   @if (authMode === 'local') {
-    <div class="sign-in-form__mode-switcher" aria-label="Authentication mode">
-      <button mat-button type="button" [class.is-active]="mode() === 'sign-in'" (click)="mode.set('sign-in')">Sign in</button>
-      <button mat-button type="button" [class.is-active]="mode() === 'register'" (click)="mode.set('register')">Register</button>
-      <button mat-button type="button" [class.is-active]="mode() === 'reset'" (click)="mode.set('reset')">Reset password</button>
-    </div>
-
     @if (mode() === 'sign-in') {
-      <form class="sign-in-form__panel" [formGroup]="signInForm" (ngSubmit)="signIn()">
-        <mat-form-field appearance="outline">
-          <mat-label>Email</mat-label>
-          <input matInput formControlName="email" autocomplete="email" />
+      <h2 class="sign-in-form__title">Welcome back</h2>
+      <p class="sign-in-form__subtitle sub">Sign in to keep your team's work moving.</p>
+
+      <form class="sign-in-form__panel form-stack" [formGroup]="signInForm" (ngSubmit)="signIn()">
+        <mat-form-field appearance="outline" class="text-field outlined focused">
+          <mat-label class="floating-label">Email address</mat-label>
+          <input matInput class="field input" aria-label="Email address" formControlName="email" autocomplete="email" />
+          <mat-hint class="supporting">Enter a valid email address.</mat-hint>
         </mat-form-field>
-        <mat-form-field appearance="outline">
-          <mat-label>Password</mat-label>
-          <input matInput type="password" formControlName="password" autocomplete="current-password" />
+        <mat-form-field appearance="outline" class="text-field outlined">
+          <mat-label class="floating-label">Password</mat-label>
+          <input matInput class="field input" aria-label="Password At least 8 characters." type="password" formControlName="password" autocomplete="current-password" />
+          <mat-hint class="supporting">At least 8 characters.</mat-hint>
         </mat-form-field>
-        <div class="sign-in-form__assist-row">
+        <div class="sign-in-form__assist-row row-between">
           <label class="sign-in-form__remember">
-            <input type="checkbox" />
-            <span>Remember me</span>
+            <span class="checkbox checked" aria-hidden="true"></span>
+            <span class="label-large">Remember me</span>
           </label>
           <a href="" (click)="$event.preventDefault(); mode.set('reset')">Forgot password?</a>
         </div>
-        <button mat-flat-button color="primary" type="submit" [disabled]="isBusy()">Sign in</button>
-        <div class="sign-in-form__divider"><span>or</span></div>
+        <button mat-flat-button color="primary" type="submit" class="btn btn-filled" [disabled]="isBusy()">Sign in</button>
+        <div class="sign-in-form__divider divider-text"><span>or</span></div>
         <div class="sign-in-form__external">
-          <button mat-stroked-button type="button">
-            <span aria-hidden="true">G</span>
-            Continue with Google
+          <button mat-stroked-button type="button" class="btn btn-outlined">
+            <span class="material-symbols-rounded" aria-hidden="true">mail</span>
+            Google
           </button>
-          <button mat-stroked-button type="button">
-            <span aria-hidden="true">GH</span>
-            Continue with GitHub
+          <button mat-stroked-button type="button" class="btn btn-outlined">
+            <span class="material-symbols-rounded" aria-hidden="true">code</span>
+            GitHub
           </button>
         </div>
+        <p class="sign-in-form__footer footer-text">New to Beacon? <a href="" class="label-large" (click)="$event.preventDefault(); mode.set('register')">Create an account</a></p>
       </form>
     }
 
     @if (mode() === 'register') {
-      <form class="sign-in-form__panel" [formGroup]="registerForm" (ngSubmit)="register()">
-        <mat-form-field appearance="outline">
+      <h2 class="sign-in-form__title">Create your workspace</h2>
+      <p class="sign-in-form__subtitle sub">Start with one account and invite the team when the board is ready.</p>
+
+      <form class="sign-in-form__panel form-stack" [formGroup]="registerForm" (ngSubmit)="register()">
+        <mat-form-field appearance="outline" class="text-field outlined">
           <mat-label>Email</mat-label>
-          <input matInput formControlName="email" autocomplete="email" />
+          <input matInput class="field input" formControlName="email" autocomplete="email" />
         </mat-form-field>
-        <mat-form-field appearance="outline">
+        <mat-form-field appearance="outline" class="text-field outlined">
           <mat-label>User name</mat-label>
-          <input matInput formControlName="userName" autocomplete="username" />
+          <input matInput class="field input" formControlName="userName" autocomplete="username" />
         </mat-form-field>
-        <mat-form-field appearance="outline">
+        <mat-form-field appearance="outline" class="text-field outlined">
           <mat-label>Display name</mat-label>
-          <input matInput formControlName="displayName" autocomplete="name" />
+          <input matInput class="field input" formControlName="displayName" autocomplete="name" />
         </mat-form-field>
-        <mat-form-field appearance="outline">
+        <mat-form-field appearance="outline" class="text-field outlined">
           <mat-label>Password</mat-label>
-          <input matInput type="password" formControlName="password" autocomplete="new-password" />
+          <input matInput class="field input" type="password" formControlName="password" autocomplete="new-password" />
         </mat-form-field>
-        <button mat-flat-button color="primary" type="submit" [disabled]="isBusy()">Create account</button>
+        <button mat-flat-button color="primary" type="submit" class="btn btn-filled" [disabled]="isBusy()">Create account</button>
+        <p class="sign-in-form__footer footer-text">Already have an account? <a href="" class="label-large" (click)="$event.preventDefault(); mode.set('sign-in')">Sign in</a></p>
       </form>
     }
 
     @if (mode() === 'reset') {
-      <form class="sign-in-form__panel" [formGroup]="resetForm" (ngSubmit)="resetPassword()">
-        <mat-form-field appearance="outline">
+      <h2 class="sign-in-form__title">Reset password</h2>
+      <p class="sign-in-form__subtitle sub">Request a reset token, then choose a new password.</p>
+
+      <form class="sign-in-form__panel form-stack" [formGroup]="resetForm" (ngSubmit)="resetPassword()">
+        <mat-form-field appearance="outline" class="text-field outlined">
           <mat-label>Email</mat-label>
-          <input matInput formControlName="email" autocomplete="email" />
+          <input matInput class="field input" formControlName="email" autocomplete="email" />
         </mat-form-field>
         <div class="sign-in-form__action-row">
-          <button mat-stroked-button type="button" (click)="requestReset()" [disabled]="isBusy()">Request reset token</button>
+          <button mat-stroked-button type="button" class="btn btn-outlined" (click)="requestReset()" [disabled]="isBusy()">Request reset token</button>
         </div>
-        <mat-form-field appearance="outline">
+        <mat-form-field appearance="outline" class="text-field outlined">
           <mat-label>Reset token</mat-label>
-          <input matInput formControlName="resetToken" />
+          <input matInput class="field input" formControlName="resetToken" />
         </mat-form-field>
-        <mat-form-field appearance="outline">
+        <mat-form-field appearance="outline" class="text-field outlined">
           <mat-label>New password</mat-label>
-          <input matInput type="password" formControlName="password" autocomplete="new-password" />
+          <input matInput class="field input" type="password" formControlName="password" autocomplete="new-password" />
         </mat-form-field>
-        <button mat-flat-button color="primary" type="submit" [disabled]="isBusy()">Reset password</button>
+        <button mat-flat-button color="primary" type="submit" class="btn btn-filled" [disabled]="isBusy()">Reset password</button>
+        <p class="sign-in-form__footer footer-text">Remembered it? <a href="" class="label-large" (click)="$event.preventDefault(); mode.set('sign-in')">Sign in</a></p>
       </form>
     }
   } @else {
     <div class="sign-in-form__panel">
-      <p class="sign-in-form__body-copy">This environment is configured for external OIDC sign-in.</p>
-      <button mat-flat-button color="primary" type="button" (click)="signInWithOidc()">Continue with OIDC</button>
+      <p class="sign-in-form__body-copy supporting">This environment is configured for external OIDC sign-in.</p>
+      <button mat-flat-button color="primary" type="button" class="btn btn-filled" (click)="signInWithOidc()">Continue with OIDC</button>
     </div>
   }
 
   @if (helperMessage()) {
     <mat-divider></mat-divider>
-    <p class="sign-in-form__helper">{{ helperMessage() }}</p>
+    <p class="sign-in-form__helper supporting">{{ helperMessage() }}</p>
   }
 
   @if (errorMessage()) {

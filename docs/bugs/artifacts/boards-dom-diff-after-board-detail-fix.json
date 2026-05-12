@@ -1,0 +1,112 @@
+{
+  "generatedAt": "2026-05-12T00:56:37.079Z",
+  "pages": {
+    "boards-mobile": {
+      "missingClasses": [],
+      "missingButtons": [],
+      "missingHeadings": [],
+      "missingInputs": [],
+      "countDiffs": {
+        "buttons": {
+          "mock": 19,
+          "live": 37
+        },
+        "links": {
+          "mock": 0,
+          "live": 9
+        },
+        "inputs": {
+          "mock": 1,
+          "live": 2
+        },
+        "icons": {
+          "mock": 57,
+          "live": 64
+        },
+        "cards": {
+          "mock": 5,
+          "live": 3
+        }
+      }
+    },
+    "boards-tablet": {
+      "missingClasses": [],
+      "missingButtons": [],
+      "missingHeadings": [],
+      "missingInputs": [],
+      "countDiffs": {
+        "buttons": {
+          "mock": 19,
+          "live": 37
+        },
+        "links": {
+          "mock": 0,
+          "live": 9
+        },
+        "inputs": {
+          "mock": 1,
+          "live": 2
+        },
+        "icons": {
+          "mock": 57,
+          "live": 64
+        },
+        "cards": {
+          "mock": 5,
+          "live": 3
+        }
+      }
+    },
+    "boards-desktop": {
+      "missingClasses": [],
+      "missingButtons": [],
+      "missingHeadings": [],
+      "missingInputs": [],
+      "countDiffs": {
+        "buttons": {
+          "mock": 19,
+          "live": 37
+        },
+        "links": {
+          "mock": 0,
+          "live": 9
+        },
+        "inputs": {
+          "mock": 1,
+          "live": 2
+        },
+        "icons": {
+          "mock": 57,
+          "live": 64
+        },
+        "cards": {
+          "mock": 5,
+          "live": 3
+        }
+      }
+    }
+  },
+  "summary": {
+    "boards-mobile": {
+      "missingClasses": 0,
+      "missingButtons": 0,
+      "missingHeadings": 0,
+      "missingInputs": 0,
+      "countDiffs": 5
+    },
+    "boards-tablet": {
+      "missingClasses": 0,
+      "missingButtons": 0,
+      "missingHeadings": 0,
+      "missingInputs": 0,
+      "countDiffs": 5
+    },
+    "boards-desktop": {
+      "missingClasses": 0,
+      "missingButtons": 0,
+      "missingHeadings": 0,
+      "missingInputs": 0,
+      "countDiffs": 5
+    }
+  }
+}

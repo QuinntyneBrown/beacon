@@ -39,9 +39,17 @@
   flex: 0 0 auto;
 }
 
+.board-toolbar__spacer {
+  flex: 1 1 auto;
+}
+
 .board-page__error {
   color: var(--beacon-color-danger);
   background: color-mix(in srgb, var(--beacon-color-danger) 10%, transparent);
   border-radius: var(--beacon-radius-md);
   padding: var(--beacon-space-3) var(--beacon-space-4);
+}
+
+.board-page__quick-add {
+  width: fit-content;
 }

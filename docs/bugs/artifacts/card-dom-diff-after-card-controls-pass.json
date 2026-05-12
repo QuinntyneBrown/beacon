@@ -1,0 +1,145 @@
+{
+  "generatedAt": "2026-05-12T01:07:00.228Z",
+  "pages": {
+    "card-mobile": {
+      "missingClasses": [
+        "body",
+        "done",
+        "headline",
+        "supporting",
+        "text"
+      ],
+      "missingButtons": [
+        "visibilityWatch"
+      ],
+      "missingHeadings": [
+        "Fixdrag-and-dropscrollonlongboards",
+        "checklistChecklist3of5"
+      ],
+      "missingInputs": [],
+      "countDiffs": {
+        "buttons": {
+          "mock": 14,
+          "live": 33
+        },
+        "links": {
+          "mock": 4,
+          "live": 9
+        },
+        "inputs": {
+          "mock": 1,
+          "live": 4
+        },
+        "icons": {
+          "mock": 59,
+          "live": 66
+        },
+        "cards": {
+          "mock": 0,
+          "live": 8
+        }
+      }
+    },
+    "card-tablet": {
+      "missingClasses": [
+        "body",
+        "done",
+        "headline",
+        "supporting",
+        "text"
+      ],
+      "missingButtons": [
+        "visibilityWatch"
+      ],
+      "missingHeadings": [
+        "Fixdrag-and-dropscrollonlongboards",
+        "checklistChecklist3of5"
+      ],
+      "missingInputs": [],
+      "countDiffs": {
+        "buttons": {
+          "mock": 14,
+          "live": 33
+        },
+        "links": {
+          "mock": 4,
+          "live": 9
+        },
+        "inputs": {
+          "mock": 1,
+          "live": 4
+        },
+        "icons": {
+          "mock": 59,
+          "live": 66
+        },
+        "cards": {
+          "mock": 0,
+          "live": 8
+        }
+      }
+    },
+    "card-desktop": {
+      "missingClasses": [
+        "body",
+        "done",
+        "headline",
+        "supporting",
+        "text"
+      ],
+      "missingButtons": [
+        "visibilityWatch"
+      ],
+      "missingHeadings": [
+        "Fixdrag-and-dropscrollonlongboards",
+        "checklistChecklist3of5"
+      ],
+      "missingInputs": [],
+      "countDiffs": {
+        "buttons": {
+          "mock": 14,
+          "live": 33
+        },
+        "links": {
+          "mock": 4,
+          "live": 9
+        },
+        "inputs": {
+          "mock": 1,
+          "live": 4
+        },
+        "icons": {
+          "mock": 59,
+          "live": 66
+        },
+        "cards": {
+          "mock": 0,
+          "live": 8
+        }
+      }
+    }
+  },
+  "summary": {
+    "card-mobile": {
+      "missingClasses": 5,
+      "missingButtons": 1,
+      "missingHeadings": 2,
+      "missingInputs": 0,
+      "countDiffs": 5
+    },
+    "card-tablet": {
+      "missingClasses": 5,
+      "missingButtons": 1,
+      "missingHeadings": 2,
+      "missingInputs": 0,
+      "countDiffs": 5
+    },
+    "card-desktop": {
+      "missingClasses": 5,
+      "missingButtons": 1,
+      "missingHeadings": 2,
+      "missingInputs": 0,
+      "countDiffs": 5
+    }
+  }
+}

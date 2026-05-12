@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, inject, OnInit, signal } from '@angular/core';
+import { Component, computed, ElementRef, inject, OnInit, signal, viewChild } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
@@ -17,9 +17,19 @@ import { BOARDS_STATE_SERVICE } from 'domain';
 })
 export class BoardsPageComponent implements OnInit {
   readonly boards = inject(BOARDS_STATE_SERVICE).boards;
+  readonly filteredBoards = computed(() => {
+    const term = this.searchTerm().trim().toLowerCase();
+    if (!term) {
+      return this.boards();
+    }
+
+    return this.boards().filter((board) => board.name.toLowerCase().includes(term));
+  });
   readonly isLoading = inject(BOARDS_STATE_SERVICE).isLoading;
   readonly errorMessage = signal('');
   readonly creating = signal(false);
+  readonly searchTerm = signal('');
+  readonly createInput = viewChild<ElementRef<HTMLInputElement>>('newBoardInput');
 
   readonly createForm = inject(FormBuilder).nonNullable.group({
     name: ['', [Validators.required, Validators.maxLength(120)]]
@@ -62,5 +72,10 @@ export class BoardsPageComponent implements OnInit {
     this.boardsState.delete(boardId).subscribe({
       error: (error) => this.errorMessage.set(error.error?.detail ?? 'Unable to delete the board.')
     });
+  }
+
+  focusCreateField(): void {
+    this.createInput()?.nativeElement.scrollIntoView({ block: 'center', behavior: 'smooth' });
+    setTimeout(() => this.createInput()?.nativeElement.focus());
   }
 }

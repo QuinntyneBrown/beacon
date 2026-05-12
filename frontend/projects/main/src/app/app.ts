@@ -20,4 +20,8 @@ export class App {
   signOut(): void {
     this.sessionService.signOut().subscribe(() => this.router.navigateByUrl('/sign-in'));
   }
+
+  createActionLabel(): string {
+    return /^\/boards\/[^/]+/.test(this.router.url) ? 'New card' : 'New board';
+  }
 }

@@ -2,13 +2,18 @@
   <section class="kanban-board">
     <div class="kanban-board__grid board-columns" cdkDropListGroup>
       @for (column of activeBoard.columns; track column.columnId; let columnIndex = $index) {
-        <mat-card class="kanban-board__column kanban-column">
-          <div class="kanban-board__column-header">
+        <mat-card
+          class="kanban-board__column kanban-column"
+          [class.col-todo]="columnIndex === 0"
+          [class.col-progress]="columnIndex === 1"
+          [class.col-review]="columnIndex === 2"
+          [class.col-done]="columnIndex === activeBoard.columns.length - 1">
+          <div class="kanban-board__column-header column-header">
             <div class="kanban-board__column-heading">
               <span class="col-dot" aria-hidden="true"></span>
               <h2 class="kanban-board__column-title">{{ column.name }}</h2>
             </div>
-            <span class="label-pill">{{ column.cards.length }} cards</span>
+            <span class="label-pill count">{{ column.cards.length }} cards</span>
           </div>
 
           <div
@@ -19,23 +24,29 @@
             @for (card of column.cards; track card.cardId) {
               <mat-card class="kanban-board__card kanban-card" cdkDrag [cdkDragData]="card">
                 <a class="kanban-board__card-link" [routerLink]="['/boards', activeBoard.boardId, 'cards', card.cardId]">
-                  <div class="kanban-card__labels" aria-label="Card labels">
-                    <span class="label-pill label-pill--accent">Product</span>
-                    <span class="label-pill">P{{ columnIndex + 1 }}</span>
+                  <div class="kanban-card__labels card-labels" aria-label="Card labels">
+                    <span class="label-pill label label-feature label-pill--accent">Product</span>
+                    <span class="label-pill label label-design">P{{ columnIndex + 1 }}</span>
+                    <span class="label-pill label label-bug" aria-label="Bug"></span>
+                    <span class="label-pill label label-research" aria-label="Research"></span>
+                    <span class="label-pill label label-docs" aria-label="Docs"></span>
                   </div>
-                  <h3 class="kanban-board__card-title">{{ card.title }}</h3>
+                  <h3 class="kanban-board__card-title card-title">{{ card.title }}</h3>
                   @if (card.description) {
                     <p class="kanban-board__card-description">{{ card.description }}</p>
                   }
-                  <div class="kanban-card__meta">
-                    <span>
-                      <mat-icon>checklist</mat-icon>
+                  <div class="kanban-card__meta card-meta meta-left">
+                    <span class="meta-item">
+                      <mat-icon class="material-symbols-rounded">checklist</mat-icon>
                       0/0
                     </span>
-                    <span>
-                      <mat-icon>chat_bubble_outline</mat-icon>
+                    <span class="meta-item">
+                      <mat-icon class="material-symbols-rounded">chat_bubble_outline</mat-icon>
                       0
                     </span>
+                  </div>
+                  <div class="progress" aria-hidden="true">
+                    <span style="width: 56%"></span>
                   </div>
                 </a>
               </mat-card>
@@ -54,7 +65,7 @@
               <textarea matInput rows="2" [ngModel]="draftDescription(column.columnId)" (ngModelChange)="updateDraftDescription(column.columnId, $event)"></textarea>
             </mat-form-field>
             <button mat-flat-button color="primary" type="button" [disabled]="isBusy()" (click)="createCard(column.columnId)">
-              <mat-icon>add</mat-icon>
+              <mat-icon class="material-symbols-rounded">add</mat-icon>
               Add card
             </button>
           </div>

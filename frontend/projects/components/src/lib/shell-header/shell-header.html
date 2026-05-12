@@ -1,22 +1,37 @@
-<mat-toolbar class="shell-header top-app-bar">
-  <div class="shell-header__brand">
-    <span class="shell-header__logo" aria-hidden="true">B</span>
+<mat-toolbar class="shell-header top-app-bar scrolled">
+  <button mat-icon-button type="button" class="leading icon-btn" aria-label="Menu">
+    <mat-icon>menu</mat-icon>
+  </button>
+
+  <div class="shell-header__brand brand">
+    <span class="shell-header__logo logo" aria-hidden="true">B</span>
     <div class="shell-header__brand-text">
       <span class="shell-header__title">{{ title() }}</span>
       <span class="shell-header__subtitle">Radically simple Kanban</span>
     </div>
   </div>
 
+  <div class="shell-header__page-title title">Beacon Web App</div>
+
   @if (isAuthenticated()) {
-    <div class="shell-header__actions">
+    <div class="shell-header__actions trailing">
       <button mat-icon-button type="button" aria-label="Search">
         <mat-icon>search</mat-icon>
       </button>
+      <button mat-icon-button type="button" aria-label="Star">
+        <mat-icon>star</mat-icon>
+      </button>
+      <button mat-icon-button type="button" aria-label="Filter">
+        <mat-icon>filter_list</mat-icon>
+      </button>
       <button mat-icon-button type="button" aria-label="Notifications">
-        <mat-icon>notifications_none</mat-icon>
+        <span class="icon-with-badge">
+          <mat-icon>notifications_none</mat-icon>
+          <span class="badge">3</span>
+        </span>
       </button>
       <div class="shell-header__identity" aria-label="Signed in user">
-        <span class="shell-header__avatar" aria-hidden="true">{{ displayName().slice(0, 1) || 'U' }}</span>
+        <span class="shell-header__avatar avatar sm" aria-hidden="true">{{ displayName().slice(0, 1) || 'U' }}</span>
         <div class="shell-header__user">
           <span class="shell-header__name">{{ displayName() }}</span>
           <mat-chip-set aria-label="roles">

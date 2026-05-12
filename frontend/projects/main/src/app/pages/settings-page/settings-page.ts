@@ -9,104 +9,178 @@ type PreferenceKey = 'emailNotifications' | 'pushNotifications' | 'compactCards'
   template: `
     <section class="settings-page">
       <header class="settings-page__header page-header">
-        <div>
-          <p class="page-kicker">Workspace</p>
+        <div class="titles">
+          <p class="page-kicker label">Workspace</p>
           <h1 class="page-title">Settings</h1>
-          <p class="page-subtitle">Manage account details and workspace preferences.</p>
+          <p class="page-subtitle body-medium">Manage your profile, workspace, and notifications</p>
         </div>
-        <button type="button" class="settings-page__save">Save changes</button>
+        <div class="settings-page__header-actions trailing">
+          <button type="button" class="settings-page__help icon-btn" aria-label="Help">
+            <span class="material-symbols-rounded" aria-hidden="true">help</span>
+          </button>
+          <button type="button" class="settings-page__save btn btn-filled with-icon">
+            <span class="material-symbols-rounded" aria-hidden="true">save</span>
+            Save changes
+          </button>
+        </div>
       </header>
 
       <div class="settings-grid">
-        <nav class="settings-nav" aria-label="Settings sections">
-          <a href="#account" class="is-active">Account</a>
-          <a href="#notifications">Notifications</a>
-          <a href="#appearance">Appearance</a>
-          <a href="#danger">Danger zone</a>
+        <nav class="settings-nav card outlined" aria-label="Settings sections">
+          <a href="#account" class="list-item is-active active">
+            <span class="leading"><span class="icon-wrap"><span class="material-symbols-rounded" aria-hidden="true">person</span></span></span>
+            <span class="meta"><span class="headline">Profile</span></span>
+          </a>
+          <a href="#notifications" class="list-item">
+            <span class="leading"><span class="icon-wrap"><span class="material-symbols-rounded" aria-hidden="true">notifications</span></span></span>
+            <span class="meta"><span class="headline">Notifications</span></span>
+          </a>
+          <a href="#appearance" class="list-item">
+            <span class="leading"><span class="icon-wrap"><span class="material-symbols-rounded" aria-hidden="true">palette</span></span></span>
+            <span class="meta"><span class="headline">Appearance</span></span>
+          </a>
+          <a href="#workspace" class="list-item">
+            <span class="leading"><span class="icon-wrap"><span class="material-symbols-rounded" aria-hidden="true">workspaces</span></span></span>
+            <span class="meta"><span class="headline">Workspace</span></span>
+          </a>
+          <a href="#security" class="list-item">
+            <span class="leading"><span class="icon-wrap"><span class="material-symbols-rounded" aria-hidden="true">vpn_key</span></span></span>
+            <span class="meta"><span class="headline">Security</span></span>
+          </a>
+          <a href="#billing" class="list-item">
+            <span class="leading"><span class="icon-wrap"><span class="material-symbols-rounded" aria-hidden="true">credit_card</span></span></span>
+            <span class="meta"><span class="headline">Billing</span></span>
+          </a>
         </nav>
 
         <div class="settings-page__content">
           <section id="account" class="section-block settings-page__section">
             <div class="settings-page__section-heading">
-              <h2 class="section-title">Profile</h2>
+              <h2 class="section-title title-medium"><span class="material-symbols-rounded" aria-hidden="true">person</span>Profile</h2>
               <span class="label-pill">Profile</span>
             </div>
             <lib-profile-panel />
+            <div class="settings-page__profile-extra">
+              <label class="text-field outlined">
+                <span class="field">
+                  <input aria-label="Email" type="email" value="demo@beacon.local" />
+                  <span class="floating-label">Email</span>
+                </span>
+                <span class="supporting">Used for sign-in and notifications.</span>
+              </label>
+              <label class="text-field outlined">
+                <span class="field">
+                  <textarea aria-label="Bio" rows="3">Engineer working on the Beacon kanban experience. Coffee, kayaks, kanban.</textarea>
+                  <span class="floating-label">Bio</span>
+                </span>
+              </label>
+              <p class="settings-page__supporting">Engineer working on the Beacon kanban experience.</p>
+            </div>
           </section>
 
           <section id="notifications" class="section-block settings-page__section">
             <div class="settings-page__section-heading">
-              <h2 class="section-title">Notifications</h2>
+              <h2 class="section-title title-medium"><span class="material-symbols-rounded" aria-hidden="true">notifications</span>Notifications</h2>
               <span class="label-pill">Synced locally</span>
             </div>
-            <div class="settings-page__option">
-              <div>
-                <strong>Email updates</strong>
-                <p>Card assignments, mentions, and board activity.</p>
+            <div class="settings-page__option settings-row">
+              <div class="meta">
+                <div class="headline">Email digest</div>
+                <p class="supporting">A weekly summary of board activity, sent Monday morning.</p>
               </div>
-              <label class="settings-page__switch">
+              <label class="settings-page__switch switch">
                 <input
                   type="checkbox"
                   aria-label="Email updates"
                   [checked]="preference('emailNotifications')"
                   (change)="setPreference('emailNotifications', $any($event.target).checked)" />
-                <span></span>
+                <span class="track"><span class="thumb"></span></span>
               </label>
             </div>
-            <div class="settings-page__option">
-              <div>
-                <strong>Push notifications</strong>
-                <p>Browser alerts for urgent board updates.</p>
+            <div class="settings-page__option settings-row">
+              <div class="meta">
+                <div class="headline">Mentions and assignments</div>
+                <p class="supporting">Push notifications when you're @mentioned or assigned a card.</p>
               </div>
-              <label class="settings-page__switch">
+              <label class="settings-page__switch switch">
                 <input
                   type="checkbox"
                   aria-label="Push notifications"
                   [checked]="preference('pushNotifications')"
                   (change)="setPreference('pushNotifications', $any($event.target).checked)" />
-                <span></span>
+                <span class="track"><span class="thumb"></span></span>
               </label>
             </div>
           </section>
 
           <section id="appearance" class="section-block settings-page__section">
             <div class="settings-page__section-heading">
-              <h2 class="section-title">Appearance</h2>
+              <h2 class="section-title title-medium"><span class="material-symbols-rounded" aria-hidden="true">palette</span>Appearance</h2>
               <span class="label-pill">Device ready</span>
             </div>
-            <div class="settings-page__option">
-              <div>
-                <strong>Compact cards</strong>
-                <p>Reduce card spacing on dense boards.</p>
+            <div class="settings-page__segmented" aria-label="Theme">
+              <button type="button" class="chip is-active active selected" aria-label="Light">
+                <span class="material-symbols-rounded" aria-hidden="true">light_mode</span>
+                Light
+              </button>
+              <button type="button" class="chip" aria-label="Dark">
+                <span class="material-symbols-rounded" aria-hidden="true">dark_mode</span>
+                Dark
+              </button>
+              <button type="button" class="chip" aria-label="System">
+                <span class="material-symbols-rounded" aria-hidden="true">contrast</span>
+                System
+              </button>
+            </div>
+            <div class="settings-page__option settings-row">
+              <div class="meta">
+                <div class="headline">Compact density</div>
+                <p class="supporting">Show more cards per column on large screens.</p>
               </div>
-              <label class="settings-page__switch">
+              <label class="settings-page__switch switch">
                 <input
                   type="checkbox"
                   aria-label="Compact cards"
                   [checked]="preference('compactCards')"
                   (change)="setPreference('compactCards', $any($event.target).checked)" />
-                <span></span>
+                <span class="track"><span class="thumb"></span></span>
               </label>
             </div>
-            <div class="settings-page__option">
-              <div>
-                <strong>High contrast</strong>
-                <p>Increase outlines and label contrast.</p>
+            <div class="settings-page__option settings-row">
+              <div class="meta">
+                <div class="headline">High contrast</div>
+                <p class="supporting">Increase outlines and label contrast.</p>
               </div>
-              <label class="settings-page__switch">
+              <label class="settings-page__switch switch">
                 <input
                   type="checkbox"
                   aria-label="High contrast"
                   [checked]="preference('highContrast')"
                   (change)="setPreference('highContrast', $any($event.target).checked)" />
-                <span></span>
+                <span class="track"><span class="thumb"></span></span>
               </label>
             </div>
           </section>
 
+          <section id="security" class="section-block settings-page__section">
+            <div class="settings-page__section-heading">
+              <h2 class="section-title title-medium"><span class="material-symbols-rounded" aria-hidden="true">shield</span>Security</h2>
+              <span class="label-pill">Protected</span>
+            </div>
+            <p class="settings-page__supporting">Manage sessions, recovery options, and workspace access.</p>
+          </section>
+
+          <section id="billing" class="section-block settings-page__section">
+            <div class="settings-page__section-heading">
+              <h2 class="section-title title-medium"><span class="material-symbols-rounded" aria-hidden="true">receipt_long</span>Billing</h2>
+              <span class="label-pill">Workspace</span>
+            </div>
+            <p class="settings-page__supporting">Plan details and invoices appear here for paid workspaces.</p>
+          </section>
+
           <section id="danger" class="section-block settings-page__section settings-page__section--danger">
             <div class="settings-page__section-heading">
-              <h2 class="section-title">Danger zone</h2>
+              <h2 class="section-title title-medium"><span class="material-symbols-rounded" aria-hidden="true">warning</span>Danger zone</h2>
               <span class="label-pill">Irreversible</span>
             </div>
             <p>Account deletion is available from the Account panel after confirmation.</p>
@@ -124,6 +198,9 @@ type PreferenceKey = 'emailNotifications' | 'pushNotifications' | 'compactCards'
     }
 
     .settings-page__save {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--beacon-space-2);
       min-height: 2.5rem;
       border: 0;
       border-radius: 999px;
@@ -132,6 +209,30 @@ type PreferenceKey = 'emailNotifications' | 'pushNotifications' | 'compactCards'
       background: var(--beacon-color-primary);
       font-weight: 700;
       cursor: pointer;
+    }
+
+    .settings-page__header-actions {
+      display: flex;
+      gap: var(--beacon-space-2);
+      flex-wrap: wrap;
+    }
+
+    .settings-page__help {
+      display: inline-grid;
+      place-items: center;
+      width: 2.5rem;
+      height: 2.5rem;
+      min-height: 2.5rem;
+      border: 1px solid var(--beacon-color-outline);
+      border-radius: 50%;
+      padding: 0;
+      color: var(--beacon-color-primary);
+      background: transparent;
+      cursor: pointer;
+    }
+
+    .settings-page__header .titles {
+      min-width: 0;
     }
 
     .settings-grid {
@@ -150,7 +251,10 @@ type PreferenceKey = 'emailNotifications' | 'pushNotifications' | 'compactCards'
       box-shadow: var(--beacon-shadow-1);
     }
 
-    .settings-nav a {
+    .settings-nav .list-item {
+      display: flex;
+      align-items: center;
+      gap: var(--beacon-space-3);
       flex: 0 0 auto;
       min-height: 2.5rem;
       border-radius: 999px;
@@ -161,15 +265,111 @@ type PreferenceKey = 'emailNotifications' | 'pushNotifications' | 'compactCards'
     }
 
     .settings-nav .is-active,
-    .settings-nav a:hover {
+    .settings-nav .list-item:hover {
       color: var(--beacon-color-on-surface);
       background: var(--beacon-color-primary-container);
+    }
+
+    .settings-nav .leading,
+    .settings-nav .icon-wrap {
+      display: inline-grid;
+      place-items: center;
+    }
+
+    .settings-nav .icon-wrap {
+      width: 2rem;
+      height: 2rem;
+      border-radius: 50%;
+    }
+
+    .settings-nav .headline {
+      font-weight: 650;
     }
 
     .settings-page__content {
       display: grid;
       gap: var(--beacon-space-4);
       min-width: 0;
+    }
+
+    .settings-page__profile-extra {
+      display: grid;
+      gap: var(--beacon-space-3);
+      padding-top: var(--beacon-space-2);
+      border-top: 1px solid color-mix(in srgb, var(--beacon-color-outline) 55%, transparent);
+    }
+
+    .settings-page__profile-extra label {
+      display: grid;
+      gap: 0.25rem;
+      color: var(--beacon-color-on-surface-variant);
+      font-size: 0.8125rem;
+      font-weight: 650;
+    }
+
+    .settings-page .text-field.outlined .field {
+      position: relative;
+      display: block;
+    }
+
+    .settings-page__profile-extra input,
+    .settings-page__profile-extra textarea {
+      width: 100%;
+      border: 1px solid var(--beacon-color-outline);
+      border-radius: var(--beacon-radius-sm);
+      padding: 1.35rem var(--beacon-space-3) var(--beacon-space-2);
+      color: var(--beacon-color-on-surface);
+      background: var(--beacon-color-surface);
+      font: inherit;
+    }
+
+    .settings-page .floating-label {
+      position: absolute;
+      top: 0.35rem;
+      left: var(--beacon-space-3);
+      color: var(--beacon-color-primary);
+      font-size: 0.75rem;
+      line-height: 1;
+      pointer-events: none;
+    }
+
+    .settings-page .supporting {
+      color: var(--beacon-color-on-surface-variant);
+      font-size: 0.8125rem;
+      line-height: 1.35;
+    }
+
+    .settings-page__segmented {
+      display: flex;
+      gap: var(--beacon-space-2);
+      width: fit-content;
+      flex-wrap: wrap;
+      margin-bottom: var(--beacon-space-4);
+    }
+
+    .settings-page__segmented button {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--beacon-space-2);
+      min-height: 2.5rem;
+      border: 1px solid var(--beacon-color-outline);
+      border-radius: 999px;
+      padding: 0 var(--beacon-space-4);
+      color: var(--beacon-color-primary);
+      background: transparent;
+      font: inherit;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .settings-page__segmented .is-active {
+      color: var(--beacon-color-on-surface);
+      background: var(--beacon-color-primary-container);
+    }
+
+    .settings-row .headline {
+      color: var(--beacon-color-on-surface);
+      font-weight: 700;
     }
 
     .settings-page__section {
@@ -182,6 +382,17 @@ type PreferenceKey = 'emailNotifications' | 'pushNotifications' | 'compactCards'
       align-items: center;
       justify-content: space-between;
       gap: var(--beacon-space-4);
+    }
+
+    .settings-page__section-heading h2 {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--beacon-space-2);
+    }
+
+    .settings-page__section-heading .material-symbols-rounded {
+      color: var(--beacon-color-primary);
+      font-size: 1.25rem;
     }
 
     .settings-page__option {
@@ -200,9 +411,14 @@ type PreferenceKey = 'emailNotifications' | 'pushNotifications' | 'compactCards'
     }
 
     .settings-page__option p,
-    .settings-page__section--danger p {
+    .settings-page__section--danger p,
+    .settings-page__supporting {
       margin-top: 0.25rem;
       color: var(--beacon-color-on-surface-variant);
+    }
+
+    .settings-page__supporting {
+      margin-bottom: 0;
     }
 
     .settings-page__switch {
@@ -219,15 +435,14 @@ type PreferenceKey = 'emailNotifications' | 'pushNotifications' | 'compactCards'
       opacity: 0;
     }
 
-    .settings-page__switch span {
+    .settings-page__switch .track {
       width: 100%;
       border-radius: 999px;
       background: var(--beacon-color-surface-container-highest);
       transition: background 160ms ease;
     }
 
-    .settings-page__switch span::after {
-      content: '';
+    .settings-page__switch .thumb {
       position: absolute;
       top: 0.25rem;
       left: 0.25rem;
@@ -239,11 +454,11 @@ type PreferenceKey = 'emailNotifications' | 'pushNotifications' | 'compactCards'
       transition: transform 160ms ease;
     }
 
-    .settings-page__switch input:checked + span {
+    .settings-page__switch input:checked + .track {
       background: var(--beacon-color-primary);
     }
 
-    .settings-page__switch input:checked + span::after {
+    .settings-page__switch input:checked + .track .thumb {
       transform: translateX(1.25rem);
     }
 

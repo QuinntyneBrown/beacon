@@ -5,7 +5,7 @@ export class CardPage {
   constructor(private readonly page: Page) {}
 
   async expectLoaded(title: string): Promise<void> {
-    await expect(this.page.getByRole('heading', { name: 'Card detail' })).toBeVisible();
+    await expect(this.page.getByRole('heading', { name: title })).toBeVisible();
     await expect(this.page.getByLabel('Title')).toHaveValue(title);
   }
 

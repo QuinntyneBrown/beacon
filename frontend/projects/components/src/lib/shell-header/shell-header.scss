@@ -8,8 +8,7 @@
 .shell-header {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: var(--beacon-space-3);
+  gap: var(--beacon-space-1);
   height: 4rem;
   min-height: 4rem;
   padding: 0 var(--beacon-space-3);
@@ -23,6 +22,7 @@
   align-items: center;
   gap: var(--beacon-space-2);
   min-width: 0;
+  margin-right: var(--beacon-space-2);
 }
 
 .shell-header__logo {
@@ -56,12 +56,44 @@
   line-height: 1.2;
 }
 
+.shell-header__page-title {
+  flex: 1;
+  overflow: hidden;
+  padding-inline: var(--beacon-space-2);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 1.25rem;
+  font-weight: 650;
+}
+
 .shell-header__actions {
   display: flex;
   align-items: center;
   justify-content: flex-end;
   gap: var(--beacon-space-1);
   min-width: 0;
+}
+
+.icon-with-badge {
+  position: relative;
+  display: inline-flex;
+}
+
+.badge {
+  position: absolute;
+  top: -0.35rem;
+  right: -0.35rem;
+  display: inline-grid;
+  place-items: center;
+  min-width: 1rem;
+  height: 1rem;
+  border-radius: 999px;
+  padding: 0 0.25rem;
+  color: #ffffff;
+  background: var(--beacon-color-danger);
+  font-size: 0.625rem;
+  font-weight: 800;
+  line-height: 1;
 }
 
 .shell-header__identity {
@@ -114,5 +146,13 @@
 
   .shell-header__identity {
     display: flex;
+  }
+}
+
+@media (max-width: 40rem) {
+  .shell-header__page-title,
+  .shell-header__actions button[aria-label='Star'],
+  .shell-header__actions button[aria-label='Filter'] {
+    display: none;
   }
 }

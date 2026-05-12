@@ -1,0 +1,160 @@
+{
+  "generatedAt": "2026-05-12T00:57:20.684Z",
+  "pages": {
+    "board-mobile": {
+      "missingClasses": [
+        "icon-wrap",
+        "label-bug",
+        "label-docs",
+        "label-research",
+        "leading",
+        "sm",
+        "titles",
+        "trailing"
+      ],
+      "missingButtons": [
+        "Addcard",
+        "Back",
+        "addNewcard",
+        "view_columnBoard"
+      ],
+      "missingHeadings": [
+        "BeaconWebApp"
+      ],
+      "missingInputs": [],
+      "countDiffs": {
+        "buttons": {
+          "mock": 19,
+          "live": 31
+        },
+        "links": {
+          "mock": 0,
+          "live": 9
+        },
+        "inputs": {
+          "mock": 0,
+          "live": 6
+        },
+        "icons": {
+          "mock": 78,
+          "live": 56
+        },
+        "cards": {
+          "mock": 12,
+          "live": 4
+        }
+      }
+    },
+    "board-tablet": {
+      "missingClasses": [
+        "icon-wrap",
+        "label-bug",
+        "label-docs",
+        "label-research",
+        "leading",
+        "sm",
+        "titles",
+        "trailing"
+      ],
+      "missingButtons": [
+        "Addcard",
+        "Back",
+        "addNewcard",
+        "view_columnBoard"
+      ],
+      "missingHeadings": [
+        "BeaconWebApp"
+      ],
+      "missingInputs": [],
+      "countDiffs": {
+        "buttons": {
+          "mock": 19,
+          "live": 31
+        },
+        "links": {
+          "mock": 0,
+          "live": 9
+        },
+        "inputs": {
+          "mock": 0,
+          "live": 6
+        },
+        "icons": {
+          "mock": 78,
+          "live": 56
+        },
+        "cards": {
+          "mock": 12,
+          "live": 4
+        }
+      }
+    },
+    "board-desktop": {
+      "missingClasses": [
+        "icon-wrap",
+        "label-bug",
+        "label-docs",
+        "label-research",
+        "leading",
+        "sm",
+        "titles",
+        "trailing"
+      ],
+      "missingButtons": [
+        "Addcard",
+        "Back",
+        "addNewcard",
+        "view_columnBoard"
+      ],
+      "missingHeadings": [
+        "BeaconWebApp"
+      ],
+      "missingInputs": [],
+      "countDiffs": {
+        "buttons": {
+          "mock": 19,
+          "live": 31
+        },
+        "links": {
+          "mock": 0,
+          "live": 9
+        },
+        "inputs": {
+          "mock": 0,
+          "live": 6
+        },
+        "icons": {
+          "mock": 78,
+          "live": 56
+        },
+        "cards": {
+          "mock": 12,
+          "live": 4
+        }
+      }
+    }
+  },
+  "summary": {
+    "board-mobile": {
+      "missingClasses": 8,
+      "missingButtons": 4,
+      "missingHeadings": 1,
+      "missingInputs": 0,
+      "countDiffs": 5
+    },
+    "board-tablet": {
+      "missingClasses": 8,
+      "missingButtons": 4,
+      "missingHeadings": 1,
+      "missingInputs": 0,
+      "countDiffs": 5
+    },
+    "board-desktop": {
+      "missingClasses": 8,
+      "missingButtons": 4,
+      "missingHeadings": 1,
+      "missingInputs": 0,
+      "countDiffs": 5
+    }
+  }
+}

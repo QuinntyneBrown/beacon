@@ -52,6 +52,19 @@
   gap: var(--beacon-space-3);
 }
 
+.section-title {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--beacon-space-2);
+}
+
+.section-title mat-icon {
+  width: 1.25rem;
+  height: 1.25rem;
+  color: var(--beacon-color-primary);
+  font-size: 1.25rem;
+}
+
 .card-page__panel {
   border-radius: var(--beacon-radius-lg);
 }
@@ -74,6 +87,7 @@
 
 .card-page__actions {
   display: flex;
+  gap: var(--beacon-space-2);
   justify-content: flex-end;
 }
 
@@ -88,6 +102,20 @@
 .card-page__activity {
   margin: 0;
   padding: 0;
+}
+
+.progress {
+  height: 0.25rem;
+  overflow: hidden;
+  border-radius: 999px;
+  background: var(--beacon-color-surface-container-highest);
+}
+
+.progress span {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: var(--beacon-color-primary);
 }
 
 .card-page__checklist,
@@ -143,6 +171,14 @@
   margin: 0;
   color: var(--beacon-color-on-surface);
   font-weight: 650;
+}
+
+.card-page .col-dot {
+  display: inline-block;
+  width: 0.625rem;
+  height: 0.625rem;
+  border-radius: 50%;
+  background: var(--beacon-color-primary);
 }
 
 .card-page__dropzone {

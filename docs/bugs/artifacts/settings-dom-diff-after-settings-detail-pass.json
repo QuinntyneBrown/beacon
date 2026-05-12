@@ -1,0 +1,112 @@
+{
+  "generatedAt": "2026-05-12T01:19:59.784Z",
+  "pages": {
+    "settings-mobile": {
+      "missingClasses": [],
+      "missingButtons": [],
+      "missingHeadings": [],
+      "missingInputs": [],
+      "countDiffs": {
+        "buttons": {
+          "mock": 11,
+          "live": 29
+        },
+        "links": {
+          "mock": 0,
+          "live": 13
+        },
+        "inputs": {
+          "mock": 9,
+          "live": 8
+        },
+        "icons": {
+          "mock": 35,
+          "live": 44
+        },
+        "cards": {
+          "mock": 1,
+          "live": 2
+        }
+      }
+    },
+    "settings-tablet": {
+      "missingClasses": [],
+      "missingButtons": [],
+      "missingHeadings": [],
+      "missingInputs": [],
+      "countDiffs": {
+        "buttons": {
+          "mock": 11,
+          "live": 29
+        },
+        "links": {
+          "mock": 0,
+          "live": 13
+        },
+        "inputs": {
+          "mock": 9,
+          "live": 8
+        },
+        "icons": {
+          "mock": 35,
+          "live": 44
+        },
+        "cards": {
+          "mock": 1,
+          "live": 2
+        }
+      }
+    },
+    "settings-desktop": {
+      "missingClasses": [],
+      "missingButtons": [],
+      "missingHeadings": [],
+      "missingInputs": [],
+      "countDiffs": {
+        "buttons": {
+          "mock": 11,
+          "live": 29
+        },
+        "links": {
+          "mock": 0,
+          "live": 13
+        },
+        "inputs": {
+          "mock": 9,
+          "live": 8
+        },
+        "icons": {
+          "mock": 35,
+          "live": 44
+        },
+        "cards": {
+          "mock": 1,
+          "live": 2
+        }
+      }
+    }
+  },
+  "summary": {
+    "settings-mobile": {
+      "missingClasses": 0,
+      "missingButtons": 0,
+      "missingHeadings": 0,
+      "missingInputs": 0,
+      "countDiffs": 5
+    },
+    "settings-tablet": {
+      "missingClasses": 0,
+      "missingButtons": 0,
+      "missingHeadings": 0,
+      "missingInputs": 0,
+      "countDiffs": 5
+    },
+    "settings-desktop": {
+      "missingClasses": 0,
+      "missingButtons": 0,
+      "missingHeadings": 0,
+      "missingInputs": 0,
+      "countDiffs": 5
+    }
+  }
+}

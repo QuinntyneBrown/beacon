@@ -9,37 +9,89 @@
 
     <div class="app-body">
       <aside class="nav-drawer" aria-label="Workspace">
+        <button type="button" class="fab extended nav-drawer__create">
+          <mat-icon>add</mat-icon>
+          {{ createActionLabel() }}
+        </button>
+
         <div class="nav-drawer__section">
-          <p class="nav-drawer__label">Workspace</p>
-          <a routerLink="/boards" routerLinkActive="is-active" [routerLinkActiveOptions]="{ exact: true }">
+          <p class="nav-drawer__label section-title">Workspace</p>
+          <a class="drawer-item" routerLink="/boards" routerLinkActive="is-active" [routerLinkActiveOptions]="{ exact: true }">
             <mat-icon>dashboard</mat-icon>
             <span>Boards</span>
+            <span class="badge">5</span>
           </a>
-          <a routerLink="/settings" routerLinkActive="is-active">
+          <button class="drawer-item" type="button">
+            <mat-icon>inbox</mat-icon>
+            <span>Inbox</span>
+            <span class="badge">3</span>
+          </button>
+          <button class="drawer-item" type="button">
+            <mat-icon>today</mat-icon>
+            <span>Today</span>
+          </button>
+          <button class="drawer-item" type="button">
+            <mat-icon>group</mat-icon>
+            <span>Team</span>
+          </button>
+        </div>
+
+        <div class="nav-drawer__section">
+          <p class="nav-drawer__label section-title">This board</p>
+          <button class="drawer-item" type="button">
+            <mat-icon>view_column</mat-icon>
+            <span>Board view</span>
+          </button>
+          <button class="drawer-item" type="button">
+            <mat-icon>view_list</mat-icon>
+            <span>List view</span>
+          </button>
+          <button class="drawer-item" type="button">
+            <mat-icon>calendar_month</mat-icon>
+            <span>Calendar</span>
+          </button>
+          <button class="drawer-item" type="button">
+            <mat-icon>analytics</mat-icon>
+            <span>Reports</span>
+          </button>
+        </div>
+
+        <div class="nav-drawer__section">
+          <p class="nav-drawer__label section-title">Reference</p>
+          <a class="drawer-item" routerLink="/components" routerLinkActive="is-active">
+            <mat-icon>palette</mat-icon>
+            <span>Design system</span>
+          </a>
+          <a class="drawer-item" routerLink="/settings" routerLinkActive="is-active">
             <mat-icon>tune</mat-icon>
             <span>Settings</span>
           </a>
         </div>
-
-        <div class="nav-drawer__section">
-          <p class="nav-drawer__label">Views</p>
-          <button type="button">
-            <mat-icon>star</mat-icon>
-            <span>Starred</span>
-          </button>
-          <button type="button">
-            <mat-icon>schedule</mat-icon>
-            <span>Recent</span>
-          </button>
-        </div>
       </aside>
 
       <nav class="nav-rail" aria-label="Primary">
-        <a routerLink="/boards" routerLinkActive="is-active" [routerLinkActiveOptions]="{ exact: true }" aria-label="Boards">
+        <button type="button" class="fab small surface rail-fab" aria-label="add">
+          <mat-icon>add</mat-icon>
+        </button>
+        <a class="rail-item" routerLink="/boards" routerLinkActive="is-active" [routerLinkActiveOptions]="{ exact: true }" aria-label="Boards">
           <mat-icon>dashboard</mat-icon>
+          <span>Boards</span>
         </a>
-        <a routerLink="/settings" routerLinkActive="is-active" aria-label="Settings">
+        <button class="rail-item" type="button" aria-label="Inbox">
+          <mat-icon>inbox</mat-icon>
+          <span>Inbox</span>
+        </button>
+        <button class="rail-item" type="button" aria-label="Today">
+          <mat-icon>today</mat-icon>
+          <span>Today</span>
+        </button>
+        <button class="rail-item" type="button" aria-label="Team">
+          <mat-icon>group</mat-icon>
+          <span>Team</span>
+        </button>
+        <a class="rail-item" routerLink="/settings" routerLinkActive="is-active" aria-label="Settings">
           <mat-icon>tune</mat-icon>
+          <span>Settings</span>
         </a>
       </nav>
 
@@ -49,13 +101,24 @@
     </div>
 
     <nav class="bottom-nav" aria-label="Primary">
-      <a routerLink="/boards" routerLinkActive="is-active" [routerLinkActiveOptions]="{ exact: true }">
+      <a class="nav-btn" routerLink="/boards" routerLinkActive="is-active" [routerLinkActiveOptions]="{ exact: true }">
         <mat-icon>dashboard</mat-icon>
         <span>Boards</span>
       </a>
-      <a routerLink="/settings" routerLinkActive="is-active">
-        <mat-icon>tune</mat-icon>
-        <span>Settings</span>
+      <button class="nav-btn" type="button">
+        <span class="icon-with-badge">
+          <mat-icon>inbox</mat-icon>
+          <span class="badge">3</span>
+        </span>
+        <span>Inbox</span>
+      </button>
+      <button class="nav-btn" type="button">
+        <mat-icon>today</mat-icon>
+        <span>Today</span>
+      </button>
+      <a class="nav-btn" routerLink="/settings" routerLinkActive="is-active">
+        <mat-icon>person</mat-icon>
+        <span>Profile</span>
       </a>
     </nav>
   </div>

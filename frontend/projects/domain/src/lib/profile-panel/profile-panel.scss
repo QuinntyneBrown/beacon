@@ -61,6 +61,36 @@
   gap: var(--beacon-space-3);
 }
 
+.profile-panel__field {
+  display: block;
+}
+
+.profile-panel__field .field {
+  position: relative;
+  display: block;
+}
+
+.profile-panel__field input {
+  width: 100%;
+  border: 1px solid var(--beacon-color-outline);
+  border-radius: var(--beacon-radius-sm);
+  padding: 1.35rem var(--beacon-space-3) var(--beacon-space-2);
+  color: var(--beacon-color-on-surface);
+  background: var(--beacon-color-surface);
+  font: inherit;
+}
+
+.profile-panel__field .floating-label {
+  position: absolute;
+  top: 0.35rem;
+  left: var(--beacon-space-3);
+  color: var(--beacon-color-primary);
+  font-size: 0.75rem;
+  font-weight: 650;
+  line-height: 1;
+  pointer-events: none;
+}
+
 .profile-panel__email,
 .profile-panel__helper,
 .profile-panel__meta {

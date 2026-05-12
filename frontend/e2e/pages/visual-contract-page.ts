@@ -26,9 +26,9 @@ export class VisualContractPage {
     await expect(this.page.locator('.top-app-bar')).toBeVisible();
     await expect(this.page.locator('.nav-drawer')).toBeVisible();
     await expect(this.page.locator('.top-app-bar')).toHaveCSS('height', '64px');
-    await expect(this.page.locator('.nav-drawer')).toHaveCSS('width', '280px');
+    await expect(this.page.locator('.nav-drawer')).toHaveCSS('width', '256px');
     await expect(this.page.locator('.app-main')).toHaveCSS('padding-top', '32px');
-    await expect(this.page.getByRole('button', { name: 'Search' })).toBeVisible();
+    await expect(this.page.getByRole('button', { name: 'Search', exact: true })).toBeVisible();
     await expect(this.page.getByRole('button', { name: 'Notifications' })).toBeVisible();
   }
 
@@ -36,8 +36,9 @@ export class VisualContractPage {
     await this.page.goto('/boards');
     await expect(this.page.getByRole('heading', { name: 'Boards', exact: true })).toBeVisible();
     await expect(this.page.getByPlaceholder('Search boards, cards, members...')).toBeVisible();
-    await expect(this.page.getByRole('button', { name: /Filter/ })).toBeVisible();
-    await expect(this.page.getByRole('button', { name: /Sort/ })).toBeVisible();
+    const controls = this.page.locator('.boards-page__controls');
+    await expect(controls.getByRole('button', { name: /Filter/ })).toBeVisible();
+    await expect(controls.getByRole('button', { name: /Sort/ })).toBeVisible();
     await expect(this.page.getByRole('heading', { name: 'Starred' })).toBeVisible();
     await expect(this.page.getByRole('heading', { name: 'All boards' })).toBeVisible();
     await expect(this.page.locator('.board-tile').first()).not.toHaveCSS('background-color', 'rgb(247, 250, 249)');
@@ -45,9 +46,10 @@ export class VisualContractPage {
 
   async expectBoardMatchesMockStructure(): Promise<void> {
     await this.page.locator('.board-tile a, .boards-page__card a').first().click();
-    await expect(this.page.locator('.board-toolbar')).toBeVisible();
-    await expect(this.page.getByRole('button', { name: /Board/ })).toBeVisible();
-    await expect(this.page.getByRole('button', { name: /Filter/ })).toBeVisible();
+    const toolbar = this.page.locator('.board-toolbar');
+    await expect(toolbar).toBeVisible();
+    await expect(toolbar.getByRole('button', { name: 'Board', exact: true })).toBeVisible();
+    await expect(toolbar.getByRole('button', { name: /Filter/ })).toBeVisible();
     await expect(this.page.locator('.kanban-column').first()).toBeVisible();
     await expect(this.page.locator('.label-pill').first()).toBeVisible();
   }
@@ -56,7 +58,7 @@ export class VisualContractPage {
     await this.page.locator('.kanban-card a, .kanban-board__card a').first().click();
     await expect(this.page.locator('.card-detail-grid')).toBeVisible();
     await expect(this.page.getByLabel('Breadcrumb').getByRole('link', { name: 'Boards' })).toBeVisible();
-    await expect(this.page.getByRole('button', { name: /Watch/ })).toBeVisible();
+    await expect(this.page.getByRole('button', { name: /Watch/ }).first()).toBeVisible();
     await expect(this.page.getByRole('heading', { name: 'Description' })).toBeVisible();
     await expect(this.page.locator('.side-meta')).toBeVisible();
   }

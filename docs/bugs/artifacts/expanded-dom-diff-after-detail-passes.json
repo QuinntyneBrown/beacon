@@ -1,0 +1,719 @@
+{
+  "generatedAt": "2026-05-12T01:29:46.495Z",
+  "summary": {
+    "login-mobile": {
+      "missingClasses": 0,
+      "missingButtons": 0,
+      "missingHeadings": 0,
+      "missingInputs": 0,
+      "countDiffs": 2
+    },
+    "boards-mobile": {
+      "missingClasses": 0,
+      "missingButtons": 1,
+      "missingHeadings": 0,
+      "missingInputs": 1,
+      "countDiffs": 5
+    },
+    "board-mobile": {
+      "missingClasses": 23,
+      "missingButtons": 2,
+      "missingHeadings": 1,
+      "missingInputs": 0,
+      "countDiffs": 3
+    },
+    "card-mobile": {
+      "missingClasses": 40,
+      "missingButtons": 8,
+      "missingHeadings": 6,
+      "missingInputs": 1,
+      "countDiffs": 4
+    },
+    "settings-mobile": {
+      "missingClasses": 0,
+      "missingButtons": 0,
+      "missingHeadings": 0,
+      "missingInputs": 0,
+      "countDiffs": 5
+    },
+    "components-mobile": {
+      "missingClasses": 0,
+      "missingButtons": 0,
+      "missingHeadings": 0,
+      "missingInputs": 0,
+      "countDiffs": 4
+    },
+    "login-tablet": {
+      "missingClasses": 0,
+      "missingButtons": 0,
+      "missingHeadings": 0,
+      "missingInputs": 0,
+      "countDiffs": 2
+    },
+    "boards-tablet": {
+      "missingClasses": 0,
+      "missingButtons": 1,
+      "missingHeadings": 0,
+      "missingInputs": 1,
+      "countDiffs": 5
+    },
+    "board-tablet": {
+      "missingClasses": 0,
+      "missingButtons": 2,
+      "missingHeadings": 1,
+      "missingInputs": 0,
+      "countDiffs": 5
+    },
+    "card-tablet": {
+      "missingClasses": 0,
+      "missingButtons": 3,
+      "missingHeadings": 2,
+      "missingInputs": 0,
+      "countDiffs": 5
+    },
+    "settings-tablet": {
+      "missingClasses": 0,
+      "missingButtons": 0,
+      "missingHeadings": 0,
+      "missingInputs": 0,
+      "countDiffs": 5
+    },
+    "components-tablet": {
+      "missingClasses": 0,
+      "missingButtons": 0,
+      "missingHeadings": 0,
+      "missingInputs": 0,
+      "countDiffs": 4
+    },
+    "login-desktop": {
+      "missingClasses": 0,
+      "missingButtons": 0,
+      "missingHeadings": 0,
+      "missingInputs": 0,
+      "countDiffs": 2
+    },
+    "boards-desktop": {
+      "missingClasses": 0,
+      "missingButtons": 1,
+      "missingHeadings": 0,
+      "missingInputs": 1,
+      "countDiffs": 5
+    },
+    "board-desktop": {
+      "missingClasses": 0,
+      "missingButtons": 2,
+      "missingHeadings": 1,
+      "missingInputs": 0,
+      "countDiffs": 5
+    },
+    "card-desktop": {
+      "missingClasses": 0,
+      "missingButtons": 3,
+      "missingHeadings": 2,
+      "missingInputs": 0,
+      "countDiffs": 5
+    },
+    "settings-desktop": {
+      "missingClasses": 0,
+      "missingButtons": 0,
+      "missingHeadings": 0,
+      "missingInputs": 0,
+      "countDiffs": 5
+    },
+    "components-desktop": {
+      "missingClasses": 0,
+      "missingButtons": 0,
+      "missingHeadings": 0,
+      "missingInputs": 0,
+      "countDiffs": 4
+    }
+  },
+  "pages": {
+    "login-mobile": {
+      "liveUrl": "http://127.0.0.1:4200/sign-in",
+      "missingClasses": [],
+      "missingButtons": [],
+      "missingHeadings": [],
+      "missingInputs": [],
+      "countDiffs": {
+        "icons": {
+          "mock": 7,
+          "live": 6
+        },
+        "cards": {
+          "mock": 0,
+          "live": 1
+        }
+      }
+    },
+    "boards-mobile": {
+      "liveUrl": "http://127.0.0.1:4200/boards",
+      "missingClasses": [],
+      "missingButtons": [
+        "notifications3"
+      ],
+      "missingHeadings": [],
+      "missingInputs": [
+        "Searchboards,cards,members..."
+      ],
+      "countDiffs": {
+        "buttons": {
+          "mock": 19,
+          "live": 37
+        },
+        "links": {
+          "mock": 0,
+          "live": 9
+        },
+        "inputs": {
+          "mock": 1,
+          "live": 2
+        },
+        "icons": {
+          "mock": 38,
+          "live": 42
+        },
+        "cards": {
+          "mock": 0,
+          "live": 3
+        }
+      }
+    },
+    "board-mobile": {
+      "liveUrl": "http://127.0.0.1:4200/boards/a930b6cb-c0a5-4890-aa46-665e0f1c1bda",
+      "missingClasses": [
+        "board-columns",
+        "card-labels",
+        "card-meta",
+        "card-title",
+        "col-done",
+        "col-dot",
+        "col-progress",
+        "col-review",
+        "col-todo",
+        "column-header",
+        "count",
+        "kanban-card",
+        "kanban-column",
+        "label",
+        "label-bug",
+        "label-design",
+        "label-docs",
+        "label-feature",
+        "label-pill",
+        "label-research",
+        "meta-item",
+        "meta-left",
+        "progress"
+      ],
+      "missingButtons": [
+        "addCard",
+        "notifications3"
+      ],
+      "missingHeadings": [
+        "BeaconWebApp"
+      ],
+      "missingInputs": [],
+      "countDiffs": {
+        "buttons": {
+          "mock": 19,
+          "live": 29
+        },
+        "links": {
+          "mock": 0,
+          "live": 7
+        },
+        "icons": {
+          "mock": 57,
+          "live": 35
+        }
+      }
+    },
+    "card-mobile": {
+      "liveUrl": "http://127.0.0.1:4200/boards/a930b6cb-c0a5-4890-aa46-665e0f1c1bda/cards/d23e2a9c-ecd1-4e1f-87f7-c85c6d3ff46d",
+      "missingClasses": [
+        "active",
+        "assist",
+        "avatar-stack",
+        "body",
+        "body-large",
+        "body-medium",
+        "btn",
+        "btn-filled",
+        "btn-outlined",
+        "btn-text",
+        "btn-tonal",
+        "card-detail-grid",
+        "checkbox",
+        "checked",
+        "checklist-item",
+        "chip",
+        "col-dot",
+        "comment",
+        "done",
+        "field",
+        "headline",
+        "label",
+        "label-large",
+        "label-tag",
+        "list",
+        "list-item",
+        "meta",
+        "name",
+        "outlined",
+        "page-header",
+        "progress",
+        "section-block",
+        "selected",
+        "side-meta",
+        "supporting",
+        "text",
+        "text-field",
+        "time",
+        "titles",
+        "with-icon"
+      ],
+      "missingButtons": [
+        "arrow_forwardMove",
+        "Cancel",
+        "checkMarkdone",
+        "Comment",
+        "download",
+        "more_vert",
+        "share",
+        "visibilityWatch"
+      ],
+      "missingHeadings": [
+        "attach_fileAttachments",
+        "checklistChecklist3of5",
+        "Fixdrag-and-dropscrollonlongboards",
+        "forumActivity",
+        "historyHistory",
+        "notesDescription"
+      ],
+      "missingInputs": [
+        "Writeacomment,@mentiontonotify"
+      ],
+      "countDiffs": {
+        "buttons": {
+          "mock": 14,
+          "live": 22
+        },
+        "links": {
+          "mock": 4,
+          "live": 9
+        },
+        "inputs": {
+          "mock": 1,
+          "live": 0
+        },
+        "icons": {
+          "mock": 39,
+          "live": 30
+        }
+      }
+    },
+    "settings-mobile": {
+      "liveUrl": "http://127.0.0.1:4200/settings",
+      "missingClasses": [],
+      "missingButtons": [],
+      "missingHeadings": [],
+      "missingInputs": [],
+      "countDiffs": {
+        "buttons": {
+          "mock": 11,
+          "live": 29
+        },
+        "links": {
+          "mock": 0,
+          "live": 13
+        },
+        "inputs": {
+          "mock": 9,
+          "live": 8
+        },
+        "icons": {
+          "mock": 35,
+          "live": 44
+        },
+        "cards": {
+          "mock": 1,
+          "live": 2
+        }
+      }
+    },
+    "components-mobile": {
+      "liveUrl": "http://127.0.0.1:4200/components",
+      "missingClasses": [],
+      "missingButtons": [],
+      "missingHeadings": [],
+      "missingInputs": [],
+      "countDiffs": {
+        "buttons": {
+          "mock": 36,
+          "live": 59
+        },
+        "links": {
+          "mock": 0,
+          "live": 7
+        },
+        "icons": {
+          "mock": 44,
+          "live": 46
+        },
+        "cards": {
+          "mock": 13,
+          "live": 15
+        }
+      }
+    },
+    "login-tablet": {
+      "liveUrl": "http://127.0.0.1:4200/sign-in",
+      "missingClasses": [],
+      "missingButtons": [],
+      "missingHeadings": [],
+      "missingInputs": [],
+      "countDiffs": {
+        "icons": {
+          "mock": 7,
+          "live": 6
+        },
+        "cards": {
+          "mock": 0,
+          "live": 1
+        }
+      }
+    },
+    "boards-tablet": {
+      "liveUrl": "http://127.0.0.1:4200/boards",
+      "missingClasses": [],
+      "missingButtons": [
+        "notifications3"
+      ],
+      "missingHeadings": [],
+      "missingInputs": [
+        "Searchboards,cards,members..."
+      ],
+      "countDiffs": {
+        "buttons": {
+          "mock": 19,
+          "live": 37
+        },
+        "links": {
+          "mock": 0,
+          "live": 9
+        },
+        "inputs": {
+          "mock": 1,
+          "live": 2
+        },
+        "icons": {
+          "mock": 38,
+          "live": 42
+        },
+        "cards": {
+          "mock": 0,
+          "live": 3
+        }
+      }
+    },
+    "board-tablet": {
+      "liveUrl": "http://127.0.0.1:4200/boards/a930b6cb-c0a5-4890-aa46-665e0f1c1bda",
+      "missingClasses": [],
+      "missingButtons": [
+        "addCard",
+        "notifications3"
+      ],
+      "missingHeadings": [
+        "BeaconWebApp"
+      ],
+      "missingInputs": [],
+      "countDiffs": {
+        "buttons": {
+          "mock": 19,
+          "live": 32
+        },
+        "links": {
+          "mock": 0,
+          "live": 8
+        },
+        "inputs": {
+          "mock": 0,
+          "live": 6
+        },
+        "icons": {
+          "mock": 57,
+          "live": 40
+        },
+        "cards": {
+          "mock": 0,
+          "live": 4
+        }
+      }
+    },
+    "card-tablet": {
+      "liveUrl": "http://127.0.0.1:4200/boards/a930b6cb-c0a5-4890-aa46-665e0f1c1bda/cards/d23e2a9c-ecd1-4e1f-87f7-c85c6d3ff46d",
+      "missingClasses": [],
+      "missingButtons": [
+        "download",
+        "more_vert",
+        "share"
+      ],
+      "missingHeadings": [
+        "checklistChecklist3of5",
+        "Fixdrag-and-dropscrollonlongboards"
+      ],
+      "missingInputs": [],
+      "countDiffs": {
+        "buttons": {
+          "mock": 14,
+          "live": 34
+        },
+        "links": {
+          "mock": 4,
+          "live": 9
+        },
+        "inputs": {
+          "mock": 1,
+          "live": 4
+        },
+        "icons": {
+          "mock": 39,
+          "live": 45
+        },
+        "cards": {
+          "mock": 0,
+          "live": 8
+        }
+      }
+    },
+    "settings-tablet": {
+      "liveUrl": "http://127.0.0.1:4200/settings",
+      "missingClasses": [],
+      "missingButtons": [],
+      "missingHeadings": [],
+      "missingInputs": [],
+      "countDiffs": {
+        "buttons": {
+          "mock": 11,
+          "live": 29
+        },
+        "links": {
+          "mock": 0,
+          "live": 13
+        },
+        "inputs": {
+          "mock": 9,
+          "live": 8
+        },
+        "icons": {
+          "mock": 35,
+          "live": 44
+        },
+        "cards": {
+          "mock": 1,
+          "live": 2
+        }
+      }
+    },
+    "components-tablet": {
+      "liveUrl": "http://127.0.0.1:4200/components",
+      "missingClasses": [],
+      "missingButtons": [],
+      "missingHeadings": [],
+      "missingInputs": [],
+      "countDiffs": {
+        "buttons": {
+          "mock": 36,
+          "live": 59
+        },
+        "links": {
+          "mock": 0,
+          "live": 7
+        },
+        "icons": {
+          "mock": 44,
+          "live": 46
+        },
+        "cards": {
+          "mock": 13,
+          "live": 15
+        }
+      }
+    },
+    "login-desktop": {
+      "liveUrl": "http://127.0.0.1:4200/sign-in",
+      "missingClasses": [],
+      "missingButtons": [],
+      "missingHeadings": [],
+      "missingInputs": [],
+      "countDiffs": {
+        "icons": {
+          "mock": 7,
+          "live": 6
+        },
+        "cards": {
+          "mock": 0,
+          "live": 1
+        }
+      }
+    },
+    "boards-desktop": {
+      "liveUrl": "http://127.0.0.1:4200/boards",
+      "missingClasses": [],
+      "missingButtons": [
+        "notifications3"
+      ],
+      "missingHeadings": [],
+      "missingInputs": [
+        "Searchboards,cards,members..."
+      ],
+      "countDiffs": {
+        "buttons": {
+          "mock": 19,
+          "live": 37
+        },
+        "links": {
+          "mock": 0,
+          "live": 9
+        },
+        "inputs": {
+          "mock": 1,
+          "live": 2
+        },
+        "icons": {
+          "mock": 38,
+          "live": 42
+        },
+        "cards": {
+          "mock": 0,
+          "live": 3
+        }
+      }
+    },
+    "board-desktop": {
+      "liveUrl": "http://127.0.0.1:4200/boards/a930b6cb-c0a5-4890-aa46-665e0f1c1bda",
+      "missingClasses": [],
+      "missingButtons": [
+        "addCard",
+        "notifications3"
+      ],
+      "missingHeadings": [
+        "BeaconWebApp"
+      ],
+      "missingInputs": [],
+      "countDiffs": {
+        "buttons": {
+          "mock": 19,
+          "live": 32
+        },
+        "links": {
+          "mock": 0,
+          "live": 8
+        },
+        "inputs": {
+          "mock": 0,
+          "live": 6
+        },
+        "icons": {
+          "mock": 57,
+          "live": 40
+        },
+        "cards": {
+          "mock": 0,
+          "live": 4
+        }
+      }
+    },
+    "card-desktop": {
+      "liveUrl": "http://127.0.0.1:4200/boards/a930b6cb-c0a5-4890-aa46-665e0f1c1bda/cards/d23e2a9c-ecd1-4e1f-87f7-c85c6d3ff46d",
+      "missingClasses": [],
+      "missingButtons": [
+        "download",
+        "more_vert",
+        "share"
+      ],
+      "missingHeadings": [
+        "checklistChecklist3of5",
+        "Fixdrag-and-dropscrollonlongboards"
+      ],
+      "missingInputs": [],
+      "countDiffs": {
+        "buttons": {
+          "mock": 14,
+          "live": 34
+        },
+        "links": {
+          "mock": 4,
+          "live": 9
+        },
+        "inputs": {
+          "mock": 1,
+          "live": 4
+        },
+        "icons": {
+          "mock": 39,
+          "live": 45
+        },
+        "cards": {
+          "mock": 0,
+          "live": 8
+        }
+      }
+    },
+    "settings-desktop": {
+      "liveUrl": "http://127.0.0.1:4200/settings",
+      "missingClasses": [],
+      "missingButtons": [],
+      "missingHeadings": [],
+      "missingInputs": [],
+      "countDiffs": {
+        "buttons": {
+          "mock": 11,
+          "live": 29
+        },
+        "links": {
+          "mock": 0,
+          "live": 13
+        },
+        "inputs": {
+          "mock": 9,
+          "live": 8
+        },
+        "icons": {
+          "mock": 35,
+          "live": 44
+        },
+        "cards": {
+          "mock": 1,
+          "live": 2
+        }
+      }
+    },
+    "components-desktop": {
+      "liveUrl": "http://127.0.0.1:4200/components",
+      "missingClasses": [],
+      "missingButtons": [],
+      "missingHeadings": [],
+      "missingInputs": [],
+      "countDiffs": {
+        "buttons": {
+          "mock": 36,
+          "live": 59
+        },
+        "links": {
+          "mock": 0,
+          "live": 7
+        },
+        "icons": {
+          "mock": 44,
+          "live": 46
+        },
+        "cards": {
+          "mock": 13,
+          "live": 15
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "generatedAt": "2026-05-12T00:54:04.582Z",
+  "pages": {
+    "login-mobile": {
+      "missingClasses": [],
+      "missingButtons": [],
+      "missingHeadings": [],
+      "missingInputs": [],
+      "countDiffs": {
+        "icons": {
+          "mock": 7,
+          "live": 6
+        }
+      }
+    },
+    "login-tablet": {
+      "missingClasses": [],
+      "missingButtons": [],
+      "missingHeadings": [],
+      "missingInputs": [],
+      "countDiffs": {
+        "icons": {
+          "mock": 7,
+          "live": 6
+        }
+      }
+    },
+    "login-desktop": {
+      "missingClasses": [],
+      "missingButtons": [],
+      "missingHeadings": [],
+      "missingInputs": [],
+      "countDiffs": {
+        "icons": {
+          "mock": 7,
+          "live": 6
+        }
+      }
+    }
+  },
+  "summary": {
+    "login-mobile": {
+      "missingClasses": 0,
+      "missingButtons": 0,
+      "missingHeadings": 0,
+      "missingInputs": 0,
+      "countDiffs": 1
+    },
+    "login-tablet": {
+      "missingClasses": 0,
+      "missingButtons": 0,
+      "missingHeadings": 0,
+      "missingInputs": 0,
+      "countDiffs": 1
+    },
+    "login-desktop": {
+      "missingClasses": 0,
+      "missingButtons": 0,
+      "missingHeadings": 0,
+      "missingInputs": 0,
+      "countDiffs": 1
+    }
+  }
+}

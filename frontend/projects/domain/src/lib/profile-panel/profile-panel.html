@@ -1,15 +1,19 @@
 @if (session(); as activeSession) {
-  <mat-card class="profile-panel">
+  <mat-card class="profile-panel card">
     <div class="profile-panel__header">
       <div class="profile-panel__identity">
-        <span class="profile-panel__avatar" aria-hidden="true">{{ activeSession.displayName.slice(0, 1) || 'U' }}</span>
+        <span class="profile-panel__avatar avatar lg" aria-hidden="true">{{ activeSession.displayName.slice(0, 1) || 'U' }}</span>
         <div>
           <h2 class="profile-panel__title">Account</h2>
           <p class="profile-panel__email">{{ activeSession.email }}</p>
         </div>
       </div>
       <div class="profile-panel__header-actions">
-        <button mat-stroked-button type="button">Upload avatar</button>
+        <button mat-stroked-button type="button" class="btn btn-tonal with-icon" aria-label="Upload">
+          <span class="material-symbols-rounded" aria-hidden="true">upload</span>
+          Upload
+        </button>
+        <button mat-button type="button" class="btn btn-text">Remove</button>
         <mat-chip-set aria-label="profile roles">
           @for (role of activeSession.roles; track role) {
             <mat-chip>{{ role }}</mat-chip>
@@ -19,20 +23,24 @@
     </div>
 
     <form class="profile-panel__form" [formGroup]="profileForm" (ngSubmit)="save()">
-      <mat-form-field appearance="outline">
-        <mat-label>User name</mat-label>
-        <input matInput formControlName="userName" />
-      </mat-form-field>
-      <mat-form-field appearance="outline">
-        <mat-label>Display name</mat-label>
-        <input matInput formControlName="displayName" />
-      </mat-form-field>
-      <button mat-flat-button color="primary" type="submit">Save profile</button>
+      <label class="profile-panel__field text-field outlined">
+        <span class="field">
+          <input class="input" aria-label="User name" formControlName="userName" />
+          <span class="floating-label">Username</span>
+        </span>
+      </label>
+      <label class="profile-panel__field text-field outlined">
+        <span class="field">
+          <input class="input" aria-label="Display name" formControlName="displayName" />
+          <span class="floating-label">Full name</span>
+        </span>
+      </label>
+      <button mat-flat-button color="primary" type="submit" class="btn btn-filled">Save profile</button>
     </form>
 
-    <div class="profile-panel__meta">
+    <div class="profile-panel__meta meta">
       <span>Signed in as {{ activeSession.displayName }}</span>
-      <button mat-stroked-button color="warn" type="button" (click)="deleteAccount()">Delete account</button>
+      <button mat-stroked-button color="warn" type="button" class="btn btn-outlined" (click)="deleteAccount()">Delete account</button>
     </div>
 
     @if (helperMessage()) {

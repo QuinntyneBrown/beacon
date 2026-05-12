@@ -97,6 +97,27 @@
   accent-color: var(--beacon-color-primary);
 }
 
+.sign-in-form__remember .checkbox {
+  display: inline-grid;
+  place-items: center;
+  width: 1.125rem;
+  height: 1.125rem;
+  border: 2px solid var(--beacon-color-on-surface-variant);
+  border-radius: 0.125rem;
+}
+
+.sign-in-form__remember .checkbox.checked {
+  border-color: var(--beacon-color-primary);
+  color: #ffffff;
+  background: var(--beacon-color-primary);
+}
+
+.sign-in-form__remember .checkbox.checked::before {
+  content: '✓';
+  font-size: 0.75rem;
+  line-height: 1;
+}
+
 .sign-in-form__divider {
   display: flex;
   align-items: center;

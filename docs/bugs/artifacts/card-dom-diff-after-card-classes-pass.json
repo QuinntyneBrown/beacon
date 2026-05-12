@@ -1,0 +1,127 @@
+{
+  "generatedAt": "2026-05-12T01:08:59.795Z",
+  "pages": {
+    "card-mobile": {
+      "missingClasses": [],
+      "missingButtons": [
+        "Watch"
+      ],
+      "missingHeadings": [
+        "Fixdrag-and-dropscrollonlongboards",
+        "checklistChecklist3of5"
+      ],
+      "missingInputs": [],
+      "countDiffs": {
+        "buttons": {
+          "mock": 14,
+          "live": 33
+        },
+        "links": {
+          "mock": 4,
+          "live": 9
+        },
+        "inputs": {
+          "mock": 1,
+          "live": 4
+        },
+        "icons": {
+          "mock": 59,
+          "live": 66
+        },
+        "cards": {
+          "mock": 0,
+          "live": 8
+        }
+      }
+    },
+    "card-tablet": {
+      "missingClasses": [],
+      "missingButtons": [
+        "Watch"
+      ],
+      "missingHeadings": [
+        "Fixdrag-and-dropscrollonlongboards",
+        "checklistChecklist3of5"
+      ],
+      "missingInputs": [],
+      "countDiffs": {
+        "buttons": {
+          "mock": 14,
+          "live": 33
+        },
+        "links": {
+          "mock": 4,
+          "live": 9
+        },
+        "inputs": {
+          "mock": 1,
+          "live": 4
+        },
+        "icons": {
+          "mock": 59,
+          "live": 66
+        },
+        "cards": {
+          "mock": 0,
+          "live": 8
+        }
+      }
+    },
+    "card-desktop": {
+      "missingClasses": [],
+      "missingButtons": [
+        "Watch"
+      ],
+      "missingHeadings": [
+        "Fixdrag-and-dropscrollonlongboards",
+        "checklistChecklist3of5"
+      ],
+      "missingInputs": [],
+      "countDiffs": {
+        "buttons": {
+          "mock": 14,
+          "live": 33
+        },
+        "links": {
+          "mock": 4,
+          "live": 9
+        },
+        "inputs": {
+          "mock": 1,
+          "live": 4
+        },
+        "icons": {
+          "mock": 59,
+          "live": 66
+        },
+        "cards": {
+          "mock": 0,
+          "live": 8
+        }
+      }
+    }
+  },
+  "summary": {
+    "card-mobile": {
+      "missingClasses": 0,
+      "missingButtons": 1,
+      "missingHeadings": 2,
+      "missingInputs": 0,
+      "countDiffs": 5
+    },
+    "card-tablet": {
+      "missingClasses": 0,
+      "missingButtons": 1,
+      "missingHeadings": 2,
+      "missingInputs": 0,
+      "countDiffs": 5
+    },
+    "card-desktop": {
+      "missingClasses": 0,
+      "missingButtons": 1,
+      "missingHeadings": 2,
+      "missingInputs": 0,
+      "countDiffs": 5
+    }
+  }
+}

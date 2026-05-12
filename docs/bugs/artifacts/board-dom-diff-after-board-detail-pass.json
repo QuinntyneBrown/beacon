@@ -1,0 +1,130 @@
+{
+  "generatedAt": "2026-05-12T01:00:15.022Z",
+  "pages": {
+    "board-mobile": {
+      "missingClasses": [],
+      "missingButtons": [
+        "Addcard",
+        "Back",
+        "addNewcard"
+      ],
+      "missingHeadings": [
+        "BeaconWebApp"
+      ],
+      "missingInputs": [],
+      "countDiffs": {
+        "buttons": {
+          "mock": 19,
+          "live": 31
+        },
+        "links": {
+          "mock": 0,
+          "live": 9
+        },
+        "inputs": {
+          "mock": 0,
+          "live": 6
+        },
+        "icons": {
+          "mock": 78,
+          "live": 56
+        },
+        "cards": {
+          "mock": 12,
+          "live": 4
+        }
+      }
+    },
+    "board-tablet": {
+      "missingClasses": [],
+      "missingButtons": [
+        "Addcard",
+        "Back",
+        "addNewcard"
+      ],
+      "missingHeadings": [
+        "BeaconWebApp"
+      ],
+      "missingInputs": [],
+      "countDiffs": {
+        "buttons": {
+          "mock": 19,
+          "live": 31
+        },
+        "links": {
+          "mock": 0,
+          "live": 9
+        },
+        "inputs": {
+          "mock": 0,
+          "live": 6
+        },
+        "icons": {
+          "mock": 78,
+          "live": 56
+        },
+        "cards": {
+          "mock": 12,
+          "live": 4
+        }
+      }
+    },
+    "board-desktop": {
+      "missingClasses": [],
+      "missingButtons": [
+        "Addcard",
+        "Back",
+        "addNewcard"
+      ],
+      "missingHeadings": [
+        "BeaconWebApp"
+      ],
+      "missingInputs": [],
+      "countDiffs": {
+        "buttons": {
+          "mock": 19,
+          "live": 31
+        },
+        "links": {
+          "mock": 0,
+          "live": 9
+        },
+        "inputs": {
+          "mock": 0,
+          "live": 6
+        },
+        "icons": {
+          "mock": 78,
+          "live": 56
+        },
+        "cards": {
+          "mock": 12,
+          "live": 4
+        }
+      }
+    }
+  },
+  "summary": {
+    "board-mobile": {
+      "missingClasses": 0,
+      "missingButtons": 3,
+      "missingHeadings": 1,
+      "missingInputs": 0,
+      "countDiffs": 5
+    },
+    "board-tablet": {
+      "missingClasses": 0,
+      "missingButtons": 3,
+      "missingHeadings": 1,
+      "missingInputs": 0,
+      "countDiffs": 5
+    },
+    "board-desktop": {
+      "missingClasses": 0,
+      "missingButtons": 3,
+      "missingHeadings": 1,
+      "missingInputs": 0,
+      "countDiffs": 5
+    }
+  }
+}

@@ -1,0 +1,100 @@
+{
+  "generatedAt": "2026-05-12T01:27:46.403Z",
+  "pages": {
+    "components-mobile": {
+      "missingClasses": [],
+      "missingButtons": [],
+      "missingHeadings": [],
+      "missingInputs": [],
+      "countDiffs": {
+        "buttons": {
+          "mock": 36,
+          "live": 59
+        },
+        "links": {
+          "mock": 0,
+          "live": 7
+        },
+        "icons": {
+          "mock": 44,
+          "live": 46
+        },
+        "cards": {
+          "mock": 13,
+          "live": 15
+        }
+      }
+    },
+    "components-tablet": {
+      "missingClasses": [],
+      "missingButtons": [],
+      "missingHeadings": [],
+      "missingInputs": [],
+      "countDiffs": {
+        "buttons": {
+          "mock": 36,
+          "live": 59
+        },
+        "links": {
+          "mock": 0,
+          "live": 7
+        },
+        "icons": {
+          "mock": 44,
+          "live": 46
+        },
+        "cards": {
+          "mock": 13,
+          "live": 15
+        }
+      }
+    },
+    "components-desktop": {
+      "missingClasses": [],
+      "missingButtons": [],
+      "missingHeadings": [],
+      "missingInputs": [],
+      "countDiffs": {
+        "buttons": {
+          "mock": 36,
+          "live": 59
+        },
+        "links": {
+          "mock": 0,
+          "live": 7
+        },
+        "icons": {
+          "mock": 44,
+          "live": 46
+        },
+        "cards": {
+          "mock": 13,
+          "live": 15
+        }
+      }
+    }
+  },
+  "summary": {
+    "components-mobile": {
+      "missingClasses": 0,
+      "missingButtons": 0,
+      "missingHeadings": 0,
+      "missingInputs": 0,
+      "countDiffs": 4
+    },
+    "components-tablet": {
+      "missingClasses": 0,
+      "missingButtons": 0,
+      "missingHeadings": 0,
+      "missingInputs": 0,
+      "countDiffs": 4
+    },
+    "components-desktop": {
+      "missingClasses": 0,
+      "missingButtons": 0,
+      "missingHeadings": 0,
+      "missingInputs": 0,
+      "countDiffs": 4
+    }
+  }
+}

@@ -1,0 +1,1246 @@
+{
+  "generatedAt": "2026-05-12T00:42:09.648Z",
+  "summary": {
+    "login-mobile": {
+      "missingClasses": 12,
+      "missingButtons": 0,
+      "missingHeadings": 0,
+      "missingInputs": 0,
+      "countDiffs": 4,
+      "liveUrl": "http://127.0.0.1:4200/sign-in"
+    },
+    "boards-mobile": {
+      "missingClasses": 15,
+      "missingButtons": 4,
+      "missingHeadings": 0,
+      "missingInputs": 1,
+      "countDiffs": 5,
+      "liveUrl": "http://127.0.0.1:4200/boards"
+    },
+    "board-mobile": {
+      "missingClasses": 21,
+      "missingButtons": 9,
+      "missingHeadings": 1,
+      "missingInputs": 0,
+      "countDiffs": 5,
+      "liveUrl": "http://127.0.0.1:4200/boards/a930b6cb-c0a5-4890-aa46-665e0f1c1bda"
+    },
+    "card-mobile": {
+      "missingClasses": 34,
+      "missingButtons": 10,
+      "missingHeadings": 6,
+      "missingInputs": 0,
+      "countDiffs": 5,
+      "liveUrl": "http://127.0.0.1:4200/boards/a930b6cb-c0a5-4890-aa46-665e0f1c1bda/cards/d23e2a9c-ecd1-4e1f-87f7-c85c6d3ff46d"
+    },
+    "settings-mobile": {
+      "missingClasses": 22,
+      "missingButtons": 7,
+      "missingHeadings": 0,
+      "missingInputs": 4,
+      "countDiffs": 4,
+      "liveUrl": "http://127.0.0.1:4200/settings"
+    },
+    "components-mobile": {
+      "missingClasses": 20,
+      "missingButtons": 15,
+      "missingHeadings": 0,
+      "missingInputs": 2,
+      "countDiffs": 5,
+      "liveUrl": "http://127.0.0.1:4200/components"
+    },
+    "login-tablet": {
+      "missingClasses": 12,
+      "missingButtons": 0,
+      "missingHeadings": 0,
+      "missingInputs": 0,
+      "countDiffs": 4,
+      "liveUrl": "http://127.0.0.1:4200/sign-in"
+    },
+    "boards-tablet": {
+      "missingClasses": 15,
+      "missingButtons": 4,
+      "missingHeadings": 0,
+      "missingInputs": 1,
+      "countDiffs": 5,
+      "liveUrl": "http://127.0.0.1:4200/boards"
+    },
+    "board-tablet": {
+      "missingClasses": 21,
+      "missingButtons": 9,
+      "missingHeadings": 1,
+      "missingInputs": 0,
+      "countDiffs": 5,
+      "liveUrl": "http://127.0.0.1:4200/boards/a930b6cb-c0a5-4890-aa46-665e0f1c1bda"
+    },
+    "card-tablet": {
+      "missingClasses": 34,
+      "missingButtons": 10,
+      "missingHeadings": 6,
+      "missingInputs": 0,
+      "countDiffs": 5,
+      "liveUrl": "http://127.0.0.1:4200/boards/a930b6cb-c0a5-4890-aa46-665e0f1c1bda/cards/d23e2a9c-ecd1-4e1f-87f7-c85c6d3ff46d"
+    },
+    "settings-tablet": {
+      "missingClasses": 22,
+      "missingButtons": 7,
+      "missingHeadings": 0,
+      "missingInputs": 4,
+      "countDiffs": 4,
+      "liveUrl": "http://127.0.0.1:4200/settings"
+    },
+    "components-tablet": {
+      "missingClasses": 20,
+      "missingButtons": 15,
+      "missingHeadings": 0,
+      "missingInputs": 2,
+      "countDiffs": 5,
+      "liveUrl": "http://127.0.0.1:4200/components"
+    },
+    "login-desktop": {
+      "missingClasses": 12,
+      "missingButtons": 0,
+      "missingHeadings": 0,
+      "missingInputs": 0,
+      "countDiffs": 4,
+      "liveUrl": "http://127.0.0.1:4200/sign-in"
+    },
+    "boards-desktop": {
+      "missingClasses": 15,
+      "missingButtons": 4,
+      "missingHeadings": 0,
+      "missingInputs": 1,
+      "countDiffs": 5,
+      "liveUrl": "http://127.0.0.1:4200/boards"
+    },
+    "board-desktop": {
+      "missingClasses": 21,
+      "missingButtons": 9,
+      "missingHeadings": 1,
+      "missingInputs": 0,
+      "countDiffs": 5,
+      "liveUrl": "http://127.0.0.1:4200/boards/a930b6cb-c0a5-4890-aa46-665e0f1c1bda"
+    },
+    "card-desktop": {
+      "missingClasses": 34,
+      "missingButtons": 10,
+      "missingHeadings": 6,
+      "missingInputs": 0,
+      "countDiffs": 5,
+      "liveUrl": "http://127.0.0.1:4200/boards/a930b6cb-c0a5-4890-aa46-665e0f1c1bda/cards/d23e2a9c-ecd1-4e1f-87f7-c85c6d3ff46d"
+    },
+    "settings-desktop": {
+      "missingClasses": 22,
+      "missingButtons": 7,
+      "missingHeadings": 0,
+      "missingInputs": 4,
+      "countDiffs": 4,
+      "liveUrl": "http://127.0.0.1:4200/settings"
+    },
+    "components-desktop": {
+      "missingClasses": 20,
+      "missingButtons": 15,
+      "missingHeadings": 0,
+      "missingInputs": 2,
+      "countDiffs": 5,
+      "liveUrl": "http://127.0.0.1:4200/components"
+    }
+  },
+  "pages": {
+    "login-mobile": {
+      "liveUrl": "http://127.0.0.1:4200/sign-in",
+      "missingClasses": [
+        "brand",
+        "feat",
+        "features",
+        "floating-label",
+        "focused",
+        "footer-text",
+        "ico",
+        "label-large",
+        "pitch",
+        "row-between",
+        "sub",
+        "title-medium"
+      ],
+      "missingButtons": [],
+      "missingHeadings": [],
+      "missingInputs": [],
+      "countDiffs": {
+        "buttons": {
+          "mock": 3,
+          "live": 6
+        },
+        "links": {
+          "mock": 2,
+          "live": 1
+        },
+        "inputs": {
+          "mock": 2,
+          "live": 3
+        },
+        "icons": {
+          "mock": 7,
+          "live": 2
+        }
+      }
+    },
+    "boards-mobile": {
+      "liveUrl": "http://127.0.0.1:4200/boards",
+      "missingClasses": [
+        "action",
+        "active",
+        "bg-4",
+        "bg-5",
+        "body-medium",
+        "icon-wrap",
+        "label",
+        "label-large",
+        "leading",
+        "scrolled",
+        "selected",
+        "sm",
+        "title-large",
+        "titles",
+        "trailing"
+      ],
+      "missingButtons": [
+        "addNew board",
+        "checkAll",
+        "filter_listFilter",
+        "sortSort"
+      ],
+      "missingHeadings": [],
+      "missingInputs": [
+        "Search boards, cards, members..."
+      ],
+      "countDiffs": {
+        "buttons": {
+          "mock": 19,
+          "live": 37
+        },
+        "links": {
+          "mock": 0,
+          "live": 9
+        },
+        "inputs": {
+          "mock": 1,
+          "live": 2
+        },
+        "icons": {
+          "mock": 57,
+          "live": 63
+        },
+        "cards": {
+          "mock": 5,
+          "live": 3
+        }
+      }
+    },
+    "board-mobile": {
+      "liveUrl": "http://127.0.0.1:4200/boards/a930b6cb-c0a5-4890-aa46-665e0f1c1bda",
+      "missingClasses": [
+        "active",
+        "btn-text",
+        "btn-tonal",
+        "col-done",
+        "fixed-br",
+        "icon-btn",
+        "icon-wrap",
+        "label",
+        "label-bug",
+        "label-design",
+        "label-docs",
+        "label-feature",
+        "label-research",
+        "leading",
+        "meta-left",
+        "progress",
+        "scrolled",
+        "sm",
+        "spacer",
+        "titles",
+        "trailing"
+      ],
+      "missingButtons": [
+        "Add card",
+        "Back",
+        "add New card",
+        "addAdd card",
+        "filter_listFilter · 2",
+        "labelLabels",
+        "person_addInvite",
+        "view_columnBoard",
+        "view_listList"
+      ],
+      "missingHeadings": [
+        "Beacon Web App"
+      ],
+      "missingInputs": [],
+      "countDiffs": {
+        "buttons": {
+          "mock": 19,
+          "live": 31
+        },
+        "links": {
+          "mock": 0,
+          "live": 9
+        },
+        "inputs": {
+          "mock": 0,
+          "live": 6
+        },
+        "icons": {
+          "mock": 78,
+          "live": 55
+        },
+        "cards": {
+          "mock": 12,
+          "live": 4
+        }
+      }
+    },
+    "card-mobile": {
+      "liveUrl": "http://127.0.0.1:4200/boards/a930b6cb-c0a5-4890-aa46-665e0f1c1bda/cards/d23e2a9c-ecd1-4e1f-87f7-c85c6d3ff46d",
+      "missingClasses": [
+        "active",
+        "assist",
+        "avatar",
+        "avatar-stack",
+        "body",
+        "body-large",
+        "body-medium",
+        "btn-tonal",
+        "checkbox",
+        "checked",
+        "chip",
+        "col-dot",
+        "done",
+        "field",
+        "headline",
+        "icon-btn",
+        "icon-wrap",
+        "label",
+        "label-large",
+        "leading",
+        "list",
+        "list-item",
+        "meta",
+        "name",
+        "outlined",
+        "scrolled",
+        "selected",
+        "sm",
+        "supporting",
+        "text",
+        "text-field",
+        "time",
+        "titles",
+        "trailing"
+      ],
+      "missingButtons": [
+        "Add assignee",
+        "Back",
+        "Download",
+        "More",
+        "Share",
+        "Watch",
+        "addNew card",
+        "arrow_forwardMove",
+        "checkMark done",
+        "visibilityWatch"
+      ],
+      "missingHeadings": [
+        "Fix drag-and-drop scroll on long boards",
+        "attach_fileAttachments",
+        "checklistChecklist 3 of 5",
+        "forumActivity",
+        "historyHistory",
+        "notesDescription"
+      ],
+      "missingInputs": [],
+      "countDiffs": {
+        "buttons": {
+          "mock": 14,
+          "live": 31
+        },
+        "links": {
+          "mock": 4,
+          "live": 9
+        },
+        "inputs": {
+          "mock": 1,
+          "live": 4
+        },
+        "icons": {
+          "mock": 59,
+          "live": 61
+        },
+        "cards": {
+          "mock": 0,
+          "live": 8
+        }
+      }
+    },
+    "settings-mobile": {
+      "liveUrl": "http://127.0.0.1:4200/settings",
+      "missingClasses": [
+        "avatar",
+        "body-medium",
+        "btn-text",
+        "btn-tonal",
+        "card",
+        "chip",
+        "floating-label",
+        "headline",
+        "icon-btn",
+        "icon-wrap",
+        "label",
+        "leading",
+        "lg",
+        "meta",
+        "scrolled",
+        "selected",
+        "settings-row",
+        "supporting",
+        "switch",
+        "titles",
+        "trailing",
+        "with-icon"
+      ],
+      "missingButtons": [
+        "add",
+        "addNew board",
+        "contrastSystem",
+        "dark_modeDark",
+        "light_modeLight",
+        "saveSave changes",
+        "uploadUpload"
+      ],
+      "missingHeadings": [],
+      "missingInputs": [
+        "Email Used for sign-in and notifications.",
+        "Engineer working on the Beacon kanban experience. Coffee, kayaks, kanban.Bio",
+        "Full name",
+        "Username"
+      ],
+      "countDiffs": {
+        "buttons": {
+          "mock": 11,
+          "live": 29
+        },
+        "links": {
+          "mock": 0,
+          "live": 13
+        },
+        "inputs": {
+          "mock": 9,
+          "live": 8
+        },
+        "icons": {
+          "mock": 49,
+          "live": 44
+        }
+      }
+    },
+    "components-mobile": {
+      "liveUrl": "http://127.0.0.1:4200/components",
+      "missingClasses": [
+        "action",
+        "active",
+        "assist",
+        "avatar",
+        "body-large",
+        "body-medium",
+        "error",
+        "headline-small",
+        "icon-wrap",
+        "label",
+        "label-large",
+        "leading",
+        "meta",
+        "scrolled",
+        "selected",
+        "title-large",
+        "title-medium",
+        "title-small",
+        "titles",
+        "trailing"
+      ],
+      "missingButtons": [
+        "Code",
+        "Disabled",
+        "Sam R. close",
+        "UNDO",
+        "addNew",
+        "addNew board",
+        "addNew card",
+        "cancelCancel",
+        "checkSelected",
+        "chevron_right",
+        "downloadExport",
+        "downloadExport tokens",
+        "edit",
+        "filter_listFilter",
+        "labelBug"
+      ],
+      "missingHeadings": [],
+      "missingInputs": [
+        "Email Enter a valid email address.",
+        "Focused state"
+      ],
+      "countDiffs": {
+        "buttons": {
+          "mock": 36,
+          "live": 46
+        },
+        "links": {
+          "mock": 0,
+          "live": 7
+        },
+        "inputs": {
+          "mock": 6,
+          "live": 4
+        },
+        "icons": {
+          "mock": 69,
+          "live": 43
+        },
+        "cards": {
+          "mock": 13,
+          "live": 15
+        }
+      }
+    },
+    "login-tablet": {
+      "liveUrl": "http://127.0.0.1:4200/sign-in",
+      "missingClasses": [
+        "brand",
+        "feat",
+        "features",
+        "floating-label",
+        "focused",
+        "footer-text",
+        "ico",
+        "label-large",
+        "pitch",
+        "row-between",
+        "sub",
+        "title-medium"
+      ],
+      "missingButtons": [],
+      "missingHeadings": [],
+      "missingInputs": [],
+      "countDiffs": {
+        "buttons": {
+          "mock": 3,
+          "live": 6
+        },
+        "links": {
+          "mock": 2,
+          "live": 1
+        },
+        "inputs": {
+          "mock": 2,
+          "live": 3
+        },
+        "icons": {
+          "mock": 7,
+          "live": 2
+        }
+      }
+    },
+    "boards-tablet": {
+      "liveUrl": "http://127.0.0.1:4200/boards",
+      "missingClasses": [
+        "action",
+        "active",
+        "bg-4",
+        "bg-5",
+        "body-medium",
+        "icon-wrap",
+        "label",
+        "label-large",
+        "leading",
+        "scrolled",
+        "selected",
+        "sm",
+        "title-large",
+        "titles",
+        "trailing"
+      ],
+      "missingButtons": [
+        "addNew board",
+        "checkAll",
+        "filter_listFilter",
+        "sortSort"
+      ],
+      "missingHeadings": [],
+      "missingInputs": [
+        "Search boards, cards, members..."
+      ],
+      "countDiffs": {
+        "buttons": {
+          "mock": 19,
+          "live": 37
+        },
+        "links": {
+          "mock": 0,
+          "live": 9
+        },
+        "inputs": {
+          "mock": 1,
+          "live": 2
+        },
+        "icons": {
+          "mock": 57,
+          "live": 63
+        },
+        "cards": {
+          "mock": 5,
+          "live": 3
+        }
+      }
+    },
+    "board-tablet": {
+      "liveUrl": "http://127.0.0.1:4200/boards/a930b6cb-c0a5-4890-aa46-665e0f1c1bda",
+      "missingClasses": [
+        "active",
+        "btn-text",
+        "btn-tonal",
+        "col-done",
+        "fixed-br",
+        "icon-btn",
+        "icon-wrap",
+        "label",
+        "label-bug",
+        "label-design",
+        "label-docs",
+        "label-feature",
+        "label-research",
+        "leading",
+        "meta-left",
+        "progress",
+        "scrolled",
+        "sm",
+        "spacer",
+        "titles",
+        "trailing"
+      ],
+      "missingButtons": [
+        "Add card",
+        "Back",
+        "add New card",
+        "addAdd card",
+        "filter_listFilter · 2",
+        "labelLabels",
+        "person_addInvite",
+        "view_columnBoard",
+        "view_listList"
+      ],
+      "missingHeadings": [
+        "Beacon Web App"
+      ],
+      "missingInputs": [],
+      "countDiffs": {
+        "buttons": {
+          "mock": 19,
+          "live": 31
+        },
+        "links": {
+          "mock": 0,
+          "live": 9
+        },
+        "inputs": {
+          "mock": 0,
+          "live": 6
+        },
+        "icons": {
+          "mock": 78,
+          "live": 55
+        },
+        "cards": {
+          "mock": 12,
+          "live": 4
+        }
+      }
+    },
+    "card-tablet": {
+      "liveUrl": "http://127.0.0.1:4200/boards/a930b6cb-c0a5-4890-aa46-665e0f1c1bda/cards/d23e2a9c-ecd1-4e1f-87f7-c85c6d3ff46d",
+      "missingClasses": [
+        "active",
+        "assist",
+        "avatar",
+        "avatar-stack",
+        "body",
+        "body-large",
+        "body-medium",
+        "btn-tonal",
+        "checkbox",
+        "checked",
+        "chip",
+        "col-dot",
+        "done",
+        "field",
+        "headline",
+        "icon-btn",
+        "icon-wrap",
+        "label",
+        "label-large",
+        "leading",
+        "list",
+        "list-item",
+        "meta",
+        "name",
+        "outlined",
+        "scrolled",
+        "selected",
+        "sm",
+        "supporting",
+        "text",
+        "text-field",
+        "time",
+        "titles",
+        "trailing"
+      ],
+      "missingButtons": [
+        "Add assignee",
+        "Back",
+        "Download",
+        "More",
+        "Share",
+        "Watch",
+        "addNew card",
+        "arrow_forwardMove",
+        "checkMark done",
+        "visibilityWatch"
+      ],
+      "missingHeadings": [
+        "Fix drag-and-drop scroll on long boards",
+        "attach_fileAttachments",
+        "checklistChecklist 3 of 5",
+        "forumActivity",
+        "historyHistory",
+        "notesDescription"
+      ],
+      "missingInputs": [],
+      "countDiffs": {
+        "buttons": {
+          "mock": 14,
+          "live": 31
+        },
+        "links": {
+          "mock": 4,
+          "live": 9
+        },
+        "inputs": {
+          "mock": 1,
+          "live": 4
+        },
+        "icons": {
+          "mock": 59,
+          "live": 61
+        },
+        "cards": {
+          "mock": 0,
+          "live": 8
+        }
+      }
+    },
+    "settings-tablet": {
+      "liveUrl": "http://127.0.0.1:4200/settings",
+      "missingClasses": [
+        "avatar",
+        "body-medium",
+        "btn-text",
+        "btn-tonal",
+        "card",
+        "chip",
+        "floating-label",
+        "headline",
+        "icon-btn",
+        "icon-wrap",
+        "label",
+        "leading",
+        "lg",
+        "meta",
+        "scrolled",
+        "selected",
+        "settings-row",
+        "supporting",
+        "switch",
+        "titles",
+        "trailing",
+        "with-icon"
+      ],
+      "missingButtons": [
+        "add",
+        "addNew board",
+        "contrastSystem",
+        "dark_modeDark",
+        "light_modeLight",
+        "saveSave changes",
+        "uploadUpload"
+      ],
+      "missingHeadings": [],
+      "missingInputs": [
+        "Email Used for sign-in and notifications.",
+        "Engineer working on the Beacon kanban experience. Coffee, kayaks, kanban.Bio",
+        "Full name",
+        "Username"
+      ],
+      "countDiffs": {
+        "buttons": {
+          "mock": 11,
+          "live": 29
+        },
+        "links": {
+          "mock": 0,
+          "live": 13
+        },
+        "inputs": {
+          "mock": 9,
+          "live": 8
+        },
+        "icons": {
+          "mock": 49,
+          "live": 44
+        }
+      }
+    },
+    "components-tablet": {
+      "liveUrl": "http://127.0.0.1:4200/components",
+      "missingClasses": [
+        "action",
+        "active",
+        "assist",
+        "avatar",
+        "body-large",
+        "body-medium",
+        "error",
+        "headline-small",
+        "icon-wrap",
+        "label",
+        "label-large",
+        "leading",
+        "meta",
+        "scrolled",
+        "selected",
+        "title-large",
+        "title-medium",
+        "title-small",
+        "titles",
+        "trailing"
+      ],
+      "missingButtons": [
+        "Code",
+        "Disabled",
+        "Sam R. close",
+        "UNDO",
+        "addNew",
+        "addNew board",
+        "addNew card",
+        "cancelCancel",
+        "checkSelected",
+        "chevron_right",
+        "downloadExport",
+        "downloadExport tokens",
+        "edit",
+        "filter_listFilter",
+        "labelBug"
+      ],
+      "missingHeadings": [],
+      "missingInputs": [
+        "Email Enter a valid email address.",
+        "Focused state"
+      ],
+      "countDiffs": {
+        "buttons": {
+          "mock": 36,
+          "live": 46
+        },
+        "links": {
+          "mock": 0,
+          "live": 7
+        },
+        "inputs": {
+          "mock": 6,
+          "live": 4
+        },
+        "icons": {
+          "mock": 69,
+          "live": 43
+        },
+        "cards": {
+          "mock": 13,
+          "live": 15
+        }
+      }
+    },
+    "login-desktop": {
+      "liveUrl": "http://127.0.0.1:4200/sign-in",
+      "missingClasses": [
+        "brand",
+        "feat",
+        "features",
+        "floating-label",
+        "focused",
+        "footer-text",
+        "ico",
+        "label-large",
+        "pitch",
+        "row-between",
+        "sub",
+        "title-medium"
+      ],
+      "missingButtons": [],
+      "missingHeadings": [],
+      "missingInputs": [],
+      "countDiffs": {
+        "buttons": {
+          "mock": 3,
+          "live": 6
+        },
+        "links": {
+          "mock": 2,
+          "live": 1
+        },
+        "inputs": {
+          "mock": 2,
+          "live": 3
+        },
+        "icons": {
+          "mock": 7,
+          "live": 2
+        }
+      }
+    },
+    "boards-desktop": {
+      "liveUrl": "http://127.0.0.1:4200/boards",
+      "missingClasses": [
+        "action",
+        "active",
+        "bg-4",
+        "bg-5",
+        "body-medium",
+        "icon-wrap",
+        "label",
+        "label-large",
+        "leading",
+        "scrolled",
+        "selected",
+        "sm",
+        "title-large",
+        "titles",
+        "trailing"
+      ],
+      "missingButtons": [
+        "addNew board",
+        "checkAll",
+        "filter_listFilter",
+        "sortSort"
+      ],
+      "missingHeadings": [],
+      "missingInputs": [
+        "Search boards, cards, members..."
+      ],
+      "countDiffs": {
+        "buttons": {
+          "mock": 19,
+          "live": 37
+        },
+        "links": {
+          "mock": 0,
+          "live": 9
+        },
+        "inputs": {
+          "mock": 1,
+          "live": 2
+        },
+        "icons": {
+          "mock": 57,
+          "live": 63
+        },
+        "cards": {
+          "mock": 5,
+          "live": 3
+        }
+      }
+    },
+    "board-desktop": {
+      "liveUrl": "http://127.0.0.1:4200/boards/a930b6cb-c0a5-4890-aa46-665e0f1c1bda",
+      "missingClasses": [
+        "active",
+        "btn-text",
+        "btn-tonal",
+        "col-done",
+        "fixed-br",
+        "icon-btn",
+        "icon-wrap",
+        "label",
+        "label-bug",
+        "label-design",
+        "label-docs",
+        "label-feature",
+        "label-research",
+        "leading",
+        "meta-left",
+        "progress",
+        "scrolled",
+        "sm",
+        "spacer",
+        "titles",
+        "trailing"
+      ],
+      "missingButtons": [
+        "Add card",
+        "Back",
+        "add New card",
+        "addAdd card",
+        "filter_listFilter · 2",
+        "labelLabels",
+        "person_addInvite",
+        "view_columnBoard",
+        "view_listList"
+      ],
+      "missingHeadings": [
+        "Beacon Web App"
+      ],
+      "missingInputs": [],
+      "countDiffs": {
+        "buttons": {
+          "mock": 19,
+          "live": 31
+        },
+        "links": {
+          "mock": 0,
+          "live": 9
+        },
+        "inputs": {
+          "mock": 0,
+          "live": 6
+        },
+        "icons": {
+          "mock": 78,
+          "live": 55
+        },
+        "cards": {
+          "mock": 12,
+          "live": 4
+        }
+      }
+    },
+    "card-desktop": {
+      "liveUrl": "http://127.0.0.1:4200/boards/a930b6cb-c0a5-4890-aa46-665e0f1c1bda/cards/d23e2a9c-ecd1-4e1f-87f7-c85c6d3ff46d",
+      "missingClasses": [
+        "active",
+        "assist",
+        "avatar",
+        "avatar-stack",
+        "body",
+        "body-large",
+        "body-medium",
+        "btn-tonal",
+        "checkbox",
+        "checked",
+        "chip",
+        "col-dot",
+        "done",
+        "field",
+        "headline",
+        "icon-btn",
+        "icon-wrap",
+        "label",
+        "label-large",
+        "leading",
+        "list",
+        "list-item",
+        "meta",
+        "name",
+        "outlined",
+        "scrolled",
+        "selected",
+        "sm",
+        "supporting",
+        "text",
+        "text-field",
+        "time",
+        "titles",
+        "trailing"
+      ],
+      "missingButtons": [
+        "Add assignee",
+        "Back",
+        "Download",
+        "More",
+        "Share",
+        "Watch",
+        "addNew card",
+        "arrow_forwardMove",
+        "checkMark done",
+        "visibilityWatch"
+      ],
+      "missingHeadings": [
+        "Fix drag-and-drop scroll on long boards",
+        "attach_fileAttachments",
+        "checklistChecklist 3 of 5",
+        "forumActivity",
+        "historyHistory",
+        "notesDescription"
+      ],
+      "missingInputs": [],
+      "countDiffs": {
+        "buttons": {
+          "mock": 14,
+          "live": 31
+        },
+        "links": {
+          "mock": 4,
+          "live": 9
+        },
+        "inputs": {
+          "mock": 1,
+          "live": 4
+        },
+        "icons": {
+          "mock": 59,
+          "live": 61
+        },
+        "cards": {
+          "mock": 0,
+          "live": 8
+        }
+      }
+    },
+    "settings-desktop": {
+      "liveUrl": "http://127.0.0.1:4200/settings",
+      "missingClasses": [
+        "avatar",
+        "body-medium",
+        "btn-text",
+        "btn-tonal",
+        "card",
+        "chip",
+        "floating-label",
+        "headline",
+        "icon-btn",
+        "icon-wrap",
+        "label",
+        "leading",
+        "lg",
+        "meta",
+        "scrolled",
+        "selected",
+        "settings-row",
+        "supporting",
+        "switch",
+        "titles",
+        "trailing",
+        "with-icon"
+      ],
+      "missingButtons": [
+        "add",
+        "addNew board",
+        "contrastSystem",
+        "dark_modeDark",
+        "light_modeLight",
+        "saveSave changes",
+        "uploadUpload"
+      ],
+      "missingHeadings": [],
+      "missingInputs": [
+        "Email Used for sign-in and notifications.",
+        "Engineer working on the Beacon kanban experience. Coffee, kayaks, kanban.Bio",
+        "Full name",
+        "Username"
+      ],
+      "countDiffs": {
+        "buttons": {
+          "mock": 11,
+          "live": 29
+        },
+        "links": {
+          "mock": 0,
+          "live": 13
+        },
+        "inputs": {
+          "mock": 9,
+          "live": 8
+        },
+        "icons": {
+          "mock": 49,
+          "live": 44
+        }
+      }
+    },
+    "components-desktop": {
+      "liveUrl": "http://127.0.0.1:4200/components",
+      "missingClasses": [
+        "action",
+        "active",
+        "assist",
+        "avatar",
+        "body-large",
+        "body-medium",
+        "error",
+        "headline-small",
+        "icon-wrap",
+        "label",
+        "label-large",
+        "leading",
+        "meta",
+        "scrolled",
+        "selected",
+        "title-large",
+        "title-medium",
+        "title-small",
+        "titles",
+        "trailing"
+      ],
+      "missingButtons": [
+        "Code",
+        "Disabled",
+        "Sam R. close",
+        "UNDO",
+        "addNew",
+        "addNew board",
+        "addNew card",
+        "cancelCancel",
+        "checkSelected",
+        "chevron_right",
+        "downloadExport",
+        "downloadExport tokens",
+        "edit",
+        "filter_listFilter",
+        "labelBug"
+      ],
+      "missingHeadings": [],
+      "missingInputs": [
+        "Email Enter a valid email address.",
+        "Focused state"
+      ],
+      "countDiffs": {
+        "buttons": {
+          "mock": 36,
+          "live": 46
+        },
+        "links": {
+          "mock": 0,
+          "live": 7
+        },
+        "inputs": {
+          "mock": 6,
+          "live": 4
+        },
+        "icons": {
+          "mock": 69,
+          "live": 43
+        },
+        "cards": {
+          "mock": 13,
+          "live": 15
+        }
+      }
+    }
+  }
+}

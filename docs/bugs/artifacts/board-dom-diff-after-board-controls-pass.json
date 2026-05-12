@@ -1,0 +1,118 @@
+{
+  "generatedAt": "2026-05-12T01:02:53.350Z",
+  "pages": {
+    "board-mobile": {
+      "missingClasses": [],
+      "missingButtons": [],
+      "missingHeadings": [
+        "BeaconWebApp"
+      ],
+      "missingInputs": [],
+      "countDiffs": {
+        "buttons": {
+          "mock": 19,
+          "live": 32
+        },
+        "links": {
+          "mock": 0,
+          "live": 8
+        },
+        "inputs": {
+          "mock": 0,
+          "live": 6
+        },
+        "icons": {
+          "mock": 78,
+          "live": 58
+        },
+        "cards": {
+          "mock": 12,
+          "live": 4
+        }
+      }
+    },
+    "board-tablet": {
+      "missingClasses": [],
+      "missingButtons": [],
+      "missingHeadings": [
+        "BeaconWebApp"
+      ],
+      "missingInputs": [],
+      "countDiffs": {
+        "buttons": {
+          "mock": 19,
+          "live": 32
+        },
+        "links": {
+          "mock": 0,
+          "live": 8
+        },
+        "inputs": {
+          "mock": 0,
+          "live": 6
+        },
+        "icons": {
+          "mock": 78,
+          "live": 58
+        },
+        "cards": {
+          "mock": 12,
+          "live": 4
+        }
+      }
+    },
+    "board-desktop": {
+      "missingClasses": [],
+      "missingButtons": [],
+      "missingHeadings": [
+        "BeaconWebApp"
+      ],
+      "missingInputs": [],
+      "countDiffs": {
+        "buttons": {
+          "mock": 19,
+          "live": 32
+        },
+        "links": {
+          "mock": 0,
+          "live": 8
+        },
+        "inputs": {
+          "mock": 0,
+          "live": 6
+        },
+        "icons": {
+          "mock": 78,
+          "live": 58
+        },
+        "cards": {
+          "mock": 12,
+          "live": 4
+        }
+      }
+    }
+  },
+  "summary": {
+    "board-mobile": {
+      "missingClasses": 0,
+      "missingButtons": 0,
+      "missingHeadings": 1,
+      "missingInputs": 0,
+      "countDiffs": 5
+    },
+    "board-tablet": {
+      "missingClasses": 0,
+      "missingButtons": 0,
+      "missingHeadings": 1,
+      "missingInputs": 0,
+      "countDiffs": 5
+    },
+    "board-desktop": {
+      "missingClasses": 0,
+      "missingButtons": 0,
+      "missingHeadings": 1,
+      "missingInputs": 0,
+      "countDiffs": 5
+    }
+  }
+}

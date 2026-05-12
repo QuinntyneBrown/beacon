@@ -156,6 +156,20 @@
   font-size: 0.8125rem;
 }
 
+.kanban-card .progress {
+  height: 0.25rem;
+  overflow: hidden;
+  border-radius: 999px;
+  background: var(--beacon-color-surface-container-highest);
+}
+
+.kanban-card .progress span {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: var(--beacon-color-primary);
+}
+
 .kanban-card__meta span {
   display: inline-flex;
   align-items: center;

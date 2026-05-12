@@ -8,41 +8,40 @@ import { SignInFormComponent } from 'domain';
   template: `
     <section class="auth-shell">
       <aside class="auth-hero">
-        <div class="auth-hero__brand">
-          <span class="auth-hero__logo" aria-hidden="true">B</span>
+        <div class="auth-hero__brand brand">
+          <span class="auth-hero__logo logo ico" aria-hidden="true">B</span>
           <span>Beacon</span>
         </div>
-        <div class="auth-hero__copy">
-          <p class="page-kicker">Team Kanban</p>
+        <div class="auth-hero__copy pitch">
           <h1>Kanban that gets out of your way.</h1>
-          <p>Plan the next release, move work forward, and keep every detail close without slowing the team down.</p>
+          <p class="sub supporting">Beacon is a radically simple board for small project teams. No bloat. No setup fatigue. Just the columns, cards, and clarity you actually need to ship.</p>
         </div>
-        <ul class="auth-hero__features">
-          <li>
-            <span aria-hidden="true">bolt</span>
+        <ul class="auth-hero__features features">
+          <li class="feat">
+            <span class="ico material-symbols-rounded" aria-hidden="true">bolt</span>
             <div>
-              <strong>Fast by default</strong>
-              <p>Open boards, cards, and comments without waiting through heavy screens.</p>
+              <strong class="title-medium">Fast by default</strong>
+              <p class="body-medium">Drag, drop, done. Zero modal madness.</p>
             </div>
           </li>
-          <li>
-            <span aria-hidden="true">groups</span>
+          <li class="feat">
+            <span class="ico material-symbols-rounded" aria-hidden="true">group</span>
             <div>
-              <strong>Built for small teams</strong>
-              <p>Simple workflow controls keep the project state readable.</p>
+              <strong class="title-medium">Built for small teams</strong>
+              <p class="body-medium">Up to 10 collaborators per board, free forever.</p>
             </div>
           </li>
-          <li>
-            <span aria-hidden="true">palette</span>
+          <li class="feat">
+            <span class="ico material-symbols-rounded" aria-hidden="true">design_services</span>
             <div>
-              <strong>Material 3 polish</strong>
-              <p>Responsive spacing, color, and focus states are consistent across devices.</p>
+              <strong class="title-medium">Material 3 polish</strong>
+              <p class="body-medium">A calm, consistent interface across every device.</p>
             </div>
           </li>
         </ul>
       </aside>
 
-      <div class="auth-shell__form">
+      <div class="auth-shell__form auth-form-wrap">
         <lib-sign-in-form (authenticated)="onAuthenticated()" />
       </div>
     </section>
@@ -142,6 +141,12 @@ import { SignInFormComponent } from 'domain';
       color: var(--beacon-color-on-surface-variant);
       font-size: 0.875rem;
       line-height: 1.45;
+    }
+
+    .auth-hero__footer {
+      margin: 0;
+      color: var(--beacon-color-muted);
+      font-size: 0.875rem;
     }
 
     .auth-shell__form {

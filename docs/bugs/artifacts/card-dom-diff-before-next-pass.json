@@ -1,0 +1,211 @@
+{
+  "generatedAt": "2026-05-12T01:03:39.990Z",
+  "pages": {
+    "card-mobile": {
+      "missingClasses": [
+        "active",
+        "assist",
+        "body",
+        "body-large",
+        "body-medium",
+        "btn-tonal",
+        "chip",
+        "col-dot",
+        "done",
+        "headline",
+        "icon-wrap",
+        "label",
+        "label-large",
+        "meta",
+        "selected",
+        "supporting",
+        "text",
+        "titles"
+      ],
+      "missingButtons": [
+        "Addassignee",
+        "Back",
+        "Download",
+        "More",
+        "Share",
+        "Watch",
+        "arrow_forwardMove",
+        "checkMarkdone"
+      ],
+      "missingHeadings": [
+        "Fixdrag-and-dropscrollonlongboards",
+        "checklistChecklist3of5"
+      ],
+      "missingInputs": [
+        "Writeacomment,@mentiontonotify"
+      ],
+      "countDiffs": {
+        "buttons": {
+          "mock": 14,
+          "live": 31
+        },
+        "links": {
+          "mock": 4,
+          "live": 9
+        },
+        "inputs": {
+          "mock": 1,
+          "live": 4
+        },
+        "icons": {
+          "mock": 59,
+          "live": 61
+        },
+        "cards": {
+          "mock": 0,
+          "live": 8
+        }
+      }
+    },
+    "card-tablet": {
+      "missingClasses": [
+        "active",
+        "assist",
+        "body",
+        "body-large",
+        "body-medium",
+        "btn-tonal",
+        "chip",
+        "col-dot",
+        "done",
+        "headline",
+        "icon-wrap",
+        "label",
+        "label-large",
+        "meta",
+        "selected",
+        "supporting",
+        "text",
+        "titles"
+      ],
+      "missingButtons": [
+        "Addassignee",
+        "Back",
+        "Download",
+        "More",
+        "Share",
+        "Watch",
+        "arrow_forwardMove",
+        "checkMarkdone"
+      ],
+      "missingHeadings": [
+        "Fixdrag-and-dropscrollonlongboards",
+        "checklistChecklist3of5"
+      ],
+      "missingInputs": [
+        "Writeacomment,@mentiontonotify"
+      ],
+      "countDiffs": {
+        "buttons": {
+          "mock": 14,
+          "live": 31
+        },
+        "links": {
+          "mock": 4,
+          "live": 9
+        },
+        "inputs": {
+          "mock": 1,
+          "live": 4
+        },
+        "icons": {
+          "mock": 59,
+          "live": 61
+        },
+        "cards": {
+          "mock": 0,
+          "live": 8
+        }
+      }
+    },
+    "card-desktop": {
+      "missingClasses": [
+        "active",
+        "assist",
+        "body",
+        "body-large",
+        "body-medium",
+        "btn-tonal",
+        "chip",
+        "col-dot",
+        "done",
+        "headline",
+        "icon-wrap",
+        "label",
+        "label-large",
+        "meta",
+        "selected",
+        "supporting",
+        "text",
+        "titles"
+      ],
+      "missingButtons": [
+        "Addassignee",
+        "Back",
+        "Download",
+        "More",
+        "Share",
+        "Watch",
+        "arrow_forwardMove",
+        "checkMarkdone"
+      ],
+      "missingHeadings": [
+        "Fixdrag-and-dropscrollonlongboards",
+        "checklistChecklist3of5"
+      ],
+      "missingInputs": [
+        "Writeacomment,@mentiontonotify"
+      ],
+      "countDiffs": {
+        "buttons": {
+          "mock": 14,
+          "live": 31
+        },
+        "links": {
+          "mock": 4,
+          "live": 9
+        },
+        "inputs": {
+          "mock": 1,
+          "live": 4
+        },
+        "icons": {
+          "mock": 59,
+          "live": 61
+        },
+        "cards": {
+          "mock": 0,
+          "live": 8
+        }
+      }
+    }
+  },
+  "summary": {
+    "card-mobile": {
+      "missingClasses": 18,
+      "missingButtons": 8,
+      "missingHeadings": 2,
+      "missingInputs": 1,
+      "countDiffs": 5
+    },
+    "card-tablet": {
+      "missingClasses": 18,
+      "missingButtons": 8,
+      "missingHeadings": 2,
+      "missingInputs": 1,
+      "countDiffs": 5
+    },
+    "card-desktop": {
+      "missingClasses": 18,
+      "missingButtons": 8,
+      "missingHeadings": 2,
+      "missingInputs": 1,
+      "countDiffs": 5
+    }
+  }
+}
