@@ -12,7 +12,7 @@ export class BoardsPage {
 
   async expectVisible(): Promise<void> {
     await expect(this.page.getByRole('heading', { name: /Boards/ }).first()).toBeVisible();
-    await expect(this.page.getByPlaceholder('Search boards')).toBeVisible();
+    await expect(this.searchBox()).toBeVisible();
     await expect(this.page.getByRole('button', { name: 'Create board' })).toBeVisible();
   }
 
@@ -66,11 +66,15 @@ export class BoardsPage {
   }
 
   async search(term: string): Promise<void> {
-    await this.page.getByPlaceholder('Search boards').fill(term);
+    await this.searchBox().fill(term);
   }
 
   private boardCard(name: string) {
     return this.page.locator('lib-board-tile').filter({ hasText: name }).first();
+  }
+
+  private searchBox() {
+    return this.page.getByRole('searchbox', { name: 'Search boards' });
   }
 }
 
