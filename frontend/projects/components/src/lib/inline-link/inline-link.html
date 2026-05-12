@@ -1,0 +1,18 @@
+@if (href() && !disabled()) {
+  <a
+    mat-button
+    class="inline-link"
+    [href]="href()"
+    (click)="onClick($event)">
+    {{ label() }}
+  </a>
+} @else {
+  <button
+    mat-button
+    type="button"
+    class="inline-link"
+    [disabled]="disabled()"
+    (click)="onClick($event)">
+    {{ label() }}
+  </button>
+}

@@ -1,0 +1,78 @@
+:host {
+  display: inline-block;
+}
+
+:host:has(.button--full-width) {
+  display: block;
+}
+
+.button {
+  min-height: 2.5rem;
+  border-radius: 999px;
+  font-weight: 700;
+  letter-spacing: 0;
+}
+
+.button--full-width {
+  width: 100%;
+}
+
+.button__content {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--beacon-space-2, 0.5rem);
+  min-width: 0;
+}
+
+.button__label {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.button--filled {
+  color: #ffffff;
+  background: var(--beacon-color-primary, #006782);
+}
+
+.button--tonal {
+  color: var(--beacon-color-on-surface, #111c20);
+  background: var(--beacon-color-primary-container, #b5f1f5);
+}
+
+.button--outlined {
+  border: 1px solid var(--beacon-color-outline, #c7d8e0);
+  color: var(--beacon-color-primary, #006782);
+  background: transparent;
+}
+
+.button--text {
+  color: var(--beacon-color-primary, #006782);
+  background: transparent;
+}
+
+.button--elevated {
+  color: var(--beacon-color-primary, #006782);
+  background: var(--beacon-color-surface, #f8fafb);
+  box-shadow: var(--beacon-shadow-1, 0 1px 3px rgba(17, 28, 32, 0.12));
+}
+
+.button--destructive.button--filled {
+  background: var(--beacon-color-danger, #b3261e);
+}
+
+.button--destructive.button--tonal {
+  color: var(--beacon-color-danger, #b3261e);
+  background: var(--beacon-color-danger-container, #ffdad6);
+}
+
+.button--destructive.button--outlined,
+.button--destructive.button--text,
+.button--destructive.button--elevated {
+  color: var(--beacon-color-danger, #b3261e);
+}
+
+.button__spinner {
+  --mdc-circular-progress-active-indicator-color: currentColor;
+}

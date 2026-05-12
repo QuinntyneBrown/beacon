@@ -1,0 +1,25 @@
+<div class="avatar-stack" role="list">
+  @for (avatar of visibleAvatars(); track trackAvatar($index, avatar)) {
+    <span class="avatar-stack__item" role="listitem">
+      <lib-avatar
+        [imageUrl]="avatar.imageUrl ?? null"
+        [initials]="avatar.initials ?? ''"
+        [label]="avatar.label"
+        [colorToken]="avatar.colorToken ?? 'var(--beacon-color-primary, #006782)'"
+        [size]="size()"
+        [interactive]="true"
+        (clicked)="avatarClicked.emit(avatar)" />
+    </span>
+  }
+
+  @if (overflowCount() > 0) {
+    <button
+      mat-button
+      type="button"
+      class="avatar-stack__overflow"
+      [attr.aria-label]="overflowCount() + ' more avatars'"
+      (click)="overflowClicked.emit(overflowAvatars())">
+      +{{ overflowCount() }}
+    </button>
+  }
+</div>

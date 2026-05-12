@@ -1,0 +1,37 @@
+<ng-template #avatarContent>
+  @if (loading()) {
+    <mat-progress-spinner
+      class="avatar__spinner"
+      mode="indeterminate"
+      diameter="20"
+      aria-hidden="true" />
+  } @else if (imageUrl()) {
+    <img class="avatar__image" [src]="imageUrl()" [alt]="label()" />
+  } @else {
+    <span class="avatar__initials" aria-hidden="true">{{ displayInitials() || '?' }}</span>
+  }
+</ng-template>
+
+@if (interactive()) {
+  <button
+    mat-button
+    type="button"
+    class="avatar"
+    [class.avatar--small]="size() === 'small'"
+    [class.avatar--large]="size() === 'large'"
+    [style.--avatar-color]="colorToken()"
+    [attr.aria-label]="label() || 'Avatar'"
+    [disabled]="loading()"
+    (click)="onClick($event)">
+    <ng-container [ngTemplateOutlet]="avatarContent" />
+  </button>
+} @else {
+  <span
+    class="avatar"
+    [class.avatar--small]="size() === 'small'"
+    [class.avatar--large]="size() === 'large'"
+    [style.--avatar-color]="colorToken()"
+    [attr.aria-label]="label() || null">
+    <ng-container [ngTemplateOutlet]="avatarContent" />
+  </span>
+}

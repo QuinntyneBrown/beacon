@@ -1,0 +1,22 @@
+:host {
+  display: block;
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  gap: var(--beacon-space-2, 0.5rem);
+}
+
+.search-bar__field {
+  flex: 1;
+  min-width: 0;
+}
+
+.search-bar__leading-icon {
+  color: var(--beacon-color-muted, #687579);
+}
+
+.search-bar__avatar {
+  display: inline-flex;
+}

@@ -1,0 +1,50 @@
+:host {
+  display: block;
+}
+
+.settings-section {
+  display: grid;
+  gap: var(--beacon-space-3, 0.75rem);
+  padding-block: var(--beacon-space-4, 1rem);
+}
+
+.settings-section--compact {
+  gap: var(--beacon-space-2, 0.5rem);
+}
+
+.settings-section__header {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--beacon-space-3, 0.75rem);
+}
+
+.settings-section__icon {
+  color: var(--beacon-color-primary, #006782);
+}
+
+.settings-section__titles {
+  display: grid;
+  min-width: 0;
+  gap: var(--beacon-space-1, 0.25rem);
+}
+
+.settings-section__title,
+.settings-section__description {
+  margin: 0;
+}
+
+.settings-section__title {
+  color: var(--beacon-color-on-surface, #111c20);
+  font-size: 1.125rem;
+  font-weight: 750;
+}
+
+.settings-section__description {
+  color: var(--beacon-color-on-surface-variant, #41484c);
+  line-height: 1.45;
+}
+
+.settings-section__rows {
+  display: grid;
+  gap: var(--beacon-space-2, 0.5rem);
+}

@@ -1,0 +1,17 @@
+:host {
+  display: block;
+}
+
+.divider-text {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  align-items: center;
+  gap: var(--beacon-space-3, 0.75rem);
+  color: var(--beacon-color-muted, #687579);
+  font-size: 0.875rem;
+  font-weight: 700;
+}
+
+.divider-text__label {
+  white-space: nowrap;
+}

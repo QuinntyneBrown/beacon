@@ -1,0 +1,49 @@
+:host {
+  display: block;
+}
+
+.comment-composer {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--beacon-space-3, 0.75rem);
+}
+
+.comment-composer--disabled {
+  opacity: 0.65;
+}
+
+.comment-composer__editor {
+  display: grid;
+  flex: 1;
+  min-width: 0;
+  gap: var(--beacon-space-2, 0.5rem);
+}
+
+.comment-composer__field {
+  width: 100%;
+}
+
+.comment-composer__actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--beacon-space-2, 0.5rem);
+}
+
+.comment-composer__submit {
+  color: #ffffff;
+  background: var(--beacon-color-primary, #006782);
+  font-weight: 750;
+}
+
+.comment-composer__submit mat-progress-spinner {
+  --mdc-circular-progress-active-indicator-color: currentColor;
+  margin-right: var(--beacon-space-2, 0.5rem);
+}
+
+.comment-composer__submit mat-icon {
+  margin-right: var(--beacon-space-2, 0.5rem);
+}
+
+.comment-composer__error {
+  color: var(--beacon-color-danger, #b3261e);
+}

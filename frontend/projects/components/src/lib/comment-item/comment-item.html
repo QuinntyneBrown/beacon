@@ -1,0 +1,48 @@
+<article class="comment-item" [class.comment-item--highlighted]="highlighted()">
+  @if (loading()) {
+    <mat-progress-bar class="comment-item__loading" mode="indeterminate" />
+  }
+
+  @if (avatar(); as avatarValue) {
+    <lib-avatar
+      class="comment-item__avatar"
+      [label]="avatarValue.label"
+      [initials]="avatarValue.initials ?? ''"
+      [imageUrl]="avatarValue.imageUrl ?? null"
+      size="small" />
+  }
+
+  <div class="comment-item__content">
+    <header class="comment-item__header">
+      <span class="comment-item__author">{{ authorDisplay() }}</span>
+      @if (timestamp()) {
+        <span class="comment-item__timestamp">{{ timestamp() }}</span>
+      }
+      @if (edited()) {
+        <span class="comment-item__edited">edited</span>
+      }
+    </header>
+
+    @if (body()) {
+      <p class="comment-item__body">{{ body() }}</p>
+    }
+
+    @if (actions().length > 0) {
+      <div class="comment-item__actions">
+        @for (action of actions(); track action.id) {
+          <button
+            mat-button
+            type="button"
+            class="comment-item__action"
+            [disabled]="!!action.disabled"
+            (click)="actionSelected.emit(action.id)">
+            @if (action.icon) {
+              <mat-icon aria-hidden="true">{{ action.icon }}</mat-icon>
+            }
+            <span>{{ action.label }}</span>
+          </button>
+        }
+      </div>
+    }
+  </div>
+</article>

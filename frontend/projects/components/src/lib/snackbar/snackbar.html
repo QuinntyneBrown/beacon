@@ -1,0 +1,26 @@
+@if (open()) {
+  <div
+    class="snackbar"
+    [class.snackbar--success]="severity() === 'success'"
+    [class.snackbar--warning]="severity() === 'warning'"
+    [class.snackbar--error]="severity() === 'error'"
+    role="status"
+    [attr.data-duration]="duration()">
+    <span class="snackbar__message">{{ message() }}</span>
+
+    @if (actionLabel()) {
+      <button mat-button type="button" class="snackbar__action" (click)="actionClicked.emit()">
+        {{ actionLabel() }}
+      </button>
+    }
+
+    <button
+      mat-icon-button
+      type="button"
+      class="snackbar__dismiss"
+      aria-label="Dismiss"
+      (click)="dismissed.emit()">
+      <mat-icon aria-hidden="true">close</mat-icon>
+    </button>
+  </div>
+}

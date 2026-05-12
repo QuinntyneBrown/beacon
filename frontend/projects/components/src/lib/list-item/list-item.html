@@ -1,0 +1,35 @@
+<ng-template #listItemContent>
+  @if (icon()) {
+    <mat-icon class="list-item__icon" aria-hidden="true">{{ icon() }}</mat-icon>
+  }
+  <span class="list-item__content">
+    <span class="list-item__label">{{ label() }}</span>
+    @if (supportingText()) {
+      <span class="list-item__supporting">{{ supportingText() }}</span>
+    }
+  </span>
+  <span class="list-item__trailing">
+    <ng-content select="[list-item-trailing]" />
+  </span>
+</ng-template>
+
+@if (interactive()) {
+  <button
+    mat-button
+    type="button"
+    class="list-item"
+    [class.list-item--selected]="selected()"
+    [class.list-item--dense]="dense()"
+    [disabled]="disabled()"
+    (click)="clicked.emit()">
+    <ng-container [ngTemplateOutlet]="listItemContent" />
+  </button>
+} @else {
+  <div
+    class="list-item"
+    [class.list-item--selected]="selected()"
+    [class.list-item--dense]="dense()"
+    [class.list-item--disabled]="disabled()">
+    <ng-container [ngTemplateOutlet]="listItemContent" />
+  </div>
+}

@@ -1,0 +1,36 @@
+:host {
+  display: block;
+}
+
+.history-list {
+  display: grid;
+  gap: var(--beacon-space-1, 0.25rem);
+}
+
+.history-list__item {
+  border-radius: var(--beacon-radius-md, 0.75rem);
+}
+
+.history-list--compact .history-list__item {
+  min-height: 3rem;
+}
+
+.history-list__icon {
+  color: var(--beacon-color-primary, #006782);
+}
+
+.history-list__title {
+  color: var(--beacon-color-on-surface, #111c20);
+  font-weight: 750;
+}
+
+.history-list__description,
+.history-list__timestamp,
+.history-list__empty {
+  color: var(--beacon-color-on-surface-variant, #41484c);
+}
+
+.history-list__empty {
+  margin: 0;
+  padding: var(--beacon-space-3, 0.75rem);
+}

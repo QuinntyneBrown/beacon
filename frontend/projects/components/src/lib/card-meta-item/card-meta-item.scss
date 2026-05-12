@@ -1,0 +1,54 @@
+:host {
+  display: block;
+}
+
+.card-meta-item {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--beacon-space-2, 0.5rem);
+  min-height: 2.25rem;
+  border-radius: var(--beacon-radius-md, 0.75rem);
+  padding: var(--beacon-space-1, 0.25rem) var(--beacon-space-2, 0.5rem);
+  color: var(--beacon-color-on-surface, #111c20);
+  letter-spacing: 0;
+  text-align: left;
+}
+
+.card-meta-item--muted {
+  color: var(--beacon-color-muted, #687579);
+}
+
+.card-meta-item--accent {
+  color: var(--beacon-color-primary, #006782);
+  background: color-mix(in srgb, var(--beacon-color-primary-container, #b5f1f5) 45%, transparent);
+}
+
+.card-meta-item--warning {
+  color: var(--beacon-color-danger, #b3261e);
+  background: color-mix(in srgb, var(--beacon-color-danger-container, #ffdad6) 45%, transparent);
+}
+
+.card-meta-item__content {
+  display: grid;
+  min-width: 0;
+}
+
+.card-meta-item__label {
+  color: currentColor;
+  font-size: 0.75rem;
+  font-weight: 750;
+}
+
+.card-meta-item__value {
+  overflow: hidden;
+  max-width: 12rem;
+  color: var(--beacon-color-on-surface-variant, #41484c);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 0.875rem;
+}
+
+.card-meta-item--accent .card-meta-item__value,
+.card-meta-item--warning .card-meta-item__value {
+  color: currentColor;
+}

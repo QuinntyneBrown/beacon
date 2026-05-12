@@ -1,0 +1,26 @@
+:host {
+  display: block;
+}
+
+.auth-card {
+  display: grid;
+  gap: var(--beacon-space-4, 1rem);
+  width: 100%;
+  border-radius: var(--beacon-radius-xl, 1.5rem);
+  padding: var(--beacon-space-5, 1.5rem);
+  background: color-mix(in srgb, var(--beacon-color-surface, #f8fafb) 96%, white);
+  box-shadow: var(--beacon-shadow-2, 0 8px 22px rgba(17, 28, 32, 0.11));
+}
+
+.auth-card--compact {
+  gap: var(--beacon-space-3, 0.75rem);
+  padding: var(--beacon-space-4, 1rem);
+}
+
+.auth-card__heading,
+.auth-card__body,
+.auth-card__actions {
+  display: grid;
+  gap: var(--beacon-space-3, 0.75rem);
+  min-width: 0;
+}

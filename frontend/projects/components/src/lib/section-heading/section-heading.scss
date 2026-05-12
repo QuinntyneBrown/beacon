@@ -1,0 +1,40 @@
+:host {
+  display: block;
+}
+
+.section-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--beacon-space-3, 0.75rem);
+}
+
+.section-heading__title-group {
+  display: flex;
+  align-items: center;
+  min-width: 0;
+  gap: var(--beacon-space-2, 0.5rem);
+}
+
+.section-heading__icon {
+  color: var(--beacon-color-primary, #006782);
+}
+
+.section-heading__title {
+  overflow: hidden;
+  margin: 0;
+  color: var(--beacon-color-on-surface, #111c20);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 1.125rem;
+  font-weight: 750;
+}
+
+.section-heading--compact .section-heading__title {
+  font-size: 1rem;
+}
+
+.section-heading__action {
+  display: inline-flex;
+  flex: 0 0 auto;
+}

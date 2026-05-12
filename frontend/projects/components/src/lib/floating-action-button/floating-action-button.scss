@@ -1,0 +1,66 @@
+:host {
+  display: inline-block;
+}
+
+.floating-action-button {
+  color: #ffffff;
+  background: var(--beacon-color-primary, #006782);
+  box-shadow: var(--beacon-shadow-2, 0 8px 22px rgba(17, 28, 32, 0.11));
+}
+
+.floating-action-button--surface {
+  color: var(--beacon-color-primary, #006782);
+  background: var(--beacon-color-surface-container, #f3f3f3);
+}
+
+.floating-action-button--tertiary {
+  color: #00212a;
+  background: var(--beacon-color-tertiary, #3acff5);
+}
+
+.floating-action-button--bottom-end,
+.floating-action-button--bottom-start,
+.floating-action-button--top-end {
+  position: fixed;
+  z-index: 40;
+}
+
+.floating-action-button--bottom-end {
+  right: var(--beacon-space-4, 1rem);
+  bottom: var(--beacon-space-4, 1rem);
+}
+
+.floating-action-button--bottom-start {
+  bottom: var(--beacon-space-4, 1rem);
+  left: var(--beacon-space-4, 1rem);
+}
+
+.floating-action-button--top-end {
+  top: var(--beacon-space-4, 1rem);
+  right: var(--beacon-space-4, 1rem);
+}
+
+.floating-action-button--tablet-up,
+.floating-action-button--desktop-up {
+  display: none;
+}
+
+.floating-action-button__spinner {
+  --mdc-circular-progress-active-indicator-color: currentColor;
+}
+
+@media (min-width: 48rem) {
+  .floating-action-button--mobile-only {
+    display: none;
+  }
+
+  .floating-action-button--tablet-up {
+    display: inline-flex;
+  }
+}
+
+@media (min-width: 64rem) {
+  .floating-action-button--desktop-up {
+    display: inline-flex;
+  }
+}

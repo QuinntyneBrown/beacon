@@ -1,0 +1,44 @@
+:host {
+  display: block;
+}
+
+.progress-bar {
+  display: grid;
+  gap: var(--beacon-space-2, 0.5rem);
+  color: var(--beacon-color-on-surface, #111c20);
+}
+
+.progress-bar__label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--beacon-space-3, 0.75rem);
+  color: var(--beacon-color-on-surface-variant, #41484c);
+  font-size: 0.875rem;
+  font-weight: 650;
+}
+
+.progress-bar--compact {
+  gap: var(--beacon-space-1, 0.25rem);
+}
+
+.progress-bar--compact .progress-bar__label {
+  font-size: 0.75rem;
+}
+
+.progress-bar__track {
+  --mdc-linear-progress-active-indicator-color: var(--beacon-color-primary, #006782);
+  --mdc-linear-progress-track-color: var(--beacon-color-surface-container-highest, #dbe8ec);
+}
+
+.progress-bar--success .progress-bar__track {
+  --mdc-linear-progress-active-indicator-color: #228b54;
+}
+
+.progress-bar--warning .progress-bar__track {
+  --mdc-linear-progress-active-indicator-color: #a36b00;
+}
+
+.progress-bar--error .progress-bar__track {
+  --mdc-linear-progress-active-indicator-color: var(--beacon-color-danger, #b3261e);
+}

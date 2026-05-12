@@ -1,0 +1,22 @@
+<mat-chip-listbox
+  class="chip-group"
+  [multiple]="multiSelect()"
+  [disabled]="disabled()"
+  [attr.aria-label]="ariaLabel()">
+  @for (chip of chips(); track chip.id) {
+    <mat-chip-option
+      class="chip-group__item"
+      [value]="chip.id"
+      [selected]="isSelected(chip.id)"
+      [disabled]="disabled() || !!chip.disabled"
+      (selectionChange)="onChipSelection(chip.id, $event.selected)">
+      @if (chip.icon) {
+        <mat-icon class="chip-group__icon" aria-hidden="true">{{ chip.icon }}</mat-icon>
+      }
+      <span class="chip-group__label">{{ chip.label }}</span>
+      @if (chip.count !== undefined) {
+        <span class="chip-group__count">{{ chip.count }}</span>
+      }
+    </mat-chip-option>
+  }
+</mat-chip-listbox>

@@ -1,0 +1,20 @@
+:host {
+  display: block;
+}
+
+.feature-list-item {
+  border-radius: var(--beacon-radius-md, 0.75rem);
+}
+
+.feature-list-item__icon {
+  color: var(--beacon-color-primary, #006782);
+}
+
+.feature-list-item__title {
+  color: var(--beacon-color-on-surface, #111c20);
+  font-weight: 750;
+}
+
+.feature-list-item__description {
+  color: var(--beacon-color-on-surface-variant, #41484c);
+}

@@ -1,0 +1,7 @@
+<mat-checkbox
+  class="checkbox"
+  [checked]="checked()"
+  [disabled]="disabled()"
+  (change)="checkedChanged.emit($event.checked)">
+  <span class="checkbox__label">{{ label() }}</span>
+</mat-checkbox>

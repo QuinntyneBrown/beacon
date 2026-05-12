@@ -1,0 +1,12 @@
+<mat-chip-listbox class="filter-chip" [disabled]="disabled()" aria-label="Filter">
+  <mat-chip-option
+    class="filter-chip__item"
+    [selected]="selected()"
+    [disabled]="disabled()"
+    (selectionChange)="onSelectionChange($event.selected)">
+    <span class="filter-chip__label">{{ label() }}</span>
+    @if (count() !== null) {
+      <span class="filter-chip__count">{{ count() }}</span>
+    }
+  </mat-chip-option>
+</mat-chip-listbox>

@@ -1,0 +1,90 @@
+:host {
+  display: block;
+}
+
+.responsive-navigation {
+  display: grid;
+  gap: var(--beacon-space-2, 0.5rem);
+  color: var(--beacon-color-on-surface-variant, #41484c);
+}
+
+.responsive-navigation__create,
+.responsive-navigation__item {
+  justify-content: flex-start;
+  min-height: 3rem;
+  border-radius: var(--beacon-radius-lg, 1rem);
+  letter-spacing: 0;
+}
+
+.responsive-navigation__create {
+  color: #ffffff;
+  background: var(--beacon-color-primary, #006782);
+  font-weight: 750;
+}
+
+.responsive-navigation__create--icon-only,
+.responsive-navigation--rail .responsive-navigation__item {
+  justify-content: center;
+  min-width: 3rem;
+  padding-inline: 0;
+}
+
+.responsive-navigation__section-label {
+  padding: var(--beacon-space-3, 0.75rem) var(--beacon-space-3, 0.75rem) 0;
+  color: var(--beacon-color-muted, #687579);
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.responsive-navigation__items {
+  display: grid;
+  gap: var(--beacon-space-1, 0.25rem);
+}
+
+.responsive-navigation__item {
+  color: inherit;
+}
+
+.responsive-navigation__item--active {
+  color: var(--beacon-color-on-surface, #111c20);
+  background: var(--beacon-color-primary-container, #b5f1f5);
+}
+
+.responsive-navigation__item-icon,
+.responsive-navigation__create-icon {
+  margin-right: var(--beacon-space-2, 0.5rem);
+}
+
+.responsive-navigation--rail .responsive-navigation__item-icon,
+.responsive-navigation__create--icon-only .responsive-navigation__create-icon {
+  margin-right: 0;
+}
+
+.responsive-navigation--bottom {
+  display: flex;
+  align-items: stretch;
+  justify-content: space-around;
+  gap: var(--beacon-space-1, 0.25rem);
+  width: 100%;
+  padding: var(--beacon-space-1, 0.25rem);
+}
+
+.responsive-navigation--bottom .responsive-navigation__items {
+  display: contents;
+}
+
+.responsive-navigation--bottom .responsive-navigation__item {
+  display: grid;
+  justify-items: center;
+  gap: 0.125rem;
+  min-width: 0;
+  min-height: 3.25rem;
+  border-radius: var(--beacon-radius-md, 0.75rem);
+  padding: var(--beacon-space-1, 0.25rem) var(--beacon-space-2, 0.5rem);
+  font-size: 0.75rem;
+}
+
+.responsive-navigation--bottom .responsive-navigation__item-icon {
+  margin-right: 0;
+}

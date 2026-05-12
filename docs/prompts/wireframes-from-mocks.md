@@ -10,3 +10,5 @@ Also create a `components.md` file in each screen folder that lists the reusable
 - **Domain library candidates** - domain-aware UI components suitable for the domain projects/libraries. Put a component in this section when it represents a business concept, workflow, or feature-specific composition; depends on API library models or services; owns data loading, saving, validation, authorization-aware behavior, or mutation flows; or would not make sense outside the application domain.
 
 For every listed component, include its purpose, expected inputs and outputs, important states or variants, and a short placement reason explaining why it belongs in the components library or the domain library.
+
+

@@ -1,0 +1,9 @@
+:host {
+  display: inline-block;
+}
+
+.checkbox__label {
+  color: var(--beacon-color-on-surface, #111c20);
+  font-weight: 650;
+  letter-spacing: 0;
+}

@@ -1,0 +1,60 @@
+:host {
+  display: block;
+}
+
+.settings-row {
+  display: flex;
+  align-items: center;
+  gap: var(--beacon-space-3, 0.75rem);
+  width: 100%;
+  min-height: 4rem;
+  border-radius: var(--beacon-radius-md, 0.75rem);
+  padding: var(--beacon-space-3, 0.75rem);
+  color: var(--beacon-color-on-surface, #111c20);
+  background: var(--beacon-color-surface, #f8fafb);
+  letter-spacing: 0;
+  text-align: left;
+}
+
+.settings-row--disabled {
+  opacity: 0.55;
+}
+
+.settings-row--warning {
+  color: var(--beacon-color-danger, #b3261e);
+  background: color-mix(in srgb, var(--beacon-color-danger-container, #ffdad6) 45%, transparent);
+}
+
+.settings-row__icon {
+  flex: 0 0 auto;
+  color: currentColor;
+}
+
+.settings-row__content {
+  display: grid;
+  flex: 1;
+  min-width: 0;
+  gap: var(--beacon-space-1, 0.25rem);
+}
+
+.settings-row__title {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-weight: 750;
+}
+
+.settings-row__description {
+  color: var(--beacon-color-on-surface-variant, #41484c);
+  font-size: 0.875rem;
+  line-height: 1.35;
+}
+
+.settings-row--warning .settings-row__description {
+  color: currentColor;
+}
+
+.settings-row__trailing {
+  display: inline-flex;
+  flex: 0 0 auto;
+}

@@ -1,0 +1,7 @@
+<mat-list-item class="feature-list-item" [class.feature-list-item--compact]="compact()">
+  <mat-icon matListItemIcon class="feature-list-item__icon" aria-hidden="true">{{ icon() }}</mat-icon>
+  <span matListItemTitle class="feature-list-item__title">{{ title() }}</span>
+  @if (description()) {
+    <span matListItemLine class="feature-list-item__description">{{ description() }}</span>
+  }
+</mat-list-item>

@@ -1,0 +1,11 @@
+:host {
+  display: inline-block;
+}
+
+.inline-link {
+  min-width: 0;
+  padding-inline: var(--beacon-space-1, 0.25rem);
+  color: var(--beacon-color-primary, #006782);
+  font-weight: 750;
+  letter-spacing: 0;
+}

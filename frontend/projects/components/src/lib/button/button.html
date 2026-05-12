@@ -1,0 +1,32 @@
+<button
+  mat-button
+  class="button"
+  [class.button--filled]="variant() === 'filled'"
+  [class.button--tonal]="variant() === 'tonal'"
+  [class.button--outlined]="variant() === 'outlined'"
+  [class.button--text]="variant() === 'text'"
+  [class.button--elevated]="variant() === 'elevated'"
+  [class.button--destructive]="destructive()"
+  [class.button--full-width]="fullWidth()"
+  [attr.type]="type()"
+  [disabled]="disabled() || loading()"
+  [attr.aria-busy]="loading()"
+  (click)="onClick($event)">
+  <span class="button__content">
+    @if (loading()) {
+      <mat-progress-spinner
+        class="button__spinner"
+        mode="indeterminate"
+        diameter="18"
+        aria-hidden="true" />
+    } @else if (icon()) {
+      <mat-icon class="button__icon" aria-hidden="true">{{ icon() }}</mat-icon>
+    }
+
+    @if (label()) {
+      <span class="button__label">{{ label() }}</span>
+    } @else {
+      <ng-content />
+    }
+  </span>
+</button>

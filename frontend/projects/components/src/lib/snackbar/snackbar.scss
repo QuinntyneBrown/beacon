@@ -1,0 +1,40 @@
+:host {
+  display: block;
+}
+
+.snackbar {
+  display: flex;
+  align-items: center;
+  gap: var(--beacon-space-3, 0.75rem);
+  width: min(100%, 36rem);
+  border-radius: var(--beacon-radius-sm, 0.5rem);
+  padding: var(--beacon-space-2, 0.5rem) var(--beacon-space-3, 0.75rem);
+  color: #ffffff;
+  background: #2d3132;
+  box-shadow: var(--beacon-shadow-2, 0 8px 22px rgba(17, 28, 32, 0.11));
+}
+
+.snackbar--success {
+  background: #145a35;
+}
+
+.snackbar--warning {
+  color: #271d00;
+  background: #f5d76e;
+}
+
+.snackbar--error {
+  background: var(--beacon-color-danger, #b3261e);
+}
+
+.snackbar__message {
+  flex: 1;
+  min-width: 0;
+}
+
+.snackbar__action,
+.snackbar__dismiss {
+  flex: 0 0 auto;
+  color: inherit;
+  font-weight: 800;
+}

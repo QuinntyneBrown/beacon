@@ -1,0 +1,52 @@
+<div class="comment-composer" [class.comment-composer--disabled]="disabled()">
+  @if (avatar(); as avatarValue) {
+    <lib-avatar
+      class="comment-composer__avatar"
+      [label]="avatarValue.label"
+      [initials]="avatarValue.initials ?? ''"
+      [imageUrl]="avatarValue.imageUrl ?? null"
+      size="small" />
+  }
+
+  <div class="comment-composer__editor">
+    <mat-form-field class="comment-composer__field" appearance="outline" subscriptSizing="dynamic">
+      <mat-label>{{ placeholder() }}</mat-label>
+      <textarea
+        matInput
+        class="comment-composer__input"
+        rows="3"
+        [value]="value()"
+        [disabled]="disabled() || submitting()"
+        (input)="onValueInput($event)"
+        (keydown.control.enter)="submitted.emit(value())"></textarea>
+      @if (error()) {
+        <mat-error class="comment-composer__error">{{ error() }}</mat-error>
+      }
+    </mat-form-field>
+
+    <div class="comment-composer__actions">
+      <button
+        mat-button
+        type="button"
+        class="comment-composer__cancel"
+        [disabled]="disabled() || submitting()"
+        (click)="canceled.emit()">
+        Cancel
+      </button>
+      <button
+        mat-button
+        type="button"
+        class="comment-composer__submit"
+        [disabled]="disabled() || submitting() || !value().trim()"
+        [attr.aria-busy]="submitting()"
+        (click)="submitted.emit(value())">
+        @if (submitting()) {
+          <mat-progress-spinner mode="indeterminate" diameter="18" aria-hidden="true" />
+        } @else {
+          <mat-icon aria-hidden="true">send</mat-icon>
+        }
+        <span>Comment</span>
+      </button>
+    </div>
+  </div>
+</div>

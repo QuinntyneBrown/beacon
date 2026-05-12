@@ -1,0 +1,19 @@
+:host {
+  display: block;
+}
+
+.outlined-text-field {
+  width: 100%;
+}
+
+.outlined-text-field__input {
+  letter-spacing: 0;
+}
+
+.outlined-text-field__supporting {
+  color: var(--beacon-color-on-surface-variant, #41484c);
+}
+
+.outlined-text-field__error {
+  color: var(--beacon-color-danger, #b3261e);
+}

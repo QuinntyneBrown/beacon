@@ -1,0 +1,17 @@
+:host {
+  display: inline-block;
+}
+
+.segmented-chip-group {
+  overflow: hidden;
+  border-radius: 999px;
+}
+
+.segmented-chip-group__option {
+  letter-spacing: 0;
+}
+
+.segmented-chip-group__icon {
+  margin-right: var(--beacon-space-1, 0.25rem);
+  color: var(--beacon-color-primary, #006782);
+}

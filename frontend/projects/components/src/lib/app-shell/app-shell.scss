@@ -1,0 +1,94 @@
+:host {
+  display: block;
+  min-height: 100%;
+}
+
+.app-shell {
+  display: grid;
+  min-height: 100%;
+  background: var(--beacon-color-background, #f3f3f3);
+}
+
+.app-shell__top-bar {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+}
+
+.app-shell__body {
+  display: grid;
+  min-height: 0;
+}
+
+.app-shell__drawer,
+.app-shell__rail {
+  display: none;
+  border-right: 1px solid color-mix(in srgb, var(--beacon-color-outline, #c7d8e0) 72%, transparent);
+  background: var(--beacon-color-surface, #f8fafb);
+}
+
+.app-shell__content {
+  min-width: 0;
+  padding: var(--beacon-space-4, 1rem);
+}
+
+.app-shell__bottom-navigation {
+  position: sticky;
+  bottom: 0;
+  z-index: 30;
+  border-top: 1px solid color-mix(in srgb, var(--beacon-color-outline, #c7d8e0) 72%, transparent);
+  background: var(--beacon-color-surface, #f8fafb);
+}
+
+.app-shell--tablet .app-shell__bottom-navigation,
+.app-shell--desktop .app-shell__bottom-navigation {
+  display: none;
+}
+
+.app-shell--tablet .app-shell__body {
+  grid-template-columns: 5rem minmax(0, 1fr);
+}
+
+.app-shell--tablet .app-shell__rail {
+  display: block;
+  padding: var(--beacon-space-3, 0.75rem) var(--beacon-space-2, 0.5rem);
+}
+
+.app-shell--desktop .app-shell__body {
+  grid-template-columns: 17rem minmax(0, 1fr);
+}
+
+.app-shell--desktop .app-shell__drawer {
+  display: block;
+  padding: var(--beacon-space-3, 0.75rem);
+}
+
+@media (min-width: 48rem) {
+  .app-shell:not(.app-shell--mobile) .app-shell__bottom-navigation {
+    display: none;
+  }
+
+  .app-shell:not(.app-shell--mobile) .app-shell__body {
+    grid-template-columns: 5rem minmax(0, 1fr);
+  }
+
+  .app-shell:not(.app-shell--mobile) .app-shell__rail {
+    display: block;
+    padding: var(--beacon-space-3, 0.75rem) var(--beacon-space-2, 0.5rem);
+  }
+}
+
+@media (min-width: 64rem) {
+  .app-shell:not(.app-shell--mobile):not(.app-shell--tablet) .app-shell__body {
+    grid-template-columns: 17rem minmax(0, 1fr);
+  }
+
+  .app-shell:not(.app-shell--mobile):not(.app-shell--tablet) .app-shell__rail {
+    display: none;
+  }
+
+  .app-shell:not(.app-shell--mobile):not(.app-shell--tablet) .app-shell__drawer {
+    display: block;
+    padding: var(--beacon-space-3, 0.75rem);
+  }
+}

@@ -1,0 +1,14 @@
+<mat-card class="auth-card" [class.auth-card--compact]="density() === 'compact'" appearance="outlined">
+  <header class="auth-card__heading">
+    <ng-content select="[auth-card-heading]" />
+  </header>
+
+  <div class="auth-card__body">
+    <ng-content select="[auth-card-body]" />
+    <ng-content />
+  </div>
+
+  <footer class="auth-card__actions">
+    <ng-content select="[auth-card-actions]" />
+  </footer>
+</mat-card>

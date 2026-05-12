@@ -1,0 +1,61 @@
+:host {
+  display: block;
+}
+
+.top-app-bar {
+  display: flex;
+  align-items: center;
+  gap: var(--beacon-space-2, 0.5rem);
+  min-height: 4rem;
+  border-bottom: 1px solid color-mix(in srgb, var(--beacon-color-outline, #c7d8e0) 72%, transparent);
+  padding-inline: var(--beacon-space-3, 0.75rem);
+  color: var(--beacon-color-on-surface, #111c20);
+  background: color-mix(in srgb, var(--beacon-color-surface-container, #f3f3f3) 90%, white);
+}
+
+.top-app-bar--sticky {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+}
+
+.top-app-bar--dense {
+  min-height: 3.25rem;
+}
+
+.top-app-bar__identity {
+  display: grid;
+  min-width: 0;
+}
+
+.top-app-bar__brand {
+  color: var(--beacon-color-muted, #687579);
+  font-size: 0.75rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.top-app-bar__title {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 1.125rem;
+  font-weight: 750;
+  line-height: 1.2;
+}
+
+.top-app-bar__spacer {
+  flex: 1;
+}
+
+.top-app-bar__actions {
+  display: flex;
+  align-items: center;
+  gap: var(--beacon-space-1, 0.25rem);
+}
+
+@media (min-width: 48rem) {
+  .top-app-bar {
+    padding-inline: var(--beacon-space-4, 1rem);
+  }
+}

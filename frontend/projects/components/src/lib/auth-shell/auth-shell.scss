@@ -1,0 +1,49 @@
+:host {
+  display: block;
+  min-height: 100%;
+}
+
+.auth-shell {
+  display: grid;
+  min-height: 100%;
+  background: var(--beacon-color-background, #f3f3f3);
+}
+
+.auth-shell__form {
+  display: grid;
+  align-content: center;
+  width: min(100%, 32rem);
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: var(--beacon-space-4, 1rem);
+}
+
+.auth-shell__hero {
+  display: none;
+}
+
+.auth-shell__hero-card {
+  height: 100%;
+  border-radius: 0;
+  padding: var(--beacon-space-6, 2rem);
+  color: var(--beacon-color-on-surface, #111c20);
+  background: var(--beacon-color-surface-container, #f3f3f3);
+}
+
+.auth-shell--split {
+  grid-template-columns: minmax(0, 1fr) minmax(20rem, 0.9fr);
+}
+
+.auth-shell--split .auth-shell__hero {
+  display: block;
+}
+
+@media (min-width: 64rem) {
+  .auth-shell:not(.auth-shell--one-column) {
+    grid-template-columns: minmax(0, 1fr) minmax(20rem, 0.9fr);
+  }
+
+  .auth-shell:not(.auth-shell--one-column) .auth-shell__hero {
+    display: block;
+  }
+}

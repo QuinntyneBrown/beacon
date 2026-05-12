@@ -1,0 +1,20 @@
+<div
+  class="progress-bar"
+  [class.progress-bar--compact]="compact()"
+  [class.progress-bar--success]="color() === 'success'"
+  [class.progress-bar--warning]="color() === 'warning'"
+  [class.progress-bar--error]="color() === 'error'">
+  @if (label()) {
+    <div class="progress-bar__label">
+      <span class="progress-bar__text">{{ label() }}</span>
+      @if (!indeterminate()) {
+        <span class="progress-bar__value">{{ percent() | number: '1.0-0' }}%</span>
+      }
+    </div>
+  }
+
+  <mat-progress-bar
+    class="progress-bar__track"
+    [mode]="indeterminate() ? 'indeterminate' : 'determinate'"
+    [value]="percent()" />
+</div>

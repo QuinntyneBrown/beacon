@@ -1,0 +1,48 @@
+<div
+  class="app-shell"
+  [class.app-shell--mobile]="breakpointMode() === 'mobile'"
+  [class.app-shell--tablet]="breakpointMode() === 'tablet'"
+  [class.app-shell--desktop]="breakpointMode() === 'desktop'">
+  <header class="app-shell__top-bar">
+    <ng-content select="[app-shell-top-bar]" />
+  </header>
+
+  <div class="app-shell__body">
+    <aside class="app-shell__drawer" aria-label="Navigation drawer">
+      <lib-responsive-navigation
+        [items]="navigationItems()"
+        [activeItemId]="activeItemId()"
+        [mode]="navigationModeForViewport('drawer')"
+        [expanded]="navigationExpanded()"
+        [createActionLabel]="createActionLabel()"
+        [createActionIcon]="createActionIcon()"
+        (itemSelected)="navigationItemSelected.emit($event)"
+        (createActionClicked)="createActionClicked.emit()" />
+    </aside>
+
+    <aside class="app-shell__rail" aria-label="Navigation rail">
+      <lib-responsive-navigation
+        [items]="navigationItems()"
+        [activeItemId]="activeItemId()"
+        [mode]="navigationModeForViewport('rail')"
+        [expanded]="false"
+        [createActionLabel]="createActionLabel()"
+        [createActionIcon]="createActionIcon()"
+        (itemSelected)="navigationItemSelected.emit($event)"
+        (createActionClicked)="createActionClicked.emit()" />
+    </aside>
+
+    <main class="app-shell__content" [attr.aria-label]="contentLabel()">
+      <ng-content />
+    </main>
+  </div>
+
+  <footer class="app-shell__bottom-navigation">
+    <lib-responsive-navigation
+      [items]="navigationItems()"
+      [activeItemId]="activeItemId()"
+      mode="bottom"
+      [expanded]="true"
+      (itemSelected)="navigationItemSelected.emit($event)" />
+  </footer>
+</div>

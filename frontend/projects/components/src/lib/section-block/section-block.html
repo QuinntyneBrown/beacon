@@ -1,0 +1,16 @@
+<section
+  class="section-block"
+  [class.section-block--compact]="density() === 'compact'"
+  [class.section-block--divided]="divided()">
+  @if (heading()) {
+    <h2 class="section-block__heading">{{ heading() }}</h2>
+  }
+
+  <div class="section-block__content">
+    <ng-content />
+  </div>
+
+  @if (divided()) {
+    <mat-divider class="section-block__divider" />
+  }
+</section>

@@ -1,0 +1,8 @@
+<mat-chip-set class="label-pill" [style.--label-pill-color]="colorToken()" aria-label="Label">
+  <mat-chip
+    class="label-pill__item"
+    [class.label-pill__item--small]="size() === 'small'"
+    [class.label-pill__item--muted]="muted()">
+    {{ label() }}
+  </mat-chip>
+</mat-chip-set>

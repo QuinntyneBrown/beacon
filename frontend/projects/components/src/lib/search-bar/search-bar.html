@@ -1,0 +1,46 @@
+<div class="search-bar">
+  <mat-form-field class="search-bar__field" appearance="outline" subscriptSizing="dynamic">
+    <mat-icon matPrefix class="search-bar__leading-icon" aria-hidden="true">search</mat-icon>
+    <input
+      matInput
+      type="search"
+      class="search-bar__input"
+      [value]="value()"
+      [placeholder]="placeholder()"
+      [disabled]="disabled()"
+      [attr.aria-label]="placeholder()"
+      (input)="onValueInput($event)"
+      (keydown.enter)="submitted.emit(value())" />
+
+    @if (value()) {
+      <button
+        mat-icon-button
+        matSuffix
+        type="button"
+        class="search-bar__action"
+        aria-label="Clear search"
+        [disabled]="disabled()"
+        (click)="valueChanged.emit('')">
+        <mat-icon aria-hidden="true">close</mat-icon>
+      </button>
+    }
+
+    @for (action of trailingActions(); track action.id) {
+      <button
+        mat-icon-button
+        matSuffix
+        type="button"
+        class="search-bar__action"
+        [attr.aria-label]="action.label"
+        [matTooltip]="action.label"
+        [disabled]="disabled() || !!action.disabled"
+        (click)="trailingActionClicked.emit(action.id)">
+        <mat-icon aria-hidden="true">{{ action.icon }}</mat-icon>
+      </button>
+    }
+  </mat-form-field>
+
+  <div class="search-bar__avatar">
+    <ng-content select="[search-bar-avatar]" />
+  </div>
+</div>

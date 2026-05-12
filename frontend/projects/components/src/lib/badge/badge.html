@@ -1,0 +1,14 @@
+@if (!hidden()) {
+  <span
+    class="badge"
+    [class.badge--dot]="dot()"
+    [class.badge--info]="severity() === 'info'"
+    [class.badge--success]="severity() === 'success'"
+    [class.badge--warning]="severity() === 'warning'"
+    [class.badge--error]="severity() === 'error'"
+    [attr.aria-label]="accessibleLabel()">
+    @if (!dot()) {
+      <span class="badge__text">{{ displayText() }}</span>
+    }
+  </span>
+}

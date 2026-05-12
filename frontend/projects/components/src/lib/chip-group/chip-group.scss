@@ -1,0 +1,25 @@
+:host {
+  display: block;
+}
+
+.chip-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--beacon-space-2, 0.5rem);
+}
+
+.chip-group__icon {
+  color: var(--beacon-color-primary, #006782);
+}
+
+.chip-group__count {
+  display: inline-grid;
+  place-items: center;
+  min-width: 1.25rem;
+  height: 1.25rem;
+  border-radius: 999px;
+  padding: 0 0.375rem;
+  background: var(--beacon-color-surface-container-highest, #dbe8ec);
+  font-size: 0.75rem;
+  font-weight: 800;
+}

@@ -1,0 +1,19 @@
+:host {
+  display: inline-block;
+}
+
+.label-pill__item {
+  --mdc-chip-elevated-container-color: var(--label-pill-color);
+  --mdc-chip-label-text-color: var(--beacon-color-on-surface, #111c20);
+  font-weight: 700;
+}
+
+.label-pill__item--small {
+  min-height: 1.5rem;
+  font-size: 0.75rem;
+}
+
+.label-pill__item--muted {
+  --mdc-chip-elevated-container-color: var(--beacon-color-surface-container-high, #e8eff2);
+  --mdc-chip-label-text-color: var(--beacon-color-muted, #687579);
+}

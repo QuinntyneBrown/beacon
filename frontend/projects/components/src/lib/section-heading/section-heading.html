@@ -1,0 +1,15 @@
+<div class="section-heading" [class.section-heading--compact]="compact()">
+  <div class="section-heading__title-group">
+    @if (icon()) {
+      <mat-icon class="section-heading__icon" aria-hidden="true">{{ icon() }}</mat-icon>
+    }
+    <h2 class="section-heading__title">{{ title() }}</h2>
+    @if (count() !== null) {
+      <lib-badge class="section-heading__count" [count]="count()" />
+    }
+  </div>
+
+  <div class="section-heading__action">
+    <ng-content select="[section-heading-action]" />
+  </div>
+</div>

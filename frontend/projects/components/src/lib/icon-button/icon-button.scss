@@ -1,0 +1,16 @@
+:host {
+  display: inline-block;
+}
+
+.icon-button {
+  color: var(--beacon-color-primary, #006782);
+}
+
+.icon-button--active {
+  color: var(--beacon-color-on-surface, #111c20);
+  background: var(--beacon-color-primary-container, #b5f1f5);
+}
+
+.icon-button__spinner {
+  --mdc-circular-progress-active-indicator-color: currentColor;
+}

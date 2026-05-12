@@ -1,0 +1,30 @@
+<ng-template #cardMetaContent>
+  <mat-icon class="card-meta-item__icon" aria-hidden="true">{{ icon() }}</mat-icon>
+  <span class="card-meta-item__content">
+    <span class="card-meta-item__label">{{ label() }}</span>
+    @if (value()) {
+      <span class="card-meta-item__value">{{ value() }}</span>
+    }
+  </span>
+</ng-template>
+
+@if (interactive()) {
+  <button
+    mat-button
+    type="button"
+    class="card-meta-item"
+    [class.card-meta-item--muted]="tone() === 'muted'"
+    [class.card-meta-item--accent]="tone() === 'accent'"
+    [class.card-meta-item--warning]="tone() === 'warning'"
+    (click)="clicked.emit()">
+    <ng-container [ngTemplateOutlet]="cardMetaContent" />
+  </button>
+} @else {
+  <div
+    class="card-meta-item"
+    [class.card-meta-item--muted]="tone() === 'muted'"
+    [class.card-meta-item--accent]="tone() === 'accent'"
+    [class.card-meta-item--warning]="tone() === 'warning'">
+    <ng-container [ngTemplateOutlet]="cardMetaContent" />
+  </div>
+}

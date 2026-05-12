@@ -1,0 +1,7 @@
+<mat-slide-toggle
+  class="switch"
+  [checked]="checked()"
+  [disabled]="disabled()"
+  (change)="checkedChanged.emit($event.checked)">
+  <span class="switch__label">{{ label() }}</span>
+</mat-slide-toggle>

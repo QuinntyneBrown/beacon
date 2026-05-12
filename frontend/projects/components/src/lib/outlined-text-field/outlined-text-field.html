@@ -1,0 +1,54 @@
+<mat-form-field
+  class="outlined-text-field"
+  [class.outlined-text-field--invalid]="errors().length > 0"
+  appearance="outline"
+  subscriptSizing="dynamic">
+  <mat-label>{{ label() }}</mat-label>
+
+  @if (multiline()) {
+    <textarea
+      matInput
+      class="outlined-text-field__input"
+      [rows]="rows()"
+      [value]="value()"
+      [placeholder]="placeholder()"
+      [required]="required()"
+      [disabled]="disabled()"
+      (input)="onValueInput($event)"
+      (blur)="blurred.emit()"
+      (keydown.control.enter)="submitted.emit(value())"></textarea>
+  } @else {
+    <input
+      matInput
+      class="outlined-text-field__input"
+      [type]="effectiveType()"
+      [value]="value()"
+      [placeholder]="placeholder()"
+      [required]="required()"
+      [disabled]="disabled()"
+      (input)="onValueInput($event)"
+      (blur)="blurred.emit()"
+      (keydown.enter)="submitted.emit(value())" />
+  }
+
+  @if (type() === 'password') {
+    <button
+      mat-icon-button
+      matSuffix
+      type="button"
+      class="outlined-text-field__visibility"
+      [attr.aria-label]="passwordVisible() ? 'Hide password' : 'Show password'"
+      [disabled]="disabled()"
+      (click)="togglePasswordVisibility()">
+      <mat-icon aria-hidden="true">{{ passwordVisible() ? 'visibility_off' : 'visibility' }}</mat-icon>
+    </button>
+  }
+
+  @if (supportingText() && errors().length === 0) {
+    <mat-hint class="outlined-text-field__supporting">{{ supportingText() }}</mat-hint>
+  }
+
+  @for (error of errors(); track error) {
+    <mat-error class="outlined-text-field__error">{{ error }}</mat-error>
+  }
+</mat-form-field>

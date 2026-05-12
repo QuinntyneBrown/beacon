@@ -1,0 +1,33 @@
+<ng-template #settingsRowContent>
+  @if (icon()) {
+    <mat-icon class="settings-row__icon" aria-hidden="true">{{ icon() }}</mat-icon>
+  }
+  <span class="settings-row__content">
+    <span class="settings-row__title">{{ title() }}</span>
+    @if (description()) {
+      <span class="settings-row__description">{{ description() }}</span>
+    }
+  </span>
+  <span class="settings-row__trailing">
+    <ng-content select="[settings-row-trailing]" />
+  </span>
+</ng-template>
+
+@if (interactive()) {
+  <button
+    mat-button
+    type="button"
+    class="settings-row"
+    [class.settings-row--warning]="warning()"
+    [disabled]="disabled()"
+    (click)="rowClicked.emit()">
+    <ng-container [ngTemplateOutlet]="settingsRowContent" />
+  </button>
+} @else {
+  <div
+    class="settings-row"
+    [class.settings-row--warning]="warning()"
+    [class.settings-row--disabled]="disabled()">
+    <ng-container [ngTemplateOutlet]="settingsRowContent" />
+  </div>
+}

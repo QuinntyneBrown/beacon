@@ -1,0 +1,24 @@
+<section
+  class="settings-section"
+  [class.settings-section--compact]="compact()"
+  [class.settings-section--divided]="divided()">
+  <header class="settings-section__header">
+    @if (icon()) {
+      <mat-icon class="settings-section__icon" aria-hidden="true">{{ icon() }}</mat-icon>
+    }
+    <div class="settings-section__titles">
+      <h2 class="settings-section__title">{{ title() }}</h2>
+      @if (description()) {
+        <p class="settings-section__description">{{ description() }}</p>
+      }
+    </div>
+  </header>
+
+  <div class="settings-section__rows">
+    <ng-content />
+  </div>
+
+  @if (divided()) {
+    <mat-divider class="settings-section__divider" />
+  }
+</section>

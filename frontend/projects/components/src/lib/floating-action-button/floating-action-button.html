@@ -1,0 +1,32 @@
+<button
+  mat-fab
+  class="floating-action-button"
+  [class.floating-action-button--surface]="color() === 'surface'"
+  [class.floating-action-button--tertiary]="color() === 'tertiary'"
+  [class.floating-action-button--inline]="position() === 'inline'"
+  [class.floating-action-button--bottom-end]="position() === 'bottom-end'"
+  [class.floating-action-button--bottom-start]="position() === 'bottom-start'"
+  [class.floating-action-button--top-end]="position() === 'top-end'"
+  [class.floating-action-button--mobile-only]="visibilityBreakpoint() === 'mobile-only'"
+  [class.floating-action-button--tablet-up]="visibilityBreakpoint() === 'tablet-up'"
+  [class.floating-action-button--desktop-up]="visibilityBreakpoint() === 'desktop-up'"
+  [extended]="extended()"
+  type="button"
+  [attr.aria-label]="label() || icon()"
+  [disabled]="disabled() || loading()"
+  [attr.aria-busy]="loading()"
+  (click)="onClick($event)">
+  @if (loading()) {
+    <mat-progress-spinner
+      class="floating-action-button__spinner"
+      mode="indeterminate"
+      diameter="22"
+      aria-hidden="true" />
+  } @else {
+    <mat-icon class="floating-action-button__icon" aria-hidden="true">{{ icon() }}</mat-icon>
+  }
+
+  @if (extended() && label()) {
+    <span class="floating-action-button__label">{{ label() }}</span>
+  }
+</button>

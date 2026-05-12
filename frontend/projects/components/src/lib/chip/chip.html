@@ -1,0 +1,30 @@
+@if (interactive()) {
+  <mat-chip-listbox
+    class="chip"
+    [disabled]="disabled()"
+    [style.--chip-color]="colorToken() || null"
+    aria-label="Chip selection">
+    <mat-chip-option
+      class="chip__item"
+      [selected]="selected()"
+      [disabled]="disabled()"
+      (selectionChange)="onSelectionChange($event.selected)">
+      @if (icon()) {
+        <mat-icon class="chip__icon" aria-hidden="true">{{ icon() }}</mat-icon>
+      }
+      <span class="chip__label">{{ label() }}</span>
+    </mat-chip-option>
+  </mat-chip-listbox>
+} @else {
+  <mat-chip-set class="chip" [style.--chip-color]="colorToken() || null" aria-label="Chip">
+    <mat-chip
+      class="chip__item"
+      [class.chip__item--selected]="selected()"
+      [disabled]="disabled()">
+      @if (icon()) {
+        <mat-icon class="chip__icon" aria-hidden="true">{{ icon() }}</mat-icon>
+      }
+      <span class="chip__label">{{ label() }}</span>
+    </mat-chip>
+  </mat-chip-set>
+}

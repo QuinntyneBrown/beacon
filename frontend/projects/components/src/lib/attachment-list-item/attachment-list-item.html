@@ -1,0 +1,39 @@
+<div
+  class="attachment-list-item"
+  [class.attachment-list-item--disabled]="disabled()"
+  role="button"
+  tabindex="0"
+  [attr.aria-busy]="loading()"
+  [attr.aria-disabled]="disabled()"
+  (click)="onRowClick()"
+  (keydown.enter)="onRowClick()">
+  <span class="attachment-list-item__icon-wrap">
+    @if (loading()) {
+      <mat-progress-spinner
+        class="attachment-list-item__spinner"
+        mode="indeterminate"
+        diameter="22"
+        aria-hidden="true" />
+    } @else {
+      <mat-icon class="attachment-list-item__icon" aria-hidden="true">{{ icon() }}</mat-icon>
+    }
+  </span>
+
+  <span class="attachment-list-item__content">
+    <span class="attachment-list-item__title">{{ title() }}</span>
+    @if (metadata()) {
+      <span class="attachment-list-item__metadata">{{ metadata() }}</span>
+    }
+  </span>
+
+  @if (actionLabel()) {
+    <button
+      mat-button
+      type="button"
+      class="attachment-list-item__action"
+      [disabled]="disabled() || loading()"
+      (click)="onActionClick($event)">
+      {{ actionLabel() }}
+    </button>
+  }
+</div>

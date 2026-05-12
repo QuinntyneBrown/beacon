@@ -1,0 +1,43 @@
+:host {
+  display: inline-flex;
+}
+
+.badge {
+  display: inline-grid;
+  place-items: center;
+  min-width: 1.25rem;
+  min-height: 1.25rem;
+  border-radius: 999px;
+  padding: 0 0.375rem;
+  color: var(--beacon-color-on-surface, #111c20);
+  background: var(--beacon-color-surface-container-highest, #dbe8ec);
+  font-size: 0.75rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.badge--dot {
+  min-width: 0.625rem;
+  min-height: 0.625rem;
+  padding: 0;
+}
+
+.badge--info {
+  color: #ffffff;
+  background: var(--beacon-color-primary, #006782);
+}
+
+.badge--success {
+  color: #073b23;
+  background: #8fe3b6;
+}
+
+.badge--warning {
+  color: #3c2f00;
+  background: #f5d76e;
+}
+
+.badge--error {
+  color: #ffffff;
+  background: var(--beacon-color-danger, #b3261e);
+}

@@ -1,0 +1,56 @@
+<mat-toolbar
+  class="top-app-bar"
+  [class.top-app-bar--sticky]="sticky()"
+  [class.top-app-bar--dense]="dense()">
+  @if (leadingIcon()) {
+    <button
+      mat-icon-button
+      type="button"
+      class="top-app-bar__leading"
+      [attr.aria-label]="leadingLabel()"
+      (click)="leadingActionClicked.emit()">
+      <mat-icon aria-hidden="true">{{ leadingIcon() }}</mat-icon>
+    </button>
+  }
+
+  <div class="top-app-bar__identity">
+    @if (brand()) {
+      <span class="top-app-bar__brand">{{ brand() }}</span>
+    }
+    <span class="top-app-bar__title">{{ title() }}</span>
+  </div>
+
+  <div class="top-app-bar__spacer"></div>
+
+  <div class="top-app-bar__actions">
+    <ng-content select="[top-app-bar-actions]" />
+
+    @for (action of actions(); track action.id) {
+      <button
+        mat-icon-button
+        type="button"
+        class="top-app-bar__action"
+        [attr.aria-label]="action.label"
+        [disabled]="!!action.disabled"
+        [matBadge]="action.badgeCount ?? ''"
+        [matBadgeHidden]="action.badgeCount === undefined"
+        matBadgeSize="small"
+        matBadgeColor="warn"
+        (click)="toolbarActionClicked.emit(action.id)">
+        <mat-icon aria-hidden="true">{{ action.icon }}</mat-icon>
+      </button>
+    }
+
+    <ng-content select="[top-app-bar-avatar]" />
+
+    @if (avatarImageUrl() || avatarInitials() || avatarLabel()) {
+      <lib-avatar
+        [imageUrl]="avatarImageUrl()"
+        [initials]="avatarInitials()"
+        [label]="avatarLabel()"
+        [interactive]="true"
+        size="small"
+        (clicked)="avatarClicked.emit()" />
+    }
+  </div>
+</mat-toolbar>

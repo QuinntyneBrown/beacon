@@ -1,0 +1,15 @@
+<main
+  class="auth-shell"
+  [class.auth-shell--one-column]="breakpointMode() === 'one-column'"
+  [class.auth-shell--split]="breakpointMode() === 'split'">
+  <section class="auth-shell__form" aria-label="Authentication form">
+    <ng-content select="[auth-shell-form]" />
+    <ng-content />
+  </section>
+
+  <aside class="auth-shell__hero" aria-label="Authentication details">
+    <mat-card class="auth-shell__hero-card" appearance="outlined">
+      <ng-content select="[auth-shell-hero]" />
+    </mat-card>
+  </aside>
+</main>
