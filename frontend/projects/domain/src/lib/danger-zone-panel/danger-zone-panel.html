@@ -1,0 +1,19 @@
+<lib-settings-section icon="warning" title="Danger zone" [description]="warningText()">
+  <div class="danger-zone-panel">
+    @if (confirmationState() === 'confirmation-required') {
+      <p class="danger-zone-panel__message">Confirm account deletion. This action cannot be undone.</p>
+      <div class="danger-zone-panel__actions">
+        <lib-button label="Cancel" variant="text" (clicked)="confirmationCanceled.emit()" />
+        <lib-button label="Delete account" [destructive]="true" [loading]="false" (clicked)="confirmationAccepted.emit()" />
+      </div>
+    } @else {
+      <lib-button
+        label="Delete account"
+        icon="delete"
+        [destructive]="true"
+        [loading]="confirmationState() === 'deleting'"
+        [disabled]="!accountDeletionAvailable() || confirmationState() === 'disabled'"
+        (clicked)="deleteAccountRequested.emit()" />
+    }
+  </div>
+</lib-settings-section>

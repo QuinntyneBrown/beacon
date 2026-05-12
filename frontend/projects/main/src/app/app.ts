@@ -1,18 +1,20 @@
 import { Component, inject } from '@angular/core';
-import { MatIconModule } from '@angular/material/icon';
 import { Router, RouterOutlet } from '@angular/router';
-import { RouterLink, RouterLinkActive } from '@angular/router';
-import { ShellHeaderComponent } from 'components';
+import { AppShellComponent, ButtonComponent, NavigationItem, TopAppBarComponent } from 'components';
 import { SESSION_SERVICE } from 'domain';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, RouterLink, RouterLinkActive, MatIconModule, ShellHeaderComponent],
+  imports: [AppShellComponent, ButtonComponent, RouterOutlet, TopAppBarComponent],
   templateUrl: './app.html',
   styleUrl: './app.scss'
 })
 export class App {
   readonly session = inject(SESSION_SERVICE).session;
+  readonly navigationItems: readonly NavigationItem[] = [
+    { id: 'boards', label: 'Boards', icon: 'dashboard', section: 'Workspace' },
+    { id: 'settings', label: 'Settings', icon: 'tune', section: 'Workspace' }
+  ];
 
   private readonly sessionService = inject(SESSION_SERVICE);
   private readonly router = inject(Router);
@@ -23,5 +25,22 @@ export class App {
 
   createActionLabel(): string {
     return /^\/boards\/[^/]+/.test(this.router.url) ? 'New card' : 'New board';
+  }
+
+  activeNavigationId(): string {
+    return this.router.url.startsWith('/settings') ? 'settings' : 'boards';
+  }
+
+  navigateTo(itemId: string): void {
+    if (itemId === 'settings') {
+      this.router.navigateByUrl('/settings');
+      return;
+    }
+
+    this.router.navigateByUrl('/boards');
+  }
+
+  handleCreateAction(): void {
+    this.router.navigateByUrl('/boards');
   }
 }

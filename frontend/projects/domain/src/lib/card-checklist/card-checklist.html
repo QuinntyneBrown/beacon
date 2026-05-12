@@ -1,0 +1,35 @@
+<section class="card-checklist">
+  <lib-progress-bar
+    label="Checklist"
+    [value]="completedCount()"
+    [max]="checklistItems().length"
+    [compact]="true" />
+
+  <div class="card-checklist__items">
+    @for (item of checklistItems(); track item.checklistItemId) {
+      <div class="card-checklist__item" [class.card-checklist__item--busy]="isBusy(item.checklistItemId)">
+        <mat-checkbox
+          [checked]="item.isCompleted"
+          [disabled]="!editable() || isBusy(item.checklistItemId)"
+          (change)="itemToggled.emit({ itemId: item.checklistItemId, completed: $event.checked })">
+          <span class="card-checklist__item-text">{{ item.text }}</span>
+        </mat-checkbox>
+        @if (editable()) {
+          <button mat-button type="button" class="card-checklist__remove" (click)="itemRemoved.emit(item.checklistItemId)">Remove</button>
+        }
+      </div>
+    } @empty {
+      <p class="card-checklist__empty">No checklist items yet.</p>
+    }
+  </div>
+
+  @if (editable()) {
+    <div class="card-checklist__add">
+      <mat-form-field appearance="outline" subscriptSizing="dynamic">
+        <mat-label>Add checklist item</mat-label>
+        <input matInput [value]="newItemText()" (input)="newItemText.set($any($event.target).value)" (keydown.enter)="addItem()" />
+      </mat-form-field>
+      <button mat-flat-button color="primary" type="button" (click)="addItem()">Add</button>
+    </div>
+  }
+</section>

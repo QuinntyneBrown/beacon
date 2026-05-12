@@ -1,0 +1,10 @@
+:host {
+  display: block;
+}
+
+.card-workflow-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--beacon-space-2, 0.5rem);
+}

@@ -1,0 +1,44 @@
+:host {
+  display: block;
+}
+
+.card-checklist {
+  display: grid;
+  gap: var(--beacon-space-3, 0.75rem);
+}
+
+.card-checklist__items {
+  display: grid;
+  gap: var(--beacon-space-2, 0.5rem);
+}
+
+.card-checklist__item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--beacon-space-2, 0.5rem);
+}
+
+.card-checklist__item--busy {
+  opacity: 0.6;
+}
+
+.card-checklist__item-text {
+  color: var(--beacon-color-on-surface, #111c20);
+}
+
+.card-checklist__remove {
+  color: var(--beacon-color-danger, #b3261e);
+}
+
+.card-checklist__empty {
+  margin: 0;
+  color: var(--beacon-color-muted, #687579);
+}
+
+.card-checklist__add {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: var(--beacon-space-2, 0.5rem);
+  align-items: start;
+}

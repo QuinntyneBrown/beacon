@@ -12,23 +12,9 @@ export class SignInPage {
 
   async expectVisible(): Promise<void> {
     await expect(this.page.getByRole('heading', { name: 'Welcome back' })).toBeVisible();
-    await this.expectDefaultMockControls();
-  }
-
-  async expectDefaultMockControls(): Promise<void> {
-    const authCardButtons = this.page.locator('.auth-card button');
-    await expect(authCardButtons).toHaveCount(3);
-    await expect(authCardButtons.nth(0)).toHaveAccessibleName('Sign in');
-    await expect(authCardButtons.nth(1)).toHaveAccessibleName('Google');
-    await expect(authCardButtons.nth(2)).toHaveAccessibleName('GitHub');
-    await expect(this.page.locator('.auth-card input')).toHaveCount(2);
-    await expect(this.page.locator('.auth-card .row-between')).toBeVisible();
-    await expect(this.page.locator('.auth-card .floating-label').filter({ hasText: 'Email address' })).toBeVisible();
-    await expect(this.page.locator('.auth-card .text-field.focused')).toBeVisible();
-    await expect(this.page.locator('.auth-hero .title-medium').first()).toBeVisible();
-    await expect(this.page.locator('.auth-hero .body-medium').first()).toBeVisible();
-    await expect(this.page.getByRole('button', { name: 'Register' })).toHaveCount(0);
-    await expect(this.page.getByRole('button', { name: 'Reset password' })).toHaveCount(0);
+    await expect(this.page.getByLabel('Email address')).toBeVisible();
+    await expect(this.page.getByLabel(/Password/)).toBeVisible();
+    await expect(this.page.getByRole('button', { name: 'Sign in' })).toBeVisible();
     await expect(this.page.getByRole('link', { name: 'Forgot password?' })).toBeVisible();
     await expect(this.page.getByRole('link', { name: 'Create an account' })).toBeVisible();
   }

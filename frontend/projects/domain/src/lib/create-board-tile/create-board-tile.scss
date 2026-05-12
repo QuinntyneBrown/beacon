@@ -1,0 +1,53 @@
+:host {
+  display: block;
+}
+
+.create-board-tile {
+  display: grid;
+  place-items: center;
+  gap: var(--beacon-space-3, 0.75rem);
+  min-height: 14rem;
+  border-style: dashed;
+  border-radius: var(--beacon-radius-lg, 1rem);
+  padding: var(--beacon-space-4, 1rem);
+  text-align: center;
+}
+
+.create-board-tile__icon {
+  display: inline-grid;
+  place-items: center;
+  width: 3rem;
+  height: 3rem;
+  border-radius: var(--beacon-radius-lg, 1rem);
+  color: var(--beacon-color-primary, #006782);
+  background: var(--beacon-color-primary-container, #b5f1f5);
+}
+
+.create-board-tile__title,
+.create-board-tile__supporting {
+  margin: 0;
+}
+
+.create-board-tile__title {
+  font-weight: 800;
+}
+
+.create-board-tile__supporting {
+  color: var(--beacon-color-on-surface-variant, #41484c);
+}
+
+.create-board-tile__hints {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: var(--beacon-space-1, 0.25rem);
+  margin-top: var(--beacon-space-2, 0.5rem);
+}
+
+.create-board-tile__hint {
+  border-radius: 999px;
+  padding: 0.125rem var(--beacon-space-2, 0.5rem);
+  background: var(--beacon-color-surface-container, #f3f3f3);
+  font-size: 0.75rem;
+  font-weight: 750;
+}

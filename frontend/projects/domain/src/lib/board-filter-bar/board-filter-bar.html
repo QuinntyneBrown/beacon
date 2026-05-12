@@ -1,0 +1,10 @@
+<div class="board-filter-bar" aria-label="Board filters">
+  @for (filter of filters(); track filter.id) {
+    <lib-filter-chip
+      [label]="filter.label"
+      [selected]="filter.id === selectedFilterId()"
+      [count]="filter.count ?? null"
+      [disabled]="!!filter.disabled"
+      (selectionChanged)="filterSelected.emit(filter.id)" />
+  }
+</div>

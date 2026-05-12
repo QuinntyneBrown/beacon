@@ -1,0 +1,22 @@
+@if (providers().length === 0) {
+  <p class="external-auth-options__empty">{{ noneAvailableText() }}</p>
+} @else {
+  <div class="external-auth-options" aria-label="External sign-in options">
+    @for (provider of providers(); track provider.id) {
+      <button
+        mat-stroked-button
+        type="button"
+        class="external-auth-options__provider"
+        [disabled]="!provider.enabled || !!submittingProviderId()"
+        [attr.aria-busy]="submittingProviderId() === provider.id"
+        (click)="selectProvider(provider)">
+        @if (submittingProviderId() === provider.id) {
+          <mat-progress-spinner mode="indeterminate" diameter="18" aria-hidden="true" />
+        } @else if (provider.icon) {
+          <mat-icon aria-hidden="true">{{ provider.icon }}</mat-icon>
+        }
+        <span>{{ provider.label }}</span>
+      </button>
+    }
+  </div>
+}

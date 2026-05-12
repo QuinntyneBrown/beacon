@@ -1,0 +1,17 @@
+:host {
+  display: block;
+}
+
+.boards-dashboard-view {
+  display: grid;
+  gap: var(--beacon-space-4, 1rem);
+}
+
+.boards-dashboard-view__header-actions {
+  display: inline-flex;
+}
+
+.boards-dashboard-view__sections {
+  display: grid;
+  gap: var(--beacon-space-5, 1.5rem);
+}

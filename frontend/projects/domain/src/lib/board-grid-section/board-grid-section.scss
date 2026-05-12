@@ -1,0 +1,27 @@
+:host {
+  display: block;
+}
+
+.board-grid-section {
+  display: grid;
+  gap: var(--beacon-space-3, 0.75rem);
+}
+
+.board-grid-section__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+  gap: var(--beacon-space-3, 0.75rem);
+}
+
+.board-grid-section--compact .board-grid-section__grid {
+  grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
+}
+
+.board-grid-section__empty {
+  margin: 0;
+  border: 1px dashed var(--beacon-color-outline, #c7d8e0);
+  border-radius: var(--beacon-radius-md, 0.75rem);
+  padding: var(--beacon-space-4, 1rem);
+  color: var(--beacon-color-muted, #687579);
+  background: var(--beacon-color-surface, #f8fafb);
+}

@@ -1,0 +1,30 @@
+:host {
+  display: block;
+}
+
+.external-auth-options {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr));
+  gap: var(--beacon-space-2, 0.5rem);
+}
+
+.external-auth-options__provider {
+  min-height: 2.75rem;
+  border-radius: 999px;
+  letter-spacing: 0;
+}
+
+.external-auth-options__provider mat-icon,
+.external-auth-options__provider mat-progress-spinner {
+  margin-right: var(--beacon-space-2, 0.5rem);
+}
+
+.external-auth-options__provider mat-progress-spinner {
+  --mdc-circular-progress-active-indicator-color: currentColor;
+}
+
+.external-auth-options__empty {
+  margin: 0;
+  color: var(--beacon-color-muted, #687579);
+  font-size: 0.875rem;
+}

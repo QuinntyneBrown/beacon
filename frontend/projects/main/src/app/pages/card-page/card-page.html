@@ -1,255 +1,112 @@
 <section class="card-page">
-  <nav class="card-page__breadcrumb" aria-label="Breadcrumb">
-    <button [routerLink]="['/boards', boardId]" mat-icon-button type="button" class="icon-btn" aria-label="Back">
-      <mat-icon class="material-symbols-rounded icon-wrap">arrow_back</mat-icon>
-    </button>
-    <button mat-icon-button type="button" class="icon-btn" aria-label="Watch">
-      <mat-icon class="material-symbols-rounded icon-wrap">visibility</mat-icon>
-    </button>
-    <a routerLink="/boards">Boards</a>
-    <mat-icon>chevron_right</mat-icon>
-    <a [routerLink]="['/boards', boardId]">Board</a>
-    <mat-icon>chevron_right</mat-icon>
-    <span>Card</span>
-  </nav>
-
   @if (errorMessage()) {
-    <div class="card-page__error" role="alert">{{ errorMessage() }}</div>
+    <lib-snackbar
+      [message]="errorMessage()"
+      severity="error"
+      [duration]="0"
+      (dismissed)="dismissMessages()" />
   }
+
   @if (helperMessage()) {
-    <div class="card-page__helper" role="status">{{ helperMessage() }}</div>
+    <lib-snackbar
+      [message]="helperMessage()"
+      severity="success"
+      [duration]="0"
+      (dismissed)="dismissMessages()" />
   }
 
   @if (card(); as activeCard) {
-    <header class="card-page__header page-header">
-      <div class="titles">
-        <p class="page-kicker">{{ activeCard.columnName }}</p>
-        <h1 class="card-page__title page-title">{{ activeCard.title }}</h1>
-        <p class="page-subtitle">Card detail</p>
-      </div>
-      <div class="card-page__header-actions">
-        <div class="avatar-stack" aria-label="Card members">
-          <span class="avatar">AK</span>
-          <span class="avatar">MJ</span>
-        </div>
-        <button mat-stroked-button type="button" class="btn btn-outlined with-icon" aria-label="Share">
-          <mat-icon class="material-symbols-rounded icon-wrap">share</mat-icon>
-          Share
-        </button>
-        <button mat-stroked-button type="button" class="btn btn-outlined with-icon">
-          <mat-icon class="material-symbols-rounded icon-wrap">visibility</mat-icon>
-          Watch
-        </button>
-        <button mat-stroked-button type="button" class="btn btn-tonal with-icon">
-          <mat-icon class="material-symbols-rounded icon-wrap">arrow_forward</mat-icon>
-          Move
-        </button>
-        <button mat-flat-button color="primary" type="button" class="btn btn-filled with-icon">
-          <mat-icon class="material-symbols-rounded icon-wrap">check</mat-icon>
-          Mark done
-        </button>
-        <button mat-stroked-button type="button" class="btn btn-outlined with-icon" aria-label="Download">
-          <mat-icon class="material-symbols-rounded icon-wrap">download</mat-icon>
-          Download
-        </button>
-        <button mat-stroked-button type="button" class="btn btn-outlined with-icon" aria-label="More">
-          <mat-icon class="material-symbols-rounded icon-wrap">more_horiz</mat-icon>
-          More
-        </button>
-      </div>
-    </header>
+    <lib-breadcrumb
+      [items]="breadcrumbItems(activeCard)"
+      [activeItemId]="activeCard.cardId"
+      (itemSelected)="navigateBreadcrumb($event)" />
 
-    <div class="card-detail-grid">
-      <div class="card-page__main">
-        <mat-card appearance="outlined" class="card-page__panel section-block">
-          <div class="card-page__section-heading">
-            <h2 class="section-title">Details</h2>
-            <span class="label-pill label label-large label-pill--accent label-tag">Product</span>
-          </div>
-          <form [formGroup]="editForm" (ngSubmit)="save()" class="card-page__form">
-            <mat-form-field appearance="outline" class="text-field outlined">
-              <mat-label>Title</mat-label>
-              <input matInput class="field input" formControlName="title" />
-            </mat-form-field>
-            <mat-form-field appearance="outline" class="text-field outlined">
-              <mat-label>Description</mat-label>
-              <textarea matInput class="field input" rows="4" formControlName="description"></textarea>
-            </mat-form-field>
+    <lib-page-header [title]="activeCard.title" [subtitle]="activeCard.columnName" [divided]="true">
+      <div page-header-actions>
+        <lib-card-workflow-actions
+          [cardStatus]="metadataFor(activeCard).status"
+          [watched]="watched()"
+          [permissions]="cardPermissions"
+          [busyActionId]="isSaving() ? 'complete' : null"
+          (watchToggled)="watched.set($event)"
+          (moveRequested)="showUnavailableAction('Move')"
+          (markDoneRequested)="showUnavailableAction('Completion')"
+          (shareRequested)="showUnavailableAction('Sharing')" />
+      </div>
+    </lib-page-header>
+
+    <div class="card-page__layout">
+      <main class="card-page__main">
+        <lib-section-block heading="Details">
+          <div class="card-page__details-form">
+            <lib-outlined-text-field
+              label="Title"
+              [value]="editForm.controls.title.value"
+              [required]="true"
+              [errors]="titleErrors()"
+              [disabled]="isSaving()"
+              (valueChanged)="updateEditField('title', $event)"
+              (blurred)="markEditFieldTouched('title')"
+              (submitted)="save()" />
+
+            <lib-outlined-text-field
+              label="Description"
+              [multiline]="true"
+              [rows]="4"
+              [value]="editForm.controls.description.value"
+              [disabled]="isSaving()"
+              (valueChanged)="updateEditField('description', $event)"
+              (blurred)="markEditFieldTouched('description')"
+              (submitted)="save()" />
+
             <div class="card-page__actions">
-              <button mat-stroked-button type="button" class="btn btn-text">Cancel</button>
-              <button mat-flat-button color="primary" type="submit" class="btn btn-filled" [disabled]="isSaving()">Save changes</button>
+              <lib-button
+                label="Save changes"
+                icon="save"
+                [loading]="isSaving()"
+                [disabled]="editForm.invalid || isSaving()"
+                (clicked)="save()" />
             </div>
-          </form>
-        </mat-card>
-
-        <mat-card appearance="outlined" class="card-page__panel section-block">
-          <h2 class="section-title title-medium">
-            <mat-icon class="material-symbols-rounded">notes</mat-icon>
-            Description
-          </h2>
-          <p class="card-page__description-preview body-large">
-            {{ activeCard.description || 'No description yet. Add context, acceptance criteria, and links above.' }}
-          </p>
-        </mat-card>
-
-        <mat-card appearance="outlined" class="card-page__panel section-block">
-          <div class="card-page__section-heading">
-            <h2 class="section-title title-medium">
-              <mat-icon class="material-symbols-rounded">checklist</mat-icon>
-              Checklist
-            </h2>
-            <span class="label-pill body-medium">{{ activeCard.checklistItems.length }} items</span>
           </div>
-          <div class="progress" title="Checklist progress">
-            <span [style.width.%]="checklistProgress(activeCard)"></span>
-          </div>
-          <ul class="card-page__checklist list">
-            @for (item of activeCard.checklistItems; track item.checklistItemId) {
-              <li class="checklist-item checkbox checked list-item" [class.done]="item.isCompleted">
-                <mat-checkbox [checked]="item.isCompleted" (change)="toggleChecklistItem(item.checklistItemId, $event.checked)">
-                  {{ item.text }}
-                </mat-checkbox>
-              </li>
-            } @empty {
-              <li class="card-page__empty checklist-item checkbox checked list-item done">No checklist items yet.</li>
-            }
-          </ul>
-          <form [formGroup]="checklistForm" (ngSubmit)="addChecklistItem()" class="card-page__inline-form">
-            <mat-form-field appearance="outline" class="card-page__inline-field text-field outlined">
-              <mat-label>Add item</mat-label>
-              <input matInput class="field input" formControlName="text" />
-            </mat-form-field>
-            <button mat-stroked-button type="submit">
-              <mat-icon class="material-symbols-rounded">add</mat-icon>
-              Add
-            </button>
-          </form>
-        </mat-card>
+        </lib-section-block>
 
-        <mat-card appearance="outlined" class="card-page__panel section-block">
-          <div class="card-page__section-heading">
-            <h2 class="section-title">Comments</h2>
-            <span class="label-pill body-medium">{{ activeCard.comments.length }} updates</span>
-          </div>
-          <ul class="card-page__comments list">
-            @for (comment of activeCard.comments; track comment.commentId) {
-              <li class="card-page__comment comment list-item">
-                <header class="body">
-                  <strong class="name">{{ comment.authorDisplayName }}</strong>
-                  <time class="time">{{ comment.createdAtUtc | date:'medium' }}</time>
-                </header>
-                <p class="text">{{ comment.body }}</p>
-              </li>
-            } @empty {
-              <li class="card-page__empty comment list-item">
-                <span class="avatar sm">AK</span>
-                <div class="body">
-                  <div>
-                    <span class="name">No comments yet.</span>
-                    <time class="time">Now</time>
-                  </div>
-                  <div class="text">Start the discussion with a short update.</div>
-                </div>
-              </li>
-            }
-          </ul>
-          <form [formGroup]="commentForm" (ngSubmit)="addComment()" class="card-page__form">
-            <mat-form-field appearance="outline" class="text-field outlined">
-              <mat-label>Add comment</mat-label>
-              <textarea matInput class="field input" rows="3" placeholder="Write a comment, @mention to notify" formControlName="body"></textarea>
-            </mat-form-field>
-            <div class="card-page__actions">
-              <button mat-stroked-button type="button" class="btn btn-text">Comment</button>
-              <button mat-flat-button color="primary" type="submit" class="btn btn-filled with-icon">
-                <mat-icon class="material-symbols-rounded">send</mat-icon>
-                Post comment
-              </button>
-            </div>
-          </form>
-        </mat-card>
-      </div>
+        <lib-section-block heading="Labels">
+          <lib-card-label-list [labels]="cardLabels" [editable]="cardPermissions.canEdit ?? false" />
+        </lib-section-block>
 
-      <aside class="side-meta">
-        <mat-card appearance="outlined" class="card-page__panel section-block">
-          <h2 class="section-title">Details</h2>
-          <dl class="card-page__meta-list">
-            <div class="meta-item meta">
-              <dt>Status</dt>
-              <dd><span class="chip selected active"><span class="col-dot" aria-hidden="true"></span>In progress</span></dd>
-            </div>
-            <div class="meta-item meta">
-              <dt>Column</dt>
-              <dd>{{ activeCard.columnName }}</dd>
-            </div>
-            <div class="meta-item meta">
-              <dt>Assignee</dt>
-              <dd>Alex Kim</dd>
-            </div>
-            <div class="meta-item meta">
-              <dt>Reporter</dt>
-              <dd>Demo User</dd>
-            </div>
-            <div class="meta-item meta">
-              <dt>Due date</dt>
-              <dd><span class="chip assist">{{ activeCard.dueDateUtc ? (activeCard.dueDateUtc | date:'mediumDate') : 'No due date' }}</span></dd>
-            </div>
-            <div class="meta-item meta">
-              <dt>Estimate</dt>
-              <dd><span class="chip assist">3 points</span></dd>
-            </div>
-            <div class="meta-item meta">
-              <dt>Linked items</dt>
-              <dd>2 related</dd>
-            </div>
-            <div class="meta-item meta">
-              <dt>Checklist</dt>
-              <dd>{{ activeCard.checklistItems.length }} items</dd>
-            </div>
-            <div class="meta-item meta">
-              <dt>Comments</dt>
-              <dd>{{ activeCard.comments.length }} updates</dd>
-            </div>
-          </dl>
-          <button mat-stroked-button type="button" class="btn btn-outlined with-icon" aria-label="Add assignee">
-            <mat-icon class="material-symbols-rounded icon-wrap">person_add</mat-icon>
-            Add assignee
-          </button>
-        </mat-card>
+        <lib-section-block heading="Checklist">
+          <lib-card-checklist
+            [checklistItems]="activeCard.checklistItems"
+            [editable]="cardPermissions.canEdit ?? false"
+            [busyItemIds]="busyChecklistItemIds()"
+            (itemAdded)="addChecklistItemText($event)"
+            (itemToggled)="toggleChecklistItem($event.itemId, $event.completed)" />
+        </lib-section-block>
 
-        <mat-card appearance="outlined" class="card-page__panel section-block">
-          <h2 class="section-title title-medium">
-            <mat-icon class="material-symbols-rounded">attach_file</mat-icon>
-            Attachments
-          </h2>
-          <div class="card-page__dropzone">
-            <mat-icon class="material-symbols-rounded">upload_file</mat-icon>
-            <span class="headline">Drop files here</span>
-            <span class="supporting">Attach screenshots, notes, or recordings.</span>
-          </div>
-        </mat-card>
+        <lib-section-block heading="Activity">
+          <lib-card-activity-thread
+            [activityItems]="activityItemsFor(activeCard)"
+            [comments]="activeCard.comments"
+            [currentUser]="currentUser()"
+            [permissions]="cardPermissions"
+            [submitting]="commentSubmitting()"
+            (commentSubmitted)="addCommentText($event)" />
+        </lib-section-block>
+      </main>
 
-        <mat-card appearance="outlined" class="card-page__panel section-block">
-          <h2 class="section-title title-medium">
-            <mat-icon class="material-symbols-rounded">forum</mat-icon>
-            Activity
-          </h2>
-          <ol class="card-page__activity">
-            <li>Card opened in {{ activeCard.columnName }}</li>
-            <li>Details are saved automatically through the API.</li>
-          </ol>
-        </mat-card>
+      <aside class="card-page__side">
+        <lib-card-meta-panel
+          [metadata]="metadataFor(activeCard)"
+          [permissions]="cardPermissions" />
 
-        <mat-card appearance="outlined" class="card-page__panel section-block">
-          <h2 class="section-title title-medium">
-            <mat-icon class="material-symbols-rounded">history</mat-icon>
-            History
-          </h2>
-          <ol class="card-page__activity">
-            <li>Created in Backlog.</li>
-            <li>Last updated from card detail.</li>
-          </ol>
-        </mat-card>
+        <lib-section-block heading="Attachments" density="compact">
+          <lib-card-attachment-list
+            [attachments]="cardAttachments"
+            [permissions]="cardPermissions" />
+        </lib-section-block>
       </aside>
     </div>
+  } @else {
+    <lib-section-block heading="Card">Loading card...</lib-section-block>
   }
 </section>

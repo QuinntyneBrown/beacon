@@ -1,0 +1,34 @@
+<section class="settings-page">
+  <lib-page-header
+    title="Settings"
+    subtitle="Manage your profile and workspace preferences."
+    [divided]="true" />
+
+  <div class="settings-page__layout">
+    <aside class="settings-page__nav">
+      <lib-settings-nav
+        [sections]="sections"
+        [activeSection]="activeSection()"
+        (sectionSelected)="selectSection($event)" />
+    </aside>
+
+    <main class="settings-page__content">
+      <lib-section-block id="settings-profile" heading="Profile">
+        <lib-profile-panel />
+      </lib-section-block>
+
+      <div id="settings-notifications">
+        <lib-notification-preferences-panel
+          [preferences]="notificationPreferences()"
+          (preferenceToggled)="setNotificationPreference($event.key, $event.value)" />
+      </div>
+
+      <div id="settings-appearance">
+        <lib-appearance-preferences-panel
+          [preferences]="appearancePreferences()"
+          (themeChanged)="setThemePreference($event)"
+          (densityChanged)="setCompactDensity($event)" />
+      </div>
+    </main>
+  </div>
+</section>

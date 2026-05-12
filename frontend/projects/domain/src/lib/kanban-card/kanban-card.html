@@ -1,0 +1,50 @@
+<mat-card
+  class="kanban-card"
+  [class.kanban-card--done]="!!card().done"
+  [class.kanban-card--overdue]="!!card().overdue"
+  [class.kanban-card--selected]="!!card().selected"
+  [class.kanban-card--loading]="loading()"
+  appearance="outlined">
+  <button
+    type="button"
+    class="kanban-card__main"
+    [disabled]="loading()"
+    (click)="cardOpened.emit(card().cardId)"
+    (pointerdown)="dragStarted.emit(card().cardId)">
+    @if (card().labels?.length) {
+      <span class="kanban-card__labels">
+        @for (label of card().labels; track label.id) {
+          <lib-label-pill
+            [label]="label.label"
+            [colorToken]="label.colorToken ?? 'var(--beacon-color-primary-container, #b5f1f5)'"
+            size="small" />
+        }
+      </span>
+    }
+
+    <span class="kanban-card__title">{{ card().title }}</span>
+    @if (card().description) {
+      <span class="kanban-card__description">{{ card().description }}</span>
+    }
+  </button>
+
+  @if (checklistMax() > 0) {
+    <lib-progress-bar
+      [value]="checklistValue()"
+      [max]="checklistMax()"
+      [compact]="true"
+      label="Checklist" />
+  }
+
+  <div class="kanban-card__meta">
+    <lib-card-meta-item icon="chat_bubble_outline" label="Comments" [value]="commentCountText()" tone="muted" />
+    <lib-card-meta-item icon="attach_file" label="Files" [value]="attachmentCountText()" tone="muted" />
+    @if (card().assignee) {
+      <lib-avatar
+        [label]="card().assignee?.label ?? ''"
+        [initials]="card().assignee?.initials ?? ''"
+        [imageUrl]="card().assignee?.imageUrl ?? null"
+        size="small" />
+    }
+  </div>
+</mat-card>

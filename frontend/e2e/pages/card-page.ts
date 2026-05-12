@@ -27,7 +27,8 @@ export class CardPage {
   }
 
   async addChecklistItem(text: string): Promise<void> {
-    await this.page.getByLabel('Add item').fill(text);
+    const checklist = this.page.locator('lib-card-checklist');
+    await checklist.getByLabel('Add checklist item').fill(text);
 
     const response = this.page.waitForResponse(
       (candidate) =>
@@ -35,7 +36,7 @@ export class CardPage {
         candidate.request().method() === 'POST'
     );
 
-    await this.page.locator('.card-page__inline-form').getByRole('button').click();
+    await checklist.getByRole('button', { name: 'Add' }).click();
     await expectSuccessfulResponse(response);
     await expect(this.page.getByRole('checkbox', { name: text })).toBeVisible();
   }
@@ -53,7 +54,8 @@ export class CardPage {
   }
 
   async addComment(body: string): Promise<void> {
-    await this.page.getByLabel('Add comment').fill(body);
+    const activity = this.page.locator('lib-card-activity-thread');
+    await activity.getByLabel('Write a comment').fill(body);
 
     const response = this.page.waitForResponse(
       (candidate) =>
@@ -61,7 +63,7 @@ export class CardPage {
         candidate.request().method() === 'POST'
     );
 
-    await this.page.getByRole('button', { name: /Post comment/ }).click();
+    await activity.getByRole('button', { name: 'Comment' }).click();
     await expectSuccessfulResponse(response);
     await expect(this.page.getByText(body)).toBeVisible();
   }

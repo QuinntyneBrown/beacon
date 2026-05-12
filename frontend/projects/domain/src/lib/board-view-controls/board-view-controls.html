@@ -1,0 +1,26 @@
+<div class="board-view-controls">
+  <lib-chip-group
+    class="board-view-controls__views"
+    [chips]="viewOptions()"
+    [selectedIds]="[activeView()]"
+    [disabled]="!canChangeView()"
+    (selectionChanged)="emitViewChanged($event)" />
+
+  <div class="board-view-controls__actions">
+    <lib-icon-button
+      icon="filter_list"
+      label="Filters"
+      [active]="filterCount() > 0"
+      [disabled]="!canFilter()"
+      (clicked)="filterClicked.emit()" />
+    <button type="button" class="board-view-controls__label-button" (click)="labelsClicked.emit()">
+      @for (label of availableLabels().slice(0, 3); track label.id) {
+        <lib-label-pill [label]="label.label" [colorToken]="label.colorToken ?? 'var(--beacon-color-primary-container, #b5f1f5)'" size="small" />
+      }
+      @if (availableLabels().length === 0) {
+        <span class="board-view-controls__label-placeholder">Labels</span>
+      }
+    </button>
+    <lib-icon-button icon="more_horiz" label="More board actions" (clicked)="moreClicked.emit()" />
+  </div>
+</div>

@@ -1,0 +1,29 @@
+<section class="profile-summary">
+  <lib-avatar
+    [label]="userProfile().displayName"
+    [initials]="userProfile().displayName.slice(0, 2)"
+    [imageUrl]="userProfile().imageUrl ?? null"
+    size="large"
+    [loading]="photoState() === 'uploading' || photoState() === 'removing'" />
+
+  <div class="profile-summary__content">
+    <h2 class="profile-summary__name">{{ userProfile().displayName }}</h2>
+    <p class="profile-summary__meta">{{ userProfile().roleLabel || userProfile().email }}</p>
+    <div class="profile-summary__actions">
+      <lib-button
+        label="Upload"
+        icon="upload"
+        variant="outlined"
+        [loading]="photoState() === 'uploading'"
+        [disabled]="!canUploadPhoto"
+        (clicked)="uploadRequested.emit()" />
+      <lib-button
+        label="Remove"
+        variant="text"
+        [destructive]="true"
+        [loading]="photoState() === 'removing'"
+        [disabled]="!canRemovePhoto"
+        (clicked)="photoRemoved.emit()" />
+    </div>
+  </div>
+</section>

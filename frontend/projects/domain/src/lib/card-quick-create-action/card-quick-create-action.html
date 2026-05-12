@@ -1,0 +1,21 @@
+@if (!hidden()) {
+  <div class="card-quick-create-action">
+    <lib-button
+      label="New card"
+      icon="add"
+      [loading]="busy()"
+      [disabled]="!canCreate() || busy()"
+      (clicked)="emitCreate()" />
+
+    <lib-floating-action-button
+      class="card-quick-create-action__fab"
+      label="New card"
+      icon="add"
+      position="bottom-end"
+      visibilityBreakpoint="mobile-only"
+      [extended]="true"
+      [loading]="busy()"
+      [disabled]="!canCreate() || busy()"
+      (clicked)="emitCreate()" />
+  </div>
+}

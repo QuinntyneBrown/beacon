@@ -1,0 +1,9 @@
+:host {
+  display: block;
+}
+
+.board-filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--beacon-space-2, 0.5rem);
+}

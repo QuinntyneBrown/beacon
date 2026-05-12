@@ -1,0 +1,50 @@
+<section class="settings-page-view">
+  <lib-page-header
+    title="Settings"
+    [subtitle]="workspaceContext() || 'Manage your Beacon profile and preferences.'">
+  </lib-page-header>
+
+  @if (errorMessage()) {
+    <lib-snackbar [message]="errorMessage()" severity="error" />
+  }
+
+  <div class="settings-page-view__layout">
+    <aside class="settings-page-view__nav">
+      <lib-settings-nav
+        [sections]="sections()"
+        [activeSection]="activeSection()"
+        (sectionSelected)="sectionSelected.emit($event)" />
+    </aside>
+
+    <main class="settings-page-view__content">
+      @if (currentUser(); as user) {
+        <lib-profile-summary
+          [userProfile]="user"
+          [canUploadPhoto]="!loading()"
+          [canRemovePhoto]="!loading()" />
+      }
+
+      <lib-profile-settings-form
+        [profileFormModel]="profileModel()"
+        [savingState]="loading() ? 'saving' : 'dirty'"
+        (fieldChanged)="profileFieldChanged.emit($event)"
+        (saveRequested)="saveRequested.emit($event)" />
+
+      <lib-notification-preferences-panel
+        [preferences]="notificationPreferences()"
+        [saving]="loading()"
+        (preferenceToggled)="preferenceChanged.emit({ key: $event.key, value: $event.value })" />
+
+      <lib-appearance-preferences-panel
+        [preferences]="appearancePreferences()"
+        [saving]="loading()"
+        (themeChanged)="preferenceChanged.emit({ key: 'theme', value: $event })"
+        (densityChanged)="preferenceChanged.emit({ key: 'compactDensity', value: $event })" />
+
+      <lib-danger-zone-panel
+        [accountDeletionAvailable]="accountDeletionAvailable()"
+        [confirmationState]="loading() ? 'deleting' : 'idle'"
+        (deleteAccountRequested)="accountDeletionRequested.emit()" />
+    </main>
+  </div>
+</section>

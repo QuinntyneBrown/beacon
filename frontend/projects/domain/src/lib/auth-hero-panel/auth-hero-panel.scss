@@ -1,0 +1,47 @@
+:host {
+  display: block;
+}
+
+.auth-hero-panel {
+  display: none;
+  gap: var(--beacon-space-6, 2rem);
+  color: var(--beacon-color-on-surface, #111c20);
+}
+
+.auth-hero-panel__copy {
+  display: grid;
+  gap: var(--beacon-space-4, 1rem);
+  max-width: 38rem;
+}
+
+.auth-hero-panel__headline,
+.auth-hero-panel__supporting {
+  margin: 0;
+}
+
+.auth-hero-panel__headline {
+  font-size: clamp(3rem, 6vw, 5.75rem);
+  font-weight: 800;
+  line-height: 0.98;
+}
+
+.auth-hero-panel__supporting {
+  max-width: 34rem;
+  color: var(--beacon-color-on-surface-variant, #41484c);
+  font-size: 1.125rem;
+  line-height: 1.6;
+}
+
+.auth-hero-panel__features {
+  display: grid;
+  gap: var(--beacon-space-3, 0.75rem);
+  max-width: 42rem;
+}
+
+@media (min-width: 64rem) {
+  .auth-hero-panel {
+    display: grid;
+    align-content: space-between;
+    min-height: 100%;
+  }
+}

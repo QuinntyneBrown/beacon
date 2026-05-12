@@ -5,7 +5,7 @@ export class AppShell {
   constructor(private readonly page: Page) {}
 
   async expectSignedInAs(displayName: string): Promise<void> {
-    await expect(this.page.locator('.shell-header__name')).toHaveText(displayName);
+    await expect(this.page.locator('.app__user-name')).toHaveText(displayName);
     await expect(this.page.getByRole('button', { name: 'Sign out' })).toBeVisible();
   }
 

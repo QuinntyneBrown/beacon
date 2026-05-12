@@ -1,0 +1,30 @@
+:host {
+  display: block;
+}
+
+.card-meta-panel {
+  display: grid;
+  gap: var(--beacon-space-3, 0.75rem);
+  border: 1px solid var(--beacon-color-outline, #c7d8e0);
+  border-radius: var(--beacon-radius-lg, 1rem);
+  padding: var(--beacon-space-4, 1rem);
+  background: var(--beacon-color-surface, #f8fafb);
+}
+
+.card-meta-panel__people,
+.card-meta-panel__reporter {
+  display: grid;
+  gap: var(--beacon-space-2, 0.5rem);
+}
+
+.card-meta-panel__label {
+  color: var(--beacon-color-muted, #687579);
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.card-meta-panel__value {
+  color: var(--beacon-color-on-surface, #111c20);
+  font-weight: 750;
+}

@@ -1,0 +1,17 @@
+:host {
+  display: inline-flex;
+}
+
+.card-quick-create-action__fab {
+  display: none;
+}
+
+@media (max-width: 47.99rem) {
+  .card-quick-create-action > lib-button {
+    display: none;
+  }
+
+  .card-quick-create-action__fab {
+    display: inline-flex;
+  }
+}

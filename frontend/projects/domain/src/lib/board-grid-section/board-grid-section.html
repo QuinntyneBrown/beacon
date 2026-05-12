@@ -1,0 +1,18 @@
+<section class="board-grid-section" [class.board-grid-section--compact]="gridDensity() === 'compact'">
+  <lib-section-heading [title]="sectionTitle()" [count]="boards().length" />
+
+  @if (boards().length === 0 && !loading()) {
+    <p class="board-grid-section__empty">{{ emptyText() }}</p>
+  } @else {
+    <div class="board-grid-section__grid">
+      @for (board of boards(); track board.boardId) {
+        <lib-board-tile
+          [board]="board"
+          [loading]="loading()"
+          (openBoard)="boardSelected.emit($event)"
+          (favoriteToggled)="boardActionSelected.emit({ boardId: $event, actionId: 'favorite' })"
+          (contextMenuOpened)="boardActionSelected.emit({ boardId: $event, actionId: 'menu' })" />
+      }
+    </div>
+  }
+</section>

@@ -1,0 +1,36 @@
+:host {
+  display: block;
+}
+
+.profile-summary {
+  display: flex;
+  align-items: center;
+  gap: var(--beacon-space-4, 1rem);
+}
+
+.profile-summary__content {
+  display: grid;
+  gap: var(--beacon-space-2, 0.5rem);
+  min-width: 0;
+}
+
+.profile-summary__name,
+.profile-summary__meta {
+  margin: 0;
+}
+
+.profile-summary__name {
+  color: var(--beacon-color-on-surface, #111c20);
+  font-size: 1.25rem;
+  font-weight: 800;
+}
+
+.profile-summary__meta {
+  color: var(--beacon-color-on-surface-variant, #41484c);
+}
+
+.profile-summary__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--beacon-space-2, 0.5rem);
+}

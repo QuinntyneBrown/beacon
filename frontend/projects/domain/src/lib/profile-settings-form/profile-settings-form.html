@@ -1,0 +1,37 @@
+<form class="profile-settings-form" (submit)="$event.preventDefault(); save()">
+  <lib-outlined-text-field
+    label="Full name"
+    [value]="profileFormModel().displayName"
+    [errors]="errorsFor('displayName')"
+    (valueChanged)="fieldChanged.emit({ field: 'displayName', value: $event })"
+    (blurred)="validationSurfaced.emit('displayName')" />
+  <lib-outlined-text-field
+    label="Username"
+    [value]="profileFormModel().userName"
+    [errors]="errorsFor('userName')"
+    (valueChanged)="fieldChanged.emit({ field: 'userName', value: $event })"
+    (blurred)="validationSurfaced.emit('userName')" />
+  <lib-outlined-text-field
+    label="Email"
+    type="email"
+    [value]="profileFormModel().email"
+    [errors]="errorsFor('email')"
+    (valueChanged)="fieldChanged.emit({ field: 'email', value: $event })"
+    (blurred)="validationSurfaced.emit('email')" />
+  <lib-outlined-text-field
+    label="Bio"
+    [multiline]="true"
+    [value]="profileFormModel().bio ?? ''"
+    [errors]="errorsFor('bio')"
+    (valueChanged)="fieldChanged.emit({ field: 'bio', value: $event })"
+    (blurred)="validationSurfaced.emit('bio')" />
+  <div class="profile-settings-form__actions">
+    <lib-button
+      label="Save profile"
+      icon="save"
+      type="button"
+      [loading]="savingState() === 'saving'"
+      [disabled]="savingState() === 'clean' || savingState() === 'invalid' || savingState() === 'saving'"
+      (clicked)="save()" />
+  </div>
+</form>

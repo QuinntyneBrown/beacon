@@ -1,62 +1,24 @@
 <section class="board-page">
-  <header class="board-page__header page-header">
-    <div class="titles">
-      <button routerLink="/boards" mat-icon-button type="button" class="board-page__back icon-btn" aria-label="Back">
-        <mat-icon class="material-symbols-rounded">arrow_back</mat-icon>
-      </button>
-      @if (board(); as activeBoard) {
-        <h1 class="board-page__title page-title">{{ activeBoard.name }}</h1>
-        <p class="page-subtitle">{{ activeBoard.columns.length }} columns tuned for focused delivery.</p>
-      }
-    </div>
+  @if (board(); as activeBoard) {
+    <lib-board-header
+      [board]="{
+        boardId: activeBoard.boardId,
+        name: activeBoard.name,
+        sprintText: activeBoard.columns.length + ' columns tuned for focused delivery',
+        statusText: 'Active',
+        members: members
+      }" />
 
-    <div class="board-page__header-actions trailing">
-      <div class="avatar-stack members" aria-label="Board members">
-        <span class="avatar sm">AK</span>
-        <span class="avatar sm">MJ</span>
-        <span class="avatar sm">QS</span>
-      </div>
-      <button mat-stroked-button type="button" class="btn btn-outlined with-icon action">
-        <mat-icon class="material-symbols-rounded icon-wrap">person_add</mat-icon>
-        Invite
-      </button>
-    </div>
-  </header>
+    <lib-board-view-controls activeView="board" [filterCount]="0" />
 
-  <nav class="board-toolbar" aria-label="Board views">
-    <button mat-flat-button color="primary" type="button" class="chip selected active btn btn-filled">
-      <mat-icon class="material-symbols-rounded icon-wrap">view_column</mat-icon>
-      Board
-    </button>
-    <button mat-stroked-button type="button" class="chip btn btn-tonal">
-      <mat-icon class="material-symbols-rounded icon-wrap">view_list</mat-icon>
-      List
-    </button>
-    <button mat-stroked-button type="button" class="chip btn btn-tonal">
-      <mat-icon class="material-symbols-rounded icon-wrap">calendar_month</mat-icon>
-      Calendar
-    </button>
-    <span class="board-toolbar__spacer spacer"></span>
-    <button mat-stroked-button type="button" class="chip assist btn btn-tonal">
-      <mat-icon class="material-symbols-rounded icon-wrap">filter_list</mat-icon>
-      Filter · 2
-    </button>
-    <button mat-stroked-button type="button" class="chip assist btn btn-tonal">
-      <mat-icon class="material-symbols-rounded icon-wrap">label</mat-icon>
-      Labels
-    </button>
-    <button mat-icon-button type="button" class="icon-btn btn btn-text" aria-label="More">
-      <mat-icon class="material-symbols-rounded icon-wrap">more_vert</mat-icon>
-    </button>
-  </nav>
-
-  <button mat-stroked-button type="button" class="board-page__quick-add btn btn-outlined with-icon fixed-br action" aria-label="Add card">
-    <mat-icon class="material-symbols-rounded icon-wrap">add</mat-icon>
-    Add card
-  </button>
+    <lib-card-quick-create-action
+      [boardId]="activeBoard.boardId"
+      [canCreate]="true"
+      [hidden]="false" />
+  }
 
   @if (errorMessage()) {
-    <div class="board-page__error" role="alert">{{ errorMessage() }}</div>
+    <lib-snackbar [message]="errorMessage()" severity="error" [duration]="0" />
   }
 
   <lib-kanban-board />

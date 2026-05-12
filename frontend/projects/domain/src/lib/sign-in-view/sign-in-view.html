@@ -1,0 +1,69 @@
+<lib-auth-shell class="sign-in-view">
+  <lib-auth-hero-panel
+    auth-shell-hero
+    [featureList]="heroFeatures()" />
+
+  <lib-auth-card auth-shell-form class="sign-in-view__card">
+    <div auth-card-heading class="sign-in-view__heading">
+      <lib-brand-mark />
+      <div class="sign-in-view__titles">
+        <h1 class="sign-in-view__title">Welcome back</h1>
+        <p class="sign-in-view__subtitle">Sign in to keep your team's work moving.</p>
+      </div>
+    </div>
+
+    <form auth-card-body class="sign-in-view__form" (submit)="$event.preventDefault(); submit()">
+      <lib-outlined-text-field
+        label="Email address"
+        type="email"
+        autocomplete="email"
+        [value]="signInForm.controls.email.value"
+        [errors]="emailErrors()"
+        [disabled]="loading()"
+        (valueChanged)="updateField('email', $event)"
+        (submitted)="submit()" />
+
+      <lib-outlined-text-field
+        label="Password"
+        type="password"
+        [value]="signInForm.controls.password.value"
+        [errors]="passwordErrors()"
+        [disabled]="loading()"
+        (valueChanged)="updateField('password', $event)"
+        (submitted)="submit()" />
+
+      <div class="sign-in-view__assist-row">
+        <lib-checkbox
+          label="Remember me"
+          [checked]="signInForm.controls.rememberMe.value"
+          [disabled]="loading()"
+          (checkedChanged)="updateRememberMe($event)" />
+        <lib-inline-link label="Forgot password?" commandId="forgot-password" (clicked)="forgotPasswordSelected.emit()" />
+      </div>
+
+      @if (errorMessage()) {
+        <p class="sign-in-view__error">{{ errorMessage() }}</p>
+      }
+
+      <lib-button
+        label="Sign in"
+        type="button"
+        [loading]="loading()"
+        [disabled]="loading()"
+        [fullWidth]="true"
+        (clicked)="submit()" />
+    </form>
+
+    <div auth-card-actions class="sign-in-view__actions">
+      <lib-divider-text label="or" />
+      <lib-external-auth-options
+        [providers]="authProviders()"
+        [submittingProviderId]="submittingProviderId()"
+        (providerSelected)="externalProviderSelected.emit($event)" />
+      <p class="sign-in-view__footer">
+        New to Beacon?
+        <lib-inline-link label="Create an account" commandId="create-account" (clicked)="createAccountSelected.emit()" />
+      </p>
+    </div>
+  </lib-auth-card>
+</lib-auth-shell>

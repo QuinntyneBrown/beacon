@@ -1,3 +1,7 @@
+:host {
+  display: block;
+}
+
 .card-page {
   display: grid;
   gap: var(--beacon-space-4);
@@ -5,223 +9,31 @@
   margin: 0 auto;
 }
 
-.card-page__breadcrumb {
-  display: flex;
-  align-items: center;
-  gap: var(--beacon-space-1);
-  color: var(--beacon-color-muted);
-  font-size: 0.875rem;
-  font-weight: 650;
-}
-
-.card-page__breadcrumb a {
-  color: var(--beacon-color-primary);
-  text-decoration: none;
-}
-
-.card-page__breadcrumb mat-icon {
-  width: 1rem;
-  height: 1rem;
-  font-size: 1rem;
-}
-
-.card-page__header-actions {
-  display: flex;
-  align-items: center;
-  gap: var(--beacon-space-2);
-  flex-wrap: wrap;
-}
-
-.card-detail-grid {
+.card-page__layout {
   display: grid;
   gap: var(--beacon-space-4);
 }
 
 .card-page__main,
-.side-meta {
+.card-page__side,
+.card-page__details-form {
   display: grid;
-  align-content: start;
   gap: var(--beacon-space-4);
   min-width: 0;
 }
 
-.card-page__section-heading {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: var(--beacon-space-3);
-}
-
-.section-title {
-  display: inline-flex;
-  align-items: center;
-  gap: var(--beacon-space-2);
-}
-
-.section-title mat-icon {
-  width: 1.25rem;
-  height: 1.25rem;
-  color: var(--beacon-color-primary);
-  font-size: 1.25rem;
-}
-
-.card-page__panel {
-  border-radius: var(--beacon-radius-lg);
-}
-
-.card-page__form {
-  display: grid;
-  gap: var(--beacon-space-3);
-}
-
-.card-page__inline-form {
-  display: flex;
-  align-items: flex-end;
-  gap: var(--beacon-space-3);
-  flex-wrap: wrap;
-}
-
-.card-page__inline-field {
-  flex: 1 1 14rem;
-}
-
 .card-page__actions {
   display: flex;
-  gap: var(--beacon-space-2);
   justify-content: flex-end;
 }
 
-.card-page__description-preview {
-  margin: 0;
-  color: var(--beacon-color-on-surface-variant);
-  line-height: 1.6;
-}
-
-.card-page__checklist,
-.card-page__comments,
-.card-page__activity {
-  margin: 0;
-  padding: 0;
-}
-
-.progress {
-  height: 0.25rem;
-  overflow: hidden;
-  border-radius: 999px;
-  background: var(--beacon-color-surface-container-highest);
-}
-
-.progress span {
-  display: block;
-  height: 100%;
-  border-radius: inherit;
-  background: var(--beacon-color-primary);
-}
-
-.card-page__checklist,
-.card-page__comments {
-  display: grid;
-  gap: var(--beacon-space-2);
-  list-style: none;
-}
-
-.card-page__comment {
-  display: grid;
-  gap: var(--beacon-space-1);
-  padding: var(--beacon-space-3);
-  border-radius: var(--beacon-radius-md);
-  background: var(--beacon-color-surface-container);
-}
-
-.card-page__comment header {
-  display: flex;
-  justify-content: space-between;
-  gap: var(--beacon-space-2);
-  color: var(--beacon-color-on-surface-variant);
-  font-size: 0.8125rem;
-}
-
-.card-page__comment p {
-  margin: 0;
-}
-
-.card-page__empty {
-  color: var(--beacon-color-muted);
-}
-
-.card-page__meta-list {
-  display: grid;
-  gap: var(--beacon-space-3);
-  margin: 0;
-}
-
-.card-page__meta-list div {
-  display: grid;
-  gap: 0.125rem;
-}
-
-.card-page__meta-list dt {
-  color: var(--beacon-color-muted);
-  font-size: 0.75rem;
-  font-weight: 750;
-  text-transform: uppercase;
-}
-
-.card-page__meta-list dd {
-  margin: 0;
-  color: var(--beacon-color-on-surface);
-  font-weight: 650;
-}
-
-.card-page .col-dot {
-  display: inline-block;
-  width: 0.625rem;
-  height: 0.625rem;
-  border-radius: 50%;
-  background: var(--beacon-color-primary);
-}
-
-.card-page__dropzone {
-  display: grid;
-  place-items: center;
-  gap: var(--beacon-space-2);
-  min-height: 7rem;
-  border: 1px dashed var(--beacon-color-outline);
-  border-radius: var(--beacon-radius-md);
-  color: var(--beacon-color-muted);
-  background: var(--beacon-color-surface-container);
-}
-
-.card-page__activity {
-  display: grid;
-  gap: var(--beacon-space-2);
-  padding-left: 1.25rem;
-  color: var(--beacon-color-on-surface-variant);
-}
-
-.card-page__error,
-.card-page__helper {
-  border-radius: var(--beacon-radius-md);
-  padding: var(--beacon-space-3) var(--beacon-space-4);
-}
-
-.card-page__error {
-  color: var(--beacon-color-danger);
-  background: color-mix(in srgb, var(--beacon-color-danger) 10%, transparent);
-}
-
-.card-page__helper {
-  color: var(--beacon-color-on-surface);
-  background: color-mix(in srgb, var(--beacon-color-primary) 10%, transparent);
-}
-
 @media (min-width: 64rem) {
-  .card-detail-grid {
+  .card-page__layout {
     grid-template-columns: minmax(0, 1fr) minmax(18rem, 22rem);
     align-items: start;
   }
 
-  .side-meta {
+  .card-page__side {
     position: sticky;
     top: 5rem;
   }

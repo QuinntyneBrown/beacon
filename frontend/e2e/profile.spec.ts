@@ -49,5 +49,5 @@ test('settings preferences persist after reload', async ({ page }, testInfo) => 
   await boardsPage.expectVisible();
 
   await settingsPage.goto();
-  await settingsPage.setPreferenceAndExpectPersistence('High contrast', true);
+  await settingsPage.setPreferenceAndExpectPersistence('Compact density', true);
 });

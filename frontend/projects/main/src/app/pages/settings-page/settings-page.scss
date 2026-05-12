@@ -1,0 +1,37 @@
+:host {
+  display: block;
+}
+
+.settings-page {
+  display: grid;
+  gap: var(--beacon-space-5);
+  max-width: 76rem;
+  margin: 0 auto;
+}
+
+.settings-page__layout {
+  display: grid;
+  gap: var(--beacon-space-4);
+}
+
+.settings-page__content {
+  display: grid;
+  gap: var(--beacon-space-4);
+  min-width: 0;
+}
+
+.settings-page__nav {
+  min-width: 0;
+}
+
+@media (min-width: 58rem) {
+  .settings-page__layout {
+    grid-template-columns: 14rem minmax(0, 1fr);
+    align-items: start;
+  }
+
+  .settings-page__nav {
+    position: sticky;
+    top: 5rem;
+  }
+}

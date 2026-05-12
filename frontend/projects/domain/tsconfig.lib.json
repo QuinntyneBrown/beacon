@@ -6,7 +6,17 @@
     "outDir": "../../out-tsc/lib",
     "declaration": true,
     "declarationMap": true,
+    "sourceMap": true,
     "inlineSources": true,
+    "baseUrl": ".",
+    "paths": {
+      "api": [
+        "../../dist/api"
+      ],
+      "components": [
+        "../../dist/components"
+      ]
+    },
     "types": []
   },
   "include": [

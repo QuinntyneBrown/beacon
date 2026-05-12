@@ -3,19 +3,24 @@ import { Component, inject, output, signal } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { SignInCredentials } from '../models/domain-ui-models';
 import { SESSION_SERVICE } from '../services/session.service.contract';
 
 @Component({
   selector: 'lib-sign-in-form',
-  imports: [CommonModule, ReactiveFormsModule, MatButtonModule, MatCardModule, MatDividerModule, MatFormFieldModule, MatInputModule],
+  imports: [CommonModule, ReactiveFormsModule, MatButtonModule, MatCardModule, MatCheckboxModule, MatDividerModule, MatFormFieldModule, MatInputModule],
   templateUrl: './sign-in-form.html',
   styleUrl: './sign-in-form.scss'
 })
 export class SignInFormComponent {
   readonly authenticated = output<void>();
+  readonly credentialsSubmitted = output<SignInCredentials>();
+  readonly fieldChanged = output<{ readonly field: 'email' | 'password'; readonly value: string }>();
+  readonly rememberMeChanged = output<boolean>();
   readonly authMode = inject(SESSION_SERVICE).authMode;
 
   readonly mode = signal<'sign-in' | 'register' | 'reset'>('sign-in');
@@ -25,7 +30,8 @@ export class SignInFormComponent {
 
   readonly signInForm = inject(FormBuilder).nonNullable.group({
     email: ['', [Validators.required, Validators.email]],
-    password: ['', [Validators.required]]
+    password: ['', [Validators.required]],
+    rememberMe: [false]
   });
   readonly registerForm = inject(FormBuilder).nonNullable.group({
     email: ['', [Validators.required, Validators.email]],
@@ -49,7 +55,9 @@ export class SignInFormComponent {
 
     this.isBusy.set(true);
     this.errorMessage.set('');
-    this.sessionService.signIn(this.signInForm.getRawValue()).subscribe({
+    const credentials = this.signInForm.getRawValue();
+    this.credentialsSubmitted.emit(credentials);
+    this.sessionService.signIn({ email: credentials.email, password: credentials.password }).subscribe({
       next: () => {
         this.isBusy.set(false);
         this.authenticated.emit();
@@ -59,6 +67,10 @@ export class SignInFormComponent {
         this.errorMessage.set(error.error?.detail ?? 'Unable to sign in.');
       }
     });
+  }
+
+  emitFieldChanged(field: 'email' | 'password'): void {
+    this.fieldChanged.emit({ field, value: this.signInForm.controls[field].value });
   }
 
   register(): void {

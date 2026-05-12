@@ -1,0 +1,15 @@
+<nav class="settings-nav" aria-label="Settings sections">
+  @for (section of sections(); track section.id) {
+    <lib-list-item
+      [icon]="section.icon"
+      [label]="section.label"
+      [selected]="section.id === activeSection()"
+      [disabled]="!!section.disabled"
+      [dense]="true"
+      (clicked)="sectionSelected.emit(section.id)">
+      @if (section.badgeCount !== undefined) {
+        <span list-item-trailing class="settings-nav__badge">{{ section.badgeCount }}</span>
+      }
+    </lib-list-item>
+  }
+</nav>

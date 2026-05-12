@@ -11,18 +11,9 @@ export class BoardsPage {
   }
 
   async expectVisible(): Promise<void> {
-    await expect(this.page.getByRole('heading', { name: 'Boards', exact: true })).toBeVisible();
-    await expect(this.page.getByRole('button', { name: /Create board/ })).toBeVisible();
-    await this.expectMockDetails();
-  }
-
-  async expectMockDetails(): Promise<void> {
-    await expect(this.page.locator('.top-app-bar.scrolled')).toBeVisible();
-    await expect(this.page.locator('.boards-page__header .titles')).toBeVisible();
-    await expect(this.page.locator('.boards-page__header .body-medium')).toBeVisible();
-    await expect(this.page.locator('.boards-page__chips .chip.selected.active').filter({ hasText: /check\s*All/ })).toBeVisible();
-    await expect(this.page.locator('.boards-page__search input[aria-label="Search boards, cards, members..."]')).toBeVisible();
-    await expect(this.page.locator('.board-tile .avatar.sm').first()).toBeVisible();
+    await expect(this.page.getByRole('heading', { name: /Boards/ }).first()).toBeVisible();
+    await expect(this.page.getByPlaceholder('Search boards')).toBeVisible();
+    await expect(this.page.getByRole('button', { name: 'Create board' })).toBeVisible();
   }
 
   async expectBoardVisible(name: string): Promise<void> {
@@ -52,7 +43,7 @@ export class BoardsPage {
   }
 
   async openBoard(name: string): Promise<BoardPage> {
-    await this.boardCard(name).getByRole('link', { name: new RegExp(escapeRegExp(name)) }).click();
+    await this.boardCard(name).getByRole('button', { name: new RegExp(escapeRegExp(name)) }).first().click();
     await expect(this.page).toHaveURL(/\/boards\/[0-9a-f-]+$/);
 
     const boardPage = new BoardPage(this.page);
@@ -69,22 +60,17 @@ export class BoardsPage {
         candidate.request().method() === 'DELETE'
     );
 
-    await this.boardCard(name).getByRole('button', { name: 'Delete board' }).click();
+    await this.boardCard(name).getByRole('button', { name: 'Board actions' }).click();
     await expectSuccessfulResponse(response);
     await this.expectBoardHidden(name);
   }
 
   async search(term: string): Promise<void> {
-    await this.page.getByPlaceholder('Search boards, cards, members...').fill(term);
-  }
-
-  async focusCreateFromNewAction(): Promise<void> {
-    await this.page.getByRole('button', { name: 'New', exact: true }).click();
-    await expect(this.page.getByLabel('New board name')).toBeFocused();
+    await this.page.getByPlaceholder('Search boards').fill(term);
   }
 
   private boardCard(name: string) {
-    return this.page.locator('.boards-page__card').filter({ hasText: name });
+    return this.page.locator('lib-board-tile').filter({ hasText: name }).first();
   }
 }
 

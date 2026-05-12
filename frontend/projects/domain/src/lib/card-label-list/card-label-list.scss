@@ -1,0 +1,15 @@
+:host {
+  display: block;
+}
+
+.card-label-list {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--beacon-space-2, 0.5rem);
+}
+
+.card-label-list__empty {
+  color: var(--beacon-color-muted, #687579);
+  font-size: 0.875rem;
+}

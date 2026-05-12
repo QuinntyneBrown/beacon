@@ -1,0 +1,23 @@
+:host {
+  display: block;
+}
+
+.danger-zone-panel {
+  display: grid;
+  gap: var(--beacon-space-3, 0.75rem);
+  border-radius: var(--beacon-radius-md, 0.75rem);
+  padding: var(--beacon-space-3, 0.75rem);
+  background: color-mix(in srgb, var(--beacon-color-danger-container, #ffdad6) 45%, transparent);
+}
+
+.danger-zone-panel__message {
+  margin: 0;
+  color: var(--beacon-color-danger, #b3261e);
+  font-weight: 750;
+}
+
+.danger-zone-panel__actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--beacon-space-2, 0.5rem);
+}

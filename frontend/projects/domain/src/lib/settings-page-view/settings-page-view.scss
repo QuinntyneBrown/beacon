@@ -1,0 +1,38 @@
+:host {
+  display: block;
+}
+
+.settings-page-view {
+  display: grid;
+  gap: var(--beacon-space-4, 1rem);
+}
+
+.settings-page-view__layout {
+  display: grid;
+  gap: var(--beacon-space-4, 1rem);
+}
+
+.settings-page-view__nav {
+  border: 1px solid var(--beacon-color-outline, #c7d8e0);
+  border-radius: var(--beacon-radius-lg, 1rem);
+  padding: var(--beacon-space-2, 0.5rem);
+  background: var(--beacon-color-surface, #f8fafb);
+}
+
+.settings-page-view__content {
+  display: grid;
+  gap: var(--beacon-space-5, 1.5rem);
+  min-width: 0;
+}
+
+@media (min-width: 58rem) {
+  .settings-page-view__layout {
+    grid-template-columns: 16rem minmax(0, 1fr);
+    align-items: start;
+  }
+
+  .settings-page-view__nav {
+    position: sticky;
+    top: 5rem;
+  }
+}

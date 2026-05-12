@@ -1,0 +1,48 @@
+@if (board(); as activeBoard) {
+  <section class="kanban-board-view">
+    <lib-board-header
+      [board]="activeBoard"
+      [invitePermission]="canInviteMember()"
+      (inviteClicked)="inviteRequested.emit($event)" />
+
+    <lib-board-view-controls
+      [activeView]="activeView()"
+      [filterCount]="activeFilters()"
+      [availableLabels]="availableLabels().length ? availableLabels() : activeBoard.labels ?? []"
+      (viewChanged)="viewChanged.emit($event)"
+      (filterClicked)="filterChanged.emit()" />
+
+    @if (errorMessage()) {
+      <lib-snackbar [message]="errorMessage()" severity="error" />
+    }
+
+    <lib-board-member-invite
+      [boardId]="activeBoard.boardId"
+      [currentMembers]="activeBoard.members ?? []"
+      [invitePermission]="canInviteMember()"
+      [open]="inviteOpen()"
+      (inviteSubmitted)="inviteRequested.emit($event)"
+      (inviteCanceled)="inviteRequested.emit(activeBoard.boardId)" />
+
+    <div class="kanban-board-view__columns">
+      @for (column of activeBoard.columns; track column.columnId) {
+        <lib-kanban-column
+          [column]="column"
+          [addPermission]="canCreateCard()"
+          (cardDropped)="cardMoved.emit($event)"
+          (addCardClicked)="cardCreated.emit({ boardId: activeBoard.boardId, columnId: $event })"
+          (cardOpened)="cardOpened.emit($event)" />
+      }
+    </div>
+
+    <lib-card-quick-create-action
+      [boardId]="activeBoard.boardId"
+      [canCreate]="canCreateCard()"
+      [busy]="loading()"
+      (createCardRequested)="cardCreated.emit($event)" />
+  </section>
+} @else if (loading()) {
+  <section class="kanban-board-view kanban-board-view--loading">Loading board...</section>
+} @else {
+  <section class="kanban-board-view kanban-board-view--empty">No board selected.</section>
+}

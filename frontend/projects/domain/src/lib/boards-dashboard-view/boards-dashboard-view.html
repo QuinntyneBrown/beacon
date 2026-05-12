@@ -1,0 +1,50 @@
+<section class="boards-dashboard-view">
+  <lib-page-header
+    [title]="currentUser() ? 'Boards for ' + currentUser()?.displayName : 'Boards'"
+    subtitle="Find, filter, and create Beacon boards.">
+    <div page-header-actions class="boards-dashboard-view__header-actions">
+      <lib-board-quick-create-action
+        [canCreate]="canCreateBoard()"
+        [workspaceContext]="workspaceContext()"
+        [busy]="loading()"
+        (createBoardRequested)="createRequested.emit($event)" />
+    </div>
+  </lib-page-header>
+
+  <lib-search-bar
+    [value]="searchQuery()"
+    placeholder="Search boards"
+    [disabled]="loading()"
+    (submitted)="searchSubmitted.emit($event)"
+    (valueChanged)="searchSubmitted.emit($event)" />
+
+  <lib-board-filter-bar
+    [filters]="visibleFilters()"
+    [selectedFilterId]="selectedFilterId()"
+    (filterSelected)="filterChanged.emit($event)" />
+
+  @if (errorMessage()) {
+    <lib-snackbar
+      [message]="errorMessage()"
+      severity="error"
+      actionLabel="Retry"
+      (actionClicked)="sortRequested.emit('retry')" />
+  }
+
+  <div class="boards-dashboard-view__sections">
+    @for (collection of visibleCollections(); track collection.id) {
+      <lib-board-grid-section
+        [sectionTitle]="collection.title"
+        [boards]="collection.boards"
+        [emptyText]="collection.emptyText ?? 'No boards to show.'"
+        [loading]="loading()"
+        (boardSelected)="boardSelected.emit($event)"
+        (boardActionSelected)="boardActionSelected.emit($event)" />
+    }
+
+    <lib-create-board-tile
+      [creationAvailable]="canCreateBoard()"
+      [loading]="loading()"
+      (createBoardRequested)="createRequested.emit(workspaceContext())" />
+  </div>
+</section>

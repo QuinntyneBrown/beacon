@@ -1,0 +1,21 @@
+@if (!hidden()) {
+  <div class="board-quick-create-action">
+    <lib-button
+      label="New board"
+      icon="add"
+      [loading]="busy()"
+      [disabled]="!canCreate() || busy()"
+      (clicked)="createBoardRequested.emit(workspaceContext())" />
+
+    <lib-floating-action-button
+      class="board-quick-create-action__fab"
+      label="New board"
+      icon="add"
+      position="bottom-end"
+      visibilityBreakpoint="mobile-only"
+      [extended]="true"
+      [loading]="busy()"
+      [disabled]="!canCreate() || busy()"
+      (clicked)="createBoardRequested.emit(workspaceContext())" />
+  </div>
+}

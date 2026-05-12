@@ -1,0 +1,18 @@
+<lib-settings-section icon="palette" title="Appearance" description="Tune Beacon for your display and workflow density.">
+  <lib-settings-row title="Theme" description="Use a fixed theme or follow the device setting.">
+    <lib-segmented-chip-group
+      settings-row-trailing
+      [options]="availableThemes()"
+      [selectedOption]="preferences().theme"
+      [disabled]="saving()"
+      (selectionChanged)="themeChanged.emit($event)" />
+  </lib-settings-row>
+  <lib-settings-row title="Compact density" description="Show denser boards and card details.">
+    <lib-switch
+      settings-row-trailing
+      label="Compact density"
+      [checked]="preferences().compactDensity"
+      [disabled]="saving()"
+      (checkedChanged)="densityChanged.emit($event)" />
+  </lib-settings-row>
+</lib-settings-section>

@@ -1,0 +1,34 @@
+<lib-settings-section icon="notifications" title="Notifications" description="Choose which Beacon activity should reach you.">
+  <lib-settings-row title="Email digest" description="A weekly summary of board activity.">
+    <lib-switch
+      settings-row-trailing
+      label="Email digest"
+      [checked]="preferences().emailDigest"
+      [disabled]="isDisabled('emailDigest')"
+      (checkedChanged)="preferenceToggled.emit({ key: 'emailDigest', value: $event })" />
+  </lib-settings-row>
+  <lib-settings-row title="Mentions" description="Notify when teammates mention you.">
+    <lib-switch
+      settings-row-trailing
+      label="Mentions"
+      [checked]="preferences().mentions"
+      [disabled]="isDisabled('mentions')"
+      (checkedChanged)="preferenceToggled.emit({ key: 'mentions', value: $event })" />
+  </lib-settings-row>
+  <lib-settings-row title="Due-date reminders" description="Warn before assigned work is due.">
+    <lib-switch
+      settings-row-trailing
+      label="Due-date reminders"
+      [checked]="preferences().dueDateReminders"
+      [disabled]="isDisabled('dueDateReminders')"
+      (checkedChanged)="preferenceToggled.emit({ key: 'dueDateReminders', value: $event })" />
+  </lib-settings-row>
+  <lib-settings-row title="Comment replies" description="Notify when someone replies to your card comments.">
+    <lib-switch
+      settings-row-trailing
+      label="Comment replies"
+      [checked]="preferences().commentReplies"
+      [disabled]="isDisabled('commentReplies')"
+      (checkedChanged)="preferenceToggled.emit({ key: 'commentReplies', value: $event })" />
+  </lib-settings-row>
+</lib-settings-section>

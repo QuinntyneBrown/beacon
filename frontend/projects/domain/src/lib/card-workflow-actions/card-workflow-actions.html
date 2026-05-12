@@ -1,0 +1,33 @@
+<div class="card-workflow-actions" [attr.aria-label]="cardStatus() || 'Card actions'">
+  <lib-icon-button
+    [icon]="watched() ? 'visibility' : 'visibility_off'"
+    label="Watch card"
+    [active]="watched()"
+    [loading]="busyActionId() === 'watch'"
+    (clicked)="watchToggled.emit(!watched())" />
+
+  <lib-button
+    label="Move"
+    icon="drive_file_move"
+    variant="outlined"
+    [loading]="busyActionId() === 'move'"
+    [disabled]="!permissions().canMove"
+    (clicked)="moveRequested.emit()" />
+
+  <lib-button
+    [label]="cardStatus() === 'done' ? 'Done' : 'Mark done'"
+    icon="check_circle"
+    variant="tonal"
+    [loading]="busyActionId() === 'complete'"
+    [disabled]="!permissions().canComplete || cardStatus() === 'done'"
+    (clicked)="markDoneRequested.emit()" />
+
+  <lib-icon-button
+    icon="share"
+    label="Share card"
+    [disabled]="!permissions().canShare"
+    [loading]="busyActionId() === 'share'"
+    (clicked)="shareRequested.emit()" />
+
+  <lib-icon-button icon="more_horiz" label="More card actions" (clicked)="menuActionSelected.emit('more')" />
+</div>

@@ -1,0 +1,48 @@
+:host {
+  display: block;
+}
+
+.board-member-invite {
+  display: grid;
+  gap: var(--beacon-space-3, 0.75rem);
+  border: 1px solid var(--beacon-color-outline, #c7d8e0);
+  border-radius: var(--beacon-radius-lg, 1rem);
+  padding: var(--beacon-space-4, 1rem);
+  background: var(--beacon-color-surface, #f8fafb);
+}
+
+.board-member-invite__header {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--beacon-space-3, 0.75rem);
+}
+
+.board-member-invite__title,
+.board-member-invite__subtitle,
+.board-member-invite__error {
+  margin: 0;
+}
+
+.board-member-invite__title {
+  font-size: 1.125rem;
+  font-weight: 800;
+}
+
+.board-member-invite__subtitle {
+  color: var(--beacon-color-on-surface-variant, #41484c);
+}
+
+.board-member-invite__form {
+  display: grid;
+  gap: var(--beacon-space-3, 0.75rem);
+}
+
+.board-member-invite__actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--beacon-space-2, 0.5rem);
+}
+
+.board-member-invite__error {
+  color: var(--beacon-color-danger, #b3261e);
+}

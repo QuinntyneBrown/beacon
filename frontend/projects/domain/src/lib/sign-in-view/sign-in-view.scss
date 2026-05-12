@@ -1,0 +1,45 @@
+:host {
+  display: block;
+  min-height: 100%;
+}
+
+.sign-in-view__heading,
+.sign-in-view__titles,
+.sign-in-view__form,
+.sign-in-view__actions {
+  display: grid;
+  gap: var(--beacon-space-3, 0.75rem);
+}
+
+.sign-in-view__title,
+.sign-in-view__subtitle,
+.sign-in-view__footer,
+.sign-in-view__error {
+  margin: 0;
+}
+
+.sign-in-view__title {
+  color: var(--beacon-color-on-surface, #111c20);
+  font-size: 1.75rem;
+  font-weight: 800;
+}
+
+.sign-in-view__subtitle,
+.sign-in-view__footer {
+  color: var(--beacon-color-on-surface-variant, #41484c);
+}
+
+.sign-in-view__assist-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--beacon-space-3, 0.75rem);
+  flex-wrap: wrap;
+}
+
+.sign-in-view__error {
+  border-radius: var(--beacon-radius-md, 0.75rem);
+  padding: var(--beacon-space-3, 0.75rem);
+  color: var(--beacon-color-danger, #b3261e);
+  background: color-mix(in srgb, var(--beacon-color-danger-container, #ffdad6) 48%, transparent);
+}

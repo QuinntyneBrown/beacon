@@ -1,0 +1,38 @@
+:host {
+  display: block;
+}
+
+.card-detail-view {
+  display: grid;
+  gap: var(--beacon-space-4, 1rem);
+}
+
+.card-detail-view__layout {
+  display: grid;
+  gap: var(--beacon-space-4, 1rem);
+}
+
+.card-detail-view__main {
+  min-width: 0;
+}
+
+.card-detail-view--loading,
+.card-detail-view--empty {
+  border: 1px dashed var(--beacon-color-outline, #c7d8e0);
+  border-radius: var(--beacon-radius-lg, 1rem);
+  padding: var(--beacon-space-5, 1.5rem);
+  color: var(--beacon-color-muted, #687579);
+  background: var(--beacon-color-surface, #f8fafb);
+}
+
+@media (min-width: 64rem) {
+  .card-detail-view__layout {
+    grid-template-columns: minmax(0, 1fr) 20rem;
+    align-items: start;
+  }
+
+  .card-detail-view__meta {
+    position: sticky;
+    top: 5rem;
+  }
+}

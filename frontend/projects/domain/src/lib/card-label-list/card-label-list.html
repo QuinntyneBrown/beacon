@@ -1,0 +1,23 @@
+<div class="card-label-list">
+  @if (labels().length === 0) {
+    <span class="card-label-list__empty">No labels</span>
+  } @else {
+    @for (label of labels(); track label.id) {
+      @if (editable()) {
+        <lib-chip
+          [label]="label.label"
+          [colorToken]="label.colorToken ?? 'var(--beacon-color-primary-container, #b5f1f5)'"
+          [interactive]="true"
+          (selectionChanged)="labelSelected.emit(label.id)" />
+      } @else {
+        <lib-label-pill
+          [label]="label.label"
+          [colorToken]="label.colorToken ?? 'var(--beacon-color-primary-container, #b5f1f5)'" />
+      }
+    }
+  }
+
+  @if (editable()) {
+    <lib-button label="Edit labels" icon="label" variant="text" (clicked)="editRequested.emit()" />
+  }
+</div>

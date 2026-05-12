@@ -1,0 +1,20 @@
+<div class="card-attachment-list">
+  @for (attachment of attachments(); track attachment.id) {
+    <div class="card-attachment-list__row">
+      <lib-attachment-list-item
+        [icon]="attachment.icon ?? 'insert_drive_file'"
+        [title]="attachment.title"
+        [metadata]="attachment.metadata"
+        actionLabel="Download"
+        [loading]="attachment.downloading || isDownloading(attachment.id)"
+        [disabled]="attachment.disabled || !permissions().canAttach"
+        (rowClicked)="attachmentOpened.emit(attachment.id)"
+        (actionClicked)="downloadRequested.emit(attachment.id)" />
+      @if (permissions().canEdit) {
+        <lib-icon-button icon="delete" label="Remove attachment" (clicked)="attachmentRemoved.emit(attachment.id)" />
+      }
+    </div>
+  } @empty {
+    <p class="card-attachment-list__empty">No attachments.</p>
+  }
+</div>

@@ -1,0 +1,15 @@
+<section class="auth-hero-panel">
+  <lib-brand-mark class="auth-hero-panel__brand" size="large" />
+  <div class="auth-hero-panel__copy">
+    <h1 class="auth-hero-panel__headline">{{ productHeadline() }}</h1>
+    <p class="auth-hero-panel__supporting">{{ supportingCopy() }}</p>
+  </div>
+  <div class="auth-hero-panel__features">
+    @for (feature of visibleFeatures(); track feature.title) {
+      <lib-feature-list-item
+        [icon]="feature.icon"
+        [title]="feature.title"
+        [description]="feature.description" />
+    }
+  </div>
+</section>

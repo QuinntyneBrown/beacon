@@ -15,10 +15,10 @@
         matInput
         class="comment-composer__input"
         rows="3"
-        [value]="value()"
+        [value]="currentValue()"
         [disabled]="disabled() || submitting()"
         (input)="onValueInput($event)"
-        (keydown.control.enter)="submitted.emit(value())"></textarea>
+        (keydown.control.enter)="submit()"></textarea>
       @if (error()) {
         <mat-error class="comment-composer__error">{{ error() }}</mat-error>
       }
@@ -37,9 +37,9 @@
         mat-button
         type="button"
         class="comment-composer__submit"
-        [disabled]="disabled() || submitting() || !value().trim()"
+        [disabled]="disabled() || submitting() || !currentValue().trim()"
         [attr.aria-busy]="submitting()"
-        (click)="submitted.emit(value())">
+        (click)="submit()">
         @if (submitting()) {
           <mat-progress-spinner mode="indeterminate" diameter="18" aria-hidden="true" />
         } @else {

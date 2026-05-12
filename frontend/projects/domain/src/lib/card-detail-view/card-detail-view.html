@@ -1,0 +1,67 @@
+@if (cardDetail(); as card) {
+  <article class="card-detail-view">
+    <lib-breadcrumb
+      [items]="[
+        { id: card.boardId, label: boardContext()?.boardName ?? 'Board', icon: 'dashboard' },
+        { id: card.cardId, label: card.title, icon: 'article' }
+      ]" />
+
+    <lib-page-header [title]="card.title" [subtitle]="card.description || card.columnName">
+      <div page-header-actions>
+        <lib-card-workflow-actions
+          [cardStatus]="card.completed ? 'done' : 'open'"
+          [watched]="!!card.watched"
+          [permissions]="permissions()"
+          [busyActionId]="saving() ? 'complete' : null"
+          (watchToggled)="watchToggled.emit($event)"
+          (moveRequested)="cardMoved.emit(card.cardId)"
+          (markDoneRequested)="cardCompleted.emit(card.cardId)" />
+      </div>
+    </lib-page-header>
+
+    @if (errorMessage()) {
+      <lib-snackbar [message]="errorMessage()" severity="error" />
+    }
+
+    <div class="card-detail-view__layout">
+      <main class="card-detail-view__main">
+        <lib-section-block heading="Labels">
+          <lib-card-label-list
+            [labels]="labels().length ? labels() : card.labels ?? []"
+            [editable]="!!permissions().canEdit" />
+        </lib-section-block>
+
+        <lib-section-block heading="Checklist">
+          <lib-card-checklist
+            [checklistItems]="card.checklistItems"
+            [editable]="!!permissions().canEdit" />
+        </lib-section-block>
+
+        <lib-section-block heading="Attachments">
+          <lib-card-attachment-list
+            [attachments]="attachments().length ? attachments() : card.attachments ?? []"
+            [permissions]="permissions()"
+            (downloadRequested)="attachmentDownloaded.emit($event)" />
+        </lib-section-block>
+
+        <lib-section-block heading="Activity">
+          <lib-card-activity-thread
+            [comments]="card.comments"
+            [currentUser]="currentUser()"
+            [permissions]="permissions()"
+            [submitting]="saving()"
+            (commentSubmitted)="commentAdded.emit($event)" />
+        </lib-section-block>
+      </main>
+
+      <lib-card-meta-panel
+        class="card-detail-view__meta"
+        [metadata]="metadata()"
+        [permissions]="permissions()" />
+    </div>
+  </article>
+} @else if (loading()) {
+  <section class="card-detail-view card-detail-view--loading">Loading card...</section>
+} @else {
+  <section class="card-detail-view card-detail-view--empty">Card not found.</section>
+}

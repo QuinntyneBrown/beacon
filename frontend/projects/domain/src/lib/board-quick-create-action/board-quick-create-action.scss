@@ -1,0 +1,22 @@
+:host {
+  display: inline-flex;
+}
+
+.board-quick-create-action {
+  display: inline-flex;
+  align-items: center;
+}
+
+.board-quick-create-action__fab {
+  display: none;
+}
+
+@media (max-width: 47.99rem) {
+  .board-quick-create-action > lib-button {
+    display: none;
+  }
+
+  .board-quick-create-action__fab {
+    display: inline-flex;
+  }
+}

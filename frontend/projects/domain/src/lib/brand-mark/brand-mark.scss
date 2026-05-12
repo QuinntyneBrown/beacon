@@ -1,0 +1,49 @@
+:host {
+  display: inline-flex;
+}
+
+.brand-mark {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--beacon-space-2, 0.5rem);
+  color: var(--beacon-color-on-surface, #111c20);
+  font-weight: 850;
+  letter-spacing: 0;
+}
+
+.brand-mark--dark {
+  color: #ffffff;
+}
+
+.brand-mark--contrast {
+  color: var(--beacon-color-primary, #006782);
+}
+
+.brand-mark__glyph {
+  display: inline-grid;
+  place-items: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: var(--beacon-radius-md, 0.75rem);
+  color: #ffffff;
+  background: linear-gradient(135deg, var(--beacon-color-primary, #006782), var(--beacon-color-tertiary, #3acff5));
+  box-shadow: var(--beacon-shadow-1, 0 1px 3px rgba(17, 28, 32, 0.12));
+}
+
+.brand-mark--compact .brand-mark__glyph {
+  width: 2rem;
+  height: 2rem;
+}
+
+.brand-mark--large .brand-mark__glyph {
+  width: 3.25rem;
+  height: 3.25rem;
+}
+
+.brand-mark__wordmark {
+  font-size: 1.125rem;
+}
+
+.brand-mark--large .brand-mark__wordmark {
+  font-size: 1.5rem;
+}

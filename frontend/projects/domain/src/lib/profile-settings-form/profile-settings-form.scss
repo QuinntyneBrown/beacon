@@ -1,0 +1,13 @@
+:host {
+  display: block;
+}
+
+.profile-settings-form {
+  display: grid;
+  gap: var(--beacon-space-3, 0.75rem);
+}
+
+.profile-settings-form__actions {
+  display: flex;
+  justify-content: flex-end;
+}

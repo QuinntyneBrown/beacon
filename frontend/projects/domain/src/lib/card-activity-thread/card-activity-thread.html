@@ -1,0 +1,24 @@
+<section class="card-activity-thread">
+  @if (permissions().canComment) {
+    <lib-comment-composer
+      [avatar]="currentUser()"
+      [submitting]="submitting()"
+      (submitted)="commentSubmitted.emit($event)" />
+  }
+
+  <div class="card-activity-thread__comments">
+    @for (comment of comments(); track comment.commentId) {
+      <lib-comment-item
+        [authorDisplay]="comment.authorDisplayName"
+        [timestamp]="comment.createdAtUtc"
+        [body]="comment.body"
+        [actions]="[{ id: 'reply', label: 'Reply', icon: 'reply' }]"
+        (actionSelected)="commentActionSelected.emit({ commentId: comment.commentId, actionId: $event })" />
+    }
+  </div>
+
+  <lib-history-list
+    [items]="activityItems()"
+    emptyText="No activity yet."
+    (itemSelected)="historyItemSelected.emit($event)" />
+</section>

@@ -1,0 +1,33 @@
+:host {
+  display: block;
+}
+
+.board-view-controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--beacon-space-3, 0.75rem);
+  flex-wrap: wrap;
+}
+
+.board-view-controls__actions,
+.board-view-controls__label-button {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--beacon-space-2, 0.5rem);
+}
+
+.board-view-controls__label-button {
+  min-height: 2.5rem;
+  border: 0;
+  border-radius: 999px;
+  padding: 0 var(--beacon-space-2, 0.5rem);
+  background: var(--beacon-color-surface-container, #f3f3f3);
+  cursor: pointer;
+  font: inherit;
+}
+
+.board-view-controls__label-placeholder {
+  color: var(--beacon-color-on-surface-variant, #41484c);
+  font-weight: 750;
+}

@@ -1,0 +1,13 @@
+<div
+  class="brand-mark"
+  [class.brand-mark--compact]="compact() || size() === 'compact'"
+  [class.brand-mark--large]="size() === 'large'"
+  [class.brand-mark--dark]="colorMode() === 'dark'"
+  [class.brand-mark--contrast]="colorMode() === 'contrast'">
+  <span class="brand-mark__glyph" aria-hidden="true">
+    <mat-icon class="brand-mark__icon">dashboard</mat-icon>
+  </span>
+  @if (!compact()) {
+    <span class="brand-mark__wordmark">Beacon</span>
+  }
+</div>

@@ -1,0 +1,27 @@
+<mat-card class="create-board-tile" appearance="outlined">
+  <div class="create-board-tile__icon" aria-hidden="true">
+    <mat-icon>add</mat-icon>
+  </div>
+  <div class="create-board-tile__content">
+    <h3 class="create-board-tile__title">Create board</h3>
+    @if (disabledReason()) {
+      <p class="create-board-tile__supporting">{{ disabledReason() }}</p>
+    } @else {
+      <p class="create-board-tile__supporting">Start a new Beacon board from a clean workflow.</p>
+    }
+    @if (templateHints().length > 0) {
+      <div class="create-board-tile__hints">
+        @for (hint of templateHints(); track hint) {
+          <span class="create-board-tile__hint">{{ hint }}</span>
+        }
+      </div>
+    }
+  </div>
+  <lib-button
+    label="New board"
+    icon="add"
+    variant="tonal"
+    [loading]="loading()"
+    [disabled]="!creationAvailable() || loading()"
+    (clicked)="createBoardRequested.emit()" />
+</mat-card>

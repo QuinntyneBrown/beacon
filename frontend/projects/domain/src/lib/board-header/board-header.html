@@ -1,0 +1,26 @@
+<header class="board-header" [class.board-header--compact]="compact()">
+  <div class="board-header__titles">
+    <h1 class="board-header__title">{{ board().name }}</h1>
+    <div class="board-header__meta">
+      @if (board().sprintText) {
+        <span class="board-header__meta-item">{{ board().sprintText }}</span>
+      }
+      @if (board().statusText) {
+        <span class="board-header__meta-item">{{ board().statusText }}</span>
+      }
+    </div>
+  </div>
+
+  <div class="board-header__team">
+    <lib-avatar-stack
+      [avatars]="board().members ?? []"
+      [maxVisibleCount]="4"
+      (overflowClicked)="memberOverflowClicked.emit($event)" />
+    <lib-button
+      label="Invite"
+      icon="person_add"
+      variant="outlined"
+      [disabled]="!invitePermission()"
+      (clicked)="inviteClicked.emit(board().boardId)" />
+  </div>
+</header>

@@ -1,0 +1,42 @@
+<mat-card
+  class="kanban-column"
+  [class.kanban-column--compact]="compact()"
+  [class.kanban-column--drag-over]="dropState() === 'drag-over'"
+  [class.kanban-column--disabled]="dropState() === 'disabled'"
+  [style.--kanban-column-color]="column().colorToken ?? 'var(--beacon-color-primary, #006782)'"
+  appearance="outlined">
+  <header class="kanban-column__header">
+    <div class="kanban-column__title-group">
+      <span class="kanban-column__dot" aria-hidden="true"></span>
+      <h2 class="kanban-column__title">{{ column().name }}</h2>
+      <span class="kanban-column__count">{{ column().cards.length }}</span>
+    </div>
+    <lib-icon-button icon="more_horiz" label="Column actions" (clicked)="columnMenuClicked.emit(column().columnId)" />
+  </header>
+
+  <div
+    class="kanban-column__cards"
+    cdkDropList
+    [id]="column().columnId"
+    [cdkDropListData]="column().cards"
+    [cdkDropListDisabled]="dropState() === 'disabled'"
+    (cdkDropListDropped)="dropCard($event)">
+    @for (card of column().cards; track card.cardId) {
+      <lib-kanban-card
+        cdkDrag
+        [cdkDragData]="card"
+        [card]="card"
+        (cardOpened)="cardOpened.emit($event)"
+        (actionSelected)="cardActionSelected.emit($event)" />
+    } @empty {
+      <p class="kanban-column__empty">Drop cards here</p>
+    }
+  </div>
+
+  <lib-button
+    label="Add card"
+    icon="add"
+    variant="text"
+    [disabled]="!addPermission()"
+    (clicked)="addCardClicked.emit(column().columnId)" />
+</mat-card>

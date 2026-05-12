@@ -1,0 +1,13 @@
+:host {
+  display: block;
+}
+
+.card-activity-thread {
+  display: grid;
+  gap: var(--beacon-space-4, 1rem);
+}
+
+.card-activity-thread__comments {
+  display: grid;
+  gap: var(--beacon-space-2, 0.5rem);
+}

@@ -1,168 +1,33 @@
 <section class="boards-page">
-  <header class="boards-page__header page-header">
-    <div class="titles">
-      <p class="page-kicker">Workspace</p>
-      <h1 class="boards-page__title page-title">Boards</h1>
-      <p class="page-subtitle body-medium">Track active work, archived ideas, and team ownership from one place.</p>
-    </div>
-    <button mat-flat-button color="primary" type="button" class="boards-page__new-action btn btn-filled with-icon action" (click)="focusCreateField()">
-      <mat-icon class="material-symbols-rounded">add</mat-icon>
-      New
-    </button>
-  </header>
+  <lib-boards-dashboard-view
+    [currentUser]="session() ? { displayName: session()!.displayName, email: session()!.email, roles: session()!.roles } : null"
+    [boards]="boardTiles()"
+    [starredBoards]="starredBoardTiles()"
+    [selectedFilterId]="'all'"
+    [searchQuery]="searchTerm()"
+    [loading]="isLoading()"
+    [errorMessage]="errorMessage()"
+    [canCreateBoard]="!creating()"
+    (searchSubmitted)="searchTerm.set($event)"
+    (boardSelected)="openBoard($event)"
+    (createRequested)="createForm.controls.name.markAsTouched()"
+    (boardActionSelected)="handleBoardAction($event)" />
 
-  <div class="boards-page__controls">
-    <label class="search-bar boards-page__search">
-      <mat-icon class="material-symbols-rounded">search</mat-icon>
-      <input
-        type="search"
-        placeholder="Search boards, cards, members..."
-        aria-label="Search boards, cards, members..."
-        [value]="searchTerm()"
-        (input)="searchTerm.set($any($event.target).value)" />
-      <button type="button" class="icon-btn" aria-label="Voice search">
-        <mat-icon class="material-symbols-rounded">mic</mat-icon>
-      </button>
-    </label>
-    <button mat-stroked-button type="button" class="btn btn-tonal with-icon action">
-      <mat-icon class="material-symbols-rounded">filter_list</mat-icon>
-      Filter
-    </button>
-    <button mat-stroked-button type="button" class="btn btn-tonal with-icon action">
-      <mat-icon class="material-symbols-rounded">sort</mat-icon>
-      Sort
-    </button>
-  </div>
-
-  <div class="boards-page__chips" aria-label="Board filters">
-    <button type="button" class="chip chip--active selected active">
-      <mat-icon class="material-symbols-rounded">check</mat-icon>
-      All
-    </button>
-    <button type="button" class="chip">Starred</button>
-    <button type="button" class="chip">Recent</button>
-    <button type="button" class="chip">Mine</button>
-    <button type="button" class="chip">Archived</button>
-    <button type="button" class="chip">Private</button>
-    <button type="button" class="chip">Shared</button>
-  </div>
-
-  @if (errorMessage()) {
-    <div class="boards-page__error" role="alert">{{ errorMessage() }}</div>
-  }
-
-  @if (isLoading() && boards().length === 0) {
-    <p class="boards-page__loading">Loading boards...</p>
-  } @else if (filteredBoards().length === 0) {
-    <section class="section-block boards-page__empty">
-      <h2 class="section-title">No boards yet</h2>
-      <p>Create a board or adjust the search filters.</p>
-    </section>
-  } @else {
-    <section class="boards-page__section">
-      <div class="boards-page__section-header">
-        <h2 class="section-title">Starred</h2>
-        <button type="button" class="icon-btn" aria-label="Manage starred boards">
-          <mat-icon>more_horiz</mat-icon>
-        </button>
-      </div>
-
-      <ul class="boards-page__list board-grid boards-page__list--featured">
-        @for (board of filteredBoards().slice(0, 2); track board.boardId) {
-          <li class="boards-page__item">
-          <mat-card appearance="outlined" class="board-tile bg-1 boards-page__featured-card">
-            <a [routerLink]="['/boards', board.boardId]" class="boards-page__card-link">
-              <span class="board-tile__eyebrow label label-large leading">Active board</span>
-                <h3 class="boards-page__card-title tile-title">{{ board.name }}</h3>
-                <p class="boards-page__card-meta tile-meta">
-                  <mat-icon class="material-symbols-rounded">view_column</mat-icon>
-                  {{ board.columnCount }} columns
-                  <mat-icon class="material-symbols-rounded">sticky_note_2</mat-icon>
-                  {{ board.cardCount }} cards
-                </p>
-                <div class="avatar-stack tile-bottom trailing" aria-label="Board members">
-                  <span class="avatar sm">AK</span>
-                  <span class="avatar sm">MJ</span>
-                  <span class="avatar sm">QS</span>
-                </div>
-              </a>
-            </mat-card>
-          </li>
-        }
-      </ul>
-    </section>
-  }
-
-  <section class="boards-page__section">
-    <div class="boards-page__section-header">
-      <h2 class="section-title">All boards</h2>
-      <span class="boards-page__count">{{ filteredBoards().length }} total</span>
-    </div>
-
-    <ul class="boards-page__list board-grid">
-      <li class="boards-page__item">
-        <mat-card class="board-tile create-tile bg-3 bg-4 bg-5" appearance="outlined">
-          <form [formGroup]="createForm" (ngSubmit)="create()" class="boards-page__create-form">
-            <div>
-              <span class="create-tile__icon icon-wrap leading" aria-hidden="true">
-                <mat-icon class="material-symbols-rounded">add</mat-icon>
-              </span>
-              <h3 class="boards-page__card-title tile-title title-large">Create new board</h3>
-              <p class="boards-page__card-meta tile-meta">Start a clean workflow with To do, Doing, and Done.</p>
-            </div>
-            <button mat-stroked-button type="button" class="btn btn-outlined with-icon action" (click)="focusCreateField()">
-              <mat-icon class="material-symbols-rounded">add</mat-icon>
-              Create new board
-            </button>
-            <mat-form-field appearance="outline" class="boards-page__create-field">
-              <mat-label>New board name</mat-label>
-              <input #newBoardInput matInput formControlName="name" placeholder="e.g. Q3 Roadmap" />
-            </mat-form-field>
-            <button mat-flat-button color="primary" type="submit" class="btn btn-filled with-icon action" [disabled]="creating()">
-              <mat-icon class="material-symbols-rounded">add</mat-icon>
-              Create board
-            </button>
-          </form>
-        </mat-card>
-      </li>
-
-      @for (board of filteredBoards(); track board.boardId; let boardIndex = $index) {
-        <li class="boards-page__item">
-          <mat-card
-            appearance="outlined"
-            class="boards-page__card board-tile bg-2"
-            [class.bg-4]="boardIndex % 3 === 1"
-            [class.bg-5]="boardIndex % 3 === 2">
-            <a [routerLink]="['/boards', board.boardId]" class="boards-page__card-link">
-              <span class="board-tile__eyebrow label label-large leading">Team board</span>
-              <h3 class="boards-page__card-title tile-title">{{ board.name }}</h3>
-              <p class="boards-page__card-meta tile-meta">
-                <mat-icon class="material-symbols-rounded">view_column</mat-icon>
-                {{ board.columnCount }} columns
-                <mat-icon class="material-symbols-rounded">sticky_note_2</mat-icon>
-                {{ board.cardCount }} cards
-              </p>
-              <div class="avatar-stack tile-bottom trailing" aria-label="Board members">
-                <span class="avatar sm">AK</span>
-                <span class="avatar sm">MJ</span>
-                <span class="avatar sm">QS</span>
-              </div>
-            </a>
-            <button mat-icon-button (click)="remove(board.boardId, board.name)" aria-label="Delete board">
-              <mat-icon class="material-symbols-rounded">delete_outline</mat-icon>
-            </button>
-          </mat-card>
-        </li>
-      }
-    </ul>
-  </section>
-
-  <button mat-fab color="primary" type="button" class="boards-page__fab fixed-br" aria-label="New board" (click)="focusCreateField()">
-    <mat-icon class="material-symbols-rounded">add</mat-icon>
-  </button>
-
-  <div class="snackbar boards-page__snackbar" role="status">
-    <span>Board archived</span>
-    <button type="button">UNDO</button>
-  </div>
+  <form class="boards-page__create-form" [formGroup]="createForm" (ngSubmit)="create()">
+    <lib-outlined-text-field
+      label="New board name"
+      placeholder="e.g. Q3 Roadmap"
+      [value]="createForm.controls.name.value"
+      [errors]="createForm.controls.name.touched && createForm.controls.name.invalid ? ['Board name is required.'] : []"
+      [disabled]="creating()"
+      (valueChanged)="updateCreateName($event)"
+      (submitted)="create()" />
+    <lib-button
+      label="Create board"
+      icon="add"
+      type="button"
+      [loading]="creating()"
+      [disabled]="creating()"
+      (clicked)="create()" />
+  </form>
 </section>

@@ -1,0 +1,46 @@
+<mat-card
+  class="board-tile"
+  [class.board-tile--archived]="board().archived"
+  [class.board-tile--loading]="loading()"
+  appearance="outlined">
+  <button
+    type="button"
+    class="board-tile__main"
+    [disabled]="loading()"
+    (click)="openBoard.emit(board().boardId)">
+    <span class="board-tile__eyebrow">{{ board().workspaceName || 'Workspace' }}</span>
+    <span class="board-tile__title">{{ board().name }}</span>
+    @if (board().sprintText) {
+      <span class="board-tile__supporting">{{ board().sprintText }}</span>
+    }
+  </button>
+
+  <div class="board-tile__meta">
+    <lib-badge [count]="board().cardCount" />
+    <span class="board-tile__metric">
+      <mat-icon aria-hidden="true">view_column</mat-icon>
+      {{ board().columnCount }}
+    </span>
+    @if (board().updatedText) {
+      <span class="board-tile__updated">{{ board().updatedText }}</span>
+    }
+  </div>
+
+  <div class="board-tile__footer">
+    <lib-avatar-stack
+      [avatars]="board().memberAvatars ?? []"
+      [maxVisibleCount]="3"
+      size="small" />
+    <div class="board-tile__actions">
+      <lib-icon-button
+        [icon]="board().starred ? 'star' : 'star_border'"
+        label="Toggle favorite"
+        [active]="!!board().starred"
+        (clicked)="favoriteToggled.emit(board().boardId)" />
+      <lib-icon-button
+        icon="more_horiz"
+        label="Board actions"
+        (clicked)="contextMenuOpened.emit(board().boardId)" />
+    </div>
+  </div>
+</mat-card>

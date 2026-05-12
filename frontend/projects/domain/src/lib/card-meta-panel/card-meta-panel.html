@@ -1,0 +1,34 @@
+@if (metadata(); as meta) {
+  <aside class="card-meta-panel">
+    <lib-card-meta-item icon="flag" label="Status" [value]="meta.status" [interactive]="!!permissions().canEdit" (clicked)="statusChanged.emit(meta.status)" />
+    <lib-card-meta-item icon="view_column" label="Column" [value]="meta.columnName" />
+    <lib-card-meta-item icon="event" label="Due date" [value]="meta.dueDateUtc || 'No date'" [interactive]="!!permissions().canEdit" (clicked)="dueDateChanged.emit(meta.dueDateUtc ?? null)" />
+    @if (meta.estimate) {
+      <lib-card-meta-item icon="schedule" label="Estimate" [value]="meta.estimate" />
+    }
+
+    <div class="card-meta-panel__people">
+      <span class="card-meta-panel__label">Assignees</span>
+      <lib-avatar-stack
+        [avatars]="assignees().length ? assignees() : meta.assignees ?? []"
+        [maxVisibleCount]="4"
+        size="small"
+        (avatarClicked)="assigneeChanged.emit($event.id)" />
+    </div>
+
+    @if (reporter() || meta.reporter) {
+      <div class="card-meta-panel__reporter">
+        <span class="card-meta-panel__label">Reporter</span>
+        <span class="card-meta-panel__value">{{ (reporter() || meta.reporter)?.label }}</span>
+      </div>
+    }
+
+    @for (link of relatedLinks().length ? relatedLinks() : meta.relatedLinks ?? []; track link.id) {
+      <lib-list-item
+        [icon]="link.icon ?? 'link'"
+        [label]="link.label"
+        [supportingText]="link.description ?? ''"
+        (clicked)="linkedItemOpened.emit(link.id)" />
+    }
+  </aside>
+}
